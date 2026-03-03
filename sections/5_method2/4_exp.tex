@@ -1,0 +1,1161 @@
+\section{Experiments}
+\label{sec:propwork-casod-exp}
+
+% NOTE: use main stdev combined tables
+%\begin{table*}[t!]
+%	\small
+%	\centering
+%	\caption{\textbf{Near-OOD Results - ImageNet-200}: OOD detection comparison (\textbf{AUC}) between \sys and baselines on near-OOD datasets with models \textbf{trained only on} ImageNet-200 ID data. All numeric values are percentages and averages of 3 random runs. %$\uparrow$ indicates higher values are better, $\downarrow$ indicates lower values are better. 
+%    \textbf{Standard deviations} are in Sec. \ref{sec:suppmat-stdev}. %\alex{add (MD) to \sys parts}
+%	}
+%	%\vspace{-0.1cm}
+%	\scalebox{0.8}{
+%		\begin{tabular}{|l|cccccc|}
+%			\hline
+%			\multirow{3}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-200}  \\ \cline{2-7}
+%			& ImageNet-100 & ImageNet-800 & NINCO & SSB-Hard & Food & %ImageNet-Hard & Corrupt-R & Corrupt-B & 
+%            \multicolumn{1}{|c|}{Average} \\ \hline
+%            MSP    & 82.16 & 81.27 & 77.53 & 64.13 & 65.21 & \multicolumn{1}{|c|}{74.06} \\
+%ENERGY & 69.56 & 69.60 & 59.05 & 52.80 & 51.59 & \multicolumn{1}{|c|}{60.52} \\
+%KNN    & 81.99 & 82.82 & 83.72 & 72.69 & 72.17 & \multicolumn{1}{|c|}{78.68} \\
+%VIM    & 79.44 & 82.44 & 86.04 & 77.20 & 73.27 & \multicolumn{1}{|c|}{79.68} \\
+%MD     & 79.46 & 81.66 & 78.14 & 78.77 & 76.77 & \multicolumn{1}{|c|}{78.96} \\
+%GEN    & 44.64 & 44.42 & 55.22 & 54.40 & 42.02 & \multicolumn{1}{|c|}{48.14} \\
+%REACT  & 69.65 & 69.68 & 59.14 & 52.90 & 51.59 & \multicolumn{1}{|c|}{60.59} \\
+%PCA    & 76.99 & 76.31 & 81.89 & 70.51 & 72.69 & \multicolumn{1}{|c|}{75.68} \\
+%ASH    & 51.79 & 52.05 & 46.64 & 39.35 & 72.64 & \multicolumn{1}{|c|}{52.49} \\
+%SHE    & 72.98 & 71.61 & 77.11 & 61.83 & 59.43 & \multicolumn{1}{|c|}{68.59} \\
+%VRA    & 39.41 & 39.76 & 38.21 & 54.42 & 39.03 & \multicolumn{1}{|c|}{42.16} \\
+%NECO   & 81.13 & 83.53 & 82.63 & 73.00 & 72.34 & \multicolumn{1}{|c|}{78.53} \\
+%FDBD   & 84.39 & 84.40 & 82.10 & 70.70 & 73.46 & \multicolumn{1}{|c|}{79.01} \\ \hline
+%CASOD  & 85.03 & 86.93 & 89.96 & 82.54 & 87.14 & \multicolumn{1}{|c|}{86.32} \\ \hline
+%		\end{tabular}
+%	}
+%	\label{tab:table_i200_near}
+%	\vspace{-0.1cm}
+%\end{table*}
+%
+%\begin{table*}[t!]
+%	\small
+%	\centering
+%	\caption{\textbf{Far-OOD Results - ImageNet-200}: ImageNet-200 OOD detection (\textbf{AUC}) comparison. \textbf{Standard deviations} are in Sec. \ref{sec:suppmat-stdev}.
+%	}
+%	%\vspace{-0.2cm}
+%	\scalebox{0.8}{
+%		\begin{tabular}{|l|ccccccc|}
+%			\hline
+%			\multirow{3}{*}{} &  \multicolumn{7}{c|}{ID data: ImageNet-200}  \\ \cline{2-8}
+%			& Textures & iNaturalist & Places & SUN & OpenImage-O & Species & \multicolumn{1}{|c|}{Average} \\ \hline
+%            MSP    & 87.56 & 78.50 & 77.58 & 79.26 & 79.87 & 68.97 & \multicolumn{1}{|c|}{78.62} \\
+%ENERGY & 79.80 & 46.01 & 69.31 & 66.94 & 63.78 & 49.83 & \multicolumn{1}{|c|}{62.61} \\
+%KNN    & 95.67 & 86.53 & 92.56 & 89.17 & 89.75 & 76.90 & \multicolumn{1}{|c|}{88.43} \\
+%VIM    & 97.87 & 91.37 & 97.40 & 92.36 & 92.88 & 82.20 & \multicolumn{1}{|c|}{92.35} \\
+%MD     & 92.41 & 78.44 & 90.48 & 82.99 & 82.72 & 79.42 & \multicolumn{1}{|c|}{84.41} \\
+%GEN    & 34.85 & 70.87 & 39.97 & 47.54 & 48.67 & 64.19 & \multicolumn{1}{|c|}{51.01} \\
+%REACT  & 79.86 & 46.13 & 69.40 & 67.01 & 63.87 & 49.94 & \multicolumn{1}{|c|}{62.70} \\
+%PCA    & 90.27 & 79.96 & 90.48 & 86.39 & 86.00 & 73.70 & \multicolumn{1}{|c|}{84.47} \\
+%ASH    & 49.76 & 55.87 & 35.21 & 33.89 & 55.18 & 56.05 & \multicolumn{1}{|c|}{47.66} \\
+%SHE    & 91.57 & 76.31 & 89.19 & 86.95 & 81.26 & 63.35 & \multicolumn{1}{|c|}{81.44} \\
+%VRA    & 11.36 & 31.34 & 32.09 & 30.88 & 26.62 & 47.06 & \multicolumn{1}{|c|}{29.89} \\
+%NECO   & 94.30 & 82.13 & 90.88 & 89.24 & 87.93 & 77.63 & \multicolumn{1}{|c|}{87.02} \\
+%FDBD   & 91.97 & 86.68 & 87.08 & 86.84 & 87.27 & 74.43 & \multicolumn{1}{|c|}{85.71} \\ \hline
+%CASOD  & 98.48 & 99.42 & 98.26 & 97.81 & 94.14 & 86.60 & \multicolumn{1}{|c|}{95.79} \\ \hline
+%		\end{tabular}
+%	}
+%	\label{tab:table_i200_far}
+%	\vspace{-0.3cm}
+%\end{table*}
+
+%% NOTE: use main stdev combined tables
+%\begin{table*}[t!]
+%\small
+%\centering
+%\caption{\textbf{ImageNet-100-Random Near-OOD Results}: OOD detection comparison (\textbf{AUC}, {\color{blue}\textbf{FPR}}) between \sys and baselines on near-OOD datasets with models \textbf{trained only on} ImageNet-100-Random ID data. {\color{blue}$\uparrow$ indicates higher values are better, $\downarrow$ indicates lower values are better}. %Results are averages of 3 random runs. %\textbf{Standard deviations} are in Appendix Sec. \ref{sec:suppmat-results}. 
+%}
+%\vspace{0.1cm}
+%\scalebox{0.7}{
+%\begin{tabular}{|l|cccccccccccc|}
+%\hline
+%\multirow{2}{*}{} &  \multicolumn{12}{c|}{ID data: ImageNet-100-Random (I-100-R)}  \\ \cline{2-13}
+% & \multicolumn{2}{c}{ImageNet-30} & \multicolumn{2}{c}{ImageNet-900} & \multicolumn{2}{c}{NINCO} & \multicolumn{2}{c}{SSB-Hard} & \multicolumn{2}{c}{Food} & \multicolumn{2}{|c|}{Average} \\ 
+% & AUC$\uparrow$ & {\color{blue}FPR$\downarrow$} & AUC$\uparrow$ & {\color{blue}FPR$\downarrow$} & AUC$\uparrow$ & {\color{blue}FPR$\downarrow$} & AUC$\uparrow$ & {\color{blue}FPR$\downarrow$} & AUC$\uparrow$ & {\color{blue}FPR$\downarrow$} & \multicolumn{1}{|c}{AUC$\uparrow$} & {\color{blue}FPR$\downarrow$} \\ \hline
+%MSP\cite{hendrycks2017baseline}     &  83.55  &  61.69  &  85.44  &  62.15  &  89.54  &  55.18  &  85.16  &  62.83  &  80.18  &  85.92  &  \multicolumn{1}{|c}{84.77}  &  65.55  \\
+%ENERGY\cite{liu2020energy}  &  79.40  &  70.49  &  79.99  &  71.47  &  81.19  &  71.34  &  84.06  &  59.26  &  81.86  &  79.08  &  \multicolumn{1}{|c}{81.30}  &  70.33  \\
+%KNN\cite{sun2022out}     &  77.32  &  69.51  &  78.33  &  75.71  &  80.57  &  80.39  &  73.28  &  90.50  &  65.76  &  95.73  &  \multicolumn{1}{|c}{75.05}  &  82.37  \\
+%VIM\cite{wang2022vim}     &  78.31  &  67.98  &  79.55  &  68.90  &  86.13  &  63.60  &  80.18  &  71.96  &  73.17  &  90.82  &  \multicolumn{1}{|c}{79.47}  &  72.65  \\
+%MD\cite{lee2018simple}      &  82.31  &  58.31  &  83.78  &  60.92  &  89.38  &  55.62  &  83.91  &  67.25  &  78.22  &  85.36  &  \multicolumn{1}{|c}{83.52}  &  65.49  \\
+%GEN\cite{liu2023gen}     &  79.50  &  70.42  &  80.11  &  71.20  &  81.35  &  71.18  &  84.14  &  59.06  &  81.95  &  78.95  &  \multicolumn{1}{|c}{81.41}  &  70.16  \\
+%REACT\cite{sun2021react}   &  79.40  &  70.47  &  79.99  &  71.47  &  81.19  &  71.35  &  84.06  &  59.26  &  81.86  &  79.08  &  \multicolumn{1}{|c}{81.30}  &  70.32  \\
+%PCA\cite{guan2023revisit}     &  \textbf{86.40}  &  \textbf{47.33}  &  83.76  &  60.37  &  86.42  &  65.31  &  81.08  &  72.27  &  80.31  &  87.09  &  \multicolumn{1}{|c}{83.59}  &  66.48  \\
+%ASH\cite{djurisic2022extremely}     &  72.79  &  89.04  &  73.99  &  88.97  &  83.13  &  78.15  &  72.84  &  88.61  &  73.37  &  95.49  &  \multicolumn{1}{|c}{75.22}  &  88.05  \\
+%SHE\cite{zhang2022out}     &  80.85  &  62.35  &  83.11  &  61.76  &  87.91  &  60.05  &  86.71  &  52.68  &  68.13  &  91.94  &  \multicolumn{1}{|c}{81.34}  &  65.76  \\
+%VRA\cite{xu2024vra}     &  \underline{85.69}  &  55.40  &  \underline{87.18}  &  \underline{52.37}  &  85.08  &  73.51  &  85.52  &  53.12  &  77.11  &  87.55  &  \multicolumn{1}{|c}{84.11}  &  64.39  \\
+%NECO\cite{ammar2024neco}    &  84.51  &  \underline{49.36}  &  86.48  &  \textbf{50.17}  &  \underline{91.62}  &  \underline{42.21}  &  \underline{87.06}  &  \underline{52.27}  &  \underline{87.02}  &  \underline{64.29}  &  \multicolumn{1}{|c}{\underline{87.34}}  &  \underline{51.66}  \\
+%FDBD\cite{liu2024fast}    &  83.30  &  61.93  &  85.29  &  63.53  &  90.04  &  54.28  &  85.60  &  64.81  &  78.19  &  88.49  &  \multicolumn{1}{|c}{84.48}  &  66.61  \\ \hline
+%\sys    &  85.42  &  52.93  &  \textbf{88.30}  &  53.69  &  \textbf{93.26}  &  \textbf{35.92}  &  \textbf{89.66}  &  \textbf{48.49}  &  \textbf{91.04}  &  \textbf{53.50}  &  \multicolumn{1}{|c}{\textbf{89.16}}  &  \textbf{47.76}  \\ \hline
+%\end{tabular}
+%}
+%\label{tab:table_main_near}
+%\vspace{-0.2cm}
+%\end{table*}
+%
+%% NOTE: use main stdev combined tables
+%\begin{table*}[t!]
+%\small
+%\centering
+%\caption{\textbf{ImageNet-100-Random Far-OOD Results}: ImageNet-100-Random OOD detection (\textbf{AUC}, {\color{blue}\textbf{FPR}}) comparison.
+%}
+%%\vspace{-0.2cm}
+%\scalebox{0.7}{
+%\begin{tabular}{|l|cccccccccccccc|}%ccccccc|}
+%\hline
+%\multirow{2}{*}{} &  \multicolumn{14}{c|}{ID data: ImageNet-100-Random (I-100-R)}  \\ \cline{2-15}
+%& \multicolumn{2}{c}{Textures} & \multicolumn{2}{c}{iNaturalist} & \multicolumn{2}{c}{Places} & \multicolumn{2}{c}{SUN} & \multicolumn{2}{c}{OpenImage-O} & \multicolumn{2}{c}{Species} & \multicolumn{2}{|c|}{Average} \\  \hline
+%& AUC$\uparrow$ & {\color{blue}FPR$\downarrow$} & AUC$\uparrow$ & {\color{blue}FPR$\downarrow$} & AUC$\uparrow$ & {\color{blue}FPR$\downarrow$} & AUC$\uparrow$ & {\color{blue}FPR$\downarrow$} & AUC$\uparrow$ & {\color{blue}FPR$\downarrow$} & AUC$\uparrow$ & {\color{blue}FPR$\downarrow$} & \multicolumn{1}{|c}{AUC$\uparrow$} & {\color{blue}FPR$\downarrow$} \\ \hline
+%MSP\cite{hendrycks2017baseline}    &  92.71   &  38.71   &  94.17   &  38.33   &  88.41   &  59.34   &  86.96   &  66.01   &  92.65   &  44.36   &  89.73   &  49.97   &  \multicolumn{1}{|c}{90.77}   &  49.45  \\
+%ENERGY\cite{liu2020energy} &  91.82   &  40.46   &  82.03   &  79.16   &  90.72   &  56.35   &  83.85   &  81.46   &  89.11   &  55.20   &  78.49   &  76.64   &  \multicolumn{1}{|c}{86.00}   &  64.88  \\
+%KNN\cite{sun2022out}    &  96.10   &  19.96   &  80.39   &  95.63   &  86.74   &  74.78   &  80.29   &  91.27   &  87.80   &  63.27   &  77.33   &  92.52   &  \multicolumn{1}{|c}{84.78}   &  72.91  \\
+%VIM\cite{wang2022vim}    &  98.99   &  \underline{4.65}   &  94.05   &  39.01   &  95.89   &  24.26   &  88.63   &  61.99   &  93.83   &  35.01   &  88.41   &  55.02   &  \multicolumn{1}{|c}{93.30}   &  36.66  \\
+%MD\cite{lee2018simple}     &  \textbf{99.14}   &  \textbf{4.00}   &  95.46   &  31.47   &  \underline{96.09}   &  \underline{22.42}   &  90.79   &  54.61   &  \underline{95.44}   &  \textbf{26.45}   &  90.60   &  49.46   &  \multicolumn{1}{|c}{94.59}   &  31.40  \\
+%GEN\cite{liu2023gen}    &  91.89   &  40.21   &  82.28   &  78.87   &  90.76   &  56.03   &  83.99   &  81.12   &  89.20   &  54.91   &  78.73   &  76.28   &  \multicolumn{1}{|c}{86.14}   &  64.57  \\
+%REACT\cite{sun2021react}  &  91.82   &  40.46   &  82.03   &  79.16   &  90.72   &  56.35   &  83.85   &  81.46   &  89.11   &  55.20   &  78.49   &  76.64   &  \multicolumn{1}{|c}{86.00}   &  64.88  \\
+%PCA\cite{guan2023revisit}    &  98.00   &  10.89   &  90.69   &  60.11   &  92.27   &  47.47   &  86.13   &  72.79   &  91.85   &  47.79   &  86.88   &  64.32   &  \multicolumn{1}{|c}{90.97}   &  50.56  \\
+%ASH\cite{djurisic2022extremely}    &  90.79   &  56.57   &  91.58   &  60.13   &  86.15   &  69.40   &  82.58   &  84.69   &  90.74   &  58.45   &  80.28   &  82.43   &  \multicolumn{1}{|c}{87.02}   &  68.61  \\
+%SHE\cite{zhang2022out}    &  89.97   &  52.19   &  95.63   &  \underline{27.12}   &  83.66   &  67.92   &  84.05   &  65.25   &  89.90   &  53.23   &  91.49   &  46.93   &  \multicolumn{1}{|c}{89.12}   &  52.11  \\
+%VRA\cite{xu2024vra}    &  82.12   &  76.00   &  83.56   &  81.92   &  79.35   &  87.78   &  80.88   &  84.42   &  83.38   &  80.52   &  86.60   &  59.17   &  \multicolumn{1}{|c}{82.65}   &  78.30  \\
+%NECO\cite{ammar2024neco}   &  98.12   &  7.88   &  \underline{95.72}   &  27.48   &  94.60   &  29.01   &  \underline{91.72}   &  \underline{42.72}   &  95.00   &  27.83   &  \underline{93.27}   &  \underline{31.58}   &  \multicolumn{1}{|c}{\underline{94.74}}   &  \underline{27.75}  \\
+%FDBD\cite{liu2024fast}   &  95.25   &  27.27   &  95.01   &  33.32   &  91.51   &  46.79   &  88.66   &  60.10   &  93.74   &  40.01   &  90.29   &  46.99   &  \multicolumn{1}{|c}{92.41}   &  42.42  \\ \hline
+%\sys   &  \underline{99.02}   &  4.85   &  \textbf{99.89}   &  \textbf{0.22}   &  \textbf{98.46}   &  \textbf{7.81}   &  \textbf{96.40}   &  \textbf{17.58}   &  \textbf{95.55}   &  \underline{26.53}   &  \textbf{94.56}   &  \textbf{23.94}   &  \multicolumn{1}{|c}{\textbf{97.31}}   &  \textbf{13.49}  \\ \hline
+%\end{tabular}
+%}
+%\label{tab:table_main_far}
+%\vspace{-0.2cm}
+%\end{table*}
+
+%{\color{red}DON'T INCLUDE, performance is worse -> just say I-1k follows OpenOOD v1.5 directly for comparison}
+%\textcolor{blue}{We provide \sys OOD detection results for additional OOD datasets not considered by OpenOOD v1.5 for ImageNet-1k ID. These OOD datasets include Places \cite{zhou2017places}, SUN \cite{xiao2010sun,huang2021mos}, and Species \cite{hendrycks2019scaling}. The results are in Table \ref{tab:table_i1kood+}. \sys performs well on all datasets. \textcolor{red}{not better than e.g. ReAct on SUN}}
+%
+%\begin{table*}[t!]
+%\small
+%\centering
+%\caption{\textbf{ImageNet-1k Results on Additional OOD Datasets}: OOD detection results (\textbf{AUC}, \textbf{FPR95}) for \sys on additional OOD datasets for ImageNet-1k ID data. 
+%}
+%\scalebox{0.75}{
+%\begin{tabular}{|l|cccccc|}
+%\hline
+%\multirow{3}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-1k (I-1k)}  \\ \cline{2-7}
+% & \multicolumn{2}{c}{Places} & \multicolumn{2}{c}{SUN} & \multicolumn{2}{c|}{Species}  \\ 
+% & AUC$\uparrow$ & FPR95$\downarrow$ & AUC$\uparrow$ & FPR95$\downarrow$ & AUC$\uparrow$ & FPR95$\downarrow$ \\ \hline
+%\sys &  90.51 & 49.47 & 85.11 &  64.06 & 80.41 &  56.42 \\ \hline
+%\end{tabular}
+%}
+%\label{tab:table_i1kood+}
+%\vspace{-0.3cm}
+%\end{table*}
+
+\subsection{Experimental Setup}
+\label{sec:casod_exp-setup}
+
+%%\section{Dataset Details}
+%We describe the datasets used in our experiments here. In all cases except for our ImageNet subset datasets, we follow the dataset specifications in the well-accepted, state-of-the-art OOD detection benchmark OpenOOD v1.5 \cite{zhang2023openood}. 
+%\begin{itemize}
+%	\item \textbf{ImageNet} - \cite{krizhevsky2012imagenet} is a large-scale image dataset containing 1000 unique classes across a diverse range of objects and scenes. It contains 1,281,167 training images and 50,000 validation images which are often treated as the testing dataset as labels are not released for the actual ImageNet testing dataset. For the ImageNet-100-Random subset, we choose distinct classes from within ImageNet-1k. We detail all ImageNet-1k class IDs for ImageNet-100-Random mentioned in the main paper in Section \ref{sec:imagenet_ids}.
+%	\item \textbf{Textures} - \cite{cimpoi2014describing} compiles images of different textures into a dataset containing classes uniquely describing textures such as ``\textit{polka dotted}'' and ``\textit{bumpy}''. We have used the entire dataset of 5,640 images for the OOD dataset.
+%	\item \textbf{iNaturalist} - \cite{van2018inaturalist} is an image classification dataset oriented around pictures of different species. For our OOD dataset, we have used 10,000 images sampled from the test set, following \cite{yang2022openood}.
+%	\item \textbf{Places} - \cite{zhou2017places} (or Places365) is a dataset containing exclusive scenes instead of the traditional objects. We have sampled 10,000 images randomly from the test set for the OOD dataset.
+%	\item \textbf{SUN} - \cite{xiao2010sun,huang2021mos}, or the Scene Understanding dataset, is a large dataset containing images of scenes. We have used 10,000 images randomly sampled from its test set for the OOD dataset. 
+%	\item \textbf{OpenImage-O} - \cite{wang2022vim} is a dataset constructed by randomly selecting image from the OpenImage-V3 dataset. OpenImage-V3 is built from the Flickr database and is not annotated with classes to avoid bias and overlap with ImageNet. The OOD dataset contains all 17,632 images from OpenImage-O.
+%	\item \textbf{Species} - \cite{hendrycks2019scaling} is an image dataset containing thousands of different species, none of which overlap with ImageNet-21k. We use 10,000 images from the OpenOOD v1.5 benchmark \cite{zhang2023openood} as the OOD dataset.
+%	\item \textbf{NINCO} - \cite{bitterwolf2023or} is an image dataset curated to challenge OOD detection models trained on ImageNet-1k. It consists of 64 OOD classes for a total of 5,879 object images with no categorical overlap to ImageNet-1k.
+%	\item \textbf{SSB-Hard} - \cite{vaze2021open} is a subset of the ImageNet-21K \cite{ridnik2021imagenet} manually curated to be a challenging near-OOD dataset for ImageNet-1k. We use the full 49,000 images as the OOD dataset.
+%    \item \textbf{Food} - \cite{bossard2014food} is an image dataset containing 101 classes of various food items and dishes. The validation dataset of 25,250 images as the OOD dataset. We remove classes overlapping with ImageNet-1k: Apple Pie, Breakfast Burrito, Chocolate Mousse, Guacamole, Hamburger, Hot Dog, Ice Cream, Pizza.
+%\end{itemize}
+%
+%Following the implementations if OpenOOD v1.5 \cite{zhang2023openood}, we transform batches of data during training using randomized data augmentations to increase generalizability and encourage feature learning. We use the following set of transformations for random data augmentations: random crop, horizontal flip, random erasing, and normalization.
+%
+%All images are resized to size 256 $\times$ 256 before processing. 
+%To ensure consistent foreground-background segmentation across datasets and maintain comparability, all ID and OOD datasets are resized to 512 $\times$ 512 \textit{before} segmentation. 
+%
+%When applying augmentations to a sample, each augmentation is generated once and applied identically to all three views of an image. This ensures that data points maintain consistent features across views when presented to \sys.
+
+%\textbf{Datasets.} 
+%We conduct a series of experiments on datasets with varying amounts of semantic similarity to the ID dataset, divided into near- and far-OOD datasets \cite{winkens2020contrastive}.
+%For ID datasets, we use a 100-class subset of ImageNet-1k, \textbf{ImageNet-100-Random (I-100-R)} (100 randomly-selected classes), and \textbf{ImageNet-1k (I-1k)} \cite{deng2009imagenet} as the ID datasets to test various dataset scale settings.
+%For ImageNet-1k, we \textbf{follow the OpenOOD experiment setting \cite{yang2022openood} for accurate comparison} and include NINCO \cite{bitterwolf2023or} and SSB-Hard \cite{vaze2021open} as near-OOD datasets and iNaturalist \cite{van2018inaturalist}, Textures \cite{cimpoi2014describing}, and OpenImage-O \cite{wang2022vim} as far-OOD datasets. 
+%For I-100-R, 30 disjoint, randomly-selected ImageNet classes (I-30) and the remaining 900 ImageNet classes (I-900) were used as additional near-OOD datasets. % to evaluate OOD detection performance under similar data distributions for I-100-R. 
+%We also include Places365 \cite{zhou2017places}, Species \cite{hendrycks2019scaling}, and SUN \cite{huang2021mos} %xiao2010sun,huang2021mos} 
+%as far-OOD datasets.
+%
+%We additionally consider the experimental setting using the popular ImageNet-200 ID dataset as defined in OpenOOD v1.5 \cite{zhang2023openood}. Building on OpenOOD v1.5, we use Textures, iNaturalist, Places, SUN, OpenImage-O, and Species as far-OOD datasets and NINCO, SSB-Hard, and Food as near-OOD datasets. Similar to our ImageNet-100-Random experiment (see Sec. 4 of the main paper) we additionally include a distinct subset of 100 randomly-selected classes (ImageNet-100) and the remaining 800 classes (ImageNet-800) as near-OOD datasets simulating very-similar semantic distributions to the ID dataset. The classes used for ImageNet-200 ID can be found in the OpenOOD v1.5 implementation \cite{zhang2023openood}, and the class IDs for the ImageNet-100 OOD dataset can be found in Section \ref{sec:imagenet_ids}. %As in ImageNet-100-Random, we check for and remove any overlapping images with DUTS-TR %(used by our selected segmentation tool CarveKit) 
+%in the ImageNet-100, ImageNet-800, SUN, and SSB-Hard OOD datasets.
+\subsubsection{Datasets} 
+Evaluation of \gls{sys} focuses on large-scale settings more indicative of real-world environments, with an emphasis on experimenting over a comprehensive range of semantic depth and nuance in the ID and OOD datasets. The ID datasets include the ImageNet-1k (I-1k) dataset \cite{deng2009imagenet} and two subsets of ImageNet-1k, a random selection of 100 classes (denoted as ImageNet-100, or I-100) and the popular ImageNet-200 (I-200) subset as defined in the well-established OOD detection benchmark OpenOOD v1.5 \cite{zhang2023openood}. A challenging range of far- and near-OOD datasets \cite{winkens2020contrastive} is considered, again primarily following from the OpenOOD v1.5 benchmark. NINCO \cite{bitterwolf2023or} and SSB-Hard \cite{vaze2021open} are evaluated as near-OOD datasets for their semantic similarity with various ImageNet classes. iNaturalist \cite{van2018inaturalist}, Textures \cite{cimpoi2014describing}, OpenImage-O \cite{wang2022vim}, Places365 \cite{zhou2017places}, Species \cite{hendrycks2019scaling}, and SUN \cite{huang2021mos} are evaluated as far-OOD datasets. Additional near-OOD datasets are considered to further evaluate the real-world applicability of \gls{sys}. For ImageNet-100, 30 disjoint, randomly-selected ImageNet-1k classes (I-30) and the remaining 900 ImageNet-1k classes (I-900) were collected and used as near-OOD datasets. For ImageNet-200, 100 disjoint, randomly-selected ImageNet-1k classes (I-100-T, distinct from I-100) and the remaining 800 ImageNet-1k classes (I-800) were collected and used as near-OOD datasets. Additionally, the Food-101 dataset \cite{bossard2014food,zou2025simlabel} was used as another near-OOD dataset. Food-101 (or simply Food) contains classes with similar semantic detail to several ImageNet-1k classes. Details for the above datasets are listed here and follow the specifications in OpenOOD v1.5, establishing an accurate comparison with previous baselines:
+\begin{itemize}
+	\item \textbf{ImageNet} \cite{krizhevsky2012imagenet} - A large-scale image dataset containing 1000 unique classes across a diverse range of objects and scenes. It contains 1,281,167 training images and 50,000 validation images which are often treated as the testing dataset as labels are not released for the actual ImageNet testing dataset. For the ImageNet-100 subset, distinct classes are chosen from within ImageNet-1k.
+	\item \textbf{Textures} \cite{cimpoi2014describing} - Compiles images of different textures into a dataset containing classes uniquely describing textures such as ``\textit{polka dotted}'' and ``\textit{bumpy}''. The entire dataset of 5,640 images is used for the OOD dataset.
+	\item \textbf{iNaturalist} \cite{van2018inaturalist} - An image classification dataset oriented around pictures of different species. For the OOD dataset in these experiments, 10,000 images sampled from the test set are used, following the OpenOOD benchmark \cite{yang2022openood}.
+	\item Places365 (\textbf{Places}) \cite{zhou2017places} - A dataset containing exclusive scenes instead of objects. 10,000 images were sampled randomly from the test set for the OOD dataset.
+	\item \textbf{SUN} \cite{xiao2010sun,huang2021mos} - The Scene Understanding (SUN) dataset is a large dataset containing images of scenes. 10,000 images were sampled randomly from its test set for the OOD dataset. 
+	\item \textbf{OpenImage-O} \cite{wang2022vim} - A dataset constructed by randomly selecting images from the OpenImage-V3 dataset. OpenImage-V3 is built from the Flickr database and is not annotated with classes to avoid bias and overlap with ImageNet. The OOD dataset contains all 17,632 images from OpenImage-O.
+	\item \textbf{Species} \cite{hendrycks2019scaling} - An image dataset containing thousands of different species, none of which overlap with ImageNet-21k. 10,000 images from the OpenOOD v1.5 benchmark \cite{zhang2023openood} were used as the OOD dataset.
+	\item \textbf{NINCO} \cite{bitterwolf2023or} - An image dataset curated to challenge OOD detection models trained on ImageNet-1k. It consists of 64 OOD classes for a total of 5,879 object images with no categorical overlap to ImageNet-1k.
+	\item \textbf{SSB-Hard} \cite{vaze2021open} - A subset of the ImageNet-21k \cite{ridnik2021imagenet} dataset manually curated to be a challenging near-OOD dataset for ImageNet-1k. All 49,000 images were used as the OOD dataset.
+    \item \textbf{Food} \cite{bossard2014food} - An image dataset containing 101 classes of various food items and dishes. The validation dataset of 25,250 images was used as the OOD dataset. Classes overlapping with ImageNet-1k (Apple Pie, Breakfast Burrito, Chocolate Mousse, Guacamole, Hamburger, Hot Dog, Ice Cream, Pizza) were removed.
+\end{itemize}
+The ImageNet class IDs for ImageNet-200 can be found in the original source \cite{zhang2023openood}. ImageNet class IDs for the other relevant ImageNet subsets are listed here:
+\begin{itemize}
+	\item I-100: \textit{
+		'n01770081', 'n03450230', 'n02977058', 'n01675722', 'n03017168', 'n02098413',
+		'n03372029', 'n04418357', 'n01824575', 'n02480495', 'n04008634', 'n03447447',
+		'n02115913', 'n02051845', 'n02104029', 'n03452741', 'n02129165', 'n02417914',
+		'n03032252', 'n03590841', 'n04350905', 'n02966193', 'n03956157', 'n03733131',
+		'n03197337', 'n01882714', 'n02363005', 'n07717410', 'n03457902', 'n01689811',
+		'n02110185', 'n04357314', 'n04370456', 'n04228054', 'n01641577', 'n09288635',
+		'n02395406', 'n07583066', 'n07715103', 'n04200800', 'n03958227', 'n03920288',
+		'n02410509', 'n02483362', 'n02123045', 'n04596742', 'n02229544', 'n02086079',
+		'n04238763', 'n02086646', 'n02869837', 'n02422699', 'n01665541', 'n02114855',
+		'n04483307', 'n03485407', 'n03710721', 'n03998194', 'n03627232', 'n02823428',
+		'n01795545', 'n12144580', 'n01751748', 'n02999410', 'n02992529', 'n02795169',
+		'n03602883', 'n02808304', 'n02167151', 'n02504458', 'n03026506', 'n01682714',
+		'n04515003', 'n02097658', 'n03874599', 'n02107142', 'n03977966', 'n06596364',
+		'n02007558', 'n02814860', 'n03394916', 'n02840245', 'n02817516', 'n03908714',
+		'n02093859', 'n02102318', 'n04179913', 'n04591157', 'n04070727', 'n02165456',
+		'n03594734', 'n04467665', 'n01990800', 'n02086240', 'n04152593', 'n03777754',
+		'n01945685', 'n02727426', 'n03840681', 'n04606251'
+	}
+	\item I-30 (OOD for ImageNet-100 ID): \textit{
+		'n02012849', 'n02109047', 'n02102040', 'n04389033', 'n04548280', 'n02790996',
+		'n09193705', 'n02231487', 'n13133613', 'n02096177', 'n03929660', 'n13044778',
+		'n02113624', 'n02114548', 'n04254120', 'n03594945', 'n07565083', 'n03126707',
+		'n01871265', 'n02917067', 'n04285008', 'n01806143', 'n02066245', 'n04252077',
+		'n02841315', 'n04277352', 'n03633091', 'n02843684', 'n03160309', 'n03379051'
+	}
+	\item I-100-T (OOD for ImageNet-200 ID): \textit{
+		'n02109047', 'n07716906', 'n04515003', 'n02089867', 'n02009229', 'n02090622',
+		'n03623198', 'n01945685', 'n01877812', 'n03633091', 'n01491361', 'n04204347',
+		'n01742172', 'n04428191', 'n03958227', 'n07579787', 'n03761084', 'n07892512',
+		'n01622779', 'n03208938', 'n04579432', 'n03617480', 'n02666196', 'n04252077',
+		'n04525038', 'n02397096', 'n03871628', 'n02115641', 'n02096051', 'n02930766',
+		'n03706229', 'n01773797', 'n02106382', 'n06785654', 'n02444819', 'n02074367',
+		'n02966687', 'n03935335', 'n07831146', 'n02107683', 'n02514041', 'n12998815',
+		'n02096177', 'n02328150', 'n04111531', 'n04367480', 'n03938244', 'n04371774',
+		'n13040303', 'n02110627', 'n03297495', 'n07590611', 'n04259630', 'n04039381',
+		'n01689811', 'n04228054', 'n04326547', 'n09468604', 'n02815834', 'n01873310',
+		'n03160309', 'n03028079', 'n03673027', 'n03063689', 'n01819313', 'n02640242',
+		'n02676566', 'n03041632', 'n02100236', 'n04371430', 'n03742115', 'n03814906',
+		'n04330267', 'n03207941', 'n02104029', 'n03770679', 'n02132136', 'n02101006',
+		'n04074963', 'n02509815', 'n03838899', 'n02389026', 'n02025239', 'n02167151',
+		'n03532672', 'n04204238', 'n03089624', 'n06596364', 'n02101388', 'n02108422',
+		'n03729826', 'n02112706', 'n03196217', 'n02097209', 'n02488702', 'n04579145',
+		'n02090379', 'n03394916', 'n03924679', 'n02783161'
+	}
+\end{itemize}
+
+During training of \gls{sys}, batches of data were transformed using the randomized data augmentations defined in OpenOOD v1.5 \cite{zhang2023openood}. Specifically, the augmentations used were random crop, horizontal flip, random erasing, and normalization. Any transformation was applied to all views simultaneously. All images were of size 256 $\times$ 256.
+
+%The specific image segmentation model used for foreground-background separation was YOLOv5 \cite{jocher2020ultralytics}. We used an open-source, pre-trained YOLOv5 processing pipeline\footnote{https://github.com/ultralytics/yolov5} as our foreground-background separation toolkit.
+%\textbf{Foreground-Background Separation.}  %We use an image segmentation model pre-trained on the DUTS-TR \cite{wang2017learning} dataset, which is a subset of the ImageNet detection \cite{deng2009imagenet} and SUN \cite{xiao2010sun,huang2021mos} datasets. 
+%%To prevent data leakage, we check the I-30, I-900, SUN, and SSB-Hard OOD datasets and remove any images overlapping with DUTS-TR. Thus, \textit{no samples are encountered during evaluation that have been previously seen by the foreground-background separation tool}. Details can be found in Appendix Sec. \ref{sec:suppmat-segdets}.
+%We use the YOLOv5 \cite{jocher2020ultralytics} image segmentation model pre-trained on the COCO \cite{lin2014microsoft} dataset. \textit{No samples are encountered during evaluation that have been previously seen by the foreground-background segmentation tool.}
+\subsubsection{Foreground-Background Separation Tool}
+For \gls{sys}, images were segmented into foregrounds and backgrounds using the YOLOv5 image segmentation model \cite{jocher2020ultralytics}. The open-source, pre-trained YOLOv5 pipeline (from \url{https://github.com/ultralytics/yolov5}) was used as the foreground-background segmentation toolkit. This YOLOv5 pipeline model is pre-trained on the COCO \cite{lin2014microsoft} dataset. There is no overlap between COCO and any ID or OOD dataset.
+
+\begin{table*}[t!]
+\small
+\centering
+\caption{\sys training configuration hyperparameters for different experimental settings.
+}
+\vspace{0.1cm}
+\scalebox{1.}{
+\begin{tabular}{|l|ccc|}
+\hline
+ & ImageNet-100 & ImageNet-200 & ImageNet-1k \\ \hline
+Batch Size &  256 & 256 & 512 \\ \hline
+Max Epochs &  20 & 20 & 10 \\ \hline
+Optimizer &  SGD & SGD & SGD \\ \hline
+Learning Rate &  0.001 & 0.001 & 0.001 \\ \hline
+Nesterov Momentum &  0.9 & 0.9 & 0.9 \\ \hline
+Weight Decay &  5e-4 & 5e-4 & 5e-4 \\ \hline
+Cosine Annealing Warmup &  5 & 5 & 3 \\ \hline
+CVCA Blocks &  2 & 2 & 3 \\ \hline
+LoRA Rank &  16 & 16 & 128 \\ \hline
+\end{tabular}
+}
+\label{tab:table_sys_hparam}
+\end{table*}
+
+%\textbf{Model and Training Details.} Following the state-of-the-art OOD detection architectures for ImageNet experiments, we use ViT-B-16 \citep{dosovitskiy2020image} as the structure for the feature extractor in \sys. For I-1k, we use the ImageNet-1k-pre-trained checkpoints provided by torchvision%\footnote{https://pytorch.org/vision/main/models/generated/torchvision.models.vit\_b\_16.html}
+%. For I-100-R, we use a MOCO v3 \cite{chen2021empirical} \textbf{self-supervised} pre-trained checkpoint which does not see any labels during training, ensuring \textit{no information leakage} between the ID and OOD distributions. Note that for I-100-R baselines, we also use the self-supervised pre-trained ViT feature extractor but \textbf{fine-tune with only one Adapter} (for the original image) and the final classification layer. Additional training details, configurations, and hyperparameters are in Appendix Sec. B.
+%
+%\subsection{Hyperparameter Details}
+%The Vision Transformer \cite{dosovitskiy2020image} models for ImageNet \cite{krizhevsky2012imagenet} data experiments are trained using the configuration described in Section 4.1 of the main paper. %Following the official PyTorch training recipe for state-of-the-art classification performance on ImageNet-1k, we use the following strategies. Random erasing \cite{zhong2020random,devries2018learning} is a data augmentation method that randomly removes sections of images and is known to increase classification accuracy. We use a random erasing probability of 0.1. 
+%Label smoothing \cite{szegedy2016rethinking} is a regularization technique that prevents model overconfidence. We use 0.1 for the degree of label smoothing. %Evidence has shown that increasing the crop size of images during the validation and testing phase improves classification performance \cite{touvron2019fixing}. To simulate this, we follow the PyTorch recipe and resize training images to 176 while increasing the validation and testing images at 224. 
+%
+%The Vision Transformer configuration used is ViT-B-16 \cite{zhang2023openood}. For the attention modules in our proposed CVCA fusion method, we use the following hyperparameters: 8 heads, head dimension of 96, and dropout of 0.5. Under these settings, $T$ was 197 and $d$ was 768 (see Sec. 3 of the main paper for definitions).
+%
+%\sys is trained until convergence with a batch size of $512$ for I-1k and $256$ for ImageNet-100-Random. We use SGD optimizer, learning rate of 0.001, Nesterov momentum of 0.9, weight decay of 5e-4, and cosine annealing learning rate scheduling after 5 epochs of warmup. We use $B = 2$ cross-view feature fusion blocks. LoRA rank was 16 for ImageNet-100-Random and 128 for I-1k.
+% 
+%The code uses SciPy, PyTorch Lightning, and FAISS \citep{johnson2019billion}. Experiments were run on eight Nvidia A100 GPUs. %The total amount of compute used for each experiment was approximately 4 hours wall clock time.
+
+%\vspace{-3mm}
+%\textbf{Training Details.} \sys is trained until convergence with a batch size of $512$ for I-1k and $256$ for I-100-R. We use $B = 2$ cross-view feature fusion blocks. LoRA rank was 4 for I-100-R and 32 for I-1k. More training details and hyperparameters can be found in Appendix Sec. B.
+%\sys is trained until convergence with a batch size of $512$ for I-1k. We use SGD optimizer, learning rate of 0.001, Nesterov momentum of 0.9, weight decay of 5e-4, and cosine annealing learning rate scheduling after 5 epochs of warmup. 
+%We use $B = 2$ cross-view feature fusion blocks. LoRA rank was 4 for I-100-R and 32 for I-1k.
+%The code uses SciPy, PyTorch Lightning, and FAISS \citep{johnson2019billion}. Experiments were run on eight Nvidia A100 GPUs. The total amount of compute used for each experiment was approximately 4 hours wall clock time. More training details and hyperparameters can be found in Appendix Sec. B.
+%
+%For this setting, we train for $20$ epochs with a batch size of $256$. LoRA rank was 16. All other training and model configurations were identical to the ImageNet-100-Random ID experiment settings.
+\subsubsection{Model and Training Details and Hyperparameters}
+The architecture used in state-of-the-art OOD detection with ImageNet data is ViT-B-16 \cite{dosovitskiy2020image}. The feature extractor in \gls{sys} is implemented using a pre-trained ViT-B-16 model without the classification head. For ImageNet-1k, the ImageNet-1k pre-trained checkpoint provided by torchvision (\url{https://pytorch.org/vision/main/models/generated/torchvision.models.vit\_b\_16.html}) was used. For ImageNet-100 and ImageNet-200, the MOCO v3 \cite{chen2021empirical} \textit{self-supervised} pre-trained checkpoint was used instead. This self-supervised pre-trained model does not include any labels during pre-training. Thus, there is \textbf{no information leakage} between the pre-trained model and the ID and OOD distributions. It is important to note that the model used for baselines in the following ImageNet-100 and ImageNet-200 experiments also uses the MOCO v3 pre-trained backbone but only tunes one Adapter set (because it only uses the original view) and a classification head.
+
+%The Vision Transformer configuration used is ViT-B-16 \cite{zhang2023openood}. For the attention modules in our proposed CVCA fusion method, we use the following hyperparameters: 8 heads, head dimension of 96, and dropout of 0.5. Under these settings, $T$ was 197 and $d$ was 768 (see Sec. 3 of the main paper for definitions).
+Attention modules in \gls{cvca} used 8 heads, each with a dimension of 96. Dropout probability in \gls{cvca} was 0.5. $T$ was 197 and $d$ was 768. Detailed settings for training \gls{sys} are in \ref{tab:table_sys_hparam}.
+%A grid search was performed over hyperparameters $\psi$ (50 to 300, intervals of 50) and $\beta$ (50 to 200, intervals of 50). Both were set to the optimal found value: $\psi$ was set to 200 and $\beta$ was set to 100. The classification phase training period was 5 epochs. The view-selector phase training period was 1 epoch. At test-time, the view selection weight $v$ was rounded to 0 or 1 to ensure no data leakage from the view which was not selected (embodying the proposed selection mechanism). Note that this effectively enforces the effect of $\psi$ on sharpening the selection which must be used during training to be differentiable during backpropagation from the view selection loss $\mathcal{L}_{vs}$.
+Hyperparameters were determined using a grid search over \gls{cvca} dropout probability (0.1 to 0.7, intervals of 0.2), learning rate (1e-4, 0.001, 0.01, 0.1, 0.3), and optimizer (SGD, ADAM).
+
+%\subsection{Hyperparameter Details}
+%The Vision Transformer \cite{dosovitskiy2020image} models for ImageNet \cite{krizhevsky2012imagenet} data experiments are trained using the configuration described in Section 4.1 of the main paper. %Following the official PyTorch training recipe for state-of-the-art classification performance on ImageNet-1k, we use the following strategies. Random erasing \cite{zhong2020random,devries2018learning} is a data augmentation method that randomly removes sections of images and is known to increase classification accuracy. We use a random erasing probability of 0.1. 
+%Label smoothing \cite{szegedy2016rethinking} is a regularization technique that prevents model overconfidence. We use 0.1 for the degree of label smoothing. %Evidence has shown that increasing the crop size of images during the validation and testing phase improves classification performance \cite{touvron2019fixing}. To simulate this, we follow the PyTorch recipe and resize training images to 176 while increasing the validation and testing images at 224. 
+Training of ViT-B-16 on ImageNet further followed the recommended actions from the official PyTorch training recipe. The following strategies were included:
+\begin{itemize}
+    \item Random erasing \cite{zhong2020random,devries2018learning} data augmentation was included with a probability of 0.1.
+    \item Label smoothing \cite{szegedy2016rethinking} regularization was included with a degree of 0.1.
+    \item Validation and testing image resizing \cite{touvron2019fixing} was used. Training images were cropped to 176. Validation and testing images were cropped to 224.
+\end{itemize}
+
+\gls{sys} was implemented using SciPy, PyTorch Lightning, and FAISS \cite{johnson2019billion}. Computation was performed on four Nvidia RTX A6000 GPUs.
+
+%\textbf{Baselines.} Baselines were chosen for comparison based on recent state-of-the-art performance \textbf{as measured by the well-accepted OOD benchmark OpenOOD v1.5} \cite{zhang2023openood}. Note that, in the benchmark, post-hoc OOD detection methods predominantly outperform training-time methods; as such, we did not include training-time methods.
+%%Baselines were chosen for comparison based on canonical relevance and state-of-the-art performance \textbf{with respect to the recent, well-accepted OOD benchmark OpenOOD v1.5} \cite{zhang2023openood}. 
+%We compare to the following state-of-the-art baselines: Maximum Softmax Probability (\textbf{MSP}) \cite{hendrycks2017baseline}, \textbf{Energy} \cite{liu2020energy},  Mahalanobis Distance (\textbf{MD}) \cite{lee2018simple}, \textbf{KNN} \cite{sun2022out}, Virtual-logit Matching (\textbf{ViM}) \cite{wang2022vim}, Rectified Activations (\textbf{ReAct}) \cite{sun2021react}, Principal Component Analysis detection (\textbf{PCA}) \cite{guan2023revisit}, Generalized Entropy (\textbf{GEN}) \cite{liu2023gen}, Activation Shaping (\textbf{ASH}) \cite{djurisic2022extremely}, Variational Rectified Activation (\textbf{VRA}) \cite{xu2024vra}, Neural Collapse (\textbf{NECO}) \cite{ammar2024neco}, Fast Decision Boundary (\textbf{FDBD}) \cite{liu2024fast}, and Simplified Hopfield Energy (\textbf{SHE}) \cite{zhang2022out}. %While DFB \cite{ding2024improving} is closely related to our work, their method severely underperforms compared to \sys and other state-of-the-art benchmarks (compared to results in OpenOOD v1.5). We discuss details in Sec. \ref{sec:results}.
+%%\textcolor{blue}{We could not compare to the closely related work DFB \cite{ding2024improving} because its method is not generalizable to ViTs, and the codebase is non-trivial to run \sahisnu{this is not a convincing argument .. We can just say it severly underperforms as compared to many of the above baselines, considering their reported results and openOOD bechmark if we can claim that}. We thus draw conclusions from their presented results in Sec. \ref{sec:results}.} %\bing{I do not see DFB mentioned in Sec. 4.2. In the intro, we claimed that its results are suboptimal. Here, we need to give the actual numbers to support the claim. }.
+%%\alex{forgot to add the discussion, I added it to the below appropriate section (I-1k results). Ok or shoud it be copied/moved up here?}}
+%%We also include two state-of-the-art training-time OOD detection methods \textbf{LogitNorm} \cite{wei2022mitigating} and \textbf{RotPred} \cite{hendrycks2019using}. We note that, per OpenOOD v1.5, other training-time methods are subsumed by the above post-hoc methods with respect to OOD detection performance.
+%%While several of these methods experiment on ImageNet-1k, they either do not consider ViT or they use models pre-trained on ImageNet-21k, which introduces data leakage. \sahisnu{which methods ? are the methods mentioned above or the methods we avoided from comparison ? For post-hoc methods, are we using ViT backbone to compare with, even if they have not done it in the original paper? Assuming post-hoc method only need a feature vector which can both come from ViT or ResNet, why ViT cann't be employed (correct me if wrong)? If the post-hoc baselines do not use ViT backbone and our approach use ViT, reviewer may raise fairness question.. if we have not done this, better to omit this line.}
+%We use the default hyperparameters as suggested in each work.
+%
+%{\color{purple} We respond according to each reference: [1] CSI is subsumed by ViM (see OpenOOD v1.5), [2] CIDER is subsumed by ViM (see OpenOOD v1.5), [3] SSD is subsumed by KNN (see KNN OOD paper Sun et al.), [4] KNN is included in our evaluation, [5] discusses pretrained models combined with CIDER but does not propose a novel OOD detection method.
+%	
+%We chose baselines solely based on their recent state-of-the-art performance, as measured by the well-accepted benchmark OpenOOD v1.5 [1]. In that benchmark, post-hoc OOD detection methods predominantly outperformed train-time methods, so we did not include train-time methods.
+%}
+\subsubsection{Baselines}
+Experimental comparisons between \gls{sys} and previous state-of-the-art methods were established according to the setup described in OpenOOD v1.5 \cite{zhang2023openood}. Only OOD detection methods that predominantly outperformed other methods were selected for comparison. It is relevant to note that training-time OOD detection methods are consistently subsumed by post-hoc OOD detection methods \cite{zhang2023openood,yang2024generalized}. As such, no training-time OOD detection methods were included in the presented experiments.
+
+The following state-of-the-art baselines were considered:
+\begin{itemize}
+    \item Maximum Softmax Probability (\textbf{MSP}) \cite{hendrycks2017baseline}
+    \item \textbf{Energy} \cite{liu2020energy}
+    \item Mahalanobis Distance (\textbf{MD}) \cite{lee2018simple,ren2021simple}
+    \item \textbf{KNN} \cite{sun2022out}
+    \item Virtual-logit Matching (\textbf{ViM}) \cite{wang2022vim}
+    \item Rectified Activations (\textbf{ReAct}) \cite{sun2021react}
+    \item Principal Component Analysis detection (\textbf{PCA}) \cite{guan2023revisit}
+    \item Generalized Entropy (\textbf{GEN}) \cite{liu2023gen}
+    \item Activation Shaping (\textbf{ASH}) \cite{djurisic2022extremely}
+    \item Variational Rectified Activation (\textbf{VRA}) \cite{xu2024vra}
+    \item Neural Collapse (\textbf{NECO}) \cite{ammar2024neco}
+    \item Fast Decision Boundary (\textbf{FDBD}) \cite{liu2024fast}
+    \item Simplified Hopfield Energy (\textbf{SHE}) \cite{zhang2022out}
+\end{itemize}
+A baseline method similar to \gls{sys}, DFB \cite{ding2024improving}, was also included for consideration. For all baseline methods, the recommended hyperparemeters cited within each work were used.
+
+%\textbf{Evaluation metrics.} 
+%We use the popular Area Under the Receiver Operating Characteristic Curve (AUC) {\color{blue}and False Positive Rate at 95\% True Positive Rate (FPR)}.
+%Additional metrics and results are presented in Appendix Sec. C.
+%%Results are the average and standard deviation of three seeds with the exception of I-1k which is only one seed to match the experiment setting in OpenOOD v1.5 (which we compare with). %Due to space constraints, standard deviations are given in Appendix Sec. \ref{sec:suppmat-results}.
+%%\sahisnu{I am just thinking ---- do we need to mention seeds here ? did existing OOD papers all mention that ? if so then it's fine.. otherwise better to ommit..But in that case we also need to omit std values in Table 1 \& 2 then.. a clear concern here will be -- why we have not done evaluation on 3 seeds for imageNet-1k.. lack of time argument won't be convincing} \alex{it varies, some works report seeds and stdevs and others don't. I don't recall many reviewers asking about stdevs though so maybe it is ok to remove them}\sahisnu{okk.. then it's better to remove and move it appendix..otherwise, the tables may look inconsistent}
+\subsubsection{Evaluation Metrics}
+OOD detection performance is comprehensively measured using four metrics established as standard by OpenOOD \cite{yang2022openood,zhang2023openood}:
+\begin{itemize}
+    \item Area Under the Receiver Operating Characteristic Curve (AUC)
+    \item False Positive Rate at 95\%True Positive Rate (FPR)
+    \item Area Under the Precision Recall curve - ID (AUPR-IN)
+    \item Area Under the Precision Recall curve - OOD (AUPR-OUT)
+    %\item Detection Error (DE)
+\end{itemize}
+All presented numeric values are percentages. Results for ImageNet-100 and ImageNet-200 are the average and standard deviation of 3 random runs.
+
+ID accuracy is not presented in the following results as OOD detection performance is predominantly defined via the above metrics. Furthermore, the behaviors of ID classification in foreground-background multi-view OOD detection settings have been investigated in Chapter \ref{diss_mvood_init}. ID accuracy results are still separately presented below for Imagenet-1k ID to show that performance is not degraded in the new settings.
+
+%We note that performance discrepancies compared to other works originate from our use of a self-supervised pre-trained ViT backbone with a learnable Adapter and classification head. Previous works tune ViT models pre-trained on ImageNet-21k which we believe to be an unfair comparison due to data leakage. 
+
+%Vision-language models relies on pretrained text knowledge while we focus exclusively on images. Our problem setting is different from that in VLM-based methods which mostly focus on few-shot OOD detection. such multi-modal approaches to image-only approaches.
+%OOD detection for segmentation is a different task. Traditional anomaly detection, i.e. [5,6,7], is different from OOD detection in that OOD detection involves multiple classes, while anomaly detection often involves only one normal class data and is learned in an unsupervised manner. Furthermore, [5,6,7] use the foreground view for anomaly detection, often ignoring the background view. [1] is a work developed in parallel with ours. However, it is different because it considers foreground-background separation as a dense prediction problem and does not use fusion. In particular, we note that their performance on ImageNet-1k is worse than ours, AUROC on Textures for [1] is around 78\% while COD (ours) is 92.94\%.
+%There are other methods that use foreground-background segmentations and report improvements in anomaly detection, OOD generalization, and OOD segmentation [1]. We want to highlight here that although most of these works are topically related to ours, they differ in terms of problem setting and hence, are not comparable (Ding et al. is the exception). 
+\subsubsection{Separation from Other Baselines}
+The primary distinction between these experiments and those performed in other OOD detection baselines is the use of limited pre-trained models. Specifically, previous OOD detection baselines predominantly utilize pre-trained models that either 1) were trained on the ImageNet-21k dataset \cite{krizhevsky2012imagenet}, or 2) are multi-modal models. Using models pre-trained on ImageNet-21k is unfair in all of the considered experimental settings as many of the included OOD datasets overlap with ImageNet-21k, introducing data leakage. This invalidates the comparison as settings are no longer representative of true ID and OOD distributional separation. Multi-modal models are also not considered valid for comparison as they operate in an entirely separate medium. These models, primarily vision-language models in recent works \cite{miyai2024locoop}, allow for the representation of data in text as well as images which is more data for learning and OOD detection compared to \gls{sys} which only uses images.
+%We note that performance discrepancies compared to other works originate from our use of a self-supervised pre-trained ViT backbone with a learnable Adapter and classification head. Previous works tune ViT models pre-trained on ImageNet-21k which we believe to be an unfair comparison due to data leakage. 
+
+\subsection{Results \& Analysis}
+\label{sec:casod_results}
+
+%\begin{table*}[t!]
+%	\small
+%	\centering
+%	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUC}: AUC OOD detection results between \gls{sys} and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. Avg.F is mean performance for far-OOD. All numeric values are percentages. Best results are emphasized using \textbf{boldface}.
+%    }
+%	\vspace{0.1cm}
+%	\scalebox{0.58}{
+%		\begin{tabular}{|l|ccccc|c|cccccc|c|c|}
+%			\hline
+%			\multirow{2}{*}{} &  \multicolumn{14}{c|}{ID data: ImageNet-100}  \\ \cline{2-15}
+%			& I-30 & I-900  & NINCO & SSB-Hard & Food & Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+%MSP\cite{hendrycks2017baseline}    & 83.55$_{\pm 0.05}$ & 85.44$_{\pm 1.68}$ & 89.54$_{\pm 0.05}$ & 85.16$_{\pm 0.06}$ & 80.18$_{\pm 0.53}$ & 84.77 & 92.71$_{\pm 0.09}$ & 94.17$_{\pm 0.07}$ & 88.41$_{\pm 0.12}$ & 86.96$_{\pm 0.06}$ & 92.65$_{\pm 0.07}$ & 89.73$_{\pm 0.06}$ & 90.77 & 88.04 \\
+%Energy\cite{liu2020energy} & 79.40$_{\pm 0.12}$ & 79.99$_{\pm 0.62}$ & 81.19$_{\pm 0.15}$ & 84.06$_{\pm 0.26}$ & 81.86$_{\pm 0.74}$ & 81.30 & 91.82$_{\pm 0.13}$ & 82.03$_{\pm 0.55}$ & 90.72$_{\pm 0.21}$ & 83.85$_{\pm 0.36}$ & 89.11$_{\pm 0.17}$ & 78.49$_{\pm 0.20}$ & 86.00 & 83.87 \\
+%KNN\cite{sun2022out}    & 77.32$_{\pm 0.13}$ & 78.33$_{\pm 0.81}$ & 80.57$_{\pm 0.46}$ & 73.28$_{\pm 0.31}$ & 65.76$_{\pm 0.86}$ & 75.05 & 96.10$_{\pm 0.11}$ & 80.39$_{\pm 0.69}$ & 86.74$_{\pm 0.36}$ & 80.29$_{\pm 0.41}$ & 87.80$_{\pm 0.37}$ & 77.33$_{\pm 0.67}$ & 84.78 & 80.36 \\
+%ViM\cite{wang2022vim}    & 78.31$_{\pm 0.10}$ & 79.55$_{\pm 0.98}$ & 86.13$_{\pm 0.33}$ & 80.18$_{\pm 0.25}$ & 73.17$_{\pm 0.80}$ & 79.47 & 98.99$_{\pm 0.02}$ & 94.05$_{\pm 0.36}$ & 95.89$_{\pm 0.32}$ & 88.63$_{\pm 0.27}$ & 93.83$_{\pm 0.16}$ & 88.41$_{\pm 0.45}$ & 93.30 & 87.01 \\
+%MD\cite{lee2018simple}     & 82.31$_{\pm 0.08}$ & 83.78$_{\pm 1.22}$ & 89.38$_{\pm 0.29}$ & 83.91$_{\pm 0.23}$ & 78.22$_{\pm 0.77}$ & 83.52 & \textbf{99.14}$_{\pm 0.03}$ & 95.46$_{\pm 0.32}$ & 96.09$_{\pm 0.25}$ & 90.79$_{\pm 0.24}$ & 95.44$_{\pm 0.14}$ & 90.60$_{\pm 0.40}$ & 94.59 & 89.56 \\
+%GEN\cite{liu2023gen}    & 79.50$_{\pm 0.11}$ & 80.11$_{\pm 0.63}$ & 81.35$_{\pm 0.14}$ & 84.14$_{\pm 0.25}$ & 81.95$_{\pm 0.74}$ & 81.41 & 91.89$_{\pm 0.12}$ & 82.28$_{\pm 0.54}$ & 90.76$_{\pm 0.19}$ & 83.99$_{\pm 0.33}$ & 89.20$_{\pm 0.17}$ & 78.73$_{\pm 0.18}$ & 86.14 & 83.99 \\
+%ReAct\cite{sun2021react}  & 79.40$_{\pm 0.12}$ & 79.99$_{\pm 0.62}$ & 81.19$_{\pm 0.15}$ & 84.06$_{\pm 0.26}$ & 81.86$_{\pm 0.74}$ & 81.30 & 91.82$_{\pm 0.13}$ & 82.03$_{\pm 0.55}$ & 90.72$_{\pm 0.21}$ & 83.85$_{\pm 0.36}$ & 89.11$_{\pm 0.17}$ & 78.49$_{\pm 0.20}$ & 86.00 & 83.87 \\
+%PCA\cite{guan2023revisit}    & \textbf{86.40}$_{\pm 0.09}$ & 83.76$_{\pm 2.33}$ & 86.42$_{\pm 0.30}$ & 81.08$_{\pm 0.27}$ & 80.31$_{\pm 0.43}$ & 83.59 & 98.00$_{\pm 0.07}$ & 90.69$_{\pm 0.39}$ & 92.27$_{\pm 0.43}$ & 86.13$_{\pm 0.33}$ & 91.85$_{\pm 0.19}$ & 86.88$_{\pm 0.43}$ & 90.97 & 87.62 \\
+%ASH\cite{djurisic2022extremely}    & 72.79$_{\pm 0.08}$ & 73.99$_{\pm 1.06}$ & 83.13$_{\pm 0.31}$ & 72.84$_{\pm 0.23}$ & 73.37$_{\pm 0.27}$ & 75.22 & 90.79$_{\pm 0.10}$ & 91.58$_{\pm 0.58}$ & 86.15$_{\pm 0.27}$ & 82.58$_{\pm 0.36}$ & 90.74$_{\pm 0.29}$ & 80.28$_{\pm 0.45}$ & 87.02 & 81.66 \\
+%SHE\cite{zhang2022out}    & 80.85$_{\pm 0.09}$ & 83.11$_{\pm 1.99}$ & 87.91$_{\pm 0.13}$ & 86.71$_{\pm 0.13}$ & 68.13$_{\pm 0.56}$ & 81.34 & 89.97$_{\pm 0.31}$ & 95.63$_{\pm 0.18}$ & 83.66$_{\pm 0.37}$ & 84.05$_{\pm 0.21}$ & 89.90$_{\pm 0.12}$ & 91.49$_{\pm 0.18}$ & 89.12 & 85.58 \\
+%VRA\cite{xu2024vra}    & 85.69$_{\pm 0.13}$ & 87.18$_{\pm 1.40}$ & 85.08$_{\pm 0.19}$ & 85.52$_{\pm 0.16}$ & 77.11$_{\pm 0.42}$ & 84.11 & 82.12$_{\pm 0.68}$ & 83.56$_{\pm 0.53}$ & 79.35$_{\pm 0.61}$ & 80.88$_{\pm 0.42}$ & 83.38$_{\pm 0.48}$ & 86.60$_{\pm 0.11}$ & 82.65 & 83.31 \\
+%NECO\cite{ammar2024neco}   & 84.51$_{\pm 0.01}$ & 86.48$_{\pm 1.71}$ & 91.62$_{\pm 0.05}$ & 87.06$_{\pm 0.04}$ & 87.02$_{\pm 0.23}$ & 87.34 & 98.12$_{\pm 0.01}$ & 95.72$_{\pm 0.09}$ & 94.60$_{\pm 0.14}$ & 91.72$_{\pm 0.04}$ & 95.00$_{\pm 0.04}$ & 93.27$_{\pm 0.01}$ & 94.74 & 91.38 \\
+%FDBD\cite{liu2024fast}   & 83.30$_{\pm 0.04}$ & 85.29$_{\pm 1.72}$ & 90.04$_{\pm 0.07}$ & 85.60$_{\pm 0.10}$ & 78.19$_{\pm 0.16}$ & 84.48 & 95.25$_{\pm 0.08}$ & 95.01$_{\pm 0.09}$ & 91.51$_{\pm 0.09}$ & 88.66$_{\pm 0.08}$ & 93.74$_{\pm 0.08}$ & 90.29$_{\pm 0.05}$ & 92.41 & 88.81 \\ \hline
+%\gls{sys}  & 85.42$_{\pm 0.09}$ & \textbf{88.30}$_{\pm 0.04}$ & \textbf{93.26}$_{\pm 0.16}$ & \textbf{89.66}$_{\pm 0.15}$ & \textbf{91.34}$_{\pm 0.61}$ & \textbf{89.60} & 99.02$_{\pm 0.07}$ & \textbf{99.89}$_{\pm 0.01}$ & \textbf{98.46}$_{\pm 0.13}$ & \textbf{96.40}$_{\pm 0.06}$ & \textbf{95.55}$_{\pm 0.13}$ & \textbf{94.56}$_{\pm 0.25}$ & \textbf{97.31} & \textbf{93.81} \\ \hline
+%			\multirow{2}{*}{} &  \multicolumn{14}{c|}{ID data: ImageNet-200}  \\ \cline{2-15}
+%			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+%            MSP\cite{hendrycks2017baseline}    & 82.16$_{\pm 0.18}$ & 81.27$_{\pm 0.27}$ & 77.53$_{\pm 0.22}$ & 64.13$_{\pm 0.41}$ & 65.21$_{\pm 0.97}$ & 74.06 & 87.56$_{\pm 0.24}$ & 78.50$_{\pm 0.43}$ & 77.58$_{\pm 0.48}$ & 79.26$_{\pm 0.43}$ & 79.87$_{\pm 0.18}$ & 68.97$_{\pm 0.41}$ & 78.62 & 76.55 \\
+%Energy\cite{liu2020energy} & 69.56$_{\pm 0.32}$ & 69.60$_{\pm 0.40}$ & 59.05$_{\pm 0.34}$ & 52.80$_{\pm 0.69}$ & 51.59$_{\pm 1.92}$ & 60.52 & 79.80$_{\pm 0.41}$ & 46.01$_{\pm 1.34}$ & 69.31$_{\pm 0.43}$ & 66.94$_{\pm 0.51}$ & 63.78$_{\pm 0.45}$ & 49.83$_{\pm 0.52}$ & 62.61 & 61.66 \\
+%KNN\cite{sun2022out}    & 81.99$_{\pm 0.06}$ & 82.82$_{\pm 0.04}$ & 83.72$_{\pm 0.18}$ & 72.69$_{\pm 0.13}$ & 72.17$_{\pm 0.47}$ & 78.68 & 95.67$_{\pm 0.04}$ & 86.53$_{\pm 0.22}$ & 92.56$_{\pm 0.32}$ & 89.17$_{\pm 0.50}$ & 89.75$_{\pm 0.22}$ & 76.90$_{\pm 0.05}$ & 88.43 & 84.00 \\
+%ViM\cite{wang2022vim}    & 79.44$_{\pm 0.01}$ & 82.44$_{\pm 0.03}$ & 86.04$_{\pm 0.12}$ & 77.20$_{\pm 0.08}$ & 73.27$_{\pm 0.54}$ & 79.68 & 97.87$_{\pm 0.03}$ & 91.37$_{\pm 0.07}$ & 97.40$_{\pm 0.13}$ & 92.36$_{\pm 0.27}$ & 92.88$_{\pm 0.14}$ & 82.20$_{\pm 0.02}$ & 92.35 & 86.59 \\
+%MD\cite{lee2018simple}     & 79.46$_{\pm 0.06}$ & 81.66$_{\pm 0.02}$ & 78.14$_{\pm 0.30}$ & 78.77$_{\pm 0.15}$ & 76.77$_{\pm 0.44}$ & 78.96 & 92.41$_{\pm 0.07}$ & 78.44$_{\pm 0.23}$ & 90.48$_{\pm 0.23}$ & 82.99$_{\pm 0.47}$ & 82.72$_{\pm 0.17}$ & 79.42$_{\pm 0.40}$ & 84.41 & 81.93 \\
+%GEN\cite{liu2023gen}    & 44.64$_{\pm 0.27}$ & 44.42$_{\pm 0.36}$ & 55.22$_{\pm 0.57}$ & 54.40$_{\pm 0.71}$ & 42.02$_{\pm 1.66}$ & 48.14 & 34.85$_{\pm 0.79}$ & 70.87$_{\pm 1.14}$ & 39.97$_{\pm 0.94}$ & 47.54$_{\pm 0.99}$ & 48.67$_{\pm 0.53}$ & 64.19$_{\pm 0.72}$ & 51.01 & 49.71 \\
+%ReAct\cite{sun2021react}  & 69.65$_{\pm 0.31}$ & 69.68$_{\pm 0.39}$ & 59.14$_{\pm 0.35}$ & 52.90$_{\pm 0.69}$ & 51.59$_{\pm 1.92}$ & 60.59 & 79.86$_{\pm 0.42}$ & 46.13$_{\pm 1.35}$ & 69.40$_{\pm 0.43}$ & 67.01$_{\pm 0.51}$ & 63.87$_{\pm 0.46}$ & 49.94$_{\pm 0.53}$ & 62.70 & 61.74 \\
+%PCA\cite{guan2023revisit}    & 76.99$_{\pm 0.13}$ & 76.31$_{\pm 0.07}$ & 81.89$_{\pm 0.27}$ & 70.51$_{\pm 0.16}$ & 72.69$_{\pm 0.27}$ & 75.68 & 90.27$_{\pm 0.10}$ & 79.96$_{\pm 0.30}$ & 90.48$_{\pm 0.13}$ & 86.39$_{\pm 0.20}$ & 86.00$_{\pm 0.31}$ & 73.70$_{\pm 0.25}$ & 84.47 & 80.47 \\
+%ASH\cite{djurisic2022extremely}    & 51.79$_{\pm 0.31}$ & 52.05$_{\pm 0.36}$ & 46.64$_{\pm 0.99}$ & 39.35$_{\pm 0.52}$ & 72.64$_{\pm 0.11}$ & 52.49 & 49.76$_{\pm 0.91}$ & 55.87$_{\pm 1.82}$ & 35.21$_{\pm 0.80}$ & 33.89$_{\pm 1.41}$ & 55.18$_{\pm 0.80}$ & 56.05$_{\pm 1.36}$ & 47.66 & 49.86 \\
+%SHE\cite{zhang2022out}    & 72.98$_{\pm 0.15}$ & 71.61$_{\pm 0.10}$ & 77.11$_{\pm 0.32}$ & 61.83$_{\pm 0.28}$ & 59.43$_{\pm 0.81}$ & 68.59 & 91.57$_{\pm 0.23}$ & 76.31$_{\pm 0.48}$ & 89.19$_{\pm 0.56}$ & 86.95$_{\pm 0.78}$ & 81.26$_{\pm 0.42}$ & 63.35$_{\pm 0.21}$ & 81.44 & 75.60 \\
+%VRA\cite{xu2024vra}    & 39.41$_{\pm 0.39}$ & 39.76$_{\pm 0.35}$ & 38.21$_{\pm 0.84}$ & 54.42$_{\pm 0.29}$ & 39.03$_{\pm 0.85}$ & 42.16 & 11.36$_{\pm 0.22}$ & 31.34$_{\pm 0.78}$ & 32.09$_{\pm 2.96}$ & 30.88$_{\pm 2.74}$ & 26.62$_{\pm 0.56}$ & 47.06$_{\pm 0.49}$ & 29.89 & 35.47 \\
+%NECO\cite{ammar2024neco}   & 81.13$_{\pm 0.06}$ & 83.53$_{\pm 0.08}$ & 82.63$_{\pm 0.16}$ & 73.00$_{\pm 0.12}$ & 72.34$_{\pm 0.44}$ & 78.53 & 94.30$_{\pm 0.11}$ & 82.13$_{\pm 0.45}$ & 90.88$_{\pm 0.14}$ & 89.24$_{\pm 0.15}$ & 87.93$_{\pm 0.21}$ & 77.63$_{\pm 0.16}$ & 87.02 & 83.16 \\
+%FDBD\cite{liu2024fast}   & 84.39$_{\pm 0.08}$ & 84.40$_{\pm 0.11}$ & 82.10$_{\pm 0.11}$ & 70.70$_{\pm 0.26}$ & 73.46$_{\pm 0.52}$ & 79.01 & 91.97$_{\pm 0.15}$ & 86.68$_{\pm 0.25}$ & 87.08$_{\pm 0.15}$ & 86.84$_{\pm 0.06}$ & 87.27$_{\pm 0.08}$ & 74.43$_{\pm 0.24}$ & 85.71 & 82.67 \\ \hline
+%\gls{sys}  & \textbf{85.03}$_{\pm 0.95}$ & \textbf{86.93}$_{\pm 0.67}$ & \textbf{89.96}$_{\pm 0.27}$ & \textbf{82.54}$_{\pm 0.68}$ & \textbf{87.14}$_{\pm 2.96}$ & \textbf{86.32} & \textbf{98.48}$_{\pm 0.49}$ & \textbf{99.42}$_{\pm 0.11}$ & \textbf{98.26}$_{\pm 0.20}$ & \textbf{97.81}$_{\pm 0.13}$ & \textbf{94.14}$_{\pm 0.30}$ & \textbf{86.60}$_{\pm 0.59}$ & \textbf{95.79} & \textbf{91.48} \\ \hline
+%		\end{tabular}
+%	}
+%	\label{tab:table_ood_auc}
+%\end{table*}
+
+\begin{table*}[t!]
+	\small
+	\centering
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUC}: AUC \textit{near-OOD} detection results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. %All numeric values are percentages. Best results are emphasized using \textbf{boldface}.
+    }
+	\vspace{0.1cm}
+	\scalebox{0.9}{
+		\begin{tabular}{|l|ccccc|c|}
+			\hline
+			\multirow{2}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-100}  \\ \cline{2-7}
+			& I-30 & I-900  & NINCO & SSB-Hard & Food & Avg.N \\ \hline
+MSP\cite{hendrycks2017baseline}    & 83.55$_{\pm 0.05}$ & 85.44$_{\pm 1.68}$ & 89.54$_{\pm 0.05}$ & 85.16$_{\pm 0.06}$ & 80.18$_{\pm 0.53}$ & 84.77 \\
+Energy\cite{liu2020energy} & 79.40$_{\pm 0.12}$ & 79.99$_{\pm 0.62}$ & 81.19$_{\pm 0.15}$ & 84.06$_{\pm 0.26}$ & 81.86$_{\pm 0.74}$ & 81.30 \\
+KNN\cite{sun2022out}    & 77.32$_{\pm 0.13}$ & 78.33$_{\pm 0.81}$ & 80.57$_{\pm 0.46}$ & 73.28$_{\pm 0.31}$ & 65.76$_{\pm 0.86}$ & 75.05 \\
+ViM\cite{wang2022vim}    & 78.31$_{\pm 0.10}$ & 79.55$_{\pm 0.98}$ & 86.13$_{\pm 0.33}$ & 80.18$_{\pm 0.25}$ & 73.17$_{\pm 0.80}$ & 79.47 \\
+MD\cite{lee2018simple}     & 82.31$_{\pm 0.08}$ & 83.78$_{\pm 1.22}$ & 89.38$_{\pm 0.29}$ & 83.91$_{\pm 0.23}$ & 78.22$_{\pm 0.77}$ & 83.52 \\
+GEN\cite{liu2023gen}    & 79.50$_{\pm 0.11}$ & 80.11$_{\pm 0.63}$ & 81.35$_{\pm 0.14}$ & 84.14$_{\pm 0.25}$ & 81.95$_{\pm 0.74}$ & 81.41  \\
+ReAct\cite{sun2021react}  & 79.40$_{\pm 0.12}$ & 79.99$_{\pm 0.62}$ & 81.19$_{\pm 0.15}$ & 84.06$_{\pm 0.26}$ & 81.86$_{\pm 0.74}$ & 81.30\\
+PCA\cite{guan2023revisit}    & \textbf{86.40}$_{\pm 0.09}$ & 83.76$_{\pm 2.33}$ & 86.42$_{\pm 0.30}$ & 81.08$_{\pm 0.27}$ & 80.31$_{\pm 0.43}$ & 83.59 \\
+ASH\cite{djurisic2022extremely}    & 72.79$_{\pm 0.08}$ & 73.99$_{\pm 1.06}$ & 83.13$_{\pm 0.31}$ & 72.84$_{\pm 0.23}$ & 73.37$_{\pm 0.27}$ & 75.22  \\
+SHE\cite{zhang2022out}    & 80.85$_{\pm 0.09}$ & 83.11$_{\pm 1.99}$ & 87.91$_{\pm 0.13}$ & 86.71$_{\pm 0.13}$ & 68.13$_{\pm 0.56}$ & 81.34 \\
+VRA\cite{xu2024vra}    & 85.69$_{\pm 0.13}$ & 87.18$_{\pm 1.40}$ & 85.08$_{\pm 0.19}$ & 85.52$_{\pm 0.16}$ & 77.11$_{\pm 0.42}$ & 84.11\\
+NECO\cite{ammar2024neco}   & 84.51$_{\pm 0.01}$ & 86.48$_{\pm 1.71}$ & 91.62$_{\pm 0.05}$ & 87.06$_{\pm 0.04}$ & 87.02$_{\pm 0.23}$ & 87.34 \\
+FDBD\cite{liu2024fast}   & 83.30$_{\pm 0.04}$ & 85.29$_{\pm 1.72}$ & 90.04$_{\pm 0.07}$ & 85.60$_{\pm 0.10}$ & 78.19$_{\pm 0.16}$ & 84.48\\ \hline
+\gls{sys}  & 85.42$_{\pm 0.09}$ & \textbf{88.30}$_{\pm 0.04}$ & \textbf{93.26}$_{\pm 0.16}$ & \textbf{89.66}$_{\pm 0.15}$ & \textbf{91.34}$_{\pm 0.61}$ & \textbf{89.60} \\ \hline
+			\multirow{2}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-200}  \\ \cline{2-7}
+			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N\\ \hline
+            MSP\cite{hendrycks2017baseline}    & 82.16$_{\pm 0.18}$ & 81.27$_{\pm 0.27}$ & 77.53$_{\pm 0.22}$ & 64.13$_{\pm 0.41}$ & 65.21$_{\pm 0.97}$ & 74.06  \\
+Energy\cite{liu2020energy} & 69.56$_{\pm 0.32}$ & 69.60$_{\pm 0.40}$ & 59.05$_{\pm 0.34}$ & 52.80$_{\pm 0.69}$ & 51.59$_{\pm 1.92}$ & 60.52 \\
+KNN\cite{sun2022out}    & 81.99$_{\pm 0.06}$ & 82.82$_{\pm 0.04}$ & 83.72$_{\pm 0.18}$ & 72.69$_{\pm 0.13}$ & 72.17$_{\pm 0.47}$ & 78.68\\
+ViM\cite{wang2022vim}    & 79.44$_{\pm 0.01}$ & 82.44$_{\pm 0.03}$ & 86.04$_{\pm 0.12}$ & 77.20$_{\pm 0.08}$ & 73.27$_{\pm 0.54}$ & 79.68 \\
+MD\cite{lee2018simple}     & 79.46$_{\pm 0.06}$ & 81.66$_{\pm 0.02}$ & 78.14$_{\pm 0.30}$ & 78.77$_{\pm 0.15}$ & 76.77$_{\pm 0.44}$ & 78.96\\
+GEN\cite{liu2023gen}    & 44.64$_{\pm 0.27}$ & 44.42$_{\pm 0.36}$ & 55.22$_{\pm 0.57}$ & 54.40$_{\pm 0.71}$ & 42.02$_{\pm 1.66}$ & 48.14\\
+ReAct\cite{sun2021react}  & 69.65$_{\pm 0.31}$ & 69.68$_{\pm 0.39}$ & 59.14$_{\pm 0.35}$ & 52.90$_{\pm 0.69}$ & 51.59$_{\pm 1.92}$ & 60.59 \\
+PCA\cite{guan2023revisit}    & 76.99$_{\pm 0.13}$ & 76.31$_{\pm 0.07}$ & 81.89$_{\pm 0.27}$ & 70.51$_{\pm 0.16}$ & 72.69$_{\pm 0.27}$ & 75.68  \\
+ASH\cite{djurisic2022extremely}    & 51.79$_{\pm 0.31}$ & 52.05$_{\pm 0.36}$ & 46.64$_{\pm 0.99}$ & 39.35$_{\pm 0.52}$ & 72.64$_{\pm 0.11}$ & 52.49 \\
+SHE\cite{zhang2022out}    & 72.98$_{\pm 0.15}$ & 71.61$_{\pm 0.10}$ & 77.11$_{\pm 0.32}$ & 61.83$_{\pm 0.28}$ & 59.43$_{\pm 0.81}$ & 68.59\\
+VRA\cite{xu2024vra}    & 39.41$_{\pm 0.39}$ & 39.76$_{\pm 0.35}$ & 38.21$_{\pm 0.84}$ & 54.42$_{\pm 0.29}$ & 39.03$_{\pm 0.85}$ & 42.16\\
+NECO\cite{ammar2024neco}   & 81.13$_{\pm 0.06}$ & 83.53$_{\pm 0.08}$ & 82.63$_{\pm 0.16}$ & 73.00$_{\pm 0.12}$ & 72.34$_{\pm 0.44}$ & 78.53 \\
+FDBD\cite{liu2024fast}   & 84.39$_{\pm 0.08}$ & 84.40$_{\pm 0.11}$ & 82.10$_{\pm 0.11}$ & 70.70$_{\pm 0.26}$ & 73.46$_{\pm 0.52}$ & 79.01 \\ \hline
+\gls{sys}  & \textbf{85.03}$_{\pm 0.95}$ & \textbf{86.93}$_{\pm 0.67}$ & \textbf{89.96}$_{\pm 0.27}$ & \textbf{82.54}$_{\pm 0.68}$ & \textbf{87.14}$_{\pm 2.96}$ & \textbf{86.32}  \\ \hline
+		\end{tabular}
+	}
+	\label{tab:table_ood_auc}
+\end{table*}
+
+\begin{table*}[t!]
+	\small
+	\centering
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUC}: AUC \textit{far-OOD} detection and average results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). %Avg.N is mean performance for near-OOD. 
+    Avg.F is mean performance for far-OOD. %All numeric values are percentages. Best results are emphasized using \textbf{boldface}.
+    }
+	\vspace{0.1cm}
+	\scalebox{0.77}{
+		\begin{tabular}{|l|c|cccccc|c|c|}
+			\hline
+			\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-100}  \\ \cline{2-10}
+			& Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+MSP\cite{hendrycks2017baseline}    &  84.77 & 92.71$_{\pm 0.09}$ & 94.17$_{\pm 0.07}$ & 88.41$_{\pm 0.12}$ & 86.96$_{\pm 0.06}$ & 92.65$_{\pm 0.07}$ & 89.73$_{\pm 0.06}$ & 90.77 & 88.04 \\
+Energy\cite{liu2020energy} &  81.30 & 91.82$_{\pm 0.13}$ & 82.03$_{\pm 0.55}$ & 90.72$_{\pm 0.21}$ & 83.85$_{\pm 0.36}$ & 89.11$_{\pm 0.17}$ & 78.49$_{\pm 0.20}$ & 86.00 & 83.87 \\
+KNN\cite{sun2022out}    &  75.05 & 96.10$_{\pm 0.11}$ & 80.39$_{\pm 0.69}$ & 86.74$_{\pm 0.36}$ & 80.29$_{\pm 0.41}$ & 87.80$_{\pm 0.37}$ & 77.33$_{\pm 0.67}$ & 84.78 & 80.36 \\
+ViM\cite{wang2022vim}    &  79.47 & 98.99$_{\pm 0.02}$ & 94.05$_{\pm 0.36}$ & 95.89$_{\pm 0.32}$ & 88.63$_{\pm 0.27}$ & 93.83$_{\pm 0.16}$ & 88.41$_{\pm 0.45}$ & 93.30 & 87.01 \\
+MD\cite{lee2018simple}     &  83.52 & \textbf{99.14}$_{\pm 0.03}$ & 95.46$_{\pm 0.32}$ & 96.09$_{\pm 0.25}$ & 90.79$_{\pm 0.24}$ & 95.44$_{\pm 0.14}$ & 90.60$_{\pm 0.40}$ & 94.59 & 89.56 \\
+GEN\cite{liu2023gen}    &  81.41 & 91.89$_{\pm 0.12}$ & 82.28$_{\pm 0.54}$ & 90.76$_{\pm 0.19}$ & 83.99$_{\pm 0.33}$ & 89.20$_{\pm 0.17}$ & 78.73$_{\pm 0.18}$ & 86.14 & 83.99 \\
+ReAct\cite{sun2021react}  &  81.30 & 91.82$_{\pm 0.13}$ & 82.03$_{\pm 0.55}$ & 90.72$_{\pm 0.21}$ & 83.85$_{\pm 0.36}$ & 89.11$_{\pm 0.17}$ & 78.49$_{\pm 0.20}$ & 86.00 & 83.87 \\
+PCA\cite{guan2023revisit}    & 83.59 & 98.00$_{\pm 0.07}$ & 90.69$_{\pm 0.39}$ & 92.27$_{\pm 0.43}$ & 86.13$_{\pm 0.33}$ & 91.85$_{\pm 0.19}$ & 86.88$_{\pm 0.43}$ & 90.97 & 87.62 \\
+ASH\cite{djurisic2022extremely}    &  75.22 & 90.79$_{\pm 0.10}$ & 91.58$_{\pm 0.58}$ & 86.15$_{\pm 0.27}$ & 82.58$_{\pm 0.36}$ & 90.74$_{\pm 0.29}$ & 80.28$_{\pm 0.45}$ & 87.02 & 81.66 \\
+SHE\cite{zhang2022out}    &  81.34 & 89.97$_{\pm 0.31}$ & 95.63$_{\pm 0.18}$ & 83.66$_{\pm 0.37}$ & 84.05$_{\pm 0.21}$ & 89.90$_{\pm 0.12}$ & 91.49$_{\pm 0.18}$ & 89.12 & 85.58 \\
+VRA\cite{xu2024vra}    & 84.11 & 82.12$_{\pm 0.68}$ & 83.56$_{\pm 0.53}$ & 79.35$_{\pm 0.61}$ & 80.88$_{\pm 0.42}$ & 83.38$_{\pm 0.48}$ & 86.60$_{\pm 0.11}$ & 82.65 & 83.31 \\
+NECO\cite{ammar2024neco}   &  87.34 & 98.12$_{\pm 0.01}$ & 95.72$_{\pm 0.09}$ & 94.60$_{\pm 0.14}$ & 91.72$_{\pm 0.04}$ & 95.00$_{\pm 0.04}$ & 93.27$_{\pm 0.01}$ & 94.74 & 91.38 \\
+FDBD\cite{liu2024fast}   &  84.48 & 95.25$_{\pm 0.08}$ & 95.01$_{\pm 0.09}$ & 91.51$_{\pm 0.09}$ & 88.66$_{\pm 0.08}$ & 93.74$_{\pm 0.08}$ & 90.29$_{\pm 0.05}$ & 92.41 & 88.81 \\ \hline
+\gls{sys}  & \textbf{89.60} & 99.02$_{\pm 0.07}$ & \textbf{99.89}$_{\pm 0.01}$ & \textbf{98.46}$_{\pm 0.13}$ & \textbf{96.40}$_{\pm 0.06}$ & \textbf{95.55}$_{\pm 0.13}$ & \textbf{94.56}$_{\pm 0.25}$ & \textbf{97.31} & \textbf{93.81} \\ \hline
+			\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-200}  \\ \cline{2-10}
+			& Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+            MSP\cite{hendrycks2017baseline}    & 74.06 & 87.56$_{\pm 0.24}$ & 78.50$_{\pm 0.43}$ & 77.58$_{\pm 0.48}$ & 79.26$_{\pm 0.43}$ & 79.87$_{\pm 0.18}$ & 68.97$_{\pm 0.41}$ & 78.62 & 76.55 \\
+Energy\cite{liu2020energy} &  60.52 & 79.80$_{\pm 0.41}$ & 46.01$_{\pm 1.34}$ & 69.31$_{\pm 0.43}$ & 66.94$_{\pm 0.51}$ & 63.78$_{\pm 0.45}$ & 49.83$_{\pm 0.52}$ & 62.61 & 61.66 \\
+KNN\cite{sun2022out}    &  78.68 & 95.67$_{\pm 0.04}$ & 86.53$_{\pm 0.22}$ & 92.56$_{\pm 0.32}$ & 89.17$_{\pm 0.50}$ & 89.75$_{\pm 0.22}$ & 76.90$_{\pm 0.05}$ & 88.43 & 84.00 \\
+ViM\cite{wang2022vim}    &  79.68 & 97.87$_{\pm 0.03}$ & 91.37$_{\pm 0.07}$ & 97.40$_{\pm 0.13}$ & 92.36$_{\pm 0.27}$ & 92.88$_{\pm 0.14}$ & 82.20$_{\pm 0.02}$ & 92.35 & 86.59 \\
+MD\cite{lee2018simple}     &  78.96 & 92.41$_{\pm 0.07}$ & 78.44$_{\pm 0.23}$ & 90.48$_{\pm 0.23}$ & 82.99$_{\pm 0.47}$ & 82.72$_{\pm 0.17}$ & 79.42$_{\pm 0.40}$ & 84.41 & 81.93 \\
+GEN\cite{liu2023gen}    &  48.14 & 34.85$_{\pm 0.79}$ & 70.87$_{\pm 1.14}$ & 39.97$_{\pm 0.94}$ & 47.54$_{\pm 0.99}$ & 48.67$_{\pm 0.53}$ & 64.19$_{\pm 0.72}$ & 51.01 & 49.71 \\
+ReAct\cite{sun2021react}  &  60.59 & 79.86$_{\pm 0.42}$ & 46.13$_{\pm 1.35}$ & 69.40$_{\pm 0.43}$ & 67.01$_{\pm 0.51}$ & 63.87$_{\pm 0.46}$ & 49.94$_{\pm 0.53}$ & 62.70 & 61.74 \\
+PCA\cite{guan2023revisit}    & 75.68 & 90.27$_{\pm 0.10}$ & 79.96$_{\pm 0.30}$ & 90.48$_{\pm 0.13}$ & 86.39$_{\pm 0.20}$ & 86.00$_{\pm 0.31}$ & 73.70$_{\pm 0.25}$ & 84.47 & 80.47 \\
+ASH\cite{djurisic2022extremely}    &  52.49 & 49.76$_{\pm 0.91}$ & 55.87$_{\pm 1.82}$ & 35.21$_{\pm 0.80}$ & 33.89$_{\pm 1.41}$ & 55.18$_{\pm 0.80}$ & 56.05$_{\pm 1.36}$ & 47.66 & 49.86 \\
+SHE\cite{zhang2022out}    &  68.59 & 91.57$_{\pm 0.23}$ & 76.31$_{\pm 0.48}$ & 89.19$_{\pm 0.56}$ & 86.95$_{\pm 0.78}$ & 81.26$_{\pm 0.42}$ & 63.35$_{\pm 0.21}$ & 81.44 & 75.60 \\
+VRA\cite{xu2024vra}    &  42.16 & 11.36$_{\pm 0.22}$ & 31.34$_{\pm 0.78}$ & 32.09$_{\pm 2.96}$ & 30.88$_{\pm 2.74}$ & 26.62$_{\pm 0.56}$ & 47.06$_{\pm 0.49}$ & 29.89 & 35.47 \\
+NECO\cite{ammar2024neco}   & 78.53 & 94.30$_{\pm 0.11}$ & 82.13$_{\pm 0.45}$ & 90.88$_{\pm 0.14}$ & 89.24$_{\pm 0.15}$ & 87.93$_{\pm 0.21}$ & 77.63$_{\pm 0.16}$ & 87.02 & 83.16 \\
+FDBD\cite{liu2024fast}   & 79.01 & 91.97$_{\pm 0.15}$ & 86.68$_{\pm 0.25}$ & 87.08$_{\pm 0.15}$ & 86.84$_{\pm 0.06}$ & 87.27$_{\pm 0.08}$ & 74.43$_{\pm 0.24}$ & 85.71 & 82.67 \\ \hline
+\gls{sys}  &  \textbf{86.32} & \textbf{98.48}$_{\pm 0.49}$ & \textbf{99.42}$_{\pm 0.11}$ & \textbf{98.26}$_{\pm 0.20}$ & \textbf{97.81}$_{\pm 0.13}$ & \textbf{94.14}$_{\pm 0.30}$ & \textbf{86.60}$_{\pm 0.59}$ & \textbf{95.79} & \textbf{91.48} \\ \hline
+		\end{tabular}
+	}
+	\label{tab:table_ood_auc_f}
+\end{table*}
+
+%\begin{table*}[t!]
+%	\small
+%	\centering
+%	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - FPR95}: FPR95 OOD detection results between \gls{sys} and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. Avg.F is mean performance for far-OOD.
+%	}
+%    \scalebox{0.58}{
+%		\begin{tabular}{|l|ccccc|c|cccccc|c|c|}
+%			\hline
+%			\multirow{2}{*}{} &  \multicolumn{14}{c|}{ID data: ImageNet-100}  \\ \cline{2-15}
+%			& I-30 & I-900  & NINCO & SSB-Hard & Food & Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+%MSP      & 61.69$_{\pm  0.28}$  & 62.15$_{\pm  0.04}$  & 55.18$_{\pm  0.20}$  & 62.83$_{\pm  0.22}$  & 85.92$_{\pm  0.80}$  & 65.55  & 38.71$_{\pm  0.49}$  & 38.33$_{\pm  0.58}$  & 59.34$_{\pm  0.71}$  & 66.01$_{\pm  0.57}$  & 44.36$_{\pm  0.27}$  & 49.97$_{\pm  0.06}$  & 49.45  & 56.77 \\
+%ENERGY   & 70.49$_{\pm  0.20}$  & 71.47$_{\pm  0.70}$  & 71.34$_{\pm  0.23}$  & 59.26$_{\pm  0.07}$  & 79.08$_{\pm  1.44}$  & 70.33  & 40.46$_{\pm  0.29}$  & 79.16$_{\pm  0.40}$  & 56.35$_{\pm  0.14}$  & 81.46$_{\pm  0.20}$  & 55.20$_{\pm  0.45}$  & 76.64$_{\pm  0.16}$  & 64.88  & 67.36 \\
+%KNN      & 69.51$_{\pm  0.54}$  & 75.71$_{\pm  0.66}$  & 80.39$_{\pm  0.61}$  & 90.50$_{\pm  0.28}$  & 95.73$_{\pm  0.37}$  & 82.37  & 19.96$_{\pm  0.85}$  & 95.63$_{\pm  0.43}$  & 74.78$_{\pm  1.62}$  & 91.27$_{\pm  0.51}$  & 63.27$_{\pm  1.05}$  & 92.52$_{\pm  1.07}$  & 72.91  & 77.21 \\
+%VIM      & 67.98$_{\pm  0.44}$  & 68.90$_{\pm  0.47}$  & 63.60$_{\pm  1.03}$  & 71.96$_{\pm  0.45}$  & 90.82$_{\pm  0.51}$  & 72.65  &  4.65$_{\pm  0.19}$  & 39.01$_{\pm  2.39}$  & 24.26$_{\pm  2.17}$  & 61.99$_{\pm  1.15}$  & 35.01$_{\pm  1.20}$  & 55.02$_{\pm  2.08}$  & 36.66  & 53.02 \\
+%MD       & 58.31$_{\pm  0.17}$  & 60.92$_{\pm  0.47}$  & 55.62$_{\pm  1.39}$  & 67.25$_{\pm  0.65}$  & 85.36$_{\pm  0.93}$  & 65.49  &  \textbf{4.00}$_{\pm  0.21}$  & 31.47$_{\pm  2.59}$  & 22.42$_{\pm  1.86}$  & 54.61$_{\pm  1.44}$  & \textbf{26.45}$_{\pm  1.11}$  & 49.46$_{\pm  2.59}$  & 31.40  & 46.90 \\
+%GEN      & 70.42$_{\pm  0.04}$  & 71.20$_{\pm  0.01}$  & 71.18$_{\pm  0.06}$  & 59.06$_{\pm  0.21}$  & 78.95$_{\pm  1.23}$  & 70.16  & 40.21$_{\pm  0.40}$  & 78.87$_{\pm  0.49}$  & 56.03$_{\pm  0.39}$  & 81.12$_{\pm  0.39}$  & 54.91$_{\pm  0.25}$  & 76.28$_{\pm  0.33}$  & 64.57  & 67.11 \\
+%REACT    & 70.47$_{\pm  0.20}$  & 71.47$_{\pm  0.19}$  & 71.35$_{\pm  0.23}$  & 59.26$_{\pm  0.07}$  & 79.08$_{\pm  1.43}$  & 70.32  & 40.46$_{\pm  0.29}$  & 79.16$_{\pm  0.40}$  & 56.35$_{\pm  0.13}$  & 81.46$_{\pm  0.20}$  & 55.20$_{\pm  0.45}$  & 76.64$_{\pm  0.16}$  & 64.88  & 67.35 \\
+%PCA      & 47.33$_{\pm  0.07}$  & 60.37$_{\pm  0.14}$  & 65.31$_{\pm  0.88}$  & 72.27$_{\pm  0.59}$  & 87.09$_{\pm  0.28}$  & 66.48  & 10.89$_{\pm  0.20}$  & 60.11$_{\pm  1.16}$  & 47.47$_{\pm  2.36}$  & 72.79$_{\pm  0.73}$  & 47.79$_{\pm  0.99}$  & 64.32$_{\pm  1.51}$  & 50.56  & 57.80 \\
+%ASH      & 89.04$_{\pm  0.46}$  & 88.97$_{\pm  0.62}$  & 78.15$_{\pm  1.50}$  & 88.61$_{\pm  0.63}$  & 95.49$_{\pm  0.26}$  & 88.05  & 56.57$_{\pm  1.47}$  & 60.13$_{\pm  4.26}$  & 69.40$_{\pm  1.84}$  & 84.69$_{\pm  1.42}$  & 58.45$_{\pm  2.25}$  & 82.43$_{\pm  2.05}$  & 68.61  & 77.45 \\
+%SHE      & 62.35$_{\pm  0.37}$  & 61.76$_{\pm  0.51}$  & 60.05$_{\pm  0.72}$  & 52.68$_{\pm  0.75}$  & 91.94$_{\pm  0.25}$  & 65.76  & 52.19$_{\pm  1.12}$  & 27.12$_{\pm  1.36}$  & 67.92$_{\pm  0.96}$  & 65.25$_{\pm  0.74}$  & 53.23$_{\pm  0.68}$  & 46.93$_{\pm  1.44}$  & 52.11  & 58.31 \\
+%VRA      & 55.40$_{\pm  0.23}$  & 52.37$_{\pm  0.16}$  & 73.51$_{\pm  0.13}$  & 53.12$_{\pm  0.03}$  & 87.55$_{\pm  0.66}$  & 64.39  & 76.00$_{\pm  0.74}$  & 81.92$_{\pm  0.09}$  & 87.78$_{\pm  0.36}$  & 84.42$_{\pm  0.09}$  & 80.52$_{\pm  0.15}$  & 59.17$_{\pm  0.54}$  & 78.30  & 71.98 \\
+%NECO     & 49.36$_{\pm  0.21}$  & 50.17$_{\pm  0.29}$  & 42.21$_{\pm  0.13}$  & 52.27$_{\pm  0.25}$  & 64.29$_{\pm  0.89}$  & 51.66  &  7.88$_{\pm  0.11}$  & 27.48$_{\pm  0.66}$  & 29.01$_{\pm  0.72}$  & 42.72$_{\pm  0.19}$  & 27.83$_{\pm  0.03}$  & 31.58$_{\pm  0.12}$  & 27.75  & 38.62 \\
+%FDBD     & 61.93$_{\pm  0.23}$  & 63.53$_{\pm  0.21}$  & 54.28$_{\pm  0.22}$  & 64.81$_{\pm  0.35}$  & 88.49$_{\pm  0.53}$  & 66.61  & 27.27$_{\pm  0.76}$  & 33.32$_{\pm  0.49}$  & 46.79$_{\pm  0.37}$  & 60.10$_{\pm  0.58}$  & 40.01$_{\pm  0.49}$  & 46.99$_{\pm  0.40}$  & 42.42  & 53.41 \\ \hline
+%\gls{sys}    & \textbf{52.93}$_{\pm  1.01}$  & \textbf{53.69}$_{\pm  0.27}$  & \textbf{35.92}$_{\pm  0.57}$  & \textbf{48.49}$_{\pm  0.70}$  & \textbf{53.50}$_{\pm  4.86}$  & \textbf{48.91}  &  4.85$_{\pm  0.13}$  &  \textbf{0.22}$_{\pm  0.04}$  &  \textbf{7.81}$_{\pm  0.50}$  & \textbf{17.58}$_{\pm  0.62}$  & 26.53$_{\pm  0.64}$  & \textbf{23.94}$_{\pm  1.05}$  & \textbf{13.49}  & \textbf{29.59} \\ \hline
+%			\multirow{2}{*}{} &  \multicolumn{14}{c|}{ID data: ImageNet-200}  \\ \cline{2-15}
+%			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+%            MSP    & 74.32$_{\pm 0.80}$ & 72.89$_{\pm 0.87}$ & 79.10$_{\pm 0.73}$ & 88.54$_{\pm 0.48}$ & 98.24$_{\pm 0.13}$ & 82.62 & 54.04$_{\pm 1.72}$ & 91.46$_{\pm 1.01}$ & 85.80$_{\pm 0.62}$ & 84.81$_{\pm 0.87}$ & 74.92$_{\pm 1.05}$ & 92.19$_{\pm 0.46}$ & 80.54 & 81.48 \\
+%ENERGY & 80.79$_{\pm 0.32}$ & 79.87$_{\pm 0.51}$ & 87.70$_{\pm 0.09}$ & 70.20$_{\pm 0.35}$ & 97.32$_{\pm 0.48}$ & 83.18 & 64.63$_{\pm 0.36}$ & 98.72$_{\pm 0.20}$ & 84.59$_{\pm 0.46}$ & 86.77$_{\pm 0.14}$ & 83.67$_{\pm 0.04}$ & 95.78$_{\pm 0.17}$ & 85.69 & 84.55 \\
+%KNN    & 72.74$_{\pm 0.50}$ & 70.46$_{\pm 0.66}$ & 72.90$_{\pm 1.10}$ & 87.25$_{\pm 0.42}$ & 96.36$_{\pm 0.12}$ & 79.94 & 13.92$_{\pm 0.35}$ & 83.04$_{\pm 1.23}$ & 48.30$_{\pm 3.34}$ & 77.74$_{\pm 2.91}$ & 51.45$_{\pm 1.24}$ & 85.11$_{\pm 0.81}$ & 59.93 & 69.02 \\
+%VIM    & 66.36$_{\pm 0.39}$ & 61.31$_{\pm 0.29}$ & 61.95$_{\pm 0.33}$ & 74.46$_{\pm 0.25}$ & 92.98$_{\pm 0.36}$ & 71.41 &  5.87$_{\pm 0.08}$ & 54.31$_{\pm 0.24}$ & 12.44$_{\pm 0.72}$ & 51.55$_{\pm 1.45}$ & 41.18$_{\pm 0.60}$ & 70.07$_{\pm 0.28}$ & 39.24 & 53.86 \\
+%MD     & \textbf{59.36}$_{\pm 0.13}$ & 54.19$_{\pm 0.10}$ & 79.18$_{\pm 0.22}$ & 69.41$_{\pm 0.16}$ & 91.94$_{\pm 0.11}$ & 70.82 & 35.87$_{\pm 0.16}$ & 88.04$_{\pm 0.21}$ & 62.24$_{\pm 1.42}$ & 74.95$_{\pm 0.66}$ & 74.52$_{\pm 0.05}$ & 77.24$_{\pm 0.37}$ & 68.81 & 69.72 \\
+%GEN    & 95.86$_{\pm 0.26}$ & 95.56$_{\pm 0.12}$ & 90.47$_{\pm 0.46}$ & 92.08$_{\pm 0.27}$ & 97.10$_{\pm 0.53}$ & 94.21 & 96.22$_{\pm 0.75}$ & 85.45$_{\pm 1.37}$ & 97.67$_{\pm 0.26}$ & 97.49$_{\pm 0.17}$ & 94.04$_{\pm 0.32}$ & 84.06$_{\pm 1.08}$ & 92.49 & 93.27 \\
+%REACT  & 80.72$_{\pm 0.43}$ & 79.79$_{\pm 0.58}$ & 87.61$_{\pm 0.13}$ & 90.16$_{\pm 0.40}$ & 97.33$_{\pm 0.47}$ & 87.12 & 64.46$_{\pm 0.14}$ & 98.71$_{\pm 0.19}$ & 84.51$_{\pm 0.36}$ & 86.71$_{\pm 0.17}$ & 83.59$_{\pm 0.04}$ & 95.74$_{\pm 0.12}$ & 85.62 & 86.30 \\
+%PCA    & 63.06$_{\pm 0.27}$ & 66.86$_{\pm 0.17}$ & 70.89$_{\pm 0.27}$ & 80.43$_{\pm 0.02}$ & 90.52$_{\pm 0.19}$ & 74.35 & 39.61$_{\pm 0.24}$ & 79.07$_{\pm 0.64}$ & 58.09$_{\pm 0.73}$ & 65.05$_{\pm 0.39}$ & 64.91$_{\pm 0.58}$ & 76.56$_{\pm 0.09}$ & 63.88 & 68.64 \\
+%ASH    & 90.47$_{\pm 0.30}$ & 90.50$_{\pm 0.22}$ & 94.04$_{\pm 0.19}$ & 95.71$_{\pm 0.16}$ & 98.82$_{\pm 0.09}$ & 93.91 & 95.11$_{\pm 0.24}$ & 91.02$_{\pm 0.69}$ & 95.14$_{\pm 0.35}$ & 94.49$_{\pm 0.40}$ & 93.00$_{\pm 0.24}$ & 90.07$_{\pm 0.53}$ & 93.14 & 93.49 \\
+%SHE    & 82.27$_{\pm 0.36}$ & 81.86$_{\pm 0.39}$ & 83.53$_{\pm 0.84}$ & 90.65$_{\pm 0.27}$ & 97.82$_{\pm 0.23}$ & 87.23 & 33.21$_{\pm 1.56}$ & 88.17$_{\pm 0.96}$ & 59.64$_{\pm 3.05}$ & 78.64$_{\pm 2.65}$ & 66.03$_{\pm 0.76}$ & 92.78$_{\pm 0.33}$ & 69.74 & 77.69 \\
+%VRA    & 98.54$_{\pm 0.08}$ & 97.08$_{\pm 0.02}$ & 98.05$_{\pm 0.12}$ & 92.39$_{\pm 0.11}$ & 99.96$_{\pm 0.01}$ & 97.20 & 99.91$_{\pm 0.03}$ & 99.82$_{\pm 0.01}$ & 99.43$_{\pm 0.11}$ & 99.71$_{\pm 0.12}$ & 99.48$_{\pm 0.04}$ & 97.00$_{\pm 0.18}$ & 99.22 & 98.31 \\
+%NECO   & 66.16$_{\pm 0.27}$ & 61.55$_{\pm 0.40}$ & 78.47$_{\pm 0.49}$ & 85.21$_{\pm 0.27}$ & 94.50$_{\pm 0.41}$ & 77.18 & 23.45$_{\pm 0.93}$ & 95.96$_{\pm 0.40}$ & 65.38$_{\pm 0.39}$ & 75.96$_{\pm 0.54}$ & 66.88$_{\pm 0.76}$ & 87.80$_{\pm 0.50}$ & 69.24 & 72.85 \\
+%FDBD   & 67.90$_{\pm 0.23}$ & 65.91$_{\pm 0.38}$ & 71.60$_{\pm 0.36}$ & 82.97$_{\pm 0.28}$ & 97.02$_{\pm 0.31}$ & 77.08 & 32.95$_{\pm 1.00}$ & 75.68$_{\pm 0.93}$ & 72.15$_{\pm 0.56}$ & 75.38$_{\pm 0.24}$ & 61.28$_{\pm 0.23}$ & 85.76$_{\pm 0.28}$ & 67.20 & 71.69 \\ \hline
+%\gls{sys}  & 59.39$_{\pm 1.17}$ & \textbf{53.33}$_{\pm 0.89}$ & \textbf{50.29}$_{\pm 1.86}$ & \textbf{63.95}$_{\pm 2.37}$ & \textbf{77.17}$_{\pm 4.48}$ & \textbf{60.83} &  \textbf{5.44}$_{\pm 1.22}$ &  \textbf{1.61}$_{\pm 0.47}$ &  \textbf{7.24}$_{\pm 0.84}$ & \textbf{10.55}$_{\pm 0.67}$ & \textbf{37.13}$_{\pm 2.65}$ & \textbf{50.99}$_{\pm 0.22}$ & \textbf{18.83} & \textbf{37.92} \\ \hline
+%		\end{tabular}
+%	}
+%	\label{tab:table_ood_fpr95}
+%\end{table*}
+
+\begin{table*}[t!]
+	\small
+	\centering
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - FPR95}: FPR95 \textit{near-OOD} detection results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
+	}
+    \scalebox{0.9}{
+		\begin{tabular}{|l|ccccc|c|}
+			\hline
+			\multirow{2}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-100}  \\ \cline{2-7}
+			& I-30 & I-900  & NINCO & SSB-Hard & Food & Avg.N \\ \hline
+MSP      & 61.69$_{\pm  0.28}$  & 62.15$_{\pm  0.04}$  & 55.18$_{\pm  0.20}$  & 62.83$_{\pm  0.22}$  & 85.92$_{\pm  0.80}$  & 65.55 \\
+ENERGY   & 70.49$_{\pm  0.20}$  & 71.47$_{\pm  0.70}$  & 71.34$_{\pm  0.23}$  & 59.26$_{\pm  0.07}$  & 79.08$_{\pm  1.44}$  & 70.33 \\
+KNN      & 69.51$_{\pm  0.54}$  & 75.71$_{\pm  0.66}$  & 80.39$_{\pm  0.61}$  & 90.50$_{\pm  0.28}$  & 95.73$_{\pm  0.37}$  & 82.37\\
+VIM      & 67.98$_{\pm  0.44}$  & 68.90$_{\pm  0.47}$  & 63.60$_{\pm  1.03}$  & 71.96$_{\pm  0.45}$  & 90.82$_{\pm  0.51}$  & 72.65 \\
+MD       & 58.31$_{\pm  0.17}$  & 60.92$_{\pm  0.47}$  & 55.62$_{\pm  1.39}$  & 67.25$_{\pm  0.65}$  & 85.36$_{\pm  0.93}$  & 65.49  \\
+GEN      & 70.42$_{\pm  0.04}$  & 71.20$_{\pm  0.01}$  & 71.18$_{\pm  0.06}$  & 59.06$_{\pm  0.21}$  & 78.95$_{\pm  1.23}$  & 70.16 \\
+REACT    & 70.47$_{\pm  0.20}$  & 71.47$_{\pm  0.19}$  & 71.35$_{\pm  0.23}$  & 59.26$_{\pm  0.07}$  & 79.08$_{\pm  1.43}$  & 70.32\\
+PCA      & 47.33$_{\pm  0.07}$  & 60.37$_{\pm  0.14}$  & 65.31$_{\pm  0.88}$  & 72.27$_{\pm  0.59}$  & 87.09$_{\pm  0.28}$  & 66.48 \\
+ASH      & 89.04$_{\pm  0.46}$  & 88.97$_{\pm  0.62}$  & 78.15$_{\pm  1.50}$  & 88.61$_{\pm  0.63}$  & 95.49$_{\pm  0.26}$  & 88.05  \\
+SHE      & 62.35$_{\pm  0.37}$  & 61.76$_{\pm  0.51}$  & 60.05$_{\pm  0.72}$  & 52.68$_{\pm  0.75}$  & 91.94$_{\pm  0.25}$  & 65.76  \\
+VRA      & 55.40$_{\pm  0.23}$  & 52.37$_{\pm  0.16}$  & 73.51$_{\pm  0.13}$  & 53.12$_{\pm  0.03}$  & 87.55$_{\pm  0.66}$  & 64.39 \\
+NECO     & 49.36$_{\pm  0.21}$  & 50.17$_{\pm  0.29}$  & 42.21$_{\pm  0.13}$  & 52.27$_{\pm  0.25}$  & 64.29$_{\pm  0.89}$  & 51.66  \\
+FDBD     & 61.93$_{\pm  0.23}$  & 63.53$_{\pm  0.21}$  & 54.28$_{\pm  0.22}$  & 64.81$_{\pm  0.35}$  & 88.49$_{\pm  0.53}$  & 66.61 \\ \hline
+\gls{sys}    & \textbf{52.93}$_{\pm  1.01}$  & \textbf{53.69}$_{\pm  0.27}$  & \textbf{35.92}$_{\pm  0.57}$  & \textbf{48.49}$_{\pm  0.70}$  & \textbf{53.50}$_{\pm  4.86}$  & \textbf{48.91}   \\ \hline
+			\multirow{2}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-200}  \\ \cline{2-7}
+			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N\\ \hline
+            MSP    & 74.32$_{\pm 0.80}$ & 72.89$_{\pm 0.87}$ & 79.10$_{\pm 0.73}$ & 88.54$_{\pm 0.48}$ & 98.24$_{\pm 0.13}$ & 82.62  \\
+ENERGY & 80.79$_{\pm 0.32}$ & 79.87$_{\pm 0.51}$ & 87.70$_{\pm 0.09}$ & 70.20$_{\pm 0.35}$ & 97.32$_{\pm 0.48}$ & 83.18  \\
+KNN    & 72.74$_{\pm 0.50}$ & 70.46$_{\pm 0.66}$ & 72.90$_{\pm 1.10}$ & 87.25$_{\pm 0.42}$ & 96.36$_{\pm 0.12}$ & 79.94 \\
+VIM    & 66.36$_{\pm 0.39}$ & 61.31$_{\pm 0.29}$ & 61.95$_{\pm 0.33}$ & 74.46$_{\pm 0.25}$ & 92.98$_{\pm 0.36}$ & 71.41\\
+MD     & \textbf{59.36}$_{\pm 0.13}$ & 54.19$_{\pm 0.10}$ & 79.18$_{\pm 0.22}$ & 69.41$_{\pm 0.16}$ & 91.94$_{\pm 0.11}$ & 70.82\\
+GEN    & 95.86$_{\pm 0.26}$ & 95.56$_{\pm 0.12}$ & 90.47$_{\pm 0.46}$ & 92.08$_{\pm 0.27}$ & 97.10$_{\pm 0.53}$ & 94.21 \\
+REACT  & 80.72$_{\pm 0.43}$ & 79.79$_{\pm 0.58}$ & 87.61$_{\pm 0.13}$ & 90.16$_{\pm 0.40}$ & 97.33$_{\pm 0.47}$ & 87.12 \\
+PCA    & 63.06$_{\pm 0.27}$ & 66.86$_{\pm 0.17}$ & 70.89$_{\pm 0.27}$ & 80.43$_{\pm 0.02}$ & 90.52$_{\pm 0.19}$ & 74.35  \\
+ASH    & 90.47$_{\pm 0.30}$ & 90.50$_{\pm 0.22}$ & 94.04$_{\pm 0.19}$ & 95.71$_{\pm 0.16}$ & 98.82$_{\pm 0.09}$ & 93.91 \\
+SHE    & 82.27$_{\pm 0.36}$ & 81.86$_{\pm 0.39}$ & 83.53$_{\pm 0.84}$ & 90.65$_{\pm 0.27}$ & 97.82$_{\pm 0.23}$ & 87.23 \\
+VRA    & 98.54$_{\pm 0.08}$ & 97.08$_{\pm 0.02}$ & 98.05$_{\pm 0.12}$ & 92.39$_{\pm 0.11}$ & 99.96$_{\pm 0.01}$ & 97.20 \\
+NECO   & 66.16$_{\pm 0.27}$ & 61.55$_{\pm 0.40}$ & 78.47$_{\pm 0.49}$ & 85.21$_{\pm 0.27}$ & 94.50$_{\pm 0.41}$ & 77.18  \\
+FDBD   & 67.90$_{\pm 0.23}$ & 65.91$_{\pm 0.38}$ & 71.60$_{\pm 0.36}$ & 82.97$_{\pm 0.28}$ & 97.02$_{\pm 0.31}$ & 77.08 \\ \hline
+\gls{sys}  & 59.39$_{\pm 1.17}$ & \textbf{53.33}$_{\pm 0.89}$ & \textbf{50.29}$_{\pm 1.86}$ & \textbf{63.95}$_{\pm 2.37}$ & \textbf{77.17}$_{\pm 4.48}$ & \textbf{60.83}\\ \hline
+		\end{tabular}
+	}
+	\label{tab:table_ood_fpr95}
+\end{table*}
+
+\begin{table*}[t!]
+	\small
+	\centering
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - FPR95}: FPR95 \textit{far-OOD} detection and average results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
+	}
+    \scalebox{0.77}{
+		\begin{tabular}{|l|c|cccccc|c|c|}
+			\hline
+			\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-100}  \\ \cline{2-10}
+			& Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+MSP      &  65.55  & 38.71$_{\pm  0.49}$  & 38.33$_{\pm  0.58}$  & 59.34$_{\pm  0.71}$  & 66.01$_{\pm  0.57}$  & 44.36$_{\pm  0.27}$  & 49.97$_{\pm  0.06}$  & 49.45  & 56.77 \\
+ENERGY   & 70.33  & 40.46$_{\pm  0.29}$  & 79.16$_{\pm  0.40}$  & 56.35$_{\pm  0.14}$  & 81.46$_{\pm  0.20}$  & 55.20$_{\pm  0.45}$  & 76.64$_{\pm  0.16}$  & 64.88  & 67.36 \\
+KNN      &  82.37  & 19.96$_{\pm  0.85}$  & 95.63$_{\pm  0.43}$  & 74.78$_{\pm  1.62}$  & 91.27$_{\pm  0.51}$  & 63.27$_{\pm  1.05}$  & 92.52$_{\pm  1.07}$  & 72.91  & 77.21 \\
+VIM      &  72.65  &  4.65$_{\pm  0.19}$  & 39.01$_{\pm  2.39}$  & 24.26$_{\pm  2.17}$  & 61.99$_{\pm  1.15}$  & 35.01$_{\pm  1.20}$  & 55.02$_{\pm  2.08}$  & 36.66  & 53.02 \\
+MD       &  65.49  &  \textbf{4.00}$_{\pm  0.21}$  & 31.47$_{\pm  2.59}$  & 22.42$_{\pm  1.86}$  & 54.61$_{\pm  1.44}$  & \textbf{26.45}$_{\pm  1.11}$  & 49.46$_{\pm  2.59}$  & 31.40  & 46.90 \\
+GEN      &  70.16  & 40.21$_{\pm  0.40}$  & 78.87$_{\pm  0.49}$  & 56.03$_{\pm  0.39}$  & 81.12$_{\pm  0.39}$  & 54.91$_{\pm  0.25}$  & 76.28$_{\pm  0.33}$  & 64.57  & 67.11 \\
+REACT    &  70.32  & 40.46$_{\pm  0.29}$  & 79.16$_{\pm  0.40}$  & 56.35$_{\pm  0.13}$  & 81.46$_{\pm  0.20}$  & 55.20$_{\pm  0.45}$  & 76.64$_{\pm  0.16}$  & 64.88  & 67.35 \\
+PCA      &  66.48  & 10.89$_{\pm  0.20}$  & 60.11$_{\pm  1.16}$  & 47.47$_{\pm  2.36}$  & 72.79$_{\pm  0.73}$  & 47.79$_{\pm  0.99}$  & 64.32$_{\pm  1.51}$  & 50.56  & 57.80 \\
+ASH      & 88.05  & 56.57$_{\pm  1.47}$  & 60.13$_{\pm  4.26}$  & 69.40$_{\pm  1.84}$  & 84.69$_{\pm  1.42}$  & 58.45$_{\pm  2.25}$  & 82.43$_{\pm  2.05}$  & 68.61  & 77.45 \\
+SHE      & 65.76  & 52.19$_{\pm  1.12}$  & 27.12$_{\pm  1.36}$  & 67.92$_{\pm  0.96}$  & 65.25$_{\pm  0.74}$  & 53.23$_{\pm  0.68}$  & 46.93$_{\pm  1.44}$  & 52.11  & 58.31 \\
+VRA      &  64.39  & 76.00$_{\pm  0.74}$  & 81.92$_{\pm  0.09}$  & 87.78$_{\pm  0.36}$  & 84.42$_{\pm  0.09}$  & 80.52$_{\pm  0.15}$  & 59.17$_{\pm  0.54}$  & 78.30  & 71.98 \\
+NECO     &  51.66  &  7.88$_{\pm  0.11}$  & 27.48$_{\pm  0.66}$  & 29.01$_{\pm  0.72}$  & 42.72$_{\pm  0.19}$  & 27.83$_{\pm  0.03}$  & 31.58$_{\pm  0.12}$  & 27.75  & 38.62 \\
+FDBD     & 66.61  & 27.27$_{\pm  0.76}$  & 33.32$_{\pm  0.49}$  & 46.79$_{\pm  0.37}$  & 60.10$_{\pm  0.58}$  & 40.01$_{\pm  0.49}$  & 46.99$_{\pm  0.40}$  & 42.42  & 53.41 \\ \hline
+\gls{sys}    &  \textbf{48.91}  &  4.85$_{\pm  0.13}$  &  \textbf{0.22}$_{\pm  0.04}$  &  \textbf{7.81}$_{\pm  0.50}$  & \textbf{17.58}$_{\pm  0.62}$  & 26.53$_{\pm  0.64}$  & \textbf{23.94}$_{\pm  1.05}$  & \textbf{13.49}  & \textbf{29.59} \\ \hline
+			\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-200}  \\ \cline{2-10}
+			&  Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+            MSP    & 82.62 & 54.04$_{\pm 1.72}$ & 91.46$_{\pm 1.01}$ & 85.80$_{\pm 0.62}$ & 84.81$_{\pm 0.87}$ & 74.92$_{\pm 1.05}$ & 92.19$_{\pm 0.46}$ & 80.54 & 81.48 \\
+ENERGY & 83.18 & 64.63$_{\pm 0.36}$ & 98.72$_{\pm 0.20}$ & 84.59$_{\pm 0.46}$ & 86.77$_{\pm 0.14}$ & 83.67$_{\pm 0.04}$ & 95.78$_{\pm 0.17}$ & 85.69 & 84.55 \\
+KNN    & 79.94 & 13.92$_{\pm 0.35}$ & 83.04$_{\pm 1.23}$ & 48.30$_{\pm 3.34}$ & 77.74$_{\pm 2.91}$ & 51.45$_{\pm 1.24}$ & 85.11$_{\pm 0.81}$ & 59.93 & 69.02 \\
+VIM    &71.41 &  5.87$_{\pm 0.08}$ & 54.31$_{\pm 0.24}$ & 12.44$_{\pm 0.72}$ & 51.55$_{\pm 1.45}$ & 41.18$_{\pm 0.60}$ & 70.07$_{\pm 0.28}$ & 39.24 & 53.86 \\
+MD     & 70.82 & 35.87$_{\pm 0.16}$ & 88.04$_{\pm 0.21}$ & 62.24$_{\pm 1.42}$ & 74.95$_{\pm 0.66}$ & 74.52$_{\pm 0.05}$ & 77.24$_{\pm 0.37}$ & 68.81 & 69.72 \\
+GEN    & 94.21 & 96.22$_{\pm 0.75}$ & 85.45$_{\pm 1.37}$ & 97.67$_{\pm 0.26}$ & 97.49$_{\pm 0.17}$ & 94.04$_{\pm 0.32}$ & 84.06$_{\pm 1.08}$ & 92.49 & 93.27 \\
+REACT  & 87.12 & 64.46$_{\pm 0.14}$ & 98.71$_{\pm 0.19}$ & 84.51$_{\pm 0.36}$ & 86.71$_{\pm 0.17}$ & 83.59$_{\pm 0.04}$ & 95.74$_{\pm 0.12}$ & 85.62 & 86.30 \\
+PCA    &  74.35 & 39.61$_{\pm 0.24}$ & 79.07$_{\pm 0.64}$ & 58.09$_{\pm 0.73}$ & 65.05$_{\pm 0.39}$ & 64.91$_{\pm 0.58}$ & 76.56$_{\pm 0.09}$ & 63.88 & 68.64 \\
+ASH    & 93.91 & 95.11$_{\pm 0.24}$ & 91.02$_{\pm 0.69}$ & 95.14$_{\pm 0.35}$ & 94.49$_{\pm 0.40}$ & 93.00$_{\pm 0.24}$ & 90.07$_{\pm 0.53}$ & 93.14 & 93.49 \\
+SHE    &  87.23 & 33.21$_{\pm 1.56}$ & 88.17$_{\pm 0.96}$ & 59.64$_{\pm 3.05}$ & 78.64$_{\pm 2.65}$ & 66.03$_{\pm 0.76}$ & 92.78$_{\pm 0.33}$ & 69.74 & 77.69 \\
+VRA    &  97.20 & 99.91$_{\pm 0.03}$ & 99.82$_{\pm 0.01}$ & 99.43$_{\pm 0.11}$ & 99.71$_{\pm 0.12}$ & 99.48$_{\pm 0.04}$ & 97.00$_{\pm 0.18}$ & 99.22 & 98.31 \\
+NECO   &  77.18 & 23.45$_{\pm 0.93}$ & 95.96$_{\pm 0.40}$ & 65.38$_{\pm 0.39}$ & 75.96$_{\pm 0.54}$ & 66.88$_{\pm 0.76}$ & 87.80$_{\pm 0.50}$ & 69.24 & 72.85 \\
+FDBD   &  77.08 & 32.95$_{\pm 1.00}$ & 75.68$_{\pm 0.93}$ & 72.15$_{\pm 0.56}$ & 75.38$_{\pm 0.24}$ & 61.28$_{\pm 0.23}$ & 85.76$_{\pm 0.28}$ & 67.20 & 71.69 \\ \hline
+\gls{sys}  &  \textbf{60.83} &  \textbf{5.44}$_{\pm 1.22}$ &  \textbf{1.61}$_{\pm 0.47}$ &  \textbf{7.24}$_{\pm 0.84}$ & \textbf{10.55}$_{\pm 0.67}$ & \textbf{37.13}$_{\pm 2.65}$ & \textbf{50.99}$_{\pm 0.22}$ & \textbf{18.83} & \textbf{37.92} \\ \hline
+		\end{tabular}
+	}
+	\label{tab:table_ood_fpr95_f}
+\end{table*}
+
+%\begin{table*}[t!]
+%	\small
+%	\centering
+%	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-IN}: AUPR-IN OOD detection results between \gls{sys} and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. Avg.F is mean performance for far-OOD.
+%	}
+%	\scalebox{0.58}{
+%		\begin{tabular}{|l|ccccc|c|cccccc|c|c|}
+%			\hline
+%			\multirow{2}{*}{} &  \multicolumn{14}{c|}{ID data: ImageNet-100}  \\ \cline{2-15}
+%			& I-30 & I-900  & NINCO & SSB-Hard & Food & Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+%            MSP    & 89.65$_{\pm 0.70}$ & 38.44$_{\pm 3.33}$ & 72.37$_{\pm 3.19}$ & 21.67$_{\pm 1.93}$ & 69.30$_{\pm 0.80}$ & 58.29 & 86.03$_{\pm 0.81}$ & 69.99$_{\pm 6.11}$ & 72.92$_{\pm 1.80}$ & 69.83$_{\pm 0.25}$ & 65.39$_{\pm 3.99}$ & 62.41$_{\pm 4.00}$ & 71.09 & 65.27 \\
+%ENERGY & 92.45$_{\pm 0.06}$ & \textbf{58.74}$_{\pm 0.21}$ & 79.16$_{\pm 0.26}$ & \textbf{66.61}$_{\pm 1.43}$ & 65.82$_{\pm 1.47}$ & 72.56 & 92.01$_{\pm 0.13}$ & 77.49$_{\pm 0.71}$ & 88.04$_{\pm 0.27}$ & 77.69$_{\pm 0.39}$ & 68.68$_{\pm 0.11}$ & 39.01$_{\pm 0.88}$ & 73.82 & 73.25 \\
+%KNN    & 91.47$_{\pm 1.20}$ & 49.89$_{\pm 3.19}$ & 85.69$_{\pm 1.53}$ & 40.47$_{\pm 0.11}$ & 53.13$_{\pm 1.10}$ & 64.13 & 94.05$_{\pm 2.16}$ & 88.43$_{\pm 2.32}$ & 89.61$_{\pm 3.51}$ & 84.22$_{\pm 5.54}$ & 83.45$_{\pm 0.32}$ & 78.47$_{\pm 2.76}$ & 86.37 & 76.26 \\
+%VIM    & 91.70$_{\pm 1.46}$ & 47.69$_{\pm 5.17}$ & 88.24$_{\pm 0.95}$ & 43.63$_{\pm 0.43}$ & 55.78$_{\pm 1.15}$ & 65.41 & 97.94$_{\pm 0.68}$ & 93.93$_{\pm 0.07}$ & 96.34$_{\pm 1.70}$ & 88.39$_{\pm 3.66}$ & 87.72$_{\pm 0.26}$ & 84.12$_{\pm 0.10}$ & 91.41 & 79.59 \\
+%MD     & \textbf{93.34}$_{\pm 0.49}$ & 40.06$_{\pm 2.75}$ & 85.56$_{\pm 2.71}$ & 44.71$_{\pm 1.12}$ & 62.47$_{\pm 1.09}$ & 65.23 & 91.55$_{\pm 0.15}$ & 84.23$_{\pm 2.38}$ & 89.67$_{\pm 1.45}$ & 76.79$_{\pm 2.33}$ & 70.22$_{\pm 3.06}$ & 85.56$_{\pm 2.53}$ & 83.00 & 74.92 \\
+%GEN    & 85.71$_{\pm 0.67}$ & 18.32$_{\pm 3.76}$ & 47.35$_{\pm 2.32}$ & 10.78$_{\pm 0.29}$ & 66.04$_{\pm 1.47}$ & 45.64 & 77.27$_{\pm 1.67}$ & 31.52$_{\pm 3.11}$ & 58.37$_{\pm 7.15}$ & 58.88$_{\pm10.17}$ & 37.55$_{\pm 2.63}$ & 29.80$_{\pm 2.11}$ & 48.90 & 47.42 \\
+%REACT  & 85.60$_{\pm 0.73}$ & 17.97$_{\pm 3.81}$ & 47.00$_{\pm 2.39}$ & 10.65$_{\pm 0.32}$ & 65.82$_{\pm 1.47}$ & 45.41 & 76.97$_{\pm 1.53}$ & 31.05$_{\pm 3.14}$ & 57.97$_{\pm 7.01}$ & 58.51$_{\pm10.12}$ & 37.00$_{\pm 2.78}$ & 29.45$_{\pm 2.08}$ & 48.49 & 47.09 \\
+%PCA    & 91.78$_{\pm 2.85}$ & 42.18$_{\pm 8.72}$ & 80.92$_{\pm 2.61}$ & 31.39$_{\pm 0.49}$ & 60.93$_{\pm 0.67}$ & 61.44 & 93.33$_{\pm 2.11}$ & 82.10$_{\pm 0.81}$ & 92.90$_{\pm 4.37}$ & 89.20$_{\pm 6.47}$ & 80.40$_{\pm 2.75}$ & 69.82$_{\pm 0.32}$ & 84.63 & 74.09 \\
+%ASH    & 79.80$_{\pm 2.04}$ & 10.52$_{\pm 1.11}$ & 42.41$_{\pm 1.88}$ &  7.76$_{\pm 0.40}$ & 63.22$_{\pm 0.31}$ & 40.74 & 60.74$_{\pm 8.52}$ & 31.34$_{\pm 2.51}$ & 31.64$_{\pm 4.07}$ & 33.36$_{\pm 6.34}$ & 27.35$_{\pm 2.16}$ & 29.95$_{\pm 2.25}$ & 35.73 & 38.01 \\
+%SHE    & 87.65$_{\pm 2.45}$ & 35.36$_{\pm 7.97}$ & 76.22$_{\pm 1.80}$ & 26.82$_{\pm 2.51}$ & 45.56$_{\pm 0.96}$ & 54.32 & 88.64$_{\pm 1.69}$ & 77.17$_{\pm 3.27}$ & 79.03$_{\pm 5.51}$ & 74.66$_{\pm 6.77}$ & 70.38$_{\pm 2.55}$ & 61.63$_{\pm 5.37}$ & 75.25 & 65.74 \\
+%VRA    & 71.17$_{\pm 1.63}$ &  8.40$_{\pm 0.78}$ & 39.89$_{\pm 0.36}$ &  9.72$_{\pm 1.73}$ & 61.95$_{\pm 0.53}$ & 38.23 & 36.85$_{\pm 6.78}$ & 35.33$_{\pm 7.36}$ & 24.77$_{\pm 1.32}$ & 26.13$_{\pm 1.55}$ & 16.11$_{\pm 1.40}$ & 36.25$_{\pm 2.37}$ & 29.24 & 33.32 \\
+%NECO   & 92.35$_{\pm 0.23}$ & 52.95$_{\pm 0.90}$ & 87.40$_{\pm 1.38}$ & 43.33$_{\pm 2.37}$ & 73.09$_{\pm 0.38}$ & 69.82 & 94.35$_{\pm 2.15}$ & 90.56$_{\pm 1.08}$ & 91.20$_{\pm 1.66}$ & 86.52$_{\pm 2.51}$ & 85.07$_{\pm 2.73}$ & 81.42$_{\pm 2.05}$ & 88.19 & 79.84 \\
+%FDBD   & 90.73$_{\pm 0.27}$ & 44.13$_{\pm 0.86}$ & 78.94$_{\pm 1.28}$ & 29.25$_{\pm 0.59}$ & 65.38$_{\pm 0.22}$ & 61.69 & 90.09$_{\pm 0.63}$ & 79.26$_{\pm 2.82}$ & 82.41$_{\pm 1.66}$ & 78.30$_{\pm 1.79}$ & 75.31$_{\pm 2.38}$ & 69.36$_{\pm 1.22}$ & 79.12 & 71.20 \\ \hline
+%\gls{sys}  & 92.49$_{\pm 0.13}$ & 52.10$_{\pm 0.18}$ & \textbf{92.10}$_{\pm 0.20}$ & 51.91$_{\pm 0.41}$ & \textbf{81.85}$_{\pm 0.44}$ & \textbf{74.09} & \textbf{98.84}$_{\pm 0.08}$ & \textbf{99.81}$_{\pm 0.02}$ & \textbf{97.04}$_{\pm 0.18}$ & \textbf{92.35}$_{\pm 0.14}$ & \textbf{89.70}$_{\pm 0.16}$ & \textbf{88.56}$_{\pm 0.40}$ & \textbf{94.38} & \textbf{85.16} \\ \hline
+%			\multirow{2}{*}{} &  \multicolumn{14}{c|}{ID data: ImageNet-200}  \\ \cline{2-15}
+%			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+%            MSP    & 89.90$_{\pm 0.08}$ & 55.97$_{\pm 0.37}$ & 84.96$_{\pm 0.09}$ & 25.48$_{\pm 0.16}$ & 59.83$_{\pm 1.04}$ & 63.23 & 88.60$_{\pm 0.16}$ & 82.15$_{\pm 0.25}$ & 80.05$_{\pm 0.44}$ & 82.52$_{\pm 0.33}$ & 72.92$_{\pm 0.14}$ & 69.35$_{\pm 0.53}$ & 79.27 & 71.98 \\
+%ENERGY & 81.35$_{\pm 0.18}$ & 36.54$_{\pm 0.11}$ & 69.36$_{\pm 0.43}$ & 18.32$_{\pm 0.30}$ & 34.22$_{\pm 1.77}$ & 47.96 & 82.97$_{\pm 0.50}$ & 50.45$_{\pm 1.14}$ & 69.40$_{\pm 0.43}$ & 68.80$_{\pm 0.45}$ & 48.49$_{\pm 0.76}$ & 51.43$_{\pm 0.62}$ & 61.92 & 55.58 \\
+%KNN    & 90.29$_{\pm 0.03}$ & 62.68$_{\pm 0.03}$ & 89.55$_{\pm 0.10}$ & 36.25$_{\pm 0.15}$ & 70.27$_{\pm 0.59}$ & 69.81 & 95.55$_{\pm 0.05}$ & 89.43$_{\pm 0.20}$ & 93.45$_{\pm 0.18}$ & 92.04$_{\pm 0.31}$ & 85.85$_{\pm 0.28}$ & 76.84$_{\pm 0.02}$ & 88.86 & 80.20 \\
+%VIM    & 87.29$_{\pm 0.04}$ & 56.08$_{\pm 0.07}$ & 90.89$_{\pm 0.09}$ & 41.32$_{\pm 0.24}$ & 68.04$_{\pm 0.69}$ & 68.73 & 98.10$_{\pm 0.05}$ & 93.01$_{\pm 0.07}$ & 97.47$_{\pm 0.11}$ & 93.80$_{\pm 0.20}$ & 90.23$_{\pm 0.16}$ & 82.08$_{\pm 0.06}$ & 92.45 & 81.67 \\
+%MD     & 85.48$_{\pm 0.04}$ & 48.54$_{\pm 0.05}$ & 85.74$_{\pm 0.25}$ & 44.12$_{\pm 0.32}$ & 73.18$_{\pm 0.53}$ & 67.41 & 95.26$_{\pm 0.06}$ & 82.21$_{\pm 0.30}$ & 92.45$_{\pm 0.19}$ & 84.92$_{\pm 0.47}$ & 77.46$_{\pm 0.31}$ & 80.88$_{\pm 0.42}$ & 85.53 & 77.30 \\
+%GEN    & 60.20$_{\pm 0.17}$ & 15.85$_{\pm 0.12}$ & 63.47$_{\pm 0.48}$ & 16.65$_{\pm 0.33}$ & 26.18$_{\pm 0.89}$ & 36.47 & 51.55$_{\pm 0.36}$ & 69.97$_{\pm 1.14}$ & 40.61$_{\pm 0.58}$ & 45.56$_{\pm 0.55}$ & 32.42$_{\pm 0.31}$ & 60.08$_{\pm 0.62}$ & 50.03 & 43.87 \\
+%REACT  & 80.18$_{\pm 0.20}$ & 34.87$_{\pm 0.41}$ & 67.67$_{\pm 0.45}$ & 17.18$_{\pm 0.28}$ & 34.22$_{\pm 1.77}$ & 46.83 & 81.86$_{\pm 0.53}$ & 48.53$_{\pm 1.16}$ & 67.83$_{\pm 0.45}$ & 67.28$_{\pm 0.47}$ & 46.60$_{\pm 0.78}$ & 49.47$_{\pm 0.64}$ & 60.26 & 54.16 \\
+%PCA    & 83.68$_{\pm 0.11}$ & 42.00$_{\pm 0.11}$ & 88.39$_{\pm 0.20}$ & 34.88$_{\pm 0.27}$ & 66.11$_{\pm 0.49}$ & 63.01 & 93.58$_{\pm 0.10}$ & 82.29$_{\pm 0.26}$ & 92.01$_{\pm 0.10}$ & 87.75$_{\pm 0.21}$ & 80.93$_{\pm 0.47}$ & 72.85$_{\pm 0.30}$ & 84.90 & 74.95 \\
+%ASH    & 64.60$_{\pm 0.23}$ & 18.45$_{\pm 0.17}$ & 57.86$_{\pm 0.66}$ & 12.02$_{\pm 0.11}$ & 72.42$_{\pm 0.07}$ & 45.07 & 62.24$_{\pm 0.62}$ & 52.08$_{\pm 1.60}$ & 37.60$_{\pm 0.29}$ & 37.13$_{\pm 0.57}$ & 36.36$_{\pm 0.63}$ & 51.67$_{\pm 1.16}$ & 46.18 & 45.68 \\
+%SHE    & 84.03$_{\pm 0.09}$ & 39.66$_{\pm 0.08}$ & 85.05$_{\pm 0.22}$ & 24.90$_{\pm 0.27}$ & 47.27$_{\pm 1.03}$ & 56.18 & 92.47$_{\pm 0.13}$ & 77.44$_{\pm 0.43}$ & 89.43$_{\pm 0.33}$ & 89.45$_{\pm 0.50}$ & 71.57$_{\pm 0.60}$ & 61.91$_{\pm 0.09}$ & 80.38 & 69.38 \\
+%VRA    & 57.29$_{\pm 0.17}$ & 14.73$_{\pm 0.09}$ & 53.05$_{\pm 0.56}$ & 17.09$_{\pm 0.16}$ & 31.33$_{\pm 0.57}$ & 34.70 & 42.44$_{\pm 0.06}$ & 37.82$_{\pm 0.48}$ & 37.54$_{\pm 1.44}$ & 37.77$_{\pm 1.50}$ & 23.36$_{\pm 0.15}$ & 46.50$_{\pm 0.27}$ & 37.57 & 36.26 \\
+%NECO   & 88.61$_{\pm 0.04}$ & 59.81$_{\pm 0.11}$ & 88.91$_{\pm 0.03}$ & 36.91$_{\pm 0.07}$ & 67.73$_{\pm 0.37}$ & 68.39 & 94.54$_{\pm 0.04}$ & 87.45$_{\pm 0.33}$ & 92.51$_{\pm 0.11}$ & 92.00$_{\pm 0.08}$ & 85.25$_{\pm 0.21}$ & 78.16$_{\pm 0.23}$ & 88.32 & 79.26 \\
+%FDBD   & \textbf{91.37}$_{\pm 0.03}$ & 61.71$_{\pm 0.20}$ & 87.94$_{\pm 0.01}$ & 30.16$_{\pm 0.17}$ & 69.00$_{\pm 0.48}$ & 68.04 & 92.51$_{\pm 0.10}$ & 89.09$_{\pm 0.19}$ & 88.57$_{\pm 0.18}$ & 89.29$_{\pm 0.07}$ & 82.57$_{\pm 0.11}$ & 73.63$_{\pm 0.31}$ & 85.94 & 77.80 \\ \hline
+%\gls{sys}  & 91.33$_{\pm 0.72}$ & \textbf{64.74}$_{\pm 2.06}$ & \textbf{93.30}$_{\pm 0.17}$ & \textbf{46.75}$_{\pm 0.90}$ & \textbf{84.28}$_{\pm 2.56}$ & \textbf{76.08} & \textbf{98.84}$_{\pm 0.49}$ & \textbf{99.48}$_{\pm 0.09}$ & \textbf{98.14}$_{\pm 0.24}$ & \textbf{97.82}$_{\pm 0.16}$ & \textbf{92.19}$_{\pm 0.32}$ & \textbf{83.87}$_{\pm 1.55}$ & \textbf{95.06} & \textbf{86.43} \\ \hline
+%		\end{tabular}
+%	}
+%	\label{tab:table_ood_auprin}
+%\end{table*}
+
+\begin{table*}[t!]
+	\small
+	\centering
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-IN}: AUPR-IN \textit{near-OOD} detection results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
+	}
+	\scalebox{0.9}{
+		\begin{tabular}{|l|ccccc|c|}
+			\hline
+			\multirow{2}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-100}  \\ \cline{2-7}
+			& I-30 & I-900  & NINCO & SSB-Hard & Food & Avg.N \\ \hline
+            MSP    & 89.65$_{\pm 0.70}$ & 38.44$_{\pm 3.33}$ & 72.37$_{\pm 3.19}$ & 21.67$_{\pm 1.93}$ & 69.30$_{\pm 0.80}$ & 58.29  \\
+ENERGY & 92.45$_{\pm 0.06}$ & \textbf{58.74}$_{\pm 0.21}$ & 79.16$_{\pm 0.26}$ & \textbf{66.61}$_{\pm 1.43}$ & 65.82$_{\pm 1.47}$ & 72.56  \\
+KNN    & 91.47$_{\pm 1.20}$ & 49.89$_{\pm 3.19}$ & 85.69$_{\pm 1.53}$ & 40.47$_{\pm 0.11}$ & 53.13$_{\pm 1.10}$ & 64.13  \\
+VIM    & 91.70$_{\pm 1.46}$ & 47.69$_{\pm 5.17}$ & 88.24$_{\pm 0.95}$ & 43.63$_{\pm 0.43}$ & 55.78$_{\pm 1.15}$ & 65.41  \\
+MD     & \textbf{93.34}$_{\pm 0.49}$ & 40.06$_{\pm 2.75}$ & 85.56$_{\pm 2.71}$ & 44.71$_{\pm 1.12}$ & 62.47$_{\pm 1.09}$ & 65.23  \\
+GEN    & 85.71$_{\pm 0.67}$ & 18.32$_{\pm 3.76}$ & 47.35$_{\pm 2.32}$ & 10.78$_{\pm 0.29}$ & 66.04$_{\pm 1.47}$ & 45.64 \\
+REACT  & 85.60$_{\pm 0.73}$ & 17.97$_{\pm 3.81}$ & 47.00$_{\pm 2.39}$ & 10.65$_{\pm 0.32}$ & 65.82$_{\pm 1.47}$ & 45.41  \\
+PCA    & 91.78$_{\pm 2.85}$ & 42.18$_{\pm 8.72}$ & 80.92$_{\pm 2.61}$ & 31.39$_{\pm 0.49}$ & 60.93$_{\pm 0.67}$ & 61.44  \\
+ASH    & 79.80$_{\pm 2.04}$ & 10.52$_{\pm 1.11}$ & 42.41$_{\pm 1.88}$ &  7.76$_{\pm 0.40}$ & 63.22$_{\pm 0.31}$ & 40.74  \\
+SHE    & 87.65$_{\pm 2.45}$ & 35.36$_{\pm 7.97}$ & 76.22$_{\pm 1.80}$ & 26.82$_{\pm 2.51}$ & 45.56$_{\pm 0.96}$ & 54.32 \\
+VRA    & 71.17$_{\pm 1.63}$ &  8.40$_{\pm 0.78}$ & 39.89$_{\pm 0.36}$ &  9.72$_{\pm 1.73}$ & 61.95$_{\pm 0.53}$ & 38.23  \\
+NECO   & 92.35$_{\pm 0.23}$ & 52.95$_{\pm 0.90}$ & 87.40$_{\pm 1.38}$ & 43.33$_{\pm 2.37}$ & 73.09$_{\pm 0.38}$ & 69.82 \\
+FDBD   & 90.73$_{\pm 0.27}$ & 44.13$_{\pm 0.86}$ & 78.94$_{\pm 1.28}$ & 29.25$_{\pm 0.59}$ & 65.38$_{\pm 0.22}$ & 61.69  \\ \hline
+\gls{sys}  & 92.49$_{\pm 0.13}$ & 52.10$_{\pm 0.18}$ & \textbf{92.10}$_{\pm 0.20}$ & 51.91$_{\pm 0.41}$ & \textbf{81.85}$_{\pm 0.44}$ & \textbf{74.09}  \\ \hline
+			\multirow{2}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-200}  \\ \cline{2-7}
+			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N\\ \hline
+            MSP    & 89.90$_{\pm 0.08}$ & 55.97$_{\pm 0.37}$ & 84.96$_{\pm 0.09}$ & 25.48$_{\pm 0.16}$ & 59.83$_{\pm 1.04}$ & 63.23  \\
+ENERGY & 81.35$_{\pm 0.18}$ & 36.54$_{\pm 0.11}$ & 69.36$_{\pm 0.43}$ & 18.32$_{\pm 0.30}$ & 34.22$_{\pm 1.77}$ & 47.96  \\
+KNN    & 90.29$_{\pm 0.03}$ & 62.68$_{\pm 0.03}$ & 89.55$_{\pm 0.10}$ & 36.25$_{\pm 0.15}$ & 70.27$_{\pm 0.59}$ & 69.81 \\
+VIM    & 87.29$_{\pm 0.04}$ & 56.08$_{\pm 0.07}$ & 90.89$_{\pm 0.09}$ & 41.32$_{\pm 0.24}$ & 68.04$_{\pm 0.69}$ & 68.73 \\
+MD     & 85.48$_{\pm 0.04}$ & 48.54$_{\pm 0.05}$ & 85.74$_{\pm 0.25}$ & 44.12$_{\pm 0.32}$ & 73.18$_{\pm 0.53}$ & 67.41  \\
+GEN    & 60.20$_{\pm 0.17}$ & 15.85$_{\pm 0.12}$ & 63.47$_{\pm 0.48}$ & 16.65$_{\pm 0.33}$ & 26.18$_{\pm 0.89}$ & 36.47  \\
+REACT  & 80.18$_{\pm 0.20}$ & 34.87$_{\pm 0.41}$ & 67.67$_{\pm 0.45}$ & 17.18$_{\pm 0.28}$ & 34.22$_{\pm 1.77}$ & 46.83 \\
+PCA    & 83.68$_{\pm 0.11}$ & 42.00$_{\pm 0.11}$ & 88.39$_{\pm 0.20}$ & 34.88$_{\pm 0.27}$ & 66.11$_{\pm 0.49}$ & 63.01  \\
+ASH    & 64.60$_{\pm 0.23}$ & 18.45$_{\pm 0.17}$ & 57.86$_{\pm 0.66}$ & 12.02$_{\pm 0.11}$ & 72.42$_{\pm 0.07}$ & 45.07 \\
+SHE    & 84.03$_{\pm 0.09}$ & 39.66$_{\pm 0.08}$ & 85.05$_{\pm 0.22}$ & 24.90$_{\pm 0.27}$ & 47.27$_{\pm 1.03}$ & 56.18  \\
+VRA    & 57.29$_{\pm 0.17}$ & 14.73$_{\pm 0.09}$ & 53.05$_{\pm 0.56}$ & 17.09$_{\pm 0.16}$ & 31.33$_{\pm 0.57}$ & 34.70  \\
+NECO   & 88.61$_{\pm 0.04}$ & 59.81$_{\pm 0.11}$ & 88.91$_{\pm 0.03}$ & 36.91$_{\pm 0.07}$ & 67.73$_{\pm 0.37}$ & 68.39 \\
+FDBD   & \textbf{91.37}$_{\pm 0.03}$ & 61.71$_{\pm 0.20}$ & 87.94$_{\pm 0.01}$ & 30.16$_{\pm 0.17}$ & 69.00$_{\pm 0.48}$ & 68.04 \\ \hline
+\gls{sys}  & 91.33$_{\pm 0.72}$ & \textbf{64.74}$_{\pm 2.06}$ & \textbf{93.30}$_{\pm 0.17}$ & \textbf{46.75}$_{\pm 0.90}$ & \textbf{84.28}$_{\pm 2.56}$ & \textbf{76.08} \\ \hline
+		\end{tabular}
+	}
+	\label{tab:table_ood_auprin}
+\end{table*}
+
+\begin{table*}[t!]
+	\small
+	\centering
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-IN}: AUPR-IN \textit{far-OOD} detection and average results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
+	}
+	\scalebox{0.77}{
+		\begin{tabular}{|l|c|cccccc|c|c|}
+			\hline
+			\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-100}  \\ \cline{2-10}
+			&  Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+            MSP    & 58.29 & 86.03$_{\pm 0.81}$ & 69.99$_{\pm 6.11}$ & 72.92$_{\pm 1.80}$ & 69.83$_{\pm 0.25}$ & 65.39$_{\pm 3.99}$ & 62.41$_{\pm 4.00}$ & 71.09 & 65.27 \\
+ENERGY &  72.56 & 92.01$_{\pm 0.13}$ & 77.49$_{\pm 0.71}$ & 88.04$_{\pm 0.27}$ & 77.69$_{\pm 0.39}$ & 68.68$_{\pm 0.11}$ & 39.01$_{\pm 0.88}$ & 73.82 & 73.25 \\
+KNN    & 64.13 & 94.05$_{\pm 2.16}$ & 88.43$_{\pm 2.32}$ & 89.61$_{\pm 3.51}$ & 84.22$_{\pm 5.54}$ & 83.45$_{\pm 0.32}$ & 78.47$_{\pm 2.76}$ & 86.37 & 76.26 \\
+VIM    & 65.41 & 97.94$_{\pm 0.68}$ & 93.93$_{\pm 0.07}$ & 96.34$_{\pm 1.70}$ & 88.39$_{\pm 3.66}$ & 87.72$_{\pm 0.26}$ & 84.12$_{\pm 0.10}$ & 91.41 & 79.59 \\
+MD     &  65.23 & 91.55$_{\pm 0.15}$ & 84.23$_{\pm 2.38}$ & 89.67$_{\pm 1.45}$ & 76.79$_{\pm 2.33}$ & 70.22$_{\pm 3.06}$ & 85.56$_{\pm 2.53}$ & 83.00 & 74.92 \\
+GEN    &  45.64 & 77.27$_{\pm 1.67}$ & 31.52$_{\pm 3.11}$ & 58.37$_{\pm 7.15}$ & 58.88$_{\pm10.17}$ & 37.55$_{\pm 2.63}$ & 29.80$_{\pm 2.11}$ & 48.90 & 47.42 \\
+REACT  &  45.41 & 76.97$_{\pm 1.53}$ & 31.05$_{\pm 3.14}$ & 57.97$_{\pm 7.01}$ & 58.51$_{\pm10.12}$ & 37.00$_{\pm 2.78}$ & 29.45$_{\pm 2.08}$ & 48.49 & 47.09 \\
+PCA    &  61.44 & 93.33$_{\pm 2.11}$ & 82.10$_{\pm 0.81}$ & 92.90$_{\pm 4.37}$ & 89.20$_{\pm 6.47}$ & 80.40$_{\pm 2.75}$ & 69.82$_{\pm 0.32}$ & 84.63 & 74.09 \\
+ASH    &  40.74 & 60.74$_{\pm 8.52}$ & 31.34$_{\pm 2.51}$ & 31.64$_{\pm 4.07}$ & 33.36$_{\pm 6.34}$ & 27.35$_{\pm 2.16}$ & 29.95$_{\pm 2.25}$ & 35.73 & 38.01 \\
+SHE    &  54.32 & 88.64$_{\pm 1.69}$ & 77.17$_{\pm 3.27}$ & 79.03$_{\pm 5.51}$ & 74.66$_{\pm 6.77}$ & 70.38$_{\pm 2.55}$ & 61.63$_{\pm 5.37}$ & 75.25 & 65.74 \\
+VRA    &  38.23 & 36.85$_{\pm 6.78}$ & 35.33$_{\pm 7.36}$ & 24.77$_{\pm 1.32}$ & 26.13$_{\pm 1.55}$ & 16.11$_{\pm 1.40}$ & 36.25$_{\pm 2.37}$ & 29.24 & 33.32 \\
+NECO   & 69.82 & 94.35$_{\pm 2.15}$ & 90.56$_{\pm 1.08}$ & 91.20$_{\pm 1.66}$ & 86.52$_{\pm 2.51}$ & 85.07$_{\pm 2.73}$ & 81.42$_{\pm 2.05}$ & 88.19 & 79.84 \\
+FDBD   &  61.69 & 90.09$_{\pm 0.63}$ & 79.26$_{\pm 2.82}$ & 82.41$_{\pm 1.66}$ & 78.30$_{\pm 1.79}$ & 75.31$_{\pm 2.38}$ & 69.36$_{\pm 1.22}$ & 79.12 & 71.20 \\ \hline
+\gls{sys}  & \textbf{74.09} & \textbf{98.84}$_{\pm 0.08}$ & \textbf{99.81}$_{\pm 0.02}$ & \textbf{97.04}$_{\pm 0.18}$ & \textbf{92.35}$_{\pm 0.14}$ & \textbf{89.70}$_{\pm 0.16}$ & \textbf{88.56}$_{\pm 0.40}$ & \textbf{94.38} & \textbf{85.16} \\ \hline
+			\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-200}  \\ \cline{2-10}
+			&  Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+            MSP    & 63.23 & 88.60$_{\pm 0.16}$ & 82.15$_{\pm 0.25}$ & 80.05$_{\pm 0.44}$ & 82.52$_{\pm 0.33}$ & 72.92$_{\pm 0.14}$ & 69.35$_{\pm 0.53}$ & 79.27 & 71.98 \\
+ENERGY & 47.96 & 82.97$_{\pm 0.50}$ & 50.45$_{\pm 1.14}$ & 69.40$_{\pm 0.43}$ & 68.80$_{\pm 0.45}$ & 48.49$_{\pm 0.76}$ & 51.43$_{\pm 0.62}$ & 61.92 & 55.58 \\
+KNN    & 69.81 & 95.55$_{\pm 0.05}$ & 89.43$_{\pm 0.20}$ & 93.45$_{\pm 0.18}$ & 92.04$_{\pm 0.31}$ & 85.85$_{\pm 0.28}$ & 76.84$_{\pm 0.02}$ & 88.86 & 80.20 \\
+VIM    &  68.73 & 98.10$_{\pm 0.05}$ & 93.01$_{\pm 0.07}$ & 97.47$_{\pm 0.11}$ & 93.80$_{\pm 0.20}$ & 90.23$_{\pm 0.16}$ & 82.08$_{\pm 0.06}$ & 92.45 & 81.67 \\
+MD     &  67.41 & 95.26$_{\pm 0.06}$ & 82.21$_{\pm 0.30}$ & 92.45$_{\pm 0.19}$ & 84.92$_{\pm 0.47}$ & 77.46$_{\pm 0.31}$ & 80.88$_{\pm 0.42}$ & 85.53 & 77.30 \\
+GEN    & 36.47 & 51.55$_{\pm 0.36}$ & 69.97$_{\pm 1.14}$ & 40.61$_{\pm 0.58}$ & 45.56$_{\pm 0.55}$ & 32.42$_{\pm 0.31}$ & 60.08$_{\pm 0.62}$ & 50.03 & 43.87 \\
+REACT  &  46.83 & 81.86$_{\pm 0.53}$ & 48.53$_{\pm 1.16}$ & 67.83$_{\pm 0.45}$ & 67.28$_{\pm 0.47}$ & 46.60$_{\pm 0.78}$ & 49.47$_{\pm 0.64}$ & 60.26 & 54.16 \\
+PCA    &  63.01 & 93.58$_{\pm 0.10}$ & 82.29$_{\pm 0.26}$ & 92.01$_{\pm 0.10}$ & 87.75$_{\pm 0.21}$ & 80.93$_{\pm 0.47}$ & 72.85$_{\pm 0.30}$ & 84.90 & 74.95 \\
+ASH    & 45.07 & 62.24$_{\pm 0.62}$ & 52.08$_{\pm 1.60}$ & 37.60$_{\pm 0.29}$ & 37.13$_{\pm 0.57}$ & 36.36$_{\pm 0.63}$ & 51.67$_{\pm 1.16}$ & 46.18 & 45.68 \\
+SHE    & 56.18 & 92.47$_{\pm 0.13}$ & 77.44$_{\pm 0.43}$ & 89.43$_{\pm 0.33}$ & 89.45$_{\pm 0.50}$ & 71.57$_{\pm 0.60}$ & 61.91$_{\pm 0.09}$ & 80.38 & 69.38 \\
+VRA    & 34.70 & 42.44$_{\pm 0.06}$ & 37.82$_{\pm 0.48}$ & 37.54$_{\pm 1.44}$ & 37.77$_{\pm 1.50}$ & 23.36$_{\pm 0.15}$ & 46.50$_{\pm 0.27}$ & 37.57 & 36.26 \\
+NECO   &  68.39 & 94.54$_{\pm 0.04}$ & 87.45$_{\pm 0.33}$ & 92.51$_{\pm 0.11}$ & 92.00$_{\pm 0.08}$ & 85.25$_{\pm 0.21}$ & 78.16$_{\pm 0.23}$ & 88.32 & 79.26 \\
+FDBD   &  68.04 & 92.51$_{\pm 0.10}$ & 89.09$_{\pm 0.19}$ & 88.57$_{\pm 0.18}$ & 89.29$_{\pm 0.07}$ & 82.57$_{\pm 0.11}$ & 73.63$_{\pm 0.31}$ & 85.94 & 77.80 \\ \hline
+\gls{sys}  &  \textbf{76.08} & \textbf{98.84}$_{\pm 0.49}$ & \textbf{99.48}$_{\pm 0.09}$ & \textbf{98.14}$_{\pm 0.24}$ & \textbf{97.82}$_{\pm 0.16}$ & \textbf{92.19}$_{\pm 0.32}$ & \textbf{83.87}$_{\pm 1.55}$ & \textbf{95.06} & \textbf{86.43} \\ \hline
+		\end{tabular}
+	}
+	\label{tab:table_ood_auprin_f}
+\end{table*}
+
+%\begin{table*}[t!]
+%	\small
+%	\centering
+%	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-OUT}: AUPR-OUT OOD detection results between \gls{sys} and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. Avg.F is mean performance for far-OOD.
+%	}
+%	\scalebox{0.58}{
+%		\begin{tabular}{|l|ccccc|c|cccccc|c|c|}
+%			\hline
+%			\multirow{2}{*}{} &  \multicolumn{14}{c|}{ID data: ImageNet-100}  \\ \cline{2-15}
+%			& I-30 & I-900  & NINCO & SSB-Hard & Food & Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+%            MSP    & 55.51$_{\pm 2.13}$ & 96.89$_{\pm 0.04}$ & 77.72$_{\pm 0.18}$ & 95.59$_{\pm 0.04}$ & 92.86$_{\pm 0.24}$ & 83.71 & 88.55$_{\pm 2.85}$ & 82.94$_{\pm 2.14}$ & 86.76$_{\pm 3.97}$ & 85.31$_{\pm 3.74}$ & 93.73$_{\pm 0.42}$ & 80.93$_{\pm 0.73}$ & 86.37 & 85.16 \\
+%ENERGY & 52.76$_{\pm 0.39}$ & 81.95$_{\pm 0.05}$ & 80.35$_{\pm 0.19}$ & 97.68$_{\pm 0.05}$ & 93.76$_{\pm 0.23}$ & 81.30 & 90.04$_{\pm 0.21}$ & 85.68$_{\pm 0.41}$ & 92.19$_{\pm 0.16}$ & 86.04$_{\pm 0.30}$ & 95.16$_{\pm 0.09}$ & 84.83$_{\pm 0.21}$ & 88.99 & 85.49 \\
+%KNN    & 66.13$_{\pm 7.49}$ & 97.77$_{\pm 0.94}$ & 88.19$_{\pm 3.66}$ & 97.36$_{\pm 1.31}$ & 86.60$_{\pm 0.39}$ & 87.21 & 96.08$_{\pm 1.53}$ & 94.49$_{\pm 3.42}$ & 96.38$_{\pm 1.95}$ & 94.15$_{\pm 4.60}$ & 97.55$_{\pm 0.45}$ & 91.80$_{\pm 3.65}$ & 95.07 & 91.50 \\
+%VIM    & 70.15$_{\pm 6.83}$ & 98.08$_{\pm 0.60}$ & 91.63$_{\pm 1.92}$ & 98.37$_{\pm 0.58}$ & 90.55$_{\pm 0.31}$ & 89.76 & 98.59$_{\pm 0.44}$ & 97.68$_{\pm 0.21}$ & 98.86$_{\pm 0.56}$ & 96.34$_{\pm 2.17}$ & 98.46$_{\pm 0.19}$ & 95.70$_{\pm 0.48}$ & 97.60 & 94.04 \\
+%MD     & \textbf{73.72}$_{\pm 1.55}$ & 98.30$_{\pm 0.15}$ & 88.26$_{\pm 2.23}$ & 98.69$_{\pm 0.18}$ & 92.57$_{\pm 0.30}$ & 90.31 & 93.57$_{\pm 0.13}$ & 92.65$_{\pm 1.22}$ & 94.59$_{\pm 1.14}$ & 90.34$_{\pm 1.48}$ & 95.54$_{\pm 0.66}$ & 95.33$_{\pm 0.93}$ & 93.67 & 92.14 \\
+%GEN    & 43.74$_{\pm 1.99}$ & 94.66$_{\pm 0.17}$ & 63.53$_{\pm 0.61}$ & 93.28$_{\pm 0.49}$ & 93.79$_{\pm 0.24}$ & 77.80 & 83.37$_{\pm 4.88}$ & 64.06$_{\pm 3.62}$ & 78.41$_{\pm 8.73}$ & 77.08$_{\pm10.16}$ & 88.27$_{\pm 1.31}$ & 65.19$_{\pm 3.08}$ & 76.06 & 76.85 \\
+%REACT  & 43.50$_{\pm 1.95}$ & 94.61$_{\pm 0.19}$ & 63.29$_{\pm 0.51}$ & 93.22$_{\pm 0.48}$ & 93.76$_{\pm 0.23}$ & 77.68 & 83.24$_{\pm 4.82}$ & 63.79$_{\pm 3.49}$ & 78.26$_{\pm 8.67}$ & 76.95$_{\pm10.12}$ & 88.15$_{\pm 1.26}$ & 64.96$_{\pm 2.99}$ & 75.89 & 76.70 \\
+%PCA    & 69.22$_{\pm 7.08}$ & 98.14$_{\pm 0.62}$ & 87.68$_{\pm 2.05}$ & 98.05$_{\pm 0.54}$ & 92.26$_{\pm 0.17}$ & 89.07 & 94.33$_{\pm 2.08}$ & 92.11$_{\pm 1.50}$ & 96.05$_{\pm 3.01}$ & 94.68$_{\pm 3.67}$ & 96.93$_{\pm 1.11}$ & 90.28$_{\pm 0.92}$ & 94.06 & 91.79 \\
+%ASH    & 31.76$_{\pm 1.12}$ & 92.62$_{\pm 0.31}$ & 56.03$_{\pm 0.92}$ & 91.09$_{\pm 0.75}$ & 89.12$_{\pm 0.14}$ & 72.12 & 70.14$_{\pm 9.21}$ & 68.87$_{\pm 0.53}$ & 65.24$_{\pm 5.43}$ & 64.53$_{\pm 5.33}$ & 86.18$_{\pm 1.93}$ & 67.17$_{\pm 0.79}$ & 70.36 & 71.16 \\
+%SHE    & 47.20$_{\pm11.66}$ & 95.65$_{\pm 1.55}$ & 78.40$_{\pm 5.11}$ & 94.78$_{\pm 1.79}$ & 89.01$_{\pm 0.20}$ & 81.01 & 90.58$_{\pm 1.62}$ & 88.20$_{\pm 5.16}$ & 91.15$_{\pm 4.61}$ & 89.58$_{\pm 6.84}$ & 94.68$_{\pm 1.25}$ & 80.73$_{\pm 6.08}$ & 89.15 & 85.45 \\
+%VRA    & 19.85$_{\pm 0.56}$ & 89.93$_{\pm 0.71}$ & 50.17$_{\pm 0.94}$ & 92.62$_{\pm 1.30}$ & 91.89$_{\pm 0.17}$ & 68.89 & 41.04$_{\pm 2.97}$ & 61.69$_{\pm 3.29}$ & 57.30$_{\pm 1.86}$ & 58.05$_{\pm 0.96}$ & 69.81$_{\pm 0.61}$ & 67.72$_{\pm 1.03}$ & 59.27 & 63.64 \\
+%NECO   & 73.63$_{\pm 2.55}$ & 98.51$_{\pm 0.21}$ & 90.66$_{\pm 0.13}$ & 98.45$_{\pm 0.21}$ & 96.09$_{\pm 0.08}$ & 91.47 & 95.89$_{\pm 1.32}$ & 96.00$_{\pm 0.32}$ & 96.66$_{\pm 0.99}$ & 95.24$_{\pm 1.41}$ & 97.96$_{\pm 0.13}$ & 94.52$_{\pm 0.48}$ & 96.05 & 93.96 \\
+%FDBD   & 60.17$_{\pm 2.73}$ & 97.44$_{\pm 0.15}$ & 82.62$_{\pm 0.69}$ & 96.66$_{\pm 0.33}$ & 92.00$_{\pm 0.12}$ & 85.78 & 91.75$_{\pm 0.92}$ & 88.55$_{\pm 2.67}$ & 91.73$_{\pm 2.47}$ & 90.48$_{\pm 3.15}$ & 95.45$_{\pm 0.38}$ & 85.56$_{\pm 2.16}$ & 90.59 & 88.40 \\ \hline
+%\gls{sys}  & 72.04$_{\pm 0.35}$ & \textbf{98.45}$_{\pm 0.01}$ & \textbf{94.19}$_{\pm 0.11}$ & \textbf{98.76}$_{\pm 0.02}$ & \textbf{97.24}$_{\pm 0.31}$ & \textbf{92.14} & \textbf{99.21}$_{\pm 0.06}$ & \textbf{99.94}$_{\pm 0.00}$ & \textbf{99.24}$_{\pm 0.08}$ & \textbf{98.24}$_{\pm 0.02}$ & \textbf{98.57}$_{\pm 0.05}$ & \textbf{97.37}$_{\pm 0.13}$ & \textbf{98.76} & \textbf{95.75} \\ \hline
+%			\multirow{2}{*}{} &  \multicolumn{14}{c|}{ID data: ImageNet-200}  \\ \cline{2-15}
+%			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+%            MSP    & 67.21$_{\pm 0.38}$ & 93.83$_{\pm 0.12}$ & 64.82$_{\pm 0.43}$ & 89.66$_{\pm 0.18}$ & 73.77$_{\pm 0.64}$ & 77.86 & 79.93$_{\pm 0.52}$ & 71.23$_{\pm 0.59}$ & 73.21$_{\pm 0.50}$ & 74.26$_{\pm 0.56}$ & 86.07$_{\pm 0.18}$ & 64.97$_{\pm 0.30}$ & 74.95 & 76.27 \\
+%ENERGY & 53.45$_{\pm 0.46}$ & 89.64$_{\pm 0.03}$ & 47.49$_{\pm 0.17}$ & 85.44$_{\pm 0.29}$ & 69.15$_{\pm 1.15}$ & 69.03 & 70.66$_{\pm 0.20}$ & 45.03$_{\pm 0.83}$ & 67.45$_{\pm 0.47}$ & 64.35$_{\pm 0.30}$ & 76.04$_{\pm 0.22}$ & 49.30$_{\pm 0.36}$ & 62.14 & 65.27 \\
+%KNN    & 67.28$_{\pm 0.24}$ & 94.41$_{\pm 0.05}$ & 72.30$_{\pm 0.38}$ & 91.83$_{\pm 0.07}$ & 78.08$_{\pm 0.30}$ & 80.78 & 95.21$_{\pm 0.08}$ & 79.68$_{\pm 0.36}$ & 91.04$_{\pm 0.53}$ & 83.84$_{\pm 0.92}$ & 93.45$_{\pm 0.15}$ & 73.10$_{\pm 0.22}$ & 86.05 & 83.66 \\
+%VIM    & 68.88$_{\pm 0.13}$ & 94.91$_{\pm 0.03}$ & 77.45$_{\pm 0.23}$ & 93.98$_{\pm 0.03}$ & 80.42$_{\pm 0.35}$ & 83.13 & 97.46$_{\pm 0.03}$ & 88.19$_{\pm 0.14}$ & 97.14$_{\pm 0.17}$ & 89.80$_{\pm 0.39}$ & 95.30$_{\pm 0.09}$ & 80.55$_{\pm 0.02}$ & 91.41 & 87.64 \\
+%MD     & 72.38$_{\pm 0.06}$ & 95.14$_{\pm 0.01}$ & 65.39$_{\pm 0.32}$ & 94.76$_{\pm 0.04}$ & 82.49$_{\pm 0.30}$ & 82.03 & 88.14$_{\pm 0.03}$ & 72.21$_{\pm 0.10}$ & 86.56$_{\pm 0.27}$ & 80.16$_{\pm 0.46}$ & 87.34$_{\pm 0.09}$ & 77.97$_{\pm 0.34}$ & 82.06 & 82.05 \\
+%GEN    & 32.57$_{\pm 0.18}$ & 79.45$_{\pm 0.17}$ & 45.54$_{\pm 0.68}$ & 86.54$_{\pm 0.24}$ & 65.11$_{\pm 1.18}$ & 61.84 & 30.92$_{\pm 0.73}$ & 69.41$_{\pm 1.37}$ & 45.31$_{\pm 0.54}$ & 49.28$_{\pm 0.77}$ & 66.09$_{\pm 0.47}$ & 66.65$_{\pm 0.94}$ & 54.61 & 57.90 \\
+%REACT  & 55.52$_{\pm 0.47}$ & 90.41$_{\pm 0.17}$ & 49.61$_{\pm 0.18}$ & 86.48$_{\pm 0.27}$ & 69.15$_{\pm 1.15}$ & 70.23 & 72.29$_{\pm 0.20}$ & 47.12$_{\pm 0.84}$ & 69.30$_{\pm 0.46}$ & 66.23$_{\pm 0.30}$ & 77.55$_{\pm 0.21}$ & 51.46$_{\pm 0.36}$ & 63.99 & 66.83 \\
+%PCA    & 69.88$_{\pm 0.11}$ & 93.23$_{\pm 0.03}$ & 70.47$_{\pm 0.34}$ & 92.07$_{\pm 0.05}$ & 81.56$_{\pm 0.14}$ & 81.44 & 85.62$_{\pm 0.07}$ & 77.18$_{\pm 0.34}$ & 88.18$_{\pm 0.17}$ & 84.89$_{\pm 0.20}$ & 90.17$_{\pm 0.19}$ & 74.74$_{\pm 0.19}$ & 83.46 & 82.54 \\
+%ASH    & 39.89$_{\pm 0.30}$ & 83.70$_{\pm 0.13}$ & 38.50$_{\pm 0.56}$ & 81.02$_{\pm 0.22}$ & 76.50$_{\pm 0.13}$ & 63.92 & 38.19$_{\pm 0.52}$ & 58.46$_{\pm 1.52}$ & 45.28$_{\pm 0.62}$ & 45.53$_{\pm 0.93}$ & 69.70$_{\pm 0.52}$ & 59.26$_{\pm 0.99}$ & 52.74 & 57.82 \\
+%SHE    & 56.41$_{\pm 0.39}$ & 90.57$_{\pm 0.11}$ & 62.88$_{\pm 0.66}$ & 88.65$_{\pm 0.13}$ & 71.89$_{\pm 0.49}$ & 74.08 & 88.69$_{\pm 0.56}$ & 71.67$_{\pm 0.72}$ & 87.54$_{\pm 0.96}$ & 81.75$_{\pm 1.36}$ & 88.42$_{\pm 0.31}$ & 61.50$_{\pm 0.25}$ & 79.93 & 77.27 \\
+%VRA    & 28.74$_{\pm 0.21}$ & 76.76$_{\pm 0.18}$ & 31.81$_{\pm 0.40}$ & 86.29$_{\pm 0.09}$ & 60.53$_{\pm 0.36}$ & 56.82 & 23.22$_{\pm 0.03}$ & 39.96$_{\pm 0.30}$ & 40.45$_{\pm 1.27}$ & 39.72$_{\pm 1.09}$ & 51.73$_{\pm 0.26}$ & 49.00$_{\pm 0.36}$ & 40.68 & 48.02 \\
+%NECO   & 70.46$_{\pm 0.18}$ & 95.19$_{\pm 0.04}$ & 70.23$_{\pm 0.38}$ & 92.25$_{\pm 0.07}$ & 79.42$_{\pm 0.36}$ & 81.51 & 92.32$_{\pm 0.30}$ & 71.65$_{\pm 0.57}$ & 86.49$_{\pm 0.32}$ & 83.79$_{\pm 0.32}$ & 91.27$_{\pm 0.19}$ & 73.15$_{\pm 0.33}$ & 83.11 & 82.38 \\
+%FDBD   & 71.33$_{\pm 0.26}$ & 94.98$_{\pm 0.06}$ & 71.39$_{\pm 0.32}$ & 91.97$_{\pm 0.11}$ & 78.90$_{\pm 0.41}$ & 81.71 & 87.78$_{\pm 0.37}$ & 81.55$_{\pm 0.37}$ & 83.44$_{\pm 0.22}$ & 82.02$_{\pm 0.17}$ & 91.10$_{\pm 0.11}$ & 71.27$_{\pm 0.24}$ & 82.86 & 82.34 \\ \hline
+%\gls{sys}  & \textbf{75.02}$_{\pm 0.80}$ & \textbf{96.24}$_{\pm 0.14}$ & \textbf{83.54}$_{\pm 0.50}$ & \textbf{95.73}$_{\pm 0.20}$ & \textbf{89.96}$_{\pm 2.88}$ & \textbf{88.10} & \textbf{98.01}$_{\pm 0.50}$ & \textbf{99.28}$_{\pm 0.20}$ & \textbf{98.23}$_{\pm 0.15}$ & \textbf{97.50}$_{\pm 0.05}$ & \textbf{95.98}$_{\pm 0.20}$ & \textbf{87.41}$_{\pm 0.27}$ & \textbf{96.07} & \textbf{92.45} \\ \hline
+%		\end{tabular}
+%	}
+%	\label{tab:table_ood_auprout}
+%\end{table*}
+
+\begin{table*}[t!]
+	\small
+	\centering
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-OUT}: AUPR-OUT \textit{near-OOD} detection results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
+	}
+	\scalebox{0.9}{
+		\begin{tabular}{|l|ccccc|c|}
+			\hline
+			\multirow{2}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-100}  \\ \cline{2-7}
+			& I-30 & I-900  & NINCO & SSB-Hard & Food & Avg.N\\ \hline
+            MSP    & 55.51$_{\pm 2.13}$ & 96.89$_{\pm 0.04}$ & 77.72$_{\pm 0.18}$ & 95.59$_{\pm 0.04}$ & 92.86$_{\pm 0.24}$ & 83.71  \\
+ENERGY & 52.76$_{\pm 0.39}$ & 81.95$_{\pm 0.05}$ & 80.35$_{\pm 0.19}$ & 97.68$_{\pm 0.05}$ & 93.76$_{\pm 0.23}$ & 81.30 \\
+KNN    & 66.13$_{\pm 7.49}$ & 97.77$_{\pm 0.94}$ & 88.19$_{\pm 3.66}$ & 97.36$_{\pm 1.31}$ & 86.60$_{\pm 0.39}$ & 87.21  \\
+VIM    & 70.15$_{\pm 6.83}$ & 98.08$_{\pm 0.60}$ & 91.63$_{\pm 1.92}$ & 98.37$_{\pm 0.58}$ & 90.55$_{\pm 0.31}$ & 89.76  \\
+MD     & \textbf{73.72}$_{\pm 1.55}$ & 98.30$_{\pm 0.15}$ & 88.26$_{\pm 2.23}$ & 98.69$_{\pm 0.18}$ & 92.57$_{\pm 0.30}$ & 90.31\\
+GEN    & 43.74$_{\pm 1.99}$ & 94.66$_{\pm 0.17}$ & 63.53$_{\pm 0.61}$ & 93.28$_{\pm 0.49}$ & 93.79$_{\pm 0.24}$ & 77.80  \\
+REACT  & 43.50$_{\pm 1.95}$ & 94.61$_{\pm 0.19}$ & 63.29$_{\pm 0.51}$ & 93.22$_{\pm 0.48}$ & 93.76$_{\pm 0.23}$ & 77.68  \\
+PCA    & 69.22$_{\pm 7.08}$ & 98.14$_{\pm 0.62}$ & 87.68$_{\pm 2.05}$ & 98.05$_{\pm 0.54}$ & 92.26$_{\pm 0.17}$ & 89.07  \\
+ASH    & 31.76$_{\pm 1.12}$ & 92.62$_{\pm 0.31}$ & 56.03$_{\pm 0.92}$ & 91.09$_{\pm 0.75}$ & 89.12$_{\pm 0.14}$ & 72.12 \\
+SHE    & 47.20$_{\pm11.66}$ & 95.65$_{\pm 1.55}$ & 78.40$_{\pm 5.11}$ & 94.78$_{\pm 1.79}$ & 89.01$_{\pm 0.20}$ & 81.01  \\
+VRA    & 19.85$_{\pm 0.56}$ & 89.93$_{\pm 0.71}$ & 50.17$_{\pm 0.94}$ & 92.62$_{\pm 1.30}$ & 91.89$_{\pm 0.17}$ & 68.89  \\
+NECO   & 73.63$_{\pm 2.55}$ & 98.51$_{\pm 0.21}$ & 90.66$_{\pm 0.13}$ & 98.45$_{\pm 0.21}$ & 96.09$_{\pm 0.08}$ & 91.47  \\
+FDBD   & 60.17$_{\pm 2.73}$ & 97.44$_{\pm 0.15}$ & 82.62$_{\pm 0.69}$ & 96.66$_{\pm 0.33}$ & 92.00$_{\pm 0.12}$ & 85.78  \\ \hline
+\gls{sys}  & 72.04$_{\pm 0.35}$ & \textbf{98.45}$_{\pm 0.01}$ & \textbf{94.19}$_{\pm 0.11}$ & \textbf{98.76}$_{\pm 0.02}$ & \textbf{97.24}$_{\pm 0.31}$ & \textbf{92.14}  \\ \hline
+			\multirow{2}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-200}  \\ \cline{2-7}
+			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N\\ \hline
+            MSP    & 67.21$_{\pm 0.38}$ & 93.83$_{\pm 0.12}$ & 64.82$_{\pm 0.43}$ & 89.66$_{\pm 0.18}$ & 73.77$_{\pm 0.64}$ & 77.86  \\
+ENERGY & 53.45$_{\pm 0.46}$ & 89.64$_{\pm 0.03}$ & 47.49$_{\pm 0.17}$ & 85.44$_{\pm 0.29}$ & 69.15$_{\pm 1.15}$ & 69.03  \\
+KNN    & 67.28$_{\pm 0.24}$ & 94.41$_{\pm 0.05}$ & 72.30$_{\pm 0.38}$ & 91.83$_{\pm 0.07}$ & 78.08$_{\pm 0.30}$ & 80.78  \\
+VIM    & 68.88$_{\pm 0.13}$ & 94.91$_{\pm 0.03}$ & 77.45$_{\pm 0.23}$ & 93.98$_{\pm 0.03}$ & 80.42$_{\pm 0.35}$ & 83.13  \\
+MD     & 72.38$_{\pm 0.06}$ & 95.14$_{\pm 0.01}$ & 65.39$_{\pm 0.32}$ & 94.76$_{\pm 0.04}$ & 82.49$_{\pm 0.30}$ & 82.03  \\
+GEN    & 32.57$_{\pm 0.18}$ & 79.45$_{\pm 0.17}$ & 45.54$_{\pm 0.68}$ & 86.54$_{\pm 0.24}$ & 65.11$_{\pm 1.18}$ & 61.84 \\
+REACT  & 55.52$_{\pm 0.47}$ & 90.41$_{\pm 0.17}$ & 49.61$_{\pm 0.18}$ & 86.48$_{\pm 0.27}$ & 69.15$_{\pm 1.15}$ & 70.23 \\
+PCA    & 69.88$_{\pm 0.11}$ & 93.23$_{\pm 0.03}$ & 70.47$_{\pm 0.34}$ & 92.07$_{\pm 0.05}$ & 81.56$_{\pm 0.14}$ & 81.44 \\
+ASH    & 39.89$_{\pm 0.30}$ & 83.70$_{\pm 0.13}$ & 38.50$_{\pm 0.56}$ & 81.02$_{\pm 0.22}$ & 76.50$_{\pm 0.13}$ & 63.92 \\
+SHE    & 56.41$_{\pm 0.39}$ & 90.57$_{\pm 0.11}$ & 62.88$_{\pm 0.66}$ & 88.65$_{\pm 0.13}$ & 71.89$_{\pm 0.49}$ & 74.08  \\
+VRA    & 28.74$_{\pm 0.21}$ & 76.76$_{\pm 0.18}$ & 31.81$_{\pm 0.40}$ & 86.29$_{\pm 0.09}$ & 60.53$_{\pm 0.36}$ & 56.82  \\
+NECO   & 70.46$_{\pm 0.18}$ & 95.19$_{\pm 0.04}$ & 70.23$_{\pm 0.38}$ & 92.25$_{\pm 0.07}$ & 79.42$_{\pm 0.36}$ & 81.51 \\
+FDBD   & 71.33$_{\pm 0.26}$ & 94.98$_{\pm 0.06}$ & 71.39$_{\pm 0.32}$ & 91.97$_{\pm 0.11}$ & 78.90$_{\pm 0.41}$ & 81.71 \\ \hline
+\gls{sys}  & \textbf{75.02}$_{\pm 0.80}$ & \textbf{96.24}$_{\pm 0.14}$ & \textbf{83.54}$_{\pm 0.50}$ & \textbf{95.73}$_{\pm 0.20}$ & \textbf{89.96}$_{\pm 2.88}$ & \textbf{88.10}  \\ \hline
+		\end{tabular}
+	}
+	\label{tab:table_ood_auprout}
+\end{table*}
+
+\begin{table*}[t!]
+	\small
+	\centering
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-OUT}: AUPR-OUT \textit{far-OOD} detection and average results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
+	}
+	\scalebox{0.77}{
+		\begin{tabular}{|l|c|cccccc|c|c|}
+			\hline
+			\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-100}  \\ \cline{2-10}
+			&  Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+            MSP    & 83.71 & 88.55$_{\pm 2.85}$ & 82.94$_{\pm 2.14}$ & 86.76$_{\pm 3.97}$ & 85.31$_{\pm 3.74}$ & 93.73$_{\pm 0.42}$ & 80.93$_{\pm 0.73}$ & 86.37 & 85.16 \\
+ENERGY &  81.30 & 90.04$_{\pm 0.21}$ & 85.68$_{\pm 0.41}$ & 92.19$_{\pm 0.16}$ & 86.04$_{\pm 0.30}$ & 95.16$_{\pm 0.09}$ & 84.83$_{\pm 0.21}$ & 88.99 & 85.49 \\
+KNN    &  87.21 & 96.08$_{\pm 1.53}$ & 94.49$_{\pm 3.42}$ & 96.38$_{\pm 1.95}$ & 94.15$_{\pm 4.60}$ & 97.55$_{\pm 0.45}$ & 91.80$_{\pm 3.65}$ & 95.07 & 91.50 \\
+VIM    & 89.76 & 98.59$_{\pm 0.44}$ & 97.68$_{\pm 0.21}$ & 98.86$_{\pm 0.56}$ & 96.34$_{\pm 2.17}$ & 98.46$_{\pm 0.19}$ & 95.70$_{\pm 0.48}$ & 97.60 & 94.04 \\
+MD     &  90.31 & 93.57$_{\pm 0.13}$ & 92.65$_{\pm 1.22}$ & 94.59$_{\pm 1.14}$ & 90.34$_{\pm 1.48}$ & 95.54$_{\pm 0.66}$ & 95.33$_{\pm 0.93}$ & 93.67 & 92.14 \\
+GEN    &  77.80 & 83.37$_{\pm 4.88}$ & 64.06$_{\pm 3.62}$ & 78.41$_{\pm 8.73}$ & 77.08$_{\pm10.16}$ & 88.27$_{\pm 1.31}$ & 65.19$_{\pm 3.08}$ & 76.06 & 76.85 \\
+REACT  &77.68 & 83.24$_{\pm 4.82}$ & 63.79$_{\pm 3.49}$ & 78.26$_{\pm 8.67}$ & 76.95$_{\pm10.12}$ & 88.15$_{\pm 1.26}$ & 64.96$_{\pm 2.99}$ & 75.89 & 76.70 \\
+PCA    &  89.07 & 94.33$_{\pm 2.08}$ & 92.11$_{\pm 1.50}$ & 96.05$_{\pm 3.01}$ & 94.68$_{\pm 3.67}$ & 96.93$_{\pm 1.11}$ & 90.28$_{\pm 0.92}$ & 94.06 & 91.79 \\
+ASH    & 72.12 & 70.14$_{\pm 9.21}$ & 68.87$_{\pm 0.53}$ & 65.24$_{\pm 5.43}$ & 64.53$_{\pm 5.33}$ & 86.18$_{\pm 1.93}$ & 67.17$_{\pm 0.79}$ & 70.36 & 71.16 \\
+SHE    &  81.01 & 90.58$_{\pm 1.62}$ & 88.20$_{\pm 5.16}$ & 91.15$_{\pm 4.61}$ & 89.58$_{\pm 6.84}$ & 94.68$_{\pm 1.25}$ & 80.73$_{\pm 6.08}$ & 89.15 & 85.45 \\
+VRA    &  68.89 & 41.04$_{\pm 2.97}$ & 61.69$_{\pm 3.29}$ & 57.30$_{\pm 1.86}$ & 58.05$_{\pm 0.96}$ & 69.81$_{\pm 0.61}$ & 67.72$_{\pm 1.03}$ & 59.27 & 63.64 \\
+NECO   &  91.47 & 95.89$_{\pm 1.32}$ & 96.00$_{\pm 0.32}$ & 96.66$_{\pm 0.99}$ & 95.24$_{\pm 1.41}$ & 97.96$_{\pm 0.13}$ & 94.52$_{\pm 0.48}$ & 96.05 & 93.96 \\
+FDBD   & 85.78 & 91.75$_{\pm 0.92}$ & 88.55$_{\pm 2.67}$ & 91.73$_{\pm 2.47}$ & 90.48$_{\pm 3.15}$ & 95.45$_{\pm 0.38}$ & 85.56$_{\pm 2.16}$ & 90.59 & 88.40 \\ \hline
+\gls{sys}  & \textbf{92.14} & \textbf{99.21}$_{\pm 0.06}$ & \textbf{99.94}$_{\pm 0.00}$ & \textbf{99.24}$_{\pm 0.08}$ & \textbf{98.24}$_{\pm 0.02}$ & \textbf{98.57}$_{\pm 0.05}$ & \textbf{97.37}$_{\pm 0.13}$ & \textbf{98.76} & \textbf{95.75} \\ \hline
+			\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-200}  \\ \cline{2-10}
+			&  Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+            MSP    & 77.86 & 79.93$_{\pm 0.52}$ & 71.23$_{\pm 0.59}$ & 73.21$_{\pm 0.50}$ & 74.26$_{\pm 0.56}$ & 86.07$_{\pm 0.18}$ & 64.97$_{\pm 0.30}$ & 74.95 & 76.27 \\
+ENERGY & 69.03 & 70.66$_{\pm 0.20}$ & 45.03$_{\pm 0.83}$ & 67.45$_{\pm 0.47}$ & 64.35$_{\pm 0.30}$ & 76.04$_{\pm 0.22}$ & 49.30$_{\pm 0.36}$ & 62.14 & 65.27 \\
+KNN    &  80.78 & 95.21$_{\pm 0.08}$ & 79.68$_{\pm 0.36}$ & 91.04$_{\pm 0.53}$ & 83.84$_{\pm 0.92}$ & 93.45$_{\pm 0.15}$ & 73.10$_{\pm 0.22}$ & 86.05 & 83.66 \\
+VIM    &  83.13 & 97.46$_{\pm 0.03}$ & 88.19$_{\pm 0.14}$ & 97.14$_{\pm 0.17}$ & 89.80$_{\pm 0.39}$ & 95.30$_{\pm 0.09}$ & 80.55$_{\pm 0.02}$ & 91.41 & 87.64 \\
+MD     &  82.03 & 88.14$_{\pm 0.03}$ & 72.21$_{\pm 0.10}$ & 86.56$_{\pm 0.27}$ & 80.16$_{\pm 0.46}$ & 87.34$_{\pm 0.09}$ & 77.97$_{\pm 0.34}$ & 82.06 & 82.05 \\
+GEN    &  61.84 & 30.92$_{\pm 0.73}$ & 69.41$_{\pm 1.37}$ & 45.31$_{\pm 0.54}$ & 49.28$_{\pm 0.77}$ & 66.09$_{\pm 0.47}$ & 66.65$_{\pm 0.94}$ & 54.61 & 57.90 \\
+REACT  & 70.23 & 72.29$_{\pm 0.20}$ & 47.12$_{\pm 0.84}$ & 69.30$_{\pm 0.46}$ & 66.23$_{\pm 0.30}$ & 77.55$_{\pm 0.21}$ & 51.46$_{\pm 0.36}$ & 63.99 & 66.83 \\
+PCA    & 81.44 & 85.62$_{\pm 0.07}$ & 77.18$_{\pm 0.34}$ & 88.18$_{\pm 0.17}$ & 84.89$_{\pm 0.20}$ & 90.17$_{\pm 0.19}$ & 74.74$_{\pm 0.19}$ & 83.46 & 82.54 \\
+ASH    & 63.92 & 38.19$_{\pm 0.52}$ & 58.46$_{\pm 1.52}$ & 45.28$_{\pm 0.62}$ & 45.53$_{\pm 0.93}$ & 69.70$_{\pm 0.52}$ & 59.26$_{\pm 0.99}$ & 52.74 & 57.82 \\
+SHE    & 74.08 & 88.69$_{\pm 0.56}$ & 71.67$_{\pm 0.72}$ & 87.54$_{\pm 0.96}$ & 81.75$_{\pm 1.36}$ & 88.42$_{\pm 0.31}$ & 61.50$_{\pm 0.25}$ & 79.93 & 77.27 \\
+VRA    &  56.82 & 23.22$_{\pm 0.03}$ & 39.96$_{\pm 0.30}$ & 40.45$_{\pm 1.27}$ & 39.72$_{\pm 1.09}$ & 51.73$_{\pm 0.26}$ & 49.00$_{\pm 0.36}$ & 40.68 & 48.02 \\
+NECO   & 81.51 & 92.32$_{\pm 0.30}$ & 71.65$_{\pm 0.57}$ & 86.49$_{\pm 0.32}$ & 83.79$_{\pm 0.32}$ & 91.27$_{\pm 0.19}$ & 73.15$_{\pm 0.33}$ & 83.11 & 82.38 \\
+FDBD   &  81.71 & 87.78$_{\pm 0.37}$ & 81.55$_{\pm 0.37}$ & 83.44$_{\pm 0.22}$ & 82.02$_{\pm 0.17}$ & 91.10$_{\pm 0.11}$ & 71.27$_{\pm 0.24}$ & 82.86 & 82.34 \\ \hline
+\gls{sys}  & \textbf{88.10} & \textbf{98.01}$_{\pm 0.50}$ & \textbf{99.28}$_{\pm 0.20}$ & \textbf{98.23}$_{\pm 0.15}$ & \textbf{97.50}$_{\pm 0.05}$ & \textbf{95.98}$_{\pm 0.20}$ & \textbf{87.41}$_{\pm 0.27}$ & \textbf{96.07} & \textbf{92.45} \\ \hline
+		\end{tabular}
+	}
+	\label{tab:table_ood_auprout_f}
+\end{table*}
+
+%\begin{table*}[t!]
+%	\small
+%	\centering
+%	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - DE}: DE OOD detection results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. Avg.F is mean performance for far-OOD.
+%	}
+%	%\vspace{-0.1cm}
+%	\scalebox{0.58}{
+%		\begin{tabular}{|l|ccccc|c|cccccc|c|c|}
+%			\hline
+%			\multirow{2}{*}{} &  \multicolumn{14}{c|}{ID data: ImageNet-100}  \\ \cline{2-15}
+%			& I-30 & I-900  & NINCO & SSB-Hard & Food & Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+%            MSP    & 78.52$_{\pm 0.90}$ & 31.76$_{\pm 1.94}$ & 53.05$_{\pm 1.80}$ & 21.38$_{\pm 2.10}$ & 27.45$_{\pm 0.67}$ & 42.43 & 67.38$_{\pm 6.38}$ & 38.83$_{\pm 5.73}$ & 43.35$_{\pm 7.30}$ & 41.49$_{\pm 6.85}$ & 41.82$_{\pm 4.49}$ & 37.85$_{\pm 3.05}$ & 45.12 & 43.90 \\
+%ENERGY & 79.89$_{\pm 0.05}$ & 49.84$_{\pm 0.18}$ & 59.15$_{\pm 0.12}$ & 45.77$_{\pm 0.07}$ & 33.16$_{\pm 1.20}$ & 53.56 & 76.21$_{\pm 0.16}$ & 45.56$_{\pm 0.27}$ & 60.77$_{\pm 0.09}$ & 44.03$_{\pm 0.14}$ & 55.89$_{\pm 0.34}$ & 47.24$_{\pm 0.11}$ & 54.95 & 54.32 \\
+%KNN    & 81.96$_{\pm 2.22}$ & 42.09$_{\pm11.77}$ & 65.03$_{\pm 6.32}$ & 36.77$_{\pm14.67}$ & 19.27$_{\pm 0.31}$ & 49.02 & 84.87$_{\pm 4.79}$ & 64.56$_{\pm14.75}$ & 74.41$_{\pm10.76}$ & 65.92$_{\pm19.88}$ & 66.41$_{\pm 4.71}$ & 57.63$_{\pm11.41}$ & 68.97 & 59.90 \\
+%VIM    & 83.34$_{\pm 2.77}$ & 49.36$_{\pm 9.48}$ & 72.57$_{\pm 5.55}$ & 52.50$_{\pm13.25}$ & 23.36$_{\pm 0.42}$ & 56.23 & 93.33$_{\pm 1.54}$ & 82.47$_{\pm 2.41}$ & 90.99$_{\pm 5.45}$ & 76.05$_{\pm14.31}$ & 77.99$_{\pm 3.24}$ & 73.02$_{\pm 3.50}$ & 82.31 & 70.45 \\
+%MD     & 84.65$_{\pm 0.28}$ & 57.34$_{\pm 1.22}$ & 65.81$_{\pm 2.63}$ & 60.89$_{\pm 3.62}$ & 27.93$_{\pm 0.78}$ & 59.32 & 78.33$_{\pm 0.38}$ & 57.84$_{\pm 2.74}$ & 65.09$_{\pm 5.04}$ & 51.47$_{\pm 2.88}$ & 55.32$_{\pm 2.83}$ & 69.14$_{\pm 2.98}$ & 62.86 & 61.25 \\
+%GEN    & 76.21$_{\pm 0.51}$ & 22.90$_{\pm 1.08}$ & 47.40$_{\pm 0.06}$ & 16.37$_{\pm 1.66}$ & 33.28$_{\pm 1.02}$ & 39.23 & 61.16$_{\pm 6.12}$ & 31.76$_{\pm 1.46}$ & 36.90$_{\pm 5.11}$ & 36.00$_{\pm 4.89}$ & 32.40$_{\pm 3.12}$ & 32.35$_{\pm 1.61}$ & 38.43 & 38.79 \\
+%REACT  & 76.14$_{\pm 0.54}$ & 22.69$_{\pm 1.15}$ & 47.30$_{\pm 0.12}$ & 16.23$_{\pm 1.67}$ & 33.16$_{\pm 1.19}$ & 39.11 & 60.98$_{\pm 6.10}$ & 31.70$_{\pm 1.41}$ & 36.78$_{\pm 5.03}$ & 35.91$_{\pm 4.82}$ & 32.22$_{\pm 3.10}$ & 32.30$_{\pm 1.62}$ & 38.32 & 38.68 \\
+%PCA    & 83.08$_{\pm 2.28}$ & 52.82$_{\pm 8.69}$ & 65.29$_{\pm 5.31}$ & 49.27$_{\pm 9.57}$ & 26.48$_{\pm 0.24}$ & 55.39 & 79.62$_{\pm 5.52}$ & 55.73$_{\pm 5.61}$ & 74.33$_{\pm18.58}$ & 66.73$_{\pm15.75}$ & 63.09$_{\pm10.26}$ & 55.37$_{\pm 3.69}$ & 65.81 & 61.07 \\
+%ASH    & 74.20$_{\pm 0.18}$ & 17.49$_{\pm 0.22}$ & 44.49$_{\pm 0.30}$ & 13.12$_{\pm 1.38}$ & 19.47$_{\pm 0.22}$ & 33.75 & 50.74$_{\pm 4.09}$ & 34.29$_{\pm 0.88}$ & 31.90$_{\pm 1.22}$ & 31.11$_{\pm 0.53}$ & 29.47$_{\pm 2.49}$ & 33.36$_{\pm 0.52}$ & 35.15 & 34.51 \\
+%SHE    & 77.14$_{\pm 2.82}$ & 25.53$_{\pm 7.01}$ & 53.61$_{\pm 5.04}$ & 19.44$_{\pm 5.14}$ & 22.43$_{\pm 0.21}$ & 39.63 & 70.81$_{\pm 2.16}$ & 48.31$_{\pm11.27}$ & 55.76$_{\pm12.09}$ & 53.97$_{\pm15.68}$ & 48.15$_{\pm 6.48}$ & 39.52$_{\pm 5.91}$ & 52.75 & 46.79 \\
+%VRA    & 71.92$_{\pm 0.05}$ & 12.93$_{\pm 0.55}$ & 43.03$_{\pm 0.20}$ & 14.69$_{\pm 3.75}$ & 26.10$_{\pm 0.55}$ & 33.73 & 42.57$_{\pm 0.01}$ & 29.95$_{\pm 0.03}$ & 30.28$_{\pm 0.07}$ & 30.08$_{\pm 0.02}$ & 19.97$_{\pm 0.16}$ & 31.97$_{\pm 0.83}$ & 30.80 & 32.14 \\
+%NECO   & 84.57$_{\pm 0.69}$ & 55.23$_{\pm 3.44}$ & 69.74$_{\pm 0.12}$ & 53.34$_{\pm 5.89}$ & 45.51$_{\pm 0.75}$ & 61.68 & 84.20$_{\pm 4.58}$ & 70.78$_{\pm 2.21}$ & 76.43$_{\pm 5.43}$ & 68.87$_{\pm 6.96}$ & 71.46$_{\pm 1.41}$ & 67.12$_{\pm 1.86}$ & 73.14 & 67.93 \\
+%FDBD   & 79.92$_{\pm 1.05}$ & 35.72$_{\pm 3.15}$ & 56.09$_{\pm 2.38}$ & 26.37$_{\pm 3.72}$ & 25.31$_{\pm 0.45}$ & 44.68 & 72.31$_{\pm 3.77}$ & 45.50$_{\pm 8.47}$ & 52.71$_{\pm 8.25}$ & 50.62$_{\pm10.02}$ & 48.40$_{\pm 4.69}$ & 42.29$_{\pm 5.34}$ & 51.97 & 48.66 \\ \hline
+%CASOD  & 83.20$_{\pm 0.25}$ & 50.86$_{\pm 0.25}$ & 77.61$_{\pm 0.31}$ & 55.27$_{\pm 0.65}$ & 55.07$_{\pm 4.03}$ & 64.40 & 95.08$_{\pm 0.08}$ & 98.27$_{\pm 0.03}$ & 93.08$_{\pm 0.34}$ & 86.38$_{\pm 0.43}$ & 77.94$_{\pm 0.52}$ & 82.02$_{\pm 0.72}$ & 88.79 & 77.71 \\ \hline
+%			\multirow{2}{*}{} &  \multicolumn{14}{c|}{ID data: ImageNet-200}  \\ \cline{2-15}
+%			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
+%            MSP    & 70.59$_{\pm 0.27}$ & 39.82$_{\pm 0.68}$ & 65.99$_{\pm 0.28}$ & 24.59$_{\pm 0.40}$ & 29.65$_{\pm 0.09}$ & 46.13 & 76.30$_{\pm 0.66}$ & 49.81$_{\pm 0.53}$ & 52.78$_{\pm 0.31}$ & 53.33$_{\pm 0.44}$ & 48.95$_{\pm 0.69}$ & 49.42$_{\pm 0.23}$ & 55.10 & 51.02 \\
+%ENERGY & 69.72$_{\pm 0.12}$ & 35.06$_{\pm 0.17}$ & 64.24$_{\pm 0.05}$ & 24.14$_{\pm 0.30}$ & 30.30$_{\pm 0.33}$ & 44.69 & 73.40$_{\pm 0.13}$ & 47.96$_{\pm 0.09}$ & 55.06$_{\pm 0.22}$ & 53.96$_{\pm 0.08}$ & 44.66$_{\pm 0.02}$ & 49.43$_{\pm 0.09}$ & 54.08 & 49.81 \\
+%KNN    & 71.13$_{\pm 0.19}$ & 41.76$_{\pm 0.54}$ & 68.41$_{\pm 0.44}$ & 25.67$_{\pm 0.35}$ & 30.97$_{\pm 0.09}$ & 47.59 & 91.59$_{\pm 0.13}$ & 54.21$_{\pm 0.64}$ & 72.37$_{\pm 1.75}$ & 57.02$_{\pm 1.53}$ & 64.41$_{\pm 0.82}$ & 53.13$_{\pm 0.43}$ & 65.45 & 57.33 \\
+%VIM    & 73.38$_{\pm 0.14}$ & 49.21$_{\pm 0.23}$ & 72.70$_{\pm 0.12}$ & 36.45$_{\pm 0.20}$ & 33.33$_{\pm 0.25}$ & 53.01 & 94.67$_{\pm 0.04}$ & 69.24$_{\pm 0.14}$ & 91.11$_{\pm 0.37}$ & 70.71$_{\pm 0.74}$ & 71.18$_{\pm 0.39}$ & 60.99$_{\pm 0.15}$ & 76.32 & 65.72 \\
+%MD     & 75.84$_{\pm 0.05}$ & 55.00$_{\pm 0.08}$ & 65.94$_{\pm 0.08}$ & 40.71$_{\pm 0.14}$ & 34.06$_{\pm 0.08}$ & 54.31 & 83.22$_{\pm 0.05}$ & 51.59$_{\pm 0.12}$ & 65.09$_{\pm 0.75}$ & 58.48$_{\pm 0.35}$ & 49.20$_{\pm 0.03}$ & 57.24$_{\pm 0.19}$ & 60.80 & 57.85 \\
+%GEN    & 62.99$_{\pm 0.09}$ & 21.34$_{\pm 0.10}$ & 61.52$_{\pm 0.17}$ & 21.60$_{\pm 0.22}$ & 30.45$_{\pm 0.37}$ & 39.58 & 60.16$_{\pm 0.29}$ & 52.96$_{\pm 0.73}$ & 46.55$_{\pm 0.14}$ & 46.71$_{\pm 0.09}$ & 36.33$_{\pm 0.21}$ & 53.68$_{\pm 0.57}$ & 49.40 & 44.93 \\
+%REACT  & 68.34$_{\pm 0.15}$ & 34.18$_{\pm 0.49}$ & 62.65$_{\pm 0.05}$ & 23.23$_{\pm 0.35}$ & 30.30$_{\pm 0.33}$ & 43.74 & 72.31$_{\pm 0.05}$ & 46.02$_{\pm 0.10}$ & 53.45$_{\pm 0.18}$ & 52.35$_{\pm 0.09}$ & 43.23$_{\pm 0.03}$ & 47.58$_{\pm 0.06}$ & 52.49 & 48.51 \\
+%PCA    & 74.54$_{\pm 0.10}$ & 44.68$_{\pm 0.14}$ & 69.18$_{\pm 0.11}$ & 31.42$_{\pm 0.02}$ & 35.06$_{\pm 0.13}$ & 50.98 & 81.78$_{\pm 0.09}$ & 56.28$_{\pm 0.34}$ & 67.25$_{\pm 0.38}$ & 63.65$_{\pm 0.20}$ & 55.53$_{\pm 0.39}$ & 57.59$_{\pm 0.04}$ & 63.68 & 57.90 \\
+%ASH    & 64.95$_{\pm 0.10}$ & 25.46$_{\pm 0.18}$ & 60.18$_{\pm 0.11}$ & 18.55$_{\pm 0.12}$ & 29.24$_{\pm 0.06}$ & 39.68 & 60.65$_{\pm 0.07}$ & 50.09$_{\pm 0.39}$ & 47.93$_{\pm 0.20}$ & 48.32$_{\pm 0.23}$ & 37.06$_{\pm 0.18}$ & 50.58$_{\pm 0.30}$ & 49.11 & 44.82 \\
+%SHE    & 67.77$_{\pm 0.12}$ & 32.48$_{\pm 0.31}$ & 64.24$_{\pm 0.34}$ & 22.80$_{\pm 0.23}$ & 29.94$_{\pm 0.16}$ & 43.45 & 84.23$_{\pm 0.60}$ & 51.52$_{\pm 0.51}$ & 66.45$_{\pm 1.60}$ & 56.55$_{\pm 1.39}$ & 54.79$_{\pm 0.51}$ & 49.11$_{\pm 0.17}$ & 60.44 & 52.72 \\
+%VRA    & 62.04$_{\pm 0.04}$ & 20.10$_{\pm 0.02}$ & 58.55$_{\pm 0.05}$ & 21.35$_{\pm 0.09}$ & 28.44$_{\pm 0.00}$ & 38.10 & 58.75$_{\pm 0.01}$ & 45.43$_{\pm 0.01}$ & 45.63$_{\pm 0.06}$ & 45.55$_{\pm 0.07}$ & 32.75$_{\pm 0.03}$ & 46.91$_{\pm 0.09}$ & 45.84 & 42.32 \\
+%NECO   & 73.45$_{\pm 0.10}$ & 49.01$_{\pm 0.33}$ & 66.22$_{\pm 0.20}$ & 27.40$_{\pm 0.23}$ & 32.27$_{\pm 0.29}$ & 49.67 & 87.96$_{\pm 0.36}$ & 47.45$_{\pm 0.21}$ & 63.46$_{\pm 0.22}$ & 57.95$_{\pm 0.29}$ & 54.24$_{\pm 0.51}$ & 51.72$_{\pm 0.26}$ & 60.46 & 55.56 \\
+%FDBD   & 72.85$_{\pm 0.10}$ & 45.49$_{\pm 0.33}$ & 68.93$_{\pm 0.14}$ & 29.29$_{\pm 0.25}$ & 30.50$_{\pm 0.21}$ & 49.41 & 84.33$_{\pm 0.39}$ & 58.06$_{\pm 0.49}$ & 59.91$_{\pm 0.30}$ & 58.27$_{\pm 0.14}$ & 57.94$_{\pm 0.17}$ & 52.79$_{\pm 0.14}$ & 61.88 & 56.21 \\ \hline
+%CASOD  & 75.83$_{\pm 0.41}$ & 55.69$_{\pm 0.73}$ & 77.26$_{\pm 0.73}$ & 45.31$_{\pm 1.99}$ & 44.41$_{\pm 3.13}$ & 59.70 & 94.83$_{\pm 0.47}$ & 96.77$_{\pm 0.25}$ & 93.83$_{\pm 0.44}$ & 92.10$_{\pm 0.35}$ & 73.83$_{\pm 1.74}$ & 70.96$_{\pm 0.11}$ & 87.05 & 74.62 \\ \hline
+%		\end{tabular}
+%	}
+%	\label{tab:table_ood_de}
+%	\vspace{-0.1cm}
+%\end{table*}
+
+%\textbf{\sys on I-100-R Near-OOD Detection.} The results are presented in Table \ref{tab:table_main_near}. \sys outperforms previous baselines on average: AUC improves by a relative difference of \textbf{2.08\%} {\color{blue}and FPR by a relative difference of \textbf{7.55\%}}. Of particular note is \sys's performance on the NINCO, SSB-Hard, and Food OOD datasets, chosen to be specifically challenging for ImageNet-based ID datasets with many near-OOD classes. In these difficult settings, \sys improves on baselines. AUC for NINCO increases relatively by \textbf{1.79\%}, for SSB-Hard it increases relatively by \textbf{2.99\%}, and for Food it increases relatively by \textbf{4.96\%}. {\color{blue}FPR for NINCO increases relatively by \textbf{14.90\%}, for SSB-Hard it increases relatively by \textbf{7.23\%}, and for Food it increases relatively by \textbf{16.78\%}}. This shows that \sys learns to exploit ID class-relevant discriminative features for OOD detection. 
+%\textbf{\sys on I-100-R Far-OOD Detection.} Results are given in Table~\ref{tab:table_main_far}. Average \sys performance is greater than that of state-of-the-art OOD detection methods. \sys relatively improves the average AUC by \textbf{2.71\%} {\color{blue}and the average FPR by \textbf{51.39\%}}. While the AUC and FPR performance across datasets is close, \sys has the advantage of foreground and background views isolating object discriminative features. These object features are sparse in far-OOD datasets. Thus the view features are very different from the ID features learned by our proposed CVCA and \sys accurately detects them as OOD on average.
+\subsubsection{ImageNet-100 and ImageNet-200}
+Results for \gls{sys} and baselines on the ImageNet-100 and ImageNet-200 ID datasets are presented in \ref{tab:table_ood_auc} (AUC), \ref{tab:table_ood_fpr95} (FPR95), \ref{tab:table_ood_auprin} (AUPR-IN), and \ref{tab:table_ood_auprout} (AUPR-OUT) for near-OOD data and in \ref{tab:table_ood_auc_f} (AUC), \ref{tab:table_ood_fpr95_f} (FPR95), \ref{tab:table_ood_auprin_f} (AUPR-IN), and \ref{tab:table_ood_auprout_f} (AUPR-OUT) for far-OOD data and on average. %, and \ref{tab:table_ood_de} (DE). 
+Results for ImageNet-100 ID are in the top half of the tables and results for ImageNet-200 ID are in the bottom half. On average, \gls{sys} outperforms previous state-of-the-art OOD detection baselines. For the primary OOD detection metrics of AUC and FPR95, \gls{sys} achieves state-of-the-art performance. Near-OOD AUC is improved in ImageNet-100 by 4.83\% and in ImageNet-200 by 6.64\%. Far-OOD AUC is improved in ImageNet-100 by 2.57\% and in ImageNet-200 by 3.44\%. Across all datasets, average AUC is improved in ImageNet-100 by 2.43\% and in ImageNet-200 by 4.89\%. Near-OOD FPR95 is improved in ImageNet-100 by 2.75\% and in ImageNet-200 by 10.99\%. Far-OOD FPR95 is improved in ImageNet-100 by 14.26\% and in ImageNet-200 by 20.41\%. Across all datasets, average FPR95 is improved in ImageNet-100 by 9.03\% and in ImageNet-200 by 15.94\%.
+
+The multi-view approach of \gls{sys} again performs particularly well in the curated near-OOD datasets NINCO and SSB-Hard, and additionally performs well in the newly introduced near-OOD dataset Food. In ImageNet-100 ID, \gls{sys} improves the AUC in NINCO by 1.64\%, in SSB-Hard by 2.6\%, and in Food by 4.32\%. In ImageNet-200 ID, \gls{sys} improves the AUC in NINCO by 3.92\%, in SSB-Hard by 3.77\%, and in Food by 10.37\%. Similar improvements are seen in FPR95 for these near-OOD datasets. The intelligent fusion of the foreground- and background-views with the original view in \gls{sys}, established on \gls{cvca} (see Section \ref{sec:casod_method-rep}), enables the significant OOD detection improvements in challenging near-OOD settings where discriminative features are needed to separate OOD from ID data. This benefit applies to the far-OOD setting as well, and is particularly evident in the ImageNet-200 ID experiment. Despite the complex ID data distribution, with double the ID classes compared to ImageNet-100, \gls{sys} is able to leverage the improved feature learning enabled by multi-view data and \gls{cvca} to learn the ID discriminative features and clearly separate far-OOD data. The AUC improvement for ImageNet-200 is 0.87\% greater than that in ImageNet-100. For FPR95, the improvement for ImageNet-200 is a significant 6.15\% over ImageNet-100. The OOD detection performance improvements are likewise visible with AUPR-IN and AUPR-OUT. With AUPR-IN, the average with ImageNet-100 ID is improved by 5.32\% and the average with ImageNet-200 ID is improved by 4.76\%. With AUPR-OUT, the average with ImageNet-100 ID is improved by 1.71\% and the average with ImageNet-200 ID is improved by 4.81\%. %With DE, the average with ImageNet-100 ID is improved by 7.26\% and the average with ImageNet-200 ID is improved by 8.90\%.
+
+Across the OOD detection metrics and experimental datasets for ImageNet-100 ID and ImageNet-200 ID, standard deviations remain low compared to the previous proposed methods of \gls{sysa}, \gls{sysb}, and \gls{sysc}. The utilization of a pre-trained model and Adapters with an informed, learnable multi-view fusion component (in CVCA) gives greater consistency as the training loss remains relatively stable compared to previous approaches. This further attests to the functionality of \gls{sys} with greater reliability over multiple views and resolving the variance issue initially observed in Chapter \ref{diss_mvood_init}.
+
+\begin{table*}[t!]
+\small
+\centering
+\caption{\textbf{ImageNet-1k Results - AUC}: AUC OOD detection results between \sys and baselines for models trained only on ImageNet-1k ID data. %All numeric values are percentages.
+}
+\vspace{0.1cm}
+\scalebox{0.75}{
+\begin{tabular}{|l|ccc|c|ccc|c|c|}
+\hline
+\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-1k}  \\ \cline{2-10}
+& Textures & iNaturalist & OpenImage-O & Avg. (Far) & NINCO & SSB-HARD & Food & Avg. (Near) & Avg. \\ \hline
+MSP\cite{hendrycks2017baseline}    & 85.52  &  88.19  & 84.86  &  86.19  & 78.11  & 68.94  & 72.27  & 73.11  & 79.65   \\
+ENERGY\cite{liu2020energy} & 79.36  & 84.29  & 78.34  & 80.66  & 71.44  & 62.24  & 60.09  & 64.59  & 72.63  \\
+KNN\cite{sun2022out}    & 91.12  & 91.46  & 89.86  & 90.81  &  82.25  &  65.98  & 76.62  & 74.95  &  82.88    \\
+VIM\cite{wang2022vim}    & 90.61  &  95.72  &  92.18  & 92.84  &  84.64  &  69.42  & 67.70  & 73.92  & 83.38    \\
+MD\cite{lee2018simple}     & 89.41  & 96.01  & \textbf{92.38}  &  92.60  & \textbf{86.52}  &  71.57  & 76.99  &  78.36    & 85.48   \\
+GEN\cite{liu2023gen}    & 90.23  &  93.54  &  90.27  &  91.35  &  82.51  &  70.09  &  73.04  &  75.21  &  83.28    \\
+REACT\cite{sun2021react}  & 86.66  &  86.11  &  84.29  &  85.69  &  75.43  &  63.10  &  60.15  &  66.23  &  75.96    \\
+PCA\cite{guan2023revisit}    & 79.53  &  84.59  &  78.50  &  80.87  &  71.69  &  62.40  &  59.95  &  64.68  &  72.78    \\
+ASH\cite{djurisic2022extremely}    & 62.57  &  60.58  &  66.02  &  63.06  &  70.86  &  56.98  &  61.35  &  63.06  &  63.06    \\
+SHE\cite{zhang2022out}    & 92.65  &  93.57  &  91.04  &  92.42  &  84.18  &  68.04  &  62.23  &  71.48  &  81.95    \\
+VRA\cite{xu2024vra}    & 78.47  &  75.74  &  78.66  &  77.62  &  77.39  &  60.95  &  73.11  &  70.48  &  74.05    \\
+NECO\cite{ammar2024neco}   & 76.75  &  88.19  &  72.69  &  79.21  &  69.66  &  62.84  &  35.10  &  55.87  &  67.54    \\
+FDBD\cite{liu2024fast}   & 86.44  &  91.54  &  88.72  &  88.90  &  82.14  &  66.31  &  74.84  &  74.43  &  81.67  \\ \hline
+\gls{sys}   & \textbf{93.02}  &  \textbf{98.50}  &  90.38  &  \textbf{93.97}  &  86.35  &  \textbf{72.96}  &  \textbf{77.60}  &  \textbf{78.97}  &  \textbf{86.47}   \\ \hline
+\end{tabular}
+}
+\label{tab:table_main_i1k_auc}
+\end{table*}
+
+\begin{table*}[t!]
+\small
+\centering
+\caption{\textbf{ImageNet-1k Results - FPR95}: FPR95 OOD detection results between \sys and baselines for models trained only on ImageNet-1k ID data. %All numeric values are percentages.% Best results are emphasized using \textbf{boldface}.%, next-best results are emphasized using \underline{underline}. 
+}
+\vspace{0.1cm}
+\scalebox{0.75}{
+\begin{tabular}{|l|ccc|c|ccc|c|c|}
+\hline
+\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-1k}  \\ \cline{2-10}
+& Textures & iNaturalist & OpenImage-O & Avg. (Far) & NINCO & SSB-HARD & Food & Avg. (Near) & Avg. \\ \hline
+MSP\cite{hendrycks2017baseline}    &  56.46  &  42.40  &  56.19  &  51.68  &  77.28  &  86.41  &  95.01  &  86.23  &  68.96  \\
+ENERGY\cite{liu2020energy} &  85.14  &  89.81  &  90.18  &  88.38  &  93.49  &  90.77  &  99.70  &  94.65  &  91.52  \\
+KNN\cite{sun2022out}    &  33.23  &  27.75  &  34.82  &  31.93  &  54.73  &  86.22  &  94.57  &  78.51  &  55.22  \\
+VIM\cite{wang2022vim}    &  40.35  &  17.59  &  \textbf{29.61}  &  29.18  &  57.41  &  90.04  &  93.43  &  80.29  &  54.74  \\
+MD\cite{lee2018simple}     &  38.91  &  20.64  &  30.35  &  29.97  &  \textbf{48.77}  &  83.47  &  92.13  &  \textbf{74.79}  &  \textbf{52.38}  \\
+GEN\cite{liu2023gen}    &  38.30  & 22.92  &  35.47  &  32.23  &  59.33  &  82.23  &  93.72  &  78.43  &  55.33  \\
+REACT\cite{sun2021react}  &  55.88  &  48.52  &  57.67  &  54.02  &  78.51  &  90.46  &  99.70  &  89.56  &  71.79  \\
+PCA\cite{guan2023revisit}    &  83.94  &  89.00  &  89.78  &  87.57  &  93.21  &  90.57  & 99.71  &  94.50  &  91.04  \\
+ASH\cite{djurisic2022extremely}    &  91.22  &  95.98  &  92.41  &  93.20  &  89.05  & 92.66  &  96.79  &  92.83  &  93.02  \\
+SHE\cite{zhang2022out}    &  \textbf{25.63}  &  22.16  &  33.57  &  \textbf{27.12}  &  56.02  &  85.73  &  93.41  &  78.39  &  52.75  \\
+VRA\cite{xu2024vra}    &  71.88  &  91.23  &  84.40  &  82.50  &  86.12  &  92.30  &  98.97  &  92.46  &  87.48  \\
+NECO\cite{ammar2024neco}   &  89.73  &  68.20  &  88.66  &  82.20  &  87.80  &  86.44  &  99.89  &  91.38  &  86.79  \\
+FDBD\cite{liu2024fast}   &  53.69  &  45.73  &  55.31  &  51.58  &  70.86  &  85.68  &  93.84  &  83.46  &  67.52  \\ \hline
+\gls{sys}   &  35.96  &  \textbf{5.93}  &  50.16  &  30.68  &  59.43  &  \textbf{74.54}  &  \textbf{90.42}  &  74.80  &  52.74  \\ \hline
+\end{tabular}
+}
+\label{tab:table_main_i1k_fpr95}
+\end{table*}
+
+\begin{table*}[t!]
+\small
+\centering
+\caption{\textbf{ImageNet-1k Results - AUPR-IN}: AUPR-IN OOD detection results between \sys and baselines for models trained only on ImageNet-1k ID data. %All numeric values are percentages.% Best results are emphasized using \textbf{boldface}, next-best results are emphasized using \underline{underline}. 
+}
+\vspace{0.1cm}
+\scalebox{0.75}{
+\begin{tabular}{|l|ccc|c|ccc|c|c|}
+\hline
+\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-1k}  \\ \cline{2-10}
+& Textures & iNaturalist & OpenImage-O & Avg. (Far) & NINCO & SSB-HARD & Food & Avg. (Near) & Avg. \\ \hline
+MSP\cite{hendrycks2017baseline}    &  97.17 & 97.10 & 94.16 & 96.14 & 96.21 & 66.89 & 83.02 & 82.04 & 89.09  \\
+ENERGY\cite{liu2020energy} &   98.28 & 97.76 & 95.96 & 97.33 & 94.62 & 61.37 & 75.57 & 77.19 & 87.26 \\
+KNN\cite{sun2022out}    &  99.48 & 96.35 & 94.85 & 96.89 & 97.15 & 63.68 & \textbf{86.86} & 82.56 & 89.73  \\
+VIM\cite{wang2022vim}    &  \textbf{99.68} & 97.37 & 96.35 & 97.80 & \textbf{98.44} & 66.39 & 80.18 & 81.67 & 89.74  \\
+MD\cite{lee2018simple}     &  97.35 & 90.94 & 86.39 & 91.56 & 98.12 & 67.99 & 86.71 & 84.27 & 87.92  \\
+GEN\cite{liu2023gen}    &  97.90 & 98.13 & 94.09 & 96.71 & 96.48 & 65.96 & 54.86 & 72.43 & 84.57  \\
+REACT\cite{sun2021react}  &  98.86 & 99.15 & 96.38 & 98.13 & 94.63 & 61.38 & 84.13 & 80.05 & 89.09  \\
+PCA\cite{guan2023revisit}    &  96.84 & 96.35 & 89.89 & 94.36 & 94.66 & 61.30 & 75.61 & 77.19 & 85.78  \\
+ASH\cite{djurisic2022extremely}    &  93.97 & 89.88 & 86.03 & 89.96 & 95.57 & 59.39 & 75.22 & 76.73 & 83.34  \\
+SHE\cite{zhang2022out}    &  98.91 & 98.56 & \textbf{96.44} & 97.97 & 97.64 & 66.40 & 83.15 & 82.40 & 90.18  \\
+VRA\cite{xu2024vra}    &  94.97 & 83.61 & 76.57 & 85.05 & 90.13 & 49.62 & 75.16 & 71.64 & 78.34  \\
+NECO\cite{ammar2024neco}   &  94.03 & 92.77 & 81.99 & 89.60 & 92.71 & 57.21 & 66.79 & 72.24 & 80.92  \\
+FDBD\cite{liu2024fast}   &  97.73 & 98.03 & 95.47 & 97.08 & 97.34 & 64.49 & 56.27 & 72.70 & 84.89  \\ \hline
+\gls{sys}   &  99.12 & \textbf{99.64} & 96.36 & \textbf{98.37} & 98.08 & \textbf{70.79} & 86.62 & \textbf{85.16} & \textbf{91.77}
+  \\ \hline
+\end{tabular}
+}
+\label{tab:table_main_i1k_auprin}
+\end{table*}
+
+\begin{table*}[t!]
+\small
+\centering
+\caption{\textbf{ImageNet-1k Results - AUPR-OUT}: AUPR-OUT OOD detection results between \sys and baselines for models trained only on ImageNet-1k ID data. %All numeric values are percentages.% Best results are emphasized using \textbf{boldface}, next-best results are emphasized using \underline{underline}. 
+}
+\vspace{0.1cm}
+\scalebox{0.75}{
+\begin{tabular}{|l|ccc|c|ccc|c|c|}
+\hline
+\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-1k}  \\ \cline{2-10}
+& Textures & iNaturalist & OpenImage-O & Avg. (Far) & NINCO & SSB-HARD & Food & Avg. (Near) & Avg. \\ \hline
+MSP\cite{hendrycks2017baseline}    & 44.28 & 63.35 & 66.27 & 57.97 & 32.03 & 68.58 & 46.24 & 48.95 & 53.46   \\
+ENERGY\cite{liu2020energy} &   43.98 & 49.87 & 58.81 & 50.89 & 24.76 & 61.41 & 36.28 & 40.82 & 45.85 \\
+KNN\cite{sun2022out}    &  54.06 & 63.79 & 71.00 & 62.95 & 33.17 & 65.17 & 48.86 & 49.07 & 56.01  \\
+VIM\cite{wang2022vim}    &  58.89 & 83.75 & 78.94 & 73.86 & 45.23 & 71.57 & 43.41 & 53.40 & 63.63  \\
+MD\cite{lee2018simple}     &  49.10 & 86.08 & \textbf{79.68} & 71.62 & \textbf{49.42} & \textbf{73.88} & 50.15 & \textbf{57.82} & 64.72  \\
+GEN\cite{liu2023gen}    &  51.19 & 73.99 & 73.14 & 66.11 & 36.04 & 69.08 & 46.64 & 50.59 & 58.35  \\
+REACT\cite{sun2021react}  &  47.37 & 53.56 & 63.75 & 54.89 & 28.18 & 63.65 & 36.32 & 42.72 & 48.81  \\
+PCA\cite{guan2023revisit}    &  24.70 & 40.66 & 47.86 & 37.74 & 19.11 & 59.62 & 36.00 & 38.24 & 37.99  \\
+ASH\cite{djurisic2022extremely}    &  11.12 & 20.52 & 31.21 & 20.95 & 12.62 & 55.43 & 42.70 & 36.92 & 28.93  \\
+SHE\cite{zhang2022out}    &  56.70 & 74.22 & 75.12 & 68.68 & 38.63 & 68.95 & 41.47 & 49.68 & 59.18  \\
+VRA\cite{xu2024vra}    &  15.78 & 13.15 & 22.81 & 17.25 & 9.00 & 44.09 & 27.77 & 26.95 & 22.10  \\
+NECO\cite{ammar2024neco}   &  11.04 & 22.25 & 26.13 & 19.81 & 11.77 & 54.11 & 23.39 & 29.76 & 24.78  \\
+FDBD\cite{liu2024fast}   &  48.07 & 67.08 & 71.36 & 62.17 & 34.07 & 64.83 & 47.85 & 48.92 & 55.54  \\ \hline
+\gls{sys}   &  \textbf{61.95} & \textbf{94.65} & 74.22 & \textbf{76.94} & 43.95 & 73.09 & \textbf{51.88} & 56.31 & \textbf{66.62}  \\ \hline
+\end{tabular}
+}
+\label{tab:table_main_i1k_auprout}
+\end{table*}
+
+%\begin{table*}[t!]
+%\small
+%\centering
+%\caption{\textbf{ImageNet-1k Results - DE}: DE OOD detection results between \sys and baselines for models trained only on ImageNet-1k ID data. All numeric values are percentages. Best results are emphasized using \textbf{boldface}, next-best results are emphasized using \underline{underline}.
+%}
+%\scalebox{0.67}{
+%\begin{tabular}{|l|ccc|c|ccc|c|c|}
+%\hline
+%\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-1k}  \\ \cline{2-10}
+%& Textures & iNaturalist & OpenImage-O & Avg. (Far) & NINCO & SSB-HARD & Food & Avg. (Near) & Avg. \\ 
+%MSP\cite{hendrycks2017baseline}    &  88.57 & 86.37 & 78.43 & 84.46 & 87.21 & 55.01 & 64.69 & 68.97 & 76.71  \\
+%ENERGY\cite{liu2020energy} &  86.84 & 80.80 & 72.71 & 80.12 & 85.65 & 52.43 & 63.11 & 67.06 & 73.59  \\
+%KNN\cite{sun2022out}    &   88.94 & 83.50 & 77.70 & 83.38 & 86.89 & 51.98 & 64.84 & 67.90 & 75.64 \\
+%VIM\cite{wang2022vim}    &  92.15 & 94.32 & 89.13 & 91.87 & 90.47 & 61.66 & 65.22 & 72.45 & 82.16  \\
+%MD\cite{lee2018simple}     &  90.40 & 92.56 & 85.63 & 89.53 & 89.49 & 59.65 & 65.66 & 71.60 & 80.57  \\
+%GEN\cite{liu2023gen}    &  90.03 & 89.42 & 82.37 & 87.27 & 88.01 & 55.44 & 65.13 & 69.53 & 78.40  \\
+%REACT\cite{sun2021react}  &  86.86 & 80.87 & 72.76 & 80.16 & 85.65 & 52.47 & 63.11 & 67.08 & 73.62  \\
+%PCA\cite{guan2023revisit}    &  86.96 & 80.94 & 72.81 & 80.24 & 85.67 & 52.53 & 63.11 & 67.10 & 73.67  \\
+%ASH\cite{djurisic2022extremely}    &  86.22 & 79.77 & 72.12 & 79.37 & 86.12 & 51.50 & 64.09 & 67.24 & 73.30  \\
+%SHE\cite{zhang2022out}    &  90.74 & 89.32 & 82.85 & 87.64 & 88.29 & 55.86 & 65.23 & 69.79 & 78.72  \\
+%VRA\cite{xu2024vra}    &  86.01 & 79.13 & 70.35 & 78.50 & 85.08 & 49.29 & 63.36 & 65.91 & 72.20  \\
+%NECO\cite{ammar2024neco}   &  85.52 & 79.63 & 70.71 & 78.62 & 85.36 & 51.42 & 63.04 & 66.61 & 72.61  \\
+%FDBD\cite{liu2024fast}   &   90.04 & 88.18 & 81.83 & 86.68 & 88.04 & 54.96 & 65.08 & 69.36 & 78.02 \\ \hline
+%\sys   &  91.85 & 94.84 & 83.18 & 89.96 & 89.25 & 60.49 & 66.07 & 71.94 & 80.95  \\ \hline
+%\end{tabular}
+%}
+%\label{tab:table_main_i1k_de}
+%\vspace{-0.2cm}
+%\end{table*}
+
+%\textbf{\sys on Large-Scale Datasets.} Results for I-1k are given in Table~\ref{tab:table_main_i1k}. On average, \sys outperforms state-of-the-art OOD detection. \sys improves the far-OOD average AUC by a relative difference of \textbf{1.22\%} and the near-OOD average AUC by a relative difference of \textbf{0.78\%}. The fusion of segmented images in \sys learns a superior feature space for OOD detection, showing particular near-OOD relative improvements over other state-of-the-art feature-based OOD detection methods such as KNN (5.36\% AUC, {\color{blue}4.73\% FPR}), ViM (6.83\% AUC, {\color{blue}6.84\% FPR}), and MD (0.78\% AUC, {\color{blue}nearly identical FPR}). The parallel work DFB \cite{ding2024improving} also experiments with I-1k but on a more-limited scale. Their only overlapping OOD dataset is Textures, which we note attains AUC of 77\%, \textbf{16.02\%} less than our proposed \sys. We hypothesize that our explicit segmentation and feature fusion learns a superior feature space for OOD detection. {\color{blue}Average FPR performance is slightly less than the nearest baseline but it is very close. The average AUC is still better and is threshold-independent.}
+%\subsection{Additional Metric Results for ImageNet-1k}
+%\label{sec:suppmat-i1k+}
+%%In addition to the ImageNet-1k results presented in the main paper (see Sec. 4 of the main paper), we present results for four baseline OOD detection methods not included in the OpenOOD v1.5 paper. These baselines, FeatNorm \cite{yu2023block}, PCA \cite{guan2023revisit}, NECO \cite{ammar2024neco}, and FDBD \cite{liu2024fast}, either do not provide ViT results, do not experiment with ImageNet-1k, or tune a model pretrained with ImageNet-21k (introducing data leakage and invalidating OOD detection comparison). For these reasons, we run these baselines by tuning the classification head of a ViT model pretrained on only ImageNet-1k (provided by torchvision) and implementing the respective baseline OOD detection method on this tuned model.
+%In addition to the ImageNet-1k AUC results presented in the main paper (see Sec. 4 of the main paper), we present FPR95 results. The results are in Table \ref{tab:table_i1k+} and are from the same experiment setting as described in the main paper (see Sec. 4 of the main paper).
+%%The results are in Table \ref{tab:table_i1k+} and are the average of 3 random runs. \sys is still superior to these additional recent state-of-the-art baseline methods.
+%	Regarding the performance of COD, SOTA baselines are already getting very strong performance (95.41\% from ViM in Table 2 vs our 97.31\%). Although the absolute improvement may appear small, it is important to emphasize that achieving even a marginal gain at this scale is highly non-trivial. 
+%State-of-the-art OOD methods already achieve very high performance (on the scale of 95\%, see our discussion with Reviewer Jbe3, Question2). Any performance gain at this scale is significant and non-trivial. Furthermore, our improvements in the threshold-independent AUROC in Table 3 (across individual datasets and on average) is highly indicative of improved performance while the threshold-dependent FPR95 is comparable to baselines, only worse on average by 1\%. We also note that OOD literature has discrepancy on what threshold to use for FPR [1].
+%The parallel work DFB \cite{ding2024improving} also experiments with I-1k but on a more-limited scale. Their only overlapping OOD dataset is Textures, which we note attains AUC of 77\%, \textbf{16.02\%} less than our proposed \sys. We hypothesize that our explicit segmentation and feature fusion learns a superior feature space for OOD detection.
+\subsubsection{ImageNet-1k}
+Results for \gls{sys} and baselines on the large-scale ImageNet-1k ID dataset are presented in Tables \ref{tab:table_main_i1k_auc} (AUC), \ref{tab:table_main_i1k_fpr95} (FPR95), \ref{tab:table_main_i1k_auprin} (AUPR-IN), and \ref{tab:table_main_i1k_auprout} (AUPR-OUT). %, and \ref{tab:table_main_i1k_de} (DE). 
+In this exceptionally difficult setting, performance differences become significantly more meaningful and the source of performance is critical. For that reason, greater emphasis is placed on the threshold-independent AUC metric as opposed to the threshold-dependent FPR95 which is already debated as a reliable OOD detection metric at such challenging scales. In fact there is debate over the correct threshold to use for FPR evaluation of OOD detection \cite{humblot2023beyond}. 
+%[1] Humblot-Renaux, G., Escalera, S., \& Moeslund, T. B. (2023). Beyond AUROC \& co. for evaluating out-of-distribution detection performance. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 3881-3890).
+
+On average, \gls{sys} outperforms previous state-of-the-art OOD detection baselines. Considering AUC, \gls{sys} achieves state-of-the-art performance. Near-OOD AUC is improved by 0.61\% and far-OOD AUC is improved by 1.13\%. Across all datasets, the average AUC is improved by 0.99\%, a significant margin in the ImageNet-1k domain. Of particular note is the performance of \gls{sys} on the near-OOD datasets, which are designed specifically to be close to the ImageNet-1k ID data (and feature) distribution. On NINCO, \gls{sys} only underperforms by 0.17\%, while in SSB-HARD \gls{sys} improves over previous baselines by 1.39\% and in Food \gls{sys} improves by 0.61\%. With the expansive semantic space of ImageNet-1k (1000 fine-grained classes), the ability of \gls{sys} to learn ID class-representative discriminative features via \gls{cvca} gives it an advantage over previous, single-view baselines. Of note is that the parallel work of DFB \cite{ding2024improving} also experimented with ImageNet-1k but at a limited scale. DFB only experimented with Textures and performed with an AUC of 77\%. This is 16.02\% less than \gls{sys}. The explicit segmentation and feature fusion used in \gls{sys}, via \gls{cvca}, enables the learning of a feature space more conducive to OOD detection.
+
+For the other OOD detection metrics, \gls{sys} likewise outperforms previous baselines or performs equivalently. With FPR95, \gls{sys} on average performs very similarly to the best previous baseline, a difference of only 0.36\%. However, with AUPR-IN and AUPR-OUT, \gls{sys} improves over the state-of-the-art baselines. With AUPR-IN, the average is improved by 1.59\%. With AUPR-OUT, the average is improved by 1.90\%. In these other OOD detection metrics, \gls{sys} demonstrates competent OOD detection performance, indicating significant robustness in the challenging ImageNet-1k setting.
+
+ID accuracy, despite not being prioritized in recent OOD detection works, is preserved by \gls{sys} with the major architectural changes (with \gls{cvca}) and large-scale, challenging datasets. For ImageNet-1k ID, \gls{sys} performs with a classification accuracy of 80.00\%. The baseline models performs with a classification accuracy of 80.10\%, a difference of only 0.10\%. \gls{sys} maintains equivalent ID accuracy while significantly improving OOD detection in experimental settings representative of real-world environments and tasks.
