@@ -37,21 +37,201 @@
 \newtheorem{definition}[theorem]{Definition}
 
 % Hyperref
-\usepackage[pdfusetitle]{hyperref}
+%\usepackage[pdfusetitle]{hyperref}
+\usepackage[hidelinks, urlcolor=blue]{hyperref}
+
+\usepackage{booktabs}
+\usepackage{newlfont}
+\usepackage{amsfonts}
+\usepackage{euler}
+\usepackage[xindy={glsnumbers=false},nonumberlist,acronym,nopostdot,nogroupskip,nomain]{glossaries}
+\usepackage{xspace}
+%\usepackage[htt]{hyphenat}
+\usepackage{float}
+\usepackage{flushend}
+\usepackage{footnote}
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage{bbm}
+
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{arydshln}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{cancel}
+\usepackage{natbib}
+\usepackage{colortbl}
+
+\newglossarystyle{clong}{%
+ \renewenvironment{theglossary}%
+     {\begin{longtable}{p{.2\linewidth}p{.8\linewidth}}}%
+     {\end{longtable}}%
+  \renewcommand*{\glossaryheader}{}%
+  \renewcommand*{\glsgroupheading}[1]{}%
+  \renewcommand*{\glossaryentryfield}[5]{%
+    \glstarget{##1}{##2} & ##3\glspostdescription\space ##5\\}%
+  \renewcommand*{\glossarysubentryfield}[6]{%
+     & \glstarget{##2}{\strut}##4\glspostdescription\space ##6\\}%
+  %\renewcommand*{\glsgroupskip}{ & \\}%
+}
+
+\def\new@fontshape#1#2#3#4#5{\expandafter
+     \edef\csname#1/#2/#3\endcsname{\expandafter\noexpand
+                                 \csname #4\endcsname}}
+\new@fontshape{cmr}{bx}{sc}{
+      <5>cmcsc8 at 5pt%
+      <6>cmcsc8 at 6pt%
+      <7>cmcsc8 at 7pt%
+      <8>cmcsc8%
+      <9>cmcsc9%
+      <10>cmcsc10%
+      <11>cmcsc10 at 10.95pt%
+      <12>cmcsc10 at 12pt%
+      <14>cmcsc10 at 14.4pt%
+      <17>cmcsc10 at 17.28%
+      <20>cmcsc10 at 20.736pt%
+      <25>cmcsc10 at 24.8832pt%
+      }{}
+\mathversion{normal}
+\newcommand{\ams}{{$\cal{A}\cal{M}\cal{S}$}}
+\newcommand{\amslatex}{{$\cal{A}\cal{M}\cal{S}$-\LaTeX{}}}
+\newcommand{\amstex}{{$\cal{A}\cal{M}\cal{S}$-\TeX{}}}
+\newcommand{\BibTeX}{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\newcommand\bs{\char '134 }   % A backslash character for \tt font
+\newcommand{\lb}{\char '173 } % A left brace character for \tt font
+\newcommand{\rb}{\char '175 } % A right brace character for \tt font
+% one or two other commands
+\def\newfont#1#2{\@ifdefinable #1{\font #1=#2\relax}}
+\def\symbol#1{\char #1\relax}
+\newbox\ustrutbox
+\setbox\ustrutbox=\hbox{\vrule height8.5pt depth3.2pt width0pt}
+\def\ustrut{\relax\ifmmode\copy\ustrutbox\else\unhcopy\ustrutbox\fi}
+\def\underl#1 {\leavevmode\let\first=\relax\underli #1 }
+\def\underli#1 {\ifx&#1\let\next=\relax\unskip
+  \else\let\next=\underli\first\ulinebox{#1}\fi\let\first=\undersp\next}
+\def\undersp{\penalty50\ulinebox{\space}\penalty50}
+\def\ulinebox#1{\vtop{\hbox{\ustrut#1}\hrule}}
+
+%\def\bibliography#1{
+%   \clearpage
+%   \typeout{CITED LITERATURE.}
+%   \addtocontents{toc}{\protect\addvspace{\baselineskip}}
+%   \addcontentsline{toc}{chapter}
+%      {\protect\xnumberline{\ }CITED LITERATURE}
+%   \def\section@mark{CITED LITERATURE}
+%   \pagestyle{pageontop}
+%   \thispagestyle{pageonbottom}
+%   \@makeschapterhead{\section@mark}\par
+%   \begin{singlespace}
+%   \if@filesw\immediate\write\@auxout{\string\bibdata{#1}}\fi
+%   \@input{\jobname.bbl}
+%   \end{singlespace}}
+%
+%\def\thebibliography#1{
+%   \if@bibforma
+%      \list{\relax}
+%         {\setlength{\labelsep}{0em}
+%          \setlength{\itemsep}{12pt}
+%          \setlength{\itemindent}{-2em}
+%          \setlength{\leftmargin}{2em}}
+%   \else
+%      \list{\arabic{enumi}.}
+%         {\settowidth\labelwidth{#1.}\leftmargin\labelwidth
+%          \advance\leftmargin\labelsep
+%          \advance\leftmargin 0.5in
+%          \setlength{\itemsep}{12pt}
+%          \itemindent -0.5in
+%          \usecounter{enumi}}
+%   \fi
+%   \def\newblock{\hskip .11em plus .33em minus .07em}
+%   \sloppy\clubpenalty4000\widowpenalty4000
+%   \sfcode`\.=1000\relax
+%   }
+%
+%\def\endthebibliography{\endlist\pagestyle{pageontop}}
+
+\newacronym{mvcnn}{MVCNN}{Multi-View Convolutional Neural Network}
+\newacronym{id}{ID}{In-Distribution}
+\newacronym{ood}{OOD}{Out-of-Distribution}
+\newacronym{sysa}{MOD}{Multi-view OOD Detection}
+\newacronym{sysb}{MEO}{Multi-view Ensemble for OOD detection}
+\newacronym{sysc}{SCOD}{Selective Cross-view OOD Detection}
+\newacronym{sys}{CASOD}{Cross-view Attention of Segmented views for OOD Detection}
+\newacronym{cvca}{CVCA}{Cross-View Correlation Attention}
+\newacronym{syst}{ATPO}{Alignment-based Thresholding for Prompt-only OOD detection}
+\newacronym{icl}{ICL}{In-Context Learning}
+\newacronym{ist}{IST}{Image Segmentation Tool}
+
+\newtheorem{assumption}{Assumption}
+\newtheorem{property}{Property}
+\definecolor{rowGray}{gray}{0.95}
+\graphicspath{{figures/}}
+
+\newcommand{\sysa}{MOD\xspace}
+\newcommand{\sysb}{MEO\xspace}
+\newcommand{\sysc}{SCOD\xspace}
+\newcommand{\sys}{CASOD\xspace}
+\newcommand{\syst}{ATPO\xspace}
+\newcommand{\?}{\stackrel{?}{=}}
+%\newcommand{\newblock}{\ }
+
+\makeglossaries
+
+\def\initials#1{
+   \par\vspace{0pt}
+   \leftline{\hskip 5.5in #1 \hfil}}
+
+\def\copyrightpage{
+   \newpage\thispagestyle{empty}
+   \vspace*{2.5in}
+   \begin{center}
+      Copyright by\\ Alexander Politowicz \\ 2026
+   \end{center}
+   \vfill\eject}
+\def\@makeschapterhead#1{
+    {\parindent 0pt \centering
+      \large\transparentbold\uppercase{#1}\par
+      \nobreak
+      \vspace{20pt}}}
+\def\ps@pageontop{
+   \def\@oddhead{\rmfamily\hfil\thepage}
+   \let\@evenhead\@oddhead
+   \def\@oddfoot{}
+   \let\@evenfoot\@oddfoot}
+\def\ps@pageonbottom{
+   \def\@oddhead{}
+   \def\@evenhead{}
+   \def\@oddfoot{\rmfamily\hfil\thepage\hfil}
+   \let\@evenfoot\@oddfoot}
+%\def\xnumberline#1{\hbox to\@tempdima{#1\hss}}
+\def\numberline#1{\hbox to 0.75in{#1\hss}}
+\def\vita{
+   \typeout{VITA.}
+   \addtocontents{toc}{\protect\addvspace{\baselineskip}}
+   \addcontentsline{toc}{chapter}
+      %{\protect\xnumberline{\ }VITA}
+      {\protect\numberline{\ }VITA}
+   \def\section@mark{VITA}
+   \pagestyle{pageontop}
+   \thispagestyle{pageonbottom}
+   \@makeschapterhead{\section@mark}\par}
 
 \begin{document}
 
 % Title metadata.  Make changes here to fit your needs
-\newcommand{\thetitle}{A Sample Thesis in Mathematics}
+\newcommand{\thetitle}{Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning}
 
 %Edit the following
 \newcommand{\institution}{University of Illinois Chicago} 
-\newcommand{\degree}{DEGREE}
-\newcommand{\programname}{OFFICIAL PROGRAM NAME}
-\newcommand{\committee}{Name, Chair, Advisor \\ Name \\ Name\\ Name, Outside Members Need Affiliation Here}
-\newcommand{\theauthor}{YOUR NAME AS IT APPEARS ON YOUR EXAM REPORT}
-\newcommand{\priordegrees}{BS, University of Wisconsin, 2005\\ Another Prior degree, if Appropriate}
-\newcommand{\graduationyear}{YEAR}
+\newcommand{\degree}{Doctor of Philosophy}
+\newcommand{\programname}{Computer Science}
+\newcommand{\committee}{Bing Liu, Chair, Advisor \\ Xinhua Zhang \\ Brian Ziebart \\ Elena Zheleva \\ Sathya Ravi \\ Sahisnu Mazumder, Intel AI Software Research - USA}
+\newcommand{\theauthor}{Alexander Politowicz}
+\newcommand{\priordegrees}{B.S., University of Wisconsin - Madison, 2019}
+\newcommand{\graduationyear}{2026}
 
 % Leave the following for metadata
 \author{\theauthor}
@@ -71,7 +251,7 @@
     {\theauthor}\\
     {\priordegrees}\\
     \vspace{2cm}
-	THESIS [PhD candidates may use DISSERTATION here instead]\\
+	THESIS\\
 	\vspace{1cm}
 	Submitted as partial fulfillment of the requirements\\ \vspace{0.2cm}
 	for the degree of {\degree} in {\programname} \\ \vspace{0.2cm}
@@ -88,6 +268,8 @@
 
 \setcounter{page}{2} %This is UIC requirement, the title page is (i)
 
+\copyrightpage
+
 %The following is best practice if distributing both an inacccessible PDF and accessible Epub file.
 \chapter*{Accessibility Statement}
 \iflatexml
@@ -95,78 +277,55 @@
 This document is in an accessible EPUB format. A PDF version of this document is available at [URL] or can be obtained by contacting [contact details].
 \else
 \noindent
-An accessible EPUB version of this document is available at [URL] or can be obtained by contacting [contact details].
+An accessible EPUB version of this document is available by contacting politow2@uic.edu.
 \fi
 
 
 \chapter*{Dedication}
 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+\textit{
+This thesis is dedicated to my family. The support of my parents, sister, grandparents, and aunt helped me get through so much, and I would never have been able to accomplish this without them.
+}
 
 \chapter*{Acknowledgements}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+% advisor
+I would like to thank Professor Bing Liu for advising me through my PhD journey. His oversight and feedback taught me an invaluable amount and played a fundamental role in guiding me towards the writing of this thesis. I'll value the lessons I learned while working with him in all my future endeavors.
 
-\chapter*{Preface}
+% committee
+My committee members, Professor Xinhua Zhang, Professor Elena Zheleva, Professor Brian Ziebart, Professor Sathya Ravi, and Doctor Sahisnu Mazumder, offered their valuable time and insight in the evaluation of this thesis and my work as members of my committee. My thanks are given for their insight, constructive comments, and support in the development of my work from proposition to completion.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+% colleagues
+I am grateful for my colleagues and lab mates: Sahisnu Mazumder, Gyuhak Kim, Sepideh Esmaeilpour, Nianzu Ma, Jiahua Chen, Zixuan Ke, Derda Kaymak, Saleh Momeni Milajerdi, Jade Qiu, and Anh Nguyen, for their constant willingness to help and insightful discussions in many a meeting. Their diverse experiences and observations provided perspective that I would never have normally considered, on top of being entertaining.
 
-Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
+% friends and family
+The support of my friends and family was invaluable in my journey through this PhD and the development of this thesis. Countless discussions across myriad topics gave me the professional insight, academic and scientific considerations, and mental support to carry out this task. I am forever indebted to you all. Free croissants for life.
 
-Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam.
+% This line is required, but of course replace my initials with yours.
+\initials{ALP}
+
+\chapter*{Contributions of Authors}
+
+Chapter 5 presents a published manuscript (Politowicz et al., 2026a) for which I am the primary author. The ideation and work was predominantly conducted by me and the manuscript is written by me. My advisor Professor Bing Liu and co-author Sahisnu Mazumder contributed to the development and discussion of ideas and manuscript revisions. Sahisnu Mazumder assisted in conducting experiments.
+
+Chapter 6 presents a manuscript currently under review (Politowicz et al., 2026b) for which I am the primary author. The ideation and work was predominantly conducted by me and the manuscript is written by me. My advisor Professor Bing Liu and co-author Sahisnu Mazumder contributed to the development and discussion of ideas and manuscript revisions. Sahisnu Mazumder assisted in conducting experiments.
 
 \tableofcontents
 \listoffigures
 \listoftables
 
 \chapter*{List of Abbreviations}
-
+\printglossary
 
 \chapter*{Summary}
 
-Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.
+In real-world applications, machine learning (ML) systems frequently encounter data that they have not been exposed to during training. This data, denoted as out-of-distribution (OOD) data, presents a significant problem for ML systems as it is not only ubiquitous but represents a source of failure for models unprepared to handle previously unseen data. For example, an image-processing ML model in an autonomous vehicle may not have been trained to recognize deer but it must recognize when one runs in front of the car so that emergency maneuvers can be activated. This example represents the challenge of OOD detection in real-world settings: models must be effective at recognizing OOD data with respect to previously seen, or in-distribution (ID), data but also efficient and accessible to enable usage from non-experts and on resource-limited systems.
 
-Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat.
+The primary problem in OOD detection is the detection of OOD data that is very similar to ID data, termed ``near-OOD'' data. The features in ID data that distinguish samples across the ID data distribution are learned by the model during training. However, if these feature are not sufficiently discriminative, i.e. exclusively representative of the objects within the ID data, near-OOD data containing features similar to (or overlapping with) ID data may mislead the model and be incorrectly detected as ID. The challenge of learning or recognizing discriminative features from ID data for near-OOD detection, but efficiently and in an accessible manner for users, is still a major issue in the field.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.
+This dissertation proposes two methods achieving state-of-the-art near-OOD detection, one in the image data domain and one in the text data domain. For image data, efficiency and accessibility are prioritized by leveraging the existence of segmented images and fast image segmentation tools to supplement any given image with additional informative ``views''. These views are the segmented foreground and background of the original image and contain contextual information that assists the ML model in identifying and learning discriminative features. Through a novel feature fusion architecture utilizing cross-view correlation attention operations, a highly discriminative feature space is defined by the model conducive to near-OOD detection. Efficiency in training and testing is enabled through the use of pre-trained models, adapters, and fast segmentation models, resulting in an 81\% improvement to parameter cost and a 0.09 second time cost (of which only 0.02 seconds is used for segmentation by a YOLOv5 model). Accessibility is enabled through the use of an open-use segmentation model and publicly available datasets. The proposed method, Cross-view Attention of Segmented Views for OOD Detection (CASOD) achieves state-of-the-art OOD detection performance and exhibits particular OOD detection performance increases in near-OOD settings.
 
-Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero.
-
-Fusce lacinia quam nisi, euismod ultrices nulla malesuada ut. Curabitur sit amet magna quam. Praesent in libero vel turpis pellentesque egestas sit amet vel nunc.
-
-Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.
-
-Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis.
-
-Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.
-
-Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.
-
-Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
-
-Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
-
-Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula.
-
-Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas.
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam.
-
-Mauris ullamcorper felis vitae erat. Proin feugiat, augue non elementum posuere, metus purus iaculis lectus, et tristique ligula justo vitae magna.
-
-Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl, ac euismod nibh nisl eu lectus.
-
-Fusce vulputate sem at sapien. Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet. Aenean suscipit nulla in justo.
-
-Suspendisse cursus rutrum augue. Nulla tincidunt tincidunt mi. Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum augue, et ultricies lacus lorem varius purus.
-
-Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-
-Nullam nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum.
-
-Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam.
-
+For text data, the rich knowledge embedded in large language models (LLMs) inspires an investigation into whether OOD detection can be performed without any external resources and minimal user effort. Further motivated by the increasing usage of LLMs in modern technological solutions, enabling efficient and accessible LLM-based OOD detection is desirable. Through only the use of text prompts, LLMs can be induced to perform lexical and semantic alignment between the input text and provided ID-representative context for effective OOD detection without any training or usage of LLM internal components. This requires users to only provide in-context learning examples of the ID data to the LLM and process the output OOD scores, eliminating any expert knowledge, programming, or model training. Experiments across a range of near-OOD settings demonstrate that the proposed method, Alignment-based Thresholding for Prompt-only OOD detection (ATPO), significantly outperforms the only other previous prompt-only OOD detection baseline and even outperforms recent baselines that use LLM features and logits. By removing the need for training or model expertise, any user can rapidly utilize OOD detection in LLMs, establishing an efficient and accessible OOD detection solution for real-world applications.
 
 %% Text
 
@@ -174,129 +333,144 @@ Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risu
 
 \doublespacing %other options are \onehalfspacing or \singlespacing
 
-\chapter{Introduction}
-This is the introduction chapter. We cite some classic works \cite{Hartshorne,Mumford}.  
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt nisi sed neque volutpat, et imperdiet metus congue. Donec interdum, neque at varius vehicula, elit odio tempus sapien, sed finibus lorem felis nec turpis. Aliquam erat volutpat. Mauris vehicula imperdiet erat, non aliquet magna commodo id.
-
-Sed porttitor urna ac ipsum rhoncus, vel dictum risus commodo. Integer ultrices dui sit amet pulvinar tempor. Phasellus nec tellus eu turpis sodales accumsan. Proin ultr
-
-
-\begin{theorem}\label{thm1}
-This is a theorem
-\end{theorem}
-
-We reference Theorem \ref{thm1}.
-
-\href{https://www.uic.edu}{University of Illinois Chicago}.
-
-% JPG, JPEG, PNG will work.  PNG and SVG do not work.
-\section{Motivation}
-
-
-\begin{figure}\label{fig1}
-\includegraphics[alt="Description of Image that serves the same purpose",scale=0.3]{torus.jpg}
-\caption{This is a torus}
-\end{figure}
-
-
-
-\begin{figure}\label{fig2}
-\includegraphics[alt="Description of Image that serves the same purpose",scale=0.8]{figure.png}
-\caption{The Snake Lemma}
-\end{figure}
-
-%% PDF images do not work
+%\chapter{Introduction}
+%This is the introduction chapter. We cite some classic works \cite{Hartshorne,Mumford}.  
+%
+%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt nisi sed neque volutpat, et imperdiet metus congue. Donec interdum, neque at varius vehicula, elit odio tempus sapien, sed finibus lorem felis nec turpis. Aliquam erat volutpat. Mauris vehicula imperdiet erat, non aliquet magna commodo id.
+%
+%Sed porttitor urna ac ipsum rhoncus, vel dictum risus commodo. Integer ultrices dui sit amet pulvinar tempor. Phasellus nec tellus eu turpis sodales accumsan. Proin ultr
+%
+%
+%\begin{theorem}\label{thm1}
+%This is a theorem
+%\end{theorem}
+%
+%We reference Theorem \ref{thm1}.
+%
+%\href{https://www.uic.edu}{University of Illinois Chicago}.
+%
+%% JPG, JPEG, PNG will work.  PNG and SVG do not work.
+%\section{Motivation}
+%
+%
 %\begin{figure}\label{fig1}
-%\includegraphics[alt="Description of Image that serves the same purpose",scale=0.3]{torus.pdf}
-%\caption{This is a torus pdf}
+%\includegraphics[alt="Description of Image that serves the same purpose",scale=0.3]{torus.jpg}
+%\caption{This is a torus}
 %\end{figure}
+%
+%
+%
+%\begin{figure}\label{fig2}
+%\includegraphics[alt="Description of Image that serves the same purpose",scale=0.8]{figure.png}
+%\caption{The Snake Lemma}
+%\end{figure}
+%
+%%% PDF images do not work
+%%\begin{figure}\label{fig1}
+%%\includegraphics[alt="Description of Image that serves the same purpose",scale=0.3]{torus.pdf}
+%%\caption{This is a torus pdf}
+%%\end{figure}
+%
+%\subsection{Historical context}
+%A brief overview of how the problem developed.
+%\begin{equation}\label{eq1}\int_0^1 f(x) dx = 2\end{equation}
+%How to solve \eqref{eq1}
+%\subsection{Open questions}
+%Some questions remain open for future work.
+%
+%Note: I have not tested the accessibility of this table.
+%\begin{table}[h]
+%\centering
+%\begin{tabular}{cc}
+%Monkeys & Lions \\
+%100 & 200
+%\end{tabular}
+%\caption{Example Table}
+%\end{table}
+%
+%
+%\chapter{Background}
+%This chapter gives necessary background.
+%
+%\section{Group theory}
+%\begin{definition}
+%A group is a set $G$ with a binary operation satisfying closure, associativity, identity, and inverses.
+%\end{definition}
+%
+%\begin{theorem}
+%Every finite subgroup of the multiplicative group of a field is cyclic.
+%\end{theorem}
+%
+%\begin{proof}
+%This is a standard result from algebra.
+%\end{proof}
+%
+%\chapter{Main Results}
+%Here we present the main contributions of the thesis.
+%
+%\section{A computer simulation}
+%
+%% The following works with LaTeXml.  I consider the result accessible, but it might not be 100% WCAG compliant.
+%
+%
+%\begin{lstlisting}[basicstyle = \singlespacing\ttfamily\small,resetmargins=true,tabsize=5,extendedchars=false]
+%def factorial(n):
+%    """Compute the factorial of n recursively."""
+%    if n == 0:
+%        return 1
+%    else:
+%        return n * factorial(n - 1)
+%
+%print(f"5! = {factorial(5)}")
+%\end{lstlisting}
+%
+%
+%
+%\section{Second main result}
+%Another significant theorem.
+%
+%\chapter{Vitae}
+%
+%For UIC this can be a full CV or a short version (e.g. half a page) with previoius degrees, work experience and publications.
+%
+%\appendix
+%\chapter{Technical Lemmas}
+%Here we collect some supporting lemmas.
 
-\subsection{Historical context}
-A brief overview of how the problem developed.
-\begin{equation}\label{eq1}\int_0^1 f(x) dx = 2\end{equation}
-How to solve \eqref{eq1}
-\subsection{Open questions}
-Some questions remain open for future work.
-
-Note: I have not tested the accessibility of this table.
-\begin{table}[h]
-\centering
-\begin{tabular}{cc}
-Monkeys & Lions \\
-100 & 200
-\end{tabular}
-\caption{Example Table}
-\end{table}
-
-
-\chapter{Background}
-This chapter gives necessary background.
-
-\section{Group theory}
-\begin{definition}
-A group is a set $G$ with a binary operation satisfying closure, associativity, identity, and inverses.
-\end{definition}
-
-\begin{theorem}
-Every finite subgroup of the multiplicative group of a field is cyclic.
-\end{theorem}
-
-\begin{proof}
-This is a standard result from algebra.
-\end{proof}
-
-\chapter{Main Results}
-Here we present the main contributions of the thesis.
-
-\section{A computer simulation}
-
-% The following works with LaTeXml.  I consider the result accessible, but it might not be 100% WCAG compliant.
-
-
-\begin{lstlisting}[basicstyle = \singlespacing\ttfamily\small,resetmargins=true,tabsize=5,extendedchars=false]
-def factorial(n):
-    """Compute the factorial of n recursively."""
-    if n == 0:
-        return 1
-    else:
-        return n * factorial(n - 1)
-
-print(f"5! = {factorial(5)}")
-\end{lstlisting}
-
-
-
-\section{Second main result}
-Another significant theorem.
-
-\chapter{Vitae}
-
-For UIC this can be a full CV or a short version (e.g. half a page) with previoius degrees, work experience and publications.
-
-\appendix
-\chapter{Technical Lemmas}
-Here we collect some supporting lemmas.
+\input{sections/1_intro/0_index}
+\input{sections/2_bkgd/0_index}
+\input{sections/3_relwork/0_index}
+\input{sections/4_method1/0_index}
+\input{sections/5_method2/0_index}
+\input{sections/6_method3/0_index}
+\input{sections/7_conc/0_index}
+\newpage
+\input{sections/8_appendix/0_index}
 
 \backmatter 
 \singlespacing
 
-\begin{thebibliography}{9}
+%\begin{thebibliography}{9}
+%
+%
+%\bibitem{Hartshorne}
+%R.~Hartshorne, \emph{Algebraic Geometry}, Springer-Verlag, New York, 1977.
+%
+%\bibitem{Mumford}
+%D.~Mumford, \emph{Abelian Varieties}, Oxford University Press, 1970.
+%
+%\bibitem{DraismaEtAl}
+%J.~Draisma, E.~Horobet, G.~Ottaviani, B.~Sturmfels, and R.~R.~Thomas, 
+%``The Euclidean distance degree of an algebraic variety,'' 
+%\emph{arXiv:1309.0049} (2013).  
+%Available at: \href{https://arxiv.org/abs/1309.0049}{https://arxiv.org/abs/1309.0049}
+%
+%\end{thebibliography}
 
-
-\bibitem{Hartshorne}
-R.~Hartshorne, \emph{Algebraic Geometry}, Springer-Verlag, New York, 1977.
-
-\bibitem{Mumford}
-D.~Mumford, \emph{Abelian Varieties}, Oxford University Press, 1970.
-
-\bibitem{DraismaEtAl}
-J.~Draisma, E.~Horobet, G.~Ottaviani, B.~Sturmfels, and R.~R.~Thomas, 
-``The Euclidean distance degree of an algebraic variety,'' 
-\emph{arXiv:1309.0049} (2013).  
-Available at: \href{https://arxiv.org/abs/1309.0049}{https://arxiv.org/abs/1309.0049}
-
-\end{thebibliography}
-
+\newpage
+\bibliographystyle{formb}
+\bibliography{thesis}
+\newpage
+\input{sections/other/_5_vita}
 
 \end{document}
