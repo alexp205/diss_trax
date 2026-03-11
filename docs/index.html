@@ -2,8 +2,8 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning</title>
-<!--Generated on Tue Mar 10 02:54:23 2026 by LaTeXML (version 0.8.8) http://dlmf.nist.gov/LaTeXML/.-->
-<!--Document created on March 10, 2026.-->
+<!--Generated on Wed Mar 11 05:57:28 2026 by LaTeXML (version 0.8.8) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on March 11, 2026.-->
 
 <link rel="stylesheet" href="LaTeXML.css" type="text/css">
 <link rel="stylesheet" href="ltx-book.css" type="text/css">
@@ -70,7 +70,8 @@
 <h2 class="ltx_title ltx_title_chapter">Acknowledgements</h2>
 
 <div id="Chx3.p1" class="ltx_para">
-<p class="ltx_p">I would like to thank Professor Bing Liu for advising me through my PhD journey. His oversight and feedback taught me an invaluable amount and played a fundamental role in guiding me towards the writing of this thesis. I’ll value the lessons I learned while working with him in all my future endeavors.</p>
+<p class="ltx_p">I would like to thank Professor Bing Liu for advising me through my PhD journey. His oversight and feedback taught me an invaluable amount and played a fundamental role in guiding me towards the writing of this thesis. I’ll value the lessons I learned while working with him in all my future endeavors.
+</p>
 </div>
 <div id="Chx3.p2" class="ltx_para">
 <p class="ltx_p">My committee members, Professor Xinhua Zhang, Professor Elena Zheleva, Professor Brian Ziebart, Professor Sathya Ravi, and Doctor Sahisnu Mazumder, offered their valuable time and insight in the evaluation of this thesis and my work as members of my committee. My thanks are given for their insight, constructive comments, and support in the development of my work from proposition to completion.</p>
@@ -14354,34 +14355,34 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 <td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t">27.98</td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">84.75</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">92.50</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">93.87</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">2.80</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">80.86</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">44.50</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">66.55</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">84.75</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">92.50</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">93.87</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">2.80</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">80.86</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">44.50</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">66.55</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">84.75</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">95.67</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">94.93</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">40.40</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">86.57</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">54.50</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">76.14</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">84.75</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">95.67</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">94.93</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">40.40</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">86.57</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">54.50</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">76.14</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">89.75</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.67</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">93.60</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">48.53</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">53.29</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.50</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text ltx_font_bold">78.72</span></span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">89.75</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.67</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">93.60</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">48.53</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">53.29</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.50</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text ltx_font_bold">78.72</span></span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t" rowspan="4">Qwen-8B</th>
@@ -14395,34 +14396,34 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 <td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t">82.72</td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">92.88</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.50</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">98.40</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">39.20</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">90.71</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">82.00</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">83.78</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">92.88</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.50</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">98.40</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">39.20</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">90.71</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">82.00</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">83.78</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">92.88</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.83</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">98.53</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">38.93</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">89.00</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">78.50</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">82.95</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">92.88</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.83</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">98.53</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">38.93</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">89.00</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">78.50</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">82.95</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">94.88</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.83</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.47</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">30.00</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">93.00</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">98.00</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text ltx_font_bold">85.86</span></span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">94.88</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.83</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.47</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">30.00</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">93.00</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">98.00</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text ltx_font_bold">85.86</span></span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t" rowspan="4">Gemma-12B</th>
@@ -14436,34 +14437,34 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 <td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t">87.11</td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">96.25</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.83</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">98.80</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">50.93</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">97.00</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">94.50</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"> 89.55</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">96.25</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.83</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">98.80</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">50.93</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">97.00</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">94.50</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"> 89.55</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">95.63</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.83</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">98.80</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">51.20</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">97.29</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">94.50</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"> 89.54</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">95.63</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.83</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">98.80</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">51.20</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">97.29</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">94.50</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"> 89.54</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">97.00</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">100.00</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.47</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">57.60</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">95.14</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">96.50</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text ltx_font_bold">90.95</span></span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">97.00</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">100.00</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.47</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">57.60</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">95.14</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">96.50</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text ltx_font_bold">90.95</span></span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r ltx_border_t" rowspan="4">Deepseek-32B</th>
@@ -14477,34 +14478,34 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 <td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t">49.80</td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">94.13</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">100.00</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">98.40</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">59.87</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">84.14</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">96.50</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">88.84</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">94.13</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">100.00</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">98.40</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">59.87</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">84.14</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">96.50</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">88.84</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">92.88</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.67</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">98.00</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">55.73</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">100.00</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">93.75</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">90.00</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">92.88</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.67</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">98.00</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">55.73</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">100.00</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">93.75</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">90.00</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">95.63</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">100.00</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.07</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">74.93</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.14</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">97.50</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text ltx_font_bold">92.38</span></span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">95.63</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">100.00</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.07</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">74.93</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.14</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">97.50</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text ltx_font_bold">92.38</span></span></td>
 </tr>
 </tbody>
 </table>
@@ -14539,34 +14540,34 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 <td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t">41.44</td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">78.36</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">88.56</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.88</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">22.65</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">79.56</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">64.37</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">70.23</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">78.36</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">88.56</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.88</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">22.65</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">79.56</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">64.37</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">70.23</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">78.36</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.49</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.92</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">48.87</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">81.43</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">64.79</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">74.81</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">78.36</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.49</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.92</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">48.87</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">81.43</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">64.79</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">74.81</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">80.69</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">91.57</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">85.83</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">51.45</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">60.49</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">80.64</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text ltx_font_bold">75.11</span></span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">80.69</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">91.57</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">85.83</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">51.45</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">60.49</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">80.64</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text ltx_font_bold">75.11</span></span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t" rowspan="4">Qwen-8B</th>
@@ -14580,34 +14581,34 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 <td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t">80.25</td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">89.22</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">96.58</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">93.53</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">51.56</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.65</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">83.47</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">83.67</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">89.22</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">96.58</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">93.53</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">51.56</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.65</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">83.47</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">83.67</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">88.73</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">97.21</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">93.81</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">51.27</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.65</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">81.39</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">83.34</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">88.73</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">97.21</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">93.81</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">51.27</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.65</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">81.39</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">83.34</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">91.16</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">97.44</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">91.37</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">45.40</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">91.13</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">85.76</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text ltx_font_bold">83.71</span></span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">91.16</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">97.44</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">91.37</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">45.40</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">91.13</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">85.76</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text ltx_font_bold">83.71</span></span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t" rowspan="4">Gemma-12B</th>
@@ -14621,34 +14622,34 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 <td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t">81.60</td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">89.03</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">94.23</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">93.62</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">57.84</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">91.03</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">83.69</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"> 84.91</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">89.03</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">94.23</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">93.62</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">57.84</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">91.03</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">83.69</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"> 84.91</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">88.17</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">94.70</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">93.32</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">57.90</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">90.33</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">84.69</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"> 84.85</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">88.17</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">94.70</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">93.32</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">57.90</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">90.33</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">84.69</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"> 84.85</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">90.05</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">97.64</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">90.58</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">60.10</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">91.27</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">82.83</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text ltx_font_bold">85.41</span></span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">90.05</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">97.64</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">90.58</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">60.10</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">91.27</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">82.83</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text ltx_font_bold">85.41</span></span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r ltx_border_t" rowspan="4">Deepseek-32B</th>
@@ -14662,34 +14663,34 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 <td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t">52.77</td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">90.36</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">98.30</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">93.38</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">64.95</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">84.91</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">89.82</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">86.95</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">90.36</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">98.30</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">93.38</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">64.95</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">84.91</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">89.82</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">86.95</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">89.22</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">98.10</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">92.70</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">61.36</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">90.54</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.45</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">86.56</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">89.22</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">98.10</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">92.70</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">61.36</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">90.54</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.45</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">86.56</span></td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">90.97</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">97.64</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">90.03</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">71.08</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.90</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.04</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text ltx_font_bold">87.44</span></span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">90.97</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">97.64</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">90.03</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">71.08</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.90</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.04</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text ltx_font_bold">87.44</span></span></td>
 </tr>
 </tbody>
 </table>
@@ -14764,36 +14765,36 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 <tr class="ltx_tr">
 <th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_l ltx_border_r">
 <span class="ltx_ERROR undefined">\cdashline</span>2-9</th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">86.03</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">96.00</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">89.42</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">50.88</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">90.18</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">76.60</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">81.52</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">86.03</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">96.00</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">89.42</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">50.88</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">90.18</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">76.60</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">81.52</span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_th ltx_th_row ltx_border_l ltx_border_r"></th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.14</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">86.28</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">85.21</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">53.95</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">76.74</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">76.68</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">77.67</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.14</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">86.28</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">85.21</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">53.95</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">76.74</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">76.68</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">77.67</span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_th ltx_th_row ltx_border_l ltx_border_r"></th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">92.14</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">94.97</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">93.87</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">65.01</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">89.36</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">82.09</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">86.24</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">92.14</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">94.97</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">93.87</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">65.01</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">89.36</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">82.09</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">86.24</span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t" rowspan="5">Qwen-8B</th>
@@ -14849,36 +14850,36 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 <tr class="ltx_tr">
 <th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_l ltx_border_r">
 <span class="ltx_ERROR undefined">\cdashline</span>2-9</th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">91.95</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">96.20</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">92.79</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">67.13</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">88.46</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">91.09</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.94</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">91.95</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">96.20</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">92.79</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">67.13</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">88.46</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">91.09</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.94</span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_th ltx_th_row ltx_border_l ltx_border_r"></th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">95.73</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">98.60</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">96.34</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">75.73</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">93.02</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.02</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">91.07</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">95.73</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">98.60</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">96.34</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">75.73</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">93.02</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.02</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">91.07</span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_th ltx_th_row ltx_border_l ltx_border_r"></th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">96.43</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.24</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">94.95</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">77.96</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">94.61</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">95.41</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text ltx_font_bold">93.10</span></span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">96.43</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.24</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">94.95</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">77.96</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">94.61</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">95.41</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text ltx_font_bold">93.10</span></span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t" rowspan="4">Gemma-12B</th>
@@ -14924,36 +14925,36 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 <tr class="ltx_tr">
 <th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_l ltx_border_r">
 <span class="ltx_ERROR undefined">\cdashline</span>2-9</th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">97.25</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.45</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">98.47</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">68.24</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">95.71</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">96.28</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"> 92.57</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">97.25</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.45</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">98.47</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">68.24</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">95.71</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">96.28</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"> 92.57</span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_th ltx_th_row ltx_border_l ltx_border_r"></th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">97.53</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.03</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">97.80</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">72.75</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">95.73</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">94.97</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"> 92.97</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">97.53</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.03</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">97.80</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">72.75</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">95.73</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">94.97</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"> 92.97</span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_th ltx_th_row ltx_border_l ltx_border_r"></th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">95.96</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.52</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">98.87</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">79.46</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">92.25</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">96.45</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text ltx_font_bold">93.75</span></span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">95.96</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.52</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">98.87</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">79.46</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">92.25</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">96.45</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text ltx_font_bold">93.75</span></span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t" rowspan="4">Deepseek-32B</th>
@@ -14999,36 +15000,36 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 <tr class="ltx_tr">
 <th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_l ltx_border_r">
 <span class="ltx_ERROR undefined">\cdashline</span>2-9</th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">97.10</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.54</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">98.75</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">72.74</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">93.04</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">96.18</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">92.89</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-NA</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">97.10</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.54</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">98.75</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">72.74</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">93.04</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">96.18</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">92.89</span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_th ltx_th_row ltx_border_l ltx_border_r"></th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">96.43</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.63</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">98.26</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">84.39</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">92.91</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">89.46</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">93.51</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic">-R</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">96.43</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.63</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">98.26</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">84.39</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">92.91</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">89.46</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">93.51</span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r"></th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">96.83</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">99.44</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">98.62</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">81.86</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">93.55</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">97.44</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text ltx_font_bold">94.62</span></span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span></span></th>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">96.83</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">99.44</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">98.62</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">81.86</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">93.55</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">97.44</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text ltx_font_bold">94.62</span></span></td>
 </tr>
 </tbody>
 </table>
@@ -15253,25 +15254,25 @@ OOD detection results with number of ID classes <math id="Ch6.T6.m2" class="ltx_
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_th ltx_th_row ltx_border_l ltx_border_r"></th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text ltx_font_italic">POD (F)</span></span></th>
-<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">80.71</span></td>
-<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">88.53</span></td>
-<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">73.51</span></td>
-<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">42.83</span></td>
-<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">45.23</span></td>
-<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">90.67</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"> 69.75</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text ltx_font_italic">POD (F)</span></span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">80.71</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">88.53</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">73.51</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">42.83</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">45.23</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">90.67</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"> 69.75</span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_th ltx_th_row ltx_border_l ltx_border_r"></th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic"> (F)</span></span></th>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">85.63</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">94.01</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.17</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">43.97</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">76.85</span></td>
-<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">81.89</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"> <span class="ltx_text ltx_font_bold">78.25</span></span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic"> (F)</span></span></th>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">85.63</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">94.01</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.17</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">43.97</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">76.85</span></td>
+<td class="ltx_td ltx_align_center" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">81.89</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"> <span class="ltx_text ltx_font_bold">78.25</span></span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t" rowspan="4">Gemma-12B</th>
@@ -15332,25 +15333,25 @@ OOD detection results with number of ID classes <math id="Ch6.T6.m2" class="ltx_
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_th ltx_th_row ltx_border_l ltx_border_r"></th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text ltx_font_italic">POD (F)</span></span></th>
-<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">62.01</span></td>
-<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">96.82</span></td>
-<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">82.59</span></td>
-<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">43.24</span></td>
-<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">39.82</span></td>
-<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">91.58</span></td>
-<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"> 69.34</span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_r ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text ltx_font_italic">POD (F)</span></span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">62.01</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">96.82</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">82.59</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">43.24</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">39.82</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">91.58</span></td>
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"> 69.34</span></td>
 </tr>
 <tr class="ltx_tr">
 <th class="ltx_td ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r"></th>
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic"> (F)</span></span></th>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.72</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">91.78</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">87.45</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">64.29</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">72.97</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;">83.82</span></td>
-<td class="ltx_td ltx_align_center ltx_border_b ltx_border_l ltx_border_r" style="--ltx-bg-color:#F2F2F2;"><span class="ltx_text" style="--ltx-bg-color:#F2F2F2;"> <span class="ltx_text ltx_font_bold">81.34</span></span></td>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"><span title="" class="ltx_glossaryref ltx_font_italic">ATPO</span><span class="ltx_text ltx_font_italic"> (F)</span></span></th>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.72</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">91.78</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">87.45</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">64.29</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">72.97</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;">83.82</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_l ltx_border_r" style="--ltx-bg-color:#FFFFFF;"><span class="ltx_text" style="--ltx-bg-color:#FFFFFF;"> <span class="ltx_text ltx_font_bold">81.34</span></span></td>
 </tr>
 </tbody>
 </table>
@@ -20112,7 +20113,7 @@ Molecular Informatics, 2020.</p>
 </article>
 </div>
 <footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Tue Mar 10 02:54:23 2026 by <a href="http://dlmf.nist.gov/LaTeXML/" class="ltx_LaTeXML_logo"><span style="letter-spacing:-0.2em; margin-right:0.1em;">L<span class="ltx_font_smallcaps" style="position:relative; bottom:2.2pt;">a</span>T<span class="ltx_font_smallcaps" style="font-size:120%;position:relative; bottom:-0.2ex;">e</span></span><span style="font-size:90%; position:relative; bottom:-0.2ex;">XML</span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="Mascot Sammy"></a>
+<div class="ltx_page_logo">Generated  on Wed Mar 11 05:57:28 2026 by <a href="http://dlmf.nist.gov/LaTeXML/" class="ltx_LaTeXML_logo"><span style="letter-spacing:-0.2em; margin-right:0.1em;">L<span class="ltx_font_smallcaps" style="position:relative; bottom:2.2pt;">a</span>T<span class="ltx_font_smallcaps" style="font-size:120%;position:relative; bottom:-0.2ex;">e</span></span><span style="font-size:90%; position:relative; bottom:-0.2ex;">XML</span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="Mascot Sammy"></a>
 </div></footer>
 </div>
 </body>
