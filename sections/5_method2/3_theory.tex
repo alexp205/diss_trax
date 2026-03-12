@@ -5,7 +5,7 @@
 
 %{\color{blue}To mathematically support this in \sys, note that the SA attention matrix is computed from the concatenated view features $A_{SA} \in \mathbb{R}^{3T \times 3T}$, while the CVCA attention matrices are computed from two view features $A_{CVCA,v1 \rightarrow v2} \in \mathbb{R}^{T \times T}$. This implies that the denominator of the softmax in $A_{SA}$ is greater than the denominator of the softmax in each $A_{CVCA,v1 \rightarrow v2}$, $\sum_{j=1}^{3T} e^{a_{SA,j}} > \sum_{j=1}^{T} e^{a_{CVCA,j}}$ where $a$ is the pre-softmax attention value. Furthermore, CVCA is the sum of both view attention matrices $A_{CVCA} = A_{CVCA,v1 \rightarrow v2} + A_{CVCA,v2 \rightarrow v1}$. Following from these, SA \textbf{reduces} the magnitude of both patch activations while CVCA \textbf{additively reinforces} them. See Appendix Sec. E.2 for further analysis details.} %\sys performs significantly better. %While MaxPooling is sometimes superior for simpler far-OOD datasets, the feature details learned via bidirectional cross-view attention are crucial for near-OOD datasets. %Max-pooling is unable to learn these discriminative features and is weak at detecting near-OOD samples.
 %{\color{purple}
-The performance of \gls{sys} fundamentally depends on the \gls{cvca} operation in the proposed fusion architecture. The significance of this operation is demonstrated via a comparison between \gls{cvca} attention computations and the standard self-attention (SA) computations in Transformer models \cite{vaswani2017attention} and throughout modern deep learning literature \cite{vaswani2017attention,dosovitskiy2020image,khan2023survey}. The theoretical analysis presented in this section begins with a high-level qualitative justification which can be read as a mathematical introduction to the theory to follow. To assist, please refer to \ref{fig:casod_model_arch} for an illustration of the \gls{cvca} architecture. The multi-view SA architecture considered here uses a concatenated view feature as input to an SA block (see \ref{fig:bkgd-attn_example} for an illustration). Thus, the comparison is between \gls{cvca} and SA as a fusion mechanism for discriminative feature learning and subsequent OOD detection. The motivating question is if \gls{cvca} offers improvements over SA.
+The performance of CASOD fundamentally depends on the CVCA operation in the proposed fusion architecture. The significance of this operation is demonstrated via a comparison between CVCA attention computations and the standard self-attention (SA) computations in Transformer models \cite{vaswani2017attention} and throughout modern deep learning literature \cite{vaswani2017attention,dosovitskiy2020image,khan2023survey}. The theoretical analysis presented in this section begins with a high-level qualitative justification which can be read as a mathematical introduction to the theory to follow. To assist, please refer to \ref{fig:casod_model_arch} for an illustration of the CVCA architecture. The multi-view SA architecture considered here uses a concatenated view feature as input to an SA block (see \ref{fig:bkgd-attn_example} for an illustration). Thus, the comparison is between CVCA and SA as a fusion mechanism for discriminative feature learning and subsequent OOD detection. The motivating question is if CVCA offers improvements over SA.
 
 \begin{figure*}
 	\centering
@@ -15,9 +15,9 @@ The performance of \gls{sys} fundamentally depends on the \gls{cvca} operation i
 	\label{fig:theory_matrix_ref}
 \end{figure*}
 
-SA attention matrices $A_{SA} \in \mathbb{R}^{3T \times 3T}$ are computed from the \emph{concatenated} view features (see \ref{fig:theory_matrix_ref}). \gls{cvca} attention matrices $A_{CVCA,v1 \rightarrow v2} \in \mathbb{R}^{T \times T}$ are computed from two view features (see \ref{fig:theory_matrix_ref}). Given identical input features $\tilde{z}$ and weight matrices $W_Q, W_K$, the higher dimensionality of SA attention matrices guarantees that the denominator of the softmax in $A_{SA}$ is greater than the denominator of the softmax in each $A_{CVCA,v1 \rightarrow v2}$, i.e. $\sum_{j=1}^{3T} e^{a_{SA,j}} > \sum_{j=1}^{T} e^{a_{CVCA,j}}$ where $a$ is the pre-softmax attention value. Furthermore, \gls{cvca} is the sum of both view attention matrices $A_{CVCA} = A_{CVCA,v1 \rightarrow v2} + A_{CVCA,v2 \rightarrow v1}$. In this setting, SA \textbf{reduces} the magnitude of patch activations while \gls{cvca} \textbf{additively reinforces} them.
+SA attention matrices $A_{SA} \in \mathbb{R}^{3T \times 3T}$ are computed from the \emph{concatenated} view features (see \ref{fig:theory_matrix_ref}). CVCA attention matrices $A_{CVCA,v1 \rightarrow v2} \in \mathbb{R}^{T \times T}$ are computed from two view features (see \ref{fig:theory_matrix_ref}). Given identical input features $\tilde{z}$ and weight matrices $W_Q, W_K$, the higher dimensionality of SA attention matrices guarantees that the denominator of the softmax in $A_{SA}$ is greater than the denominator of the softmax in each $A_{CVCA,v1 \rightarrow v2}$, i.e. $\sum_{j=1}^{3T} e^{a_{SA,j}} > \sum_{j=1}^{T} e^{a_{CVCA,j}}$ where $a$ is the pre-softmax attention value. Furthermore, CVCA is the sum of both view attention matrices $A_{CVCA} = A_{CVCA,v1 \rightarrow v2} + A_{CVCA,v2 \rightarrow v1}$. In this setting, SA \textbf{reduces} the magnitude of patch activations while CVCA \textbf{additively reinforces} them.
 
-However, in practice, it is not guaranteed that the input features $\tilde{z}$ nor the weight matrices $W_Q, W_K$ are the same in both SA and \gls{cvca} architectures. A more principled analysis is beneficial in isolating the conditions for \gls{cvca} to improve upon SA.
+However, in practice, it is not guaranteed that the input features $\tilde{z}$ nor the weight matrices $W_Q, W_K$ are the same in both SA and CVCA architectures. A more principled analysis is beneficial in isolating the conditions for CVCA to improve upon SA.
 %}
 
 %\subsection{Assumptions and Prerequisites}
@@ -79,7 +79,7 @@ However, in practice, it is not guaranteed that the input features $\tilde{z}$ n
 %{\color{purple}
 
 \subsubsection{Preliminary Information}
-Self-attention (SA) and cross-attention (CA) are reiterated here (see Chapter \ref{diss_bkgd} for further details). Note that notations here generally follow those presented in Chapter \ref{diss_bkgd} for Attention mechanisms but more specifically follow those in the previous section for \gls{cvca} (Section \ref{sec:propwork-casod-method}). The exception is that inputs (i.e. features) for the rest of this section are represented as $x$ instead of $\tilde{z}$ for generality. In SA,
+Self-attention (SA) and cross-attention (CA) are reiterated here (see Chapter \ref{diss_bkgd} for further details). Note that notations here generally follow those presented in Chapter \ref{diss_bkgd} for Attention mechanisms but more specifically follow those in the previous section for CVCA (Section \ref{sec:propwork-casod-method}). The exception is that inputs (i.e. features) for the rest of this section are represented as $x$ instead of $\tilde{z}$ for generality. In SA,
 an input $x$ is projected into matrices $Q$, $K$, and $V$ using respective parameters $W_Q \in \mathbb{R}^{d \times d_k}$, $W_K \in \mathbb{R}^{d \times d_k}$, $W_V \in \mathbb{R}^{d \times d_v}$
 \begin{equation}
 \begin{aligned}
@@ -152,17 +152,17 @@ For SA, the input $x$ in multi-view systems is a combination of all views, that 
     x = [x_{org} ; x_{fg} ; x_{bg}], \\
 \end{aligned}
 \end{equation}
-with $x \in \mathbb{R}^{3T \times d}$, as each view feature $x_v \in \mathbb{R}^{T \times d}$ for $v \in \{org, fg, bg\}$. Each input for \gls{cvca} is exactly one of $x_{org}, x_{fg}, x_{bg}$.
+with $x \in \mathbb{R}^{3T \times d}$, as each view feature $x_v \in \mathbb{R}^{T \times d}$ for $v \in \{org, fg, bg\}$. Each input for CVCA is exactly one of $x_{org}, x_{fg}, x_{bg}$.
 
 \subsubsection{Main Findings}
-Consider a discriminative high-activation patch $\alpha^*_{CVCA}$ in a \gls{cvca} attention matrix $\alpha^*_{CVCA} = \alpha_{CVCA,i^*j^*}$ for row $i^*$ at index $j^*$. Here, only one of the preliminary attention matrices is considered for comparison, i.e. only $\alpha_{12}$. The relationship between SA and \gls{cvca} for this discriminative high-activation patch can be expressed as
+Consider a discriminative high-activation patch $\alpha^*_{CVCA}$ in a CVCA attention matrix $\alpha^*_{CVCA} = \alpha_{CVCA,i^*j^*}$ for row $i^*$ at index $j^*$. Here, only one of the preliminary attention matrices is considered for comparison, i.e. only $\alpha_{12}$. The relationship between SA and CVCA for this discriminative high-activation patch can be expressed as
 \begin{equation}
 \begin{aligned}
     \alpha^*_{SA} \? \alpha^*_{CVCA}, \\
 \end{aligned}
 \label{peqn:1}
 \end{equation}
-where the $\?$ operator delineates an unknown relationship between the two operands. The goal is to identify the relationship between the two attention values and replacing the $\?$ operator with an informative, formal inequality. In \gls{cvca}, $\alpha_{12}$ must include $x_{org}$ as one of the inputs ($x_1$ for the rest of the analysis) and $x_2 = x_{fg}$ is considered as the other input without loss of generality. The expansion of \ref{peqn:1} follows by taking the softmax of both sides
+where the $\?$ operator delineates an unknown relationship between the two operands. The goal is to identify the relationship between the two attention values and replacing the $\?$ operator with an informative, formal inequality. In CVCA, $\alpha_{12}$ must include $x_{org}$ as one of the inputs ($x_1$ for the rest of the analysis) and $x_2 = x_{fg}$ is considered as the other input without loss of generality. The expansion of \ref{peqn:1} follows by taking the softmax of both sides
 \begin{equation}
 \begin{aligned}
     %\alpha^*_{SA}  \alpha^*{CVCA}. \\
@@ -185,7 +185,7 @@ The isolation of the $\alpha^*_{SA}, \alpha^*_{CVCA}$ terms from the summations 
     & = \ln (e^{\alpha^*_{SA}}) + \ln (1 + \sum_{k=1}^{3T-1} \frac{e^{\alpha_{SA,k}}}{e^{\alpha^*_{SA}}}). \\
 \end{aligned}
 \end{equation}
-It is assumed that the discriminative high-activation patches $\alpha^*$ represent discriminative features learned by the model and are thus nearly identical in both SA and \gls{cvca}.
+It is assumed that the discriminative high-activation patches $\alpha^*$ represent discriminative features learned by the model and are thus nearly identical in both SA and CVCA.
 \begin{assumption}
     $\alpha^*_{SA} = \alpha^*_{CVCA} + E^*,$ \\
     $\cancelto{\simeq 0}{E^*}$ \\
@@ -206,13 +206,13 @@ It is assumed that the discriminative high-activation patches $\alpha^*$ represe
     \ln (\sum_{k=1}^{T-1} e^{\alpha_{CVCA,k}}) - \alpha^*_{CVCA} & \? \ln (\sum_{k=1}^{3T-1} e^{\alpha_{SA,k}}) - \alpha^*_{SA} \nonumber \\
     \sum_{k=1}^{T-1} e^{\alpha_{CVCA,k}}  & \? \sum_{k=1}^{3T-1} e^{\alpha_{SA,k}}. \label{peqn:4}
 \end{align}
-Here the view notation is reintroduced to clearly delineate the components of \gls{cvca} and SA with each integer $\{1,2,3\}$ representing a view
+Here the view notation is reintroduced to clearly delineate the components of CVCA and SA with each integer $\{1,2,3\}$ representing a view
 \begin{equation}
     \sum_{k=1}^{T-1} e^{\alpha_{CVCA,12,k}}  \? \sum_{k=1}^{T} e^{\alpha_{SA,3,k}} + \sum_{k=1}^{T} e^{\alpha_{SA,2,k}} + \sum_{k=1}^{T-1} e^{\alpha_{SA,1,k}}. \\
 \label{peqn:5}
 \end{equation}
 
-To analyze the expression in \ref{peqn:5}, some assumptions must be made on the bounds between the inputs and parameters for SA and \gls{cvca}.
+To analyze the expression in \ref{peqn:5}, some assumptions must be made on the bounds between the inputs and parameters for SA and CVCA.
 \begin{assumption}
     $| x_{v,SA} - x_{v,CVCA} | \leq \varepsilon$ \\
     for some error $\varepsilon$ and view-specific features $x_v \in \mathbb{R}^{T \times d}$.
@@ -225,7 +225,7 @@ To analyze the expression in \ref{peqn:5}, some assumptions must be made on the 
     for some error $\varepsilon$ and matrices $W_Q \in \mathbb{R}^{d \times d_k}$, $W_K \in \mathbb{R}^{d \times d_k}$, and $W_V \in \mathbb{R}^{d \times d_v}$.
 \label{pass:3}
 \end{assumption}
-This simplifies the comparison between SA and \gls{cvca}.
+This simplifies the comparison between SA and CVCA.
 
 To further the analysis, it is now considered how to characterize the attention values $\alpha$ from the inputs $x$. The computations of $Q$ for SA is
 \begin{equation}
@@ -233,7 +233,7 @@ To further the analysis, it is now considered how to characterize the attention 
     Q_{SA} = x_{SA} W_{Q,SA}.
 \end{aligned}
 \end{equation}
-For \gls{cvca}, $Q_{1,v1}$ (with $v1$ replaced as $v$ without loss of generality)
+For CVCA, $Q_{1,v1}$ (with $v1$ replaced as $v$ without loss of generality)
 \begin{equation}
 \begin{aligned}
     Q_{v,CVCA} = x_{v,CVCA} W_{Q,CVCA}.
@@ -257,7 +257,7 @@ where $x_{v,SA} \in \mathbb{R}^{T \times d}$ is only the view feature component 
 \label{peqn:7}
 \end{equation}
 %    \alpha_{12} & = \text{softmax} (\frac{Q_{1,v1} K_{1,v2}^{\mathsf{T}}}{\sqrt{d_{k_{v1}}}}) \\
-The subsequent calculation for $\alpha$ requires the matrix multiplication $Q K^{\mathsf{T}}$. For \gls{cvca}, $\alpha_{12}$ is considered without loss of generality. The following expression compares the computations involving $Q_{v1}$ and $K_{v2}$
+The subsequent calculation for $\alpha$ requires the matrix multiplication $Q K^{\mathsf{T}}$. For CVCA, $\alpha_{12}$ is considered without loss of generality. The following expression compares the computations involving $Q_{v1}$ and $K_{v2}$
 \begin{equation}
 \begin{aligned}
     (Q_{v1,CVCA} K_{v2,CVCA}^{\mathsf{T}})_{ij} = & \sum_{k=1}^{d_k} ((Q_{kj,v1,SA} + \varepsilon^2 d + \varepsilon (W_{[j],Q,SA} + X_{[k],v1,SA})) \\
@@ -279,7 +279,7 @@ with
     WX_{Q,kj} & = W_{[j],Q,SA} + X_{[k],v1,SA}. \\
 \end{aligned}
 \end{equation*}
-The error term between \gls{cvca} and SA in \ref{peqn:9} is composed of the following components
+The error term between CVCA and SA in \ref{peqn:9} is composed of the following components
 \begin{equation}
 \begin{aligned}
     \text{error} = & \varepsilon^2 d (\sum_{k=1}^{d_k} Q_{kj,v1,SA} + \sum_{k=1}^{d_k} K_{ik,v2,SA}) + \varepsilon (\sum_{k=1}^{d_k} WX_{K,ik} Q_{kj,v1,SA} + \sum_{k=1}^{d_k} WX_{Q,kj} K_{ik,v2,SA}) + \\
@@ -312,7 +312,7 @@ where $G(M)$ is the grand sum of a matrix $M \in \mathbb{R}^{m \times n}$ with v
     G(M) = \sum_{i=1}^{m} (\sum_{j=1}^{n} r_{ij}). \\
 \end{equation}
 
-The decomposition and error characterization of the comparison between SA and \gls{cvca} establishes further analysis of the expression in \ref{peqn:5}. First, additional assumptions are required to streamline the subsequent observations and consequential findings.
+The decomposition and error characterization of the comparison between SA and CVCA establishes further analysis of the expression in \ref{peqn:5}. First, additional assumptions are required to streamline the subsequent observations and consequential findings.
 \begin{assumption}
     %$| x_{v,SA} - x_{v,CVCA} | \leq \varepsilon$
     %for some error $\varepsilon$ and view-specific features $x_v \in \mathbb{R}^{T \times d}$.
@@ -376,12 +376,12 @@ Bounds on these dominating error terms can be established in the average-case wi
     $\left\| W \right\|$ is $(0.1, 0.125)$-bounded, with $\left\| \cdot \right\|$ as the spectral norm of a matrix.
 \label{prop:1}
 \end{property}
-Property \ref{prop:1} states that the spectral norm of any Attention parameter $W$ in \gls{cvca} is $\leq 0.1$ with probability $p > 1 - 0.125$. An additional assumption is made to facilitate analysis of the dominating error terms.
+Property \ref{prop:1} states that the spectral norm of any Attention parameter $W$ in CVCA is $\leq 0.1$ with probability $p > 1 - 0.125$. An additional assumption is made to facilitate analysis of the dominating error terms.
 \begin{assumption}
     The LN parameters $\gamma = 0, \beta = 0$.
 \label{pass:6}
 \end{assumption}
-Assumption \ref{pass:6} allows for the establishment of any input $x$ to SA and \gls{cvca} to be normally distributed with $\mu=0, \sigma=1$, that is $x \sim \mathcal{N}(0,1)$.
+Assumption \ref{pass:6} allows for the establishment of any input $x$ to SA and CVCA to be normally distributed with $\mu=0, \sigma=1$, that is $x \sim \mathcal{N}(0,1)$.
 Analysis of the average-case for each dominating error term involves considering the expected value of each term over all possible data distributions. This is generally intractable and is instead approximated here as follows (here for \ref{e1})
 \begin{equation}
 \begin{aligned}
@@ -418,7 +418,7 @@ From these, the error term is dominated by the term in \ref{e3}
 \begin{equation}
     \text{error} = \varepsilon^2 0.01 d^4 d_k. \\
 \end{equation}
-The \gls{cvca} and SA comparison (see \ref{peqn:15}) can now be further quantified
+The CVCA and SA comparison (see \ref{peqn:15}) can now be further quantified
 \begin{equation}
 \begin{aligned}
     %e^{\alpha_{SA,12,t}} e^{\varepsilon^2 0.01 d^4 d_k}  \? e^{\alpha_{SA,1,t}} + e^{\alpha_{SA,2,t}} + e^{\alpha_{SA,3,t}}. \\
@@ -436,15 +436,15 @@ where $e^{\alpha'_{SA,3}}$ is the activation at the $v1,v2$ high-activation patc
 \end{equation}
 Note that $e^{\alpha^*_{SA,2}} > 1$ as the high-activation patches must be greater than other patches which, in the average case, are $0$.
 
-For a high-activation patch in \gls{cvca} to be greater than or equal to the same patch in SA, the following must be true for the input and parameter error $\varepsilon$
+For a high-activation patch in CVCA to be greater than or equal to the same patch in SA, the following must be true for the input and parameter error $\varepsilon$
 \begin{equation}
     \varepsilon \leq \sqrt{\frac{\ln (3 + \frac{e^{\alpha^*_{SA,2}}}{T-1} + \frac{1}{T-1})}{0.01 d^4 d_k}}. \\
 \label{peqn:16}
 \end{equation}
 
-It is important to note that the relationship in \ref{peqn:16} considers only the average case, but the properties of \gls{cvca} increase the allowable error with high probability. Property \ref{prop:1} states that the $W$ spectral norm upper-bound is $0.1$ with probability $p > 1 - 0.125$, but the spectral norm of $W$ can be much smaller in practice. This further increases the error $\varepsilon$ where \gls{cvca} remains at least as large as SA. Furthermore, this analysis only considers \emph{one branch of \gls{cvca}}, i.e. $\alpha_{12}$. In practice, CVCA is $\alpha = \alpha_{12} + \alpha_{21}$ with any $\alpha_{ij} \in [0,2]$. The above error relationship must be sufficiently true in both the $\alpha_{12}$ and $\alpha_{21}$ computations such that the \textit{cumulative attention value} is greater for SA to outperform \gls{cvca} in the average case.
+It is important to note that the relationship in \ref{peqn:16} considers only the average case, but the properties of CVCA increase the allowable error with high probability. Property \ref{prop:1} states that the $W$ spectral norm upper-bound is $0.1$ with probability $p > 1 - 0.125$, but the spectral norm of $W$ can be much smaller in practice. This further increases the error $\varepsilon$ where CVCA remains at least as large as SA. Furthermore, this analysis only considers \emph{one branch of CVCA}, i.e. $\alpha_{12}$. In practice, CVCA is $\alpha = \alpha_{12} + \alpha_{21}$ with any $\alpha_{ij} \in [0,2]$. The above error relationship must be sufficiently true in both the $\alpha_{12}$ and $\alpha_{21}$ computations such that the \textit{cumulative attention value} is greater for SA to outperform CVCA in the average case.
 
-\textbf{\underline{Theoretical Conclusion:}} Thus, with the above assumptions and in the average case, \gls{cvca} attention values for discriminative high-activation patches are \textbf{greater than or equal to} those in SA, unless errors greater than the bound on  $\varepsilon$ exist in both \gls{cvca} branches. In practice, this is unlikely, given the properties of the model architectures used \cite{xiong2020layer} and given that the errors must be greater than the bound on $\varepsilon$ such that attention values across both CVCA branches are less than those in SA \textit{after addition}. The larger attention values enable \gls{cvca} to attend to (and learn from, during training) discriminative features with greater efficacy and efficiency. Note that this analysis says nothing about non-discriminative or any other magnitude activation patches.
+\textbf{\underline{Theoretical Conclusion:}} Thus, with the above assumptions and in the average case, CVCA attention values for discriminative high-activation patches are \textbf{greater than or equal to} those in SA, unless errors greater than the bound on  $\varepsilon$ exist in both CVCA branches. In practice, this is unlikely, given the properties of the model architectures used \cite{xiong2020layer} and given that the errors must be greater than the bound on $\varepsilon$ such that attention values across both CVCA branches are less than those in SA \textit{after addition}. The larger attention values enable CVCA to attend to (and learn from, during training) discriminative features with greater efficacy and efficiency. Note that this analysis says nothing about non-discriminative or any other magnitude activation patches.
 %We propose the following theoretical analysis. Self-attention applies a softmax to the features during computation of the attention matrix $A_{SA} \approx \text{softmax}(z W_{Q} W_{K}^{\intercal} z^{\intercal})$. The resultant attention matrix $A_{SA}$ consists of $3T$ rows of distributions over $3T$ patches $A_{SA} \in \mathbb{R}^{3T \times 3T}$, each with values that must be $[0, 1]$, $A_{SA,i} = \{[p_1, p_2, \dots, p_{3T}] ; p \in [0,1]\}$. CASOD uses a sum of two cross-attention matrices in each CVCA block $A_{CVCA} \approx \text{softmax}(z_{v1} W_{Q,v1} W_{K,v2}^{\intercal} z_{v2}^{\intercal}) + \text{softmax}(z_{v2} W_{Q,v2} W_{K,v1}^{\intercal} z_{v1}^{\intercal})$. The resultant CVCA attention matrix $A_{CVCA}$ is instead $T$ rows of values over $T$ patches $A_{CVCA} \in \mathbb{R}^{T \times T}$, but each value has magnitude in $[0, 2]$, $A_{CVCA,i} = \{[p_1, p_2, \dots, p_T] ; p \in [0,2]\}$.
 
 %}

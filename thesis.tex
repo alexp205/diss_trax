@@ -52,7 +52,7 @@
 \usepackage{newlfont}
 \usepackage{amsfonts}
 \usepackage{euler}
-\usepackage[xindy={glsnumbers=false},nonumberlist,acronym,nopostdot,nogroupskip,nomain]{glossaries}
+%\usepackage[xindy={glsnumbers=false},nonumberlist,acronym,nopostdot,nogroupskip,nomain]{glossaries}
 \usepackage{xspace}
 %\usepackage[htt]{hyphenat}
 \usepackage{float}
@@ -72,18 +72,18 @@
 \usepackage{natbib}
 \usepackage{colortbl}
 
-\newglossarystyle{clong}{%
- \renewenvironment{theglossary}%
-     {\begin{longtable}{p{.2\linewidth}p{.8\linewidth}}}%
-     {\end{longtable}}%
-  \renewcommand*{\glossaryheader}{}%
-  \renewcommand*{\glsgroupheading}[1]{}%
-  \renewcommand*{\glossaryentryfield}[5]{%
-    \glstarget{##1}{##2} & ##3\glspostdescription\space ##5\\}%
-  \renewcommand*{\glossarysubentryfield}[6]{%
-     & \glstarget{##2}{\strut}##4\glspostdescription\space ##6\\}%
-  %\renewcommand*{\glsgroupskip}{ & \\}%
-}
+%\newglossarystyle{clong}{%
+% \renewenvironment{theglossary}%
+%     {\begin{longtable}{p{.2\linewidth}p{.8\linewidth}}}%
+%     {\end{longtable}}%
+%  \renewcommand*{\glossaryheader}{}%
+%  \renewcommand*{\glsgroupheading}[1]{}%
+%  \renewcommand*{\glossaryentryfield}[5]{%
+%    \glstarget{##1}{##2} & ##3\glspostdescription\space ##5\\}%
+%  \renewcommand*{\glossarysubentryfield}[6]{%
+%     & \glstarget{##2}{\strut}##4\glspostdescription\space ##6\\}%
+%  %\renewcommand*{\glsgroupskip}{ & \\}%
+%}
 
 \def\new@fontshape#1#2#3#4#5{\expandafter
      \edef\csname#1/#2/#3\endcsname{\expandafter\noexpand
@@ -161,17 +161,17 @@
 %
 %\def\endthebibliography{\endlist\pagestyle{pageontop}}
 
-\newacronym{mvcnn}{MVCNN}{Multi-View Convolutional Neural Network}
-\newacronym{id}{ID}{In-Distribution}
-\newacronym{ood}{OOD}{Out-of-Distribution}
-\newacronym{sysa}{MOD}{Multi-view OOD Detection}
-\newacronym{sysb}{MEO}{Multi-view Ensemble for OOD detection}
-\newacronym{sysc}{SCOD}{Selective Cross-view OOD Detection}
-\newacronym{sys}{CASOD}{Cross-view Attention of Segmented views for OOD Detection}
-\newacronym{cvca}{CVCA}{Cross-View Correlation Attention}
-\newacronym{syst}{ATPO}{Alignment-based Thresholding for Prompt-only OOD detection}
-\newacronym{icl}{ICL}{In-Context Learning}
-\newacronym{ist}{IST}{Image Segmentation Tool}
+%\newacronym{mvcnn}{MVCNN}{Multi-View Convolutional Neural Network}
+%\newacronym{id}{ID}{In-Distribution}
+%\newacronym{ood}{OOD}{Out-of-Distribution}
+%\newacronym{sysa}{MOD}{Multi-view OOD Detection}
+%\newacronym{sysb}{MEO}{Multi-view Ensemble for OOD detection}
+%\newacronym{sysc}{SCOD}{Selective Cross-view OOD Detection}
+%\newacronym{sys}{CASOD}{Cross-view Attention of Segmented views for OOD Detection}
+%\newacronym{cvca}{CVCA}{Cross-View Correlation Attention}
+%\newacronym{syst}{ATPO}{Alignment-based Thresholding for Prompt-only OOD detection}
+%\newacronym{icl}{ICL}{In-Context Learning}
+%\newacronym{ist}{IST}{Image Segmentation Tool}
 
 \newtheorem{assumption}{Assumption}
 \newtheorem{property}{Property}
@@ -186,7 +186,7 @@
 \newcommand{\?}{\stackrel{?}{=}}
 %\newcommand{\newblock}{\ }
 
-\makeglossaries
+%\makeglossaries
 
 \def\initials#1{
    \par\vspace{0pt}
@@ -323,7 +323,30 @@ Chapter 6 presents a manuscript currently under review (Politowicz et al., 2026b
 \listoftables
 
 \chapter*{List of Abbreviations}
-\printglossary
+%\printglossary
+\centerline{\textbf{Acronyms}}
+
+\textbf{ATPO:} Alignment-based Thresholding for Prompt-only OOD detection
+
+\textbf{CASOD:} Cross-view Attention of Segmented views for OOD Detection
+
+\textbf{CVCA:} Cross-View Correlation Attention
+
+\textbf{ICL:} In-Context Learning
+
+\textbf{ID:} In-Distribution
+
+\textbf{IST:} Image Segmentation Tool
+
+\textbf{MEO:} Multi-view Ensemble for OOD detection
+
+\textbf{MOD:} Multi-view OOD Detection
+
+\textbf{MVCNN:} Multi-View Convolutional Neural Network
+
+\textbf{OOD:} Out-of-Distribution
+
+\textbf{SCOD:} Selective Cross-view OOD Detection
 
 \chapter*{Summary}
 

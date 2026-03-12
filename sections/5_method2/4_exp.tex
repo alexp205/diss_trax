@@ -189,7 +189,7 @@
 %We additionally consider the experimental setting using the popular ImageNet-200 ID dataset as defined in OpenOOD v1.5 \cite{zhang2023openood}. Building on OpenOOD v1.5, we use Textures, iNaturalist, Places, SUN, OpenImage-O, and Species as far-OOD datasets and NINCO, SSB-Hard, and Food as near-OOD datasets. Similar to our ImageNet-100-Random experiment (see Sec. 4 of the main paper) we additionally include a distinct subset of 100 randomly-selected classes (ImageNet-100) and the remaining 800 classes (ImageNet-800) as near-OOD datasets simulating very-similar semantic distributions to the ID dataset. The classes used for ImageNet-200 ID can be found in the OpenOOD v1.5 implementation \cite{zhang2023openood}, and the class IDs for the ImageNet-100 OOD dataset can be found in Section \ref{sec:imagenet_ids}. %As in ImageNet-100-Random, we check for and remove any overlapping images with DUTS-TR %(used by our selected segmentation tool CarveKit) 
 %in the ImageNet-100, ImageNet-800, SUN, and SSB-Hard OOD datasets.
 \subsubsection{Datasets} 
-Evaluation of \gls{sys} focuses on large-scale settings more indicative of real-world environments, with an emphasis on experimenting over a comprehensive range of semantic depth and nuance in the ID and OOD datasets. The ID datasets include the ImageNet-1k (I-1k) dataset \cite{deng2009imagenet} and two subsets of ImageNet-1k, a random selection of 100 classes (denoted as ImageNet-100, or I-100) and the popular ImageNet-200 (I-200) subset as defined in the well-established OOD detection benchmark OpenOOD v1.5 \cite{zhang2023openood}. A challenging range of far- and near-OOD datasets \cite{winkens2020contrastive} is considered, again primarily following from the OpenOOD v1.5 benchmark. NINCO \cite{bitterwolf2023or} and SSB-Hard \cite{vaze2021open} are evaluated as near-OOD datasets for their semantic similarity with various ImageNet classes. iNaturalist \cite{van2018inaturalist}, Textures \cite{cimpoi2014describing}, OpenImage-O \cite{wang2022vim}, Places365 \cite{zhou2017places}, Species \cite{hendrycks2019scaling}, and SUN \cite{huang2021mos} are evaluated as far-OOD datasets. Additional near-OOD datasets are considered to further evaluate the real-world applicability of \gls{sys}. For ImageNet-100, 30 disjoint, randomly-selected ImageNet-1k classes (I-30) and the remaining 900 ImageNet-1k classes (I-900) were collected and used as near-OOD datasets. For ImageNet-200, 100 disjoint, randomly-selected ImageNet-1k classes (I-100-T, distinct from I-100) and the remaining 800 ImageNet-1k classes (I-800) were collected and used as near-OOD datasets. Additionally, the Food-101 dataset \cite{bossard2014food,zou2025simlabel} was used as another near-OOD dataset. Food-101 (or simply Food) contains classes with similar semantic detail to several ImageNet-1k classes. Details for the above datasets are listed here and follow the specifications in OpenOOD v1.5, establishing an accurate comparison with previous baselines:
+Evaluation of CASOD focuses on large-scale settings more indicative of real-world environments, with an emphasis on experimenting over a comprehensive range of semantic depth and nuance in the ID and OOD datasets. The ID datasets include the ImageNet-1k (I-1k) dataset \cite{deng2009imagenet} and two subsets of ImageNet-1k, a random selection of 100 classes (denoted as ImageNet-100, or I-100) and the popular ImageNet-200 (I-200) subset as defined in the well-established OOD detection benchmark OpenOOD v1.5 \cite{zhang2023openood}. A challenging range of far- and near-OOD datasets \cite{winkens2020contrastive} is considered, again primarily following from the OpenOOD v1.5 benchmark. NINCO \cite{bitterwolf2023or} and SSB-Hard \cite{vaze2021open} are evaluated as near-OOD datasets for their semantic similarity with various ImageNet classes. iNaturalist \cite{van2018inaturalist}, Textures \cite{cimpoi2014describing}, OpenImage-O \cite{wang2022vim}, Places365 \cite{zhou2017places}, Species \cite{hendrycks2019scaling}, and SUN \cite{huang2021mos} are evaluated as far-OOD datasets. Additional near-OOD datasets are considered to further evaluate the real-world applicability of CASOD. For ImageNet-100, 30 disjoint, randomly-selected ImageNet-1k classes (I-30) and the remaining 900 ImageNet-1k classes (I-900) were collected and used as near-OOD datasets. For ImageNet-200, 100 disjoint, randomly-selected ImageNet-1k classes (I-100-T, distinct from I-100) and the remaining 800 ImageNet-1k classes (I-800) were collected and used as near-OOD datasets. Additionally, the Food-101 dataset \cite{bossard2014food,zou2025simlabel} was used as another near-OOD dataset. Food-101 (or simply Food) contains classes with similar semantic detail to several ImageNet-1k classes. Details for the above datasets are listed here and follow the specifications in OpenOOD v1.5, establishing an accurate comparison with previous baselines:
 \begin{itemize}
 	\item \textbf{ImageNet} \cite{krizhevsky2012imagenet} - A large-scale image dataset containing 1000 unique classes across a diverse range of objects and scenes. It contains 1,281,167 training images and 50,000 validation images which are often treated as the testing dataset as labels are not released for the actual ImageNet testing dataset. For the ImageNet-100 subset, distinct classes are chosen from within ImageNet-1k.
 	\item \textbf{Textures} \cite{cimpoi2014describing} - Compiles images of different textures into a dataset containing classes uniquely describing textures such as ``\textit{polka dotted}'' and ``\textit{bumpy}''. The entire dataset of 5,640 images is used for the OOD dataset.
@@ -251,14 +251,14 @@ The ImageNet class IDs for ImageNet-200 can be found in the original source \cit
 	}
 \end{itemize}
 
-During training of \gls{sys}, batches of data were transformed using the randomized data augmentations defined in OpenOOD v1.5 \cite{zhang2023openood}. Specifically, the augmentations used were random crop, horizontal flip, random erasing, and normalization. Any transformation was applied to all views simultaneously. All images were of size 256 $\times$ 256.
+During training of CASOD, batches of data were transformed using the randomized data augmentations defined in OpenOOD v1.5 \cite{zhang2023openood}. Specifically, the augmentations used were random crop, horizontal flip, random erasing, and normalization. Any transformation was applied to all views simultaneously. All images were of size 256 $\times$ 256.
 
 %The specific image segmentation model used for foreground-background separation was YOLOv5 \cite{jocher2020ultralytics}. We used an open-source, pre-trained YOLOv5 processing pipeline\footnote{https://github.com/ultralytics/yolov5} as our foreground-background separation toolkit.
 %\textbf{Foreground-Background Separation.}  %We use an image segmentation model pre-trained on the DUTS-TR \cite{wang2017learning} dataset, which is a subset of the ImageNet detection \cite{deng2009imagenet} and SUN \cite{xiao2010sun,huang2021mos} datasets. 
 %%To prevent data leakage, we check the I-30, I-900, SUN, and SSB-Hard OOD datasets and remove any images overlapping with DUTS-TR. Thus, \textit{no samples are encountered during evaluation that have been previously seen by the foreground-background separation tool}. Details can be found in Appendix Sec. \ref{sec:suppmat-segdets}.
 %We use the YOLOv5 \cite{jocher2020ultralytics} image segmentation model pre-trained on the COCO \cite{lin2014microsoft} dataset. \textit{No samples are encountered during evaluation that have been previously seen by the foreground-background segmentation tool.}
 \subsubsection{Foreground-Background Separation Tool}
-For \gls{sys}, images were segmented into foregrounds and backgrounds using the YOLOv5 image segmentation model \cite{jocher2020ultralytics}. The open-source, pre-trained YOLOv5 pipeline (from \url{https://github.com/ultralytics/yolov5}) was used as the foreground-background segmentation toolkit. This YOLOv5 pipeline model is pre-trained on the COCO \cite{lin2014microsoft} dataset. There is no overlap between COCO and any ID or OOD dataset.
+For CASOD, images were segmented into foregrounds and backgrounds using the YOLOv5 image segmentation model \cite{jocher2020ultralytics}. The open-source, pre-trained YOLOv5 pipeline (from \url{https://github.com/ultralytics/yolov5}) was used as the foreground-background segmentation toolkit. This YOLOv5 pipeline model is pre-trained on the COCO \cite{lin2014microsoft} dataset. There is no overlap between COCO and any ID or OOD dataset.
 
 \begin{table*}[t!]
 \small
@@ -305,12 +305,12 @@ LoRA Rank &  16 & 16 & 128 \\ \hline
 %
 %For this setting, we train for $20$ epochs with a batch size of $256$. LoRA rank was 16. All other training and model configurations were identical to the ImageNet-100-Random ID experiment settings.
 \subsubsection{Model and Training Details and Hyperparameters}
-The architecture used in state-of-the-art OOD detection with ImageNet data is ViT-B-16 \cite{dosovitskiy2020image}. The feature extractor in \gls{sys} is implemented using a pre-trained ViT-B-16 model without the classification head. For ImageNet-1k, the ImageNet-1k pre-trained checkpoint provided by torchvision (\url{https://pytorch.org/vision/main/models/generated/torchvision.models.vit\_b\_16.html}) was used. For ImageNet-100 and ImageNet-200, the MOCO v3 \cite{chen2021empirical} \textit{self-supervised} pre-trained checkpoint was used instead. This self-supervised pre-trained model does not include any labels during pre-training. Thus, there is \textbf{no information leakage} between the pre-trained model and the ID and OOD distributions. It is important to note that the model used for baselines in the following ImageNet-100 and ImageNet-200 experiments also uses the MOCO v3 pre-trained backbone but only tunes one Adapter set (because it only uses the original view) and a classification head.
+The architecture used in state-of-the-art OOD detection with ImageNet data is ViT-B-16 \cite{dosovitskiy2020image}. The feature extractor in CASOD is implemented using a pre-trained ViT-B-16 model without the classification head. For ImageNet-1k, the ImageNet-1k pre-trained checkpoint provided by torchvision (\url{https://pytorch.org/vision/main/models/generated/torchvision.models.vit\_b\_16.html}) was used. For ImageNet-100 and ImageNet-200, the MOCO v3 \cite{chen2021empirical} \textit{self-supervised} pre-trained checkpoint was used instead. This self-supervised pre-trained model does not include any labels during pre-training. Thus, there is \textbf{no information leakage} between the pre-trained model and the ID and OOD distributions. It is important to note that the model used for baselines in the following ImageNet-100 and ImageNet-200 experiments also uses the MOCO v3 pre-trained backbone but only tunes one Adapter set (because it only uses the original view) and a classification head.
 
 %The Vision Transformer configuration used is ViT-B-16 \cite{zhang2023openood}. For the attention modules in our proposed CVCA fusion method, we use the following hyperparameters: 8 heads, head dimension of 96, and dropout of 0.5. Under these settings, $T$ was 197 and $d$ was 768 (see Sec. 3 of the main paper for definitions).
-Attention modules in \gls{cvca} used 8 heads, each with a dimension of 96. Dropout probability in \gls{cvca} was 0.5. $T$ was 197 and $d$ was 768. Detailed settings for training \gls{sys} are in \ref{tab:table_sys_hparam}.
+Attention modules in CVCA used 8 heads, each with a dimension of 96. Dropout probability in CVCA was 0.5. $T$ was 197 and $d$ was 768. Detailed settings for training CASOD are in \ref{tab:table_sys_hparam}.
 %A grid search was performed over hyperparameters $\psi$ (50 to 300, intervals of 50) and $\beta$ (50 to 200, intervals of 50). Both were set to the optimal found value: $\psi$ was set to 200 and $\beta$ was set to 100. The classification phase training period was 5 epochs. The view-selector phase training period was 1 epoch. At test-time, the view selection weight $v$ was rounded to 0 or 1 to ensure no data leakage from the view which was not selected (embodying the proposed selection mechanism). Note that this effectively enforces the effect of $\psi$ on sharpening the selection which must be used during training to be differentiable during backpropagation from the view selection loss $\mathcal{L}_{vs}$.
-Hyperparameters were determined using a grid search over \gls{cvca} dropout probability (0.1 to 0.7, intervals of 0.2), learning rate (1e-4, 0.001, 0.01, 0.1, 0.3), and optimizer (SGD, ADAM).
+Hyperparameters were determined using a grid search over CVCA dropout probability (0.1 to 0.7, intervals of 0.2), learning rate (1e-4, 0.001, 0.01, 0.1, 0.3), and optimizer (SGD, ADAM).
 
 %\subsection{Hyperparameter Details}
 %The Vision Transformer \cite{dosovitskiy2020image} models for ImageNet \cite{krizhevsky2012imagenet} data experiments are trained using the configuration described in Section 4.1 of the main paper. %Following the official PyTorch training recipe for state-of-the-art classification performance on ImageNet-1k, we use the following strategies. Random erasing \cite{zhong2020random,devries2018learning} is a data augmentation method that randomly removes sections of images and is known to increase classification accuracy. We use a random erasing probability of 0.1. 
@@ -322,7 +322,7 @@ Training of ViT-B-16 on ImageNet further followed the recommended actions from t
     \item Validation and testing image resizing \cite{touvron2019fixing} was used. Training images were cropped to 176. Validation and testing images were cropped to 224.
 \end{itemize}
 
-\gls{sys} was implemented using SciPy, PyTorch Lightning, and FAISS \cite{johnson2019billion}. Computation was performed on four Nvidia RTX A6000 GPUs.
+CASOD was implemented using SciPy, PyTorch Lightning, and FAISS \cite{johnson2019billion}. Computation was performed on four Nvidia RTX A6000 GPUs.
 
 %\textbf{Baselines.} Baselines were chosen for comparison based on recent state-of-the-art performance \textbf{as measured by the well-accepted OOD benchmark OpenOOD v1.5} \cite{zhang2023openood}. Note that, in the benchmark, post-hoc OOD detection methods predominantly outperform training-time methods; as such, we did not include training-time methods.
 %%Baselines were chosen for comparison based on canonical relevance and state-of-the-art performance \textbf{with respect to the recent, well-accepted OOD benchmark OpenOOD v1.5} \cite{zhang2023openood}. 
@@ -338,7 +338,7 @@ Training of ViT-B-16 on ImageNet further followed the recommended actions from t
 %We chose baselines solely based on their recent state-of-the-art performance, as measured by the well-accepted benchmark OpenOOD v1.5 [1]. In that benchmark, post-hoc OOD detection methods predominantly outperformed train-time methods, so we did not include train-time methods.
 %}
 \subsubsection{Baselines}
-Experimental comparisons between \gls{sys} and previous state-of-the-art methods were established according to the setup described in OpenOOD v1.5 \cite{zhang2023openood}. Only OOD detection methods that predominantly outperformed other methods were selected for comparison. It is relevant to note that training-time OOD detection methods are consistently subsumed by post-hoc OOD detection methods \cite{zhang2023openood,yang2024generalized}. As such, no training-time OOD detection methods were included in the presented experiments.
+Experimental comparisons between CASOD and previous state-of-the-art methods were established according to the setup described in OpenOOD v1.5 \cite{zhang2023openood}. Only OOD detection methods that predominantly outperformed other methods were selected for comparison. It is relevant to note that training-time OOD detection methods are consistently subsumed by post-hoc OOD detection methods \cite{zhang2023openood,yang2024generalized}. As such, no training-time OOD detection methods were included in the presented experiments.
 
 The following state-of-the-art baselines were considered:
 \begin{itemize}
@@ -356,7 +356,7 @@ The following state-of-the-art baselines were considered:
     \item Fast Decision Boundary (\textbf{FDBD}) \cite{liu2024fast}
     \item Simplified Hopfield Energy (\textbf{SHE}) \cite{zhang2022out}
 \end{itemize}
-A baseline method similar to \gls{sys}, DFB \cite{ding2024improving}, was also included for consideration. For all baseline methods, the recommended hyperparemeters cited within each work were used.
+A baseline method similar to CASOD, DFB \cite{ding2024improving}, was also included for consideration. For all baseline methods, the recommended hyperparemeters cited within each work were used.
 
 %\textbf{Evaluation metrics.} 
 %We use the popular Area Under the Receiver Operating Characteristic Curve (AUC) {\color{blue}and False Positive Rate at 95\% True Positive Rate (FPR)}.
@@ -382,7 +382,7 @@ ID accuracy is not presented in the following results as OOD detection performan
 %OOD detection for segmentation is a different task. Traditional anomaly detection, i.e. [5,6,7], is different from OOD detection in that OOD detection involves multiple classes, while anomaly detection often involves only one normal class data and is learned in an unsupervised manner. Furthermore, [5,6,7] use the foreground view for anomaly detection, often ignoring the background view. [1] is a work developed in parallel with ours. However, it is different because it considers foreground-background separation as a dense prediction problem and does not use fusion. In particular, we note that their performance on ImageNet-1k is worse than ours, AUROC on Textures for [1] is around 78\% while COD (ours) is 92.94\%.
 %There are other methods that use foreground-background segmentations and report improvements in anomaly detection, OOD generalization, and OOD segmentation [1]. We want to highlight here that although most of these works are topically related to ours, they differ in terms of problem setting and hence, are not comparable (Ding et al. is the exception). 
 \subsubsection{Separation from Other Baselines}
-The primary distinction between these experiments and those performed in other OOD detection baselines is the use of limited pre-trained models. Specifically, previous OOD detection baselines predominantly utilize pre-trained models that either 1) were trained on the ImageNet-21k dataset \cite{krizhevsky2012imagenet}, or 2) are multi-modal models. Using models pre-trained on ImageNet-21k is unfair in all of the considered experimental settings as many of the included OOD datasets overlap with ImageNet-21k, introducing data leakage. This invalidates the comparison as settings are no longer representative of true ID and OOD distributional separation. Multi-modal models are also not considered valid for comparison as they operate in an entirely separate medium. These models, primarily vision-language models in recent works \cite{miyai2024locoop}, allow for the representation of data in text as well as images which is more data for learning and OOD detection compared to \gls{sys} which only uses images.
+The primary distinction between these experiments and those performed in other OOD detection baselines is the use of limited pre-trained models. Specifically, previous OOD detection baselines predominantly utilize pre-trained models that either 1) were trained on the ImageNet-21k dataset \cite{krizhevsky2012imagenet}, or 2) are multi-modal models. Using models pre-trained on ImageNet-21k is unfair in all of the considered experimental settings as many of the included OOD datasets overlap with ImageNet-21k, introducing data leakage. This invalidates the comparison as settings are no longer representative of true ID and OOD distributional separation. Multi-modal models are also not considered valid for comparison as they operate in an entirely separate medium. These models, primarily vision-language models in recent works \cite{miyai2024locoop}, allow for the representation of data in text as well as images which is more data for learning and OOD detection compared to CASOD which only uses images.
 %We note that performance discrepancies compared to other works originate from our use of a self-supervised pre-trained ViT backbone with a learnable Adapter and classification head. Previous works tune ViT models pre-trained on ImageNet-21k which we believe to be an unfair comparison due to data leakage. 
 
 \subsection{Results \& Analysis}
@@ -391,7 +391,7 @@ The primary distinction between these experiments and those performed in other O
 %\begin{table*}[t!]
 %	\small
 %	\centering
-%	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUC}: AUC OOD detection results between \gls{sys} and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. Avg.F is mean performance for far-OOD. All numeric values are percentages. Best results are emphasized using \textbf{boldface}.
+%	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUC}: AUC OOD detection results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. Avg.F is mean performance for far-OOD. All numeric values are percentages. Best results are emphasized using \textbf{boldface}.
 %    }
 %	\vspace{0.1cm}
 %	\scalebox{0.58}{
@@ -412,7 +412,7 @@ The primary distinction between these experiments and those performed in other O
 %VRA\cite{xu2024vra}    & 85.69$_{\pm 0.13}$ & 87.18$_{\pm 1.40}$ & 85.08$_{\pm 0.19}$ & 85.52$_{\pm 0.16}$ & 77.11$_{\pm 0.42}$ & 84.11 & 82.12$_{\pm 0.68}$ & 83.56$_{\pm 0.53}$ & 79.35$_{\pm 0.61}$ & 80.88$_{\pm 0.42}$ & 83.38$_{\pm 0.48}$ & 86.60$_{\pm 0.11}$ & 82.65 & 83.31 \\
 %NECO\cite{ammar2024neco}   & 84.51$_{\pm 0.01}$ & 86.48$_{\pm 1.71}$ & 91.62$_{\pm 0.05}$ & 87.06$_{\pm 0.04}$ & 87.02$_{\pm 0.23}$ & 87.34 & 98.12$_{\pm 0.01}$ & 95.72$_{\pm 0.09}$ & 94.60$_{\pm 0.14}$ & 91.72$_{\pm 0.04}$ & 95.00$_{\pm 0.04}$ & 93.27$_{\pm 0.01}$ & 94.74 & 91.38 \\
 %FDBD\cite{liu2024fast}   & 83.30$_{\pm 0.04}$ & 85.29$_{\pm 1.72}$ & 90.04$_{\pm 0.07}$ & 85.60$_{\pm 0.10}$ & 78.19$_{\pm 0.16}$ & 84.48 & 95.25$_{\pm 0.08}$ & 95.01$_{\pm 0.09}$ & 91.51$_{\pm 0.09}$ & 88.66$_{\pm 0.08}$ & 93.74$_{\pm 0.08}$ & 90.29$_{\pm 0.05}$ & 92.41 & 88.81 \\ \hline
-%\gls{sys}  & 85.42$_{\pm 0.09}$ & \textbf{88.30}$_{\pm 0.04}$ & \textbf{93.26}$_{\pm 0.16}$ & \textbf{89.66}$_{\pm 0.15}$ & \textbf{91.34}$_{\pm 0.61}$ & \textbf{89.60} & 99.02$_{\pm 0.07}$ & \textbf{99.89}$_{\pm 0.01}$ & \textbf{98.46}$_{\pm 0.13}$ & \textbf{96.40}$_{\pm 0.06}$ & \textbf{95.55}$_{\pm 0.13}$ & \textbf{94.56}$_{\pm 0.25}$ & \textbf{97.31} & \textbf{93.81} \\ \hline
+%CASOD  & 85.42$_{\pm 0.09}$ & \textbf{88.30}$_{\pm 0.04}$ & \textbf{93.26}$_{\pm 0.16}$ & \textbf{89.66}$_{\pm 0.15}$ & \textbf{91.34}$_{\pm 0.61}$ & \textbf{89.60} & 99.02$_{\pm 0.07}$ & \textbf{99.89}$_{\pm 0.01}$ & \textbf{98.46}$_{\pm 0.13}$ & \textbf{96.40}$_{\pm 0.06}$ & \textbf{95.55}$_{\pm 0.13}$ & \textbf{94.56}$_{\pm 0.25}$ & \textbf{97.31} & \textbf{93.81} \\ \hline
 %			\multirow{2}{*}{} &  \multicolumn{14}{c|}{ID data: ImageNet-200}  \\ \cline{2-15}
 %			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
 %            MSP\cite{hendrycks2017baseline}    & 82.16$_{\pm 0.18}$ & 81.27$_{\pm 0.27}$ & 77.53$_{\pm 0.22}$ & 64.13$_{\pm 0.41}$ & 65.21$_{\pm 0.97}$ & 74.06 & 87.56$_{\pm 0.24}$ & 78.50$_{\pm 0.43}$ & 77.58$_{\pm 0.48}$ & 79.26$_{\pm 0.43}$ & 79.87$_{\pm 0.18}$ & 68.97$_{\pm 0.41}$ & 78.62 & 76.55 \\
@@ -428,7 +428,7 @@ The primary distinction between these experiments and those performed in other O
 %VRA\cite{xu2024vra}    & 39.41$_{\pm 0.39}$ & 39.76$_{\pm 0.35}$ & 38.21$_{\pm 0.84}$ & 54.42$_{\pm 0.29}$ & 39.03$_{\pm 0.85}$ & 42.16 & 11.36$_{\pm 0.22}$ & 31.34$_{\pm 0.78}$ & 32.09$_{\pm 2.96}$ & 30.88$_{\pm 2.74}$ & 26.62$_{\pm 0.56}$ & 47.06$_{\pm 0.49}$ & 29.89 & 35.47 \\
 %NECO\cite{ammar2024neco}   & 81.13$_{\pm 0.06}$ & 83.53$_{\pm 0.08}$ & 82.63$_{\pm 0.16}$ & 73.00$_{\pm 0.12}$ & 72.34$_{\pm 0.44}$ & 78.53 & 94.30$_{\pm 0.11}$ & 82.13$_{\pm 0.45}$ & 90.88$_{\pm 0.14}$ & 89.24$_{\pm 0.15}$ & 87.93$_{\pm 0.21}$ & 77.63$_{\pm 0.16}$ & 87.02 & 83.16 \\
 %FDBD\cite{liu2024fast}   & 84.39$_{\pm 0.08}$ & 84.40$_{\pm 0.11}$ & 82.10$_{\pm 0.11}$ & 70.70$_{\pm 0.26}$ & 73.46$_{\pm 0.52}$ & 79.01 & 91.97$_{\pm 0.15}$ & 86.68$_{\pm 0.25}$ & 87.08$_{\pm 0.15}$ & 86.84$_{\pm 0.06}$ & 87.27$_{\pm 0.08}$ & 74.43$_{\pm 0.24}$ & 85.71 & 82.67 \\ \hline
-%\gls{sys}  & \textbf{85.03}$_{\pm 0.95}$ & \textbf{86.93}$_{\pm 0.67}$ & \textbf{89.96}$_{\pm 0.27}$ & \textbf{82.54}$_{\pm 0.68}$ & \textbf{87.14}$_{\pm 2.96}$ & \textbf{86.32} & \textbf{98.48}$_{\pm 0.49}$ & \textbf{99.42}$_{\pm 0.11}$ & \textbf{98.26}$_{\pm 0.20}$ & \textbf{97.81}$_{\pm 0.13}$ & \textbf{94.14}$_{\pm 0.30}$ & \textbf{86.60}$_{\pm 0.59}$ & \textbf{95.79} & \textbf{91.48} \\ \hline
+%CASOD  & \textbf{85.03}$_{\pm 0.95}$ & \textbf{86.93}$_{\pm 0.67}$ & \textbf{89.96}$_{\pm 0.27}$ & \textbf{82.54}$_{\pm 0.68}$ & \textbf{87.14}$_{\pm 2.96}$ & \textbf{86.32} & \textbf{98.48}$_{\pm 0.49}$ & \textbf{99.42}$_{\pm 0.11}$ & \textbf{98.26}$_{\pm 0.20}$ & \textbf{97.81}$_{\pm 0.13}$ & \textbf{94.14}$_{\pm 0.30}$ & \textbf{86.60}$_{\pm 0.59}$ & \textbf{95.79} & \textbf{91.48} \\ \hline
 %		\end{tabular}
 %	}
 %	\label{tab:table_ood_auc}
@@ -458,7 +458,7 @@ SHE\cite{zhang2022out}    & 80.85$_{\pm 0.09}$ & 83.11$_{\pm 1.99}$ & 87.91$_{\p
 VRA\cite{xu2024vra}    & 85.69$_{\pm 0.13}$ & 87.18$_{\pm 1.40}$ & 85.08$_{\pm 0.19}$ & 85.52$_{\pm 0.16}$ & 77.11$_{\pm 0.42}$ & 84.11\\
 NECO\cite{ammar2024neco}   & 84.51$_{\pm 0.01}$ & 86.48$_{\pm 1.71}$ & 91.62$_{\pm 0.05}$ & 87.06$_{\pm 0.04}$ & 87.02$_{\pm 0.23}$ & 87.34 \\
 FDBD\cite{liu2024fast}   & 83.30$_{\pm 0.04}$ & 85.29$_{\pm 1.72}$ & 90.04$_{\pm 0.07}$ & 85.60$_{\pm 0.10}$ & 78.19$_{\pm 0.16}$ & 84.48\\ \hline
-\gls{sys}  & 85.42$_{\pm 0.09}$ & \textbf{88.30}$_{\pm 0.04}$ & \textbf{93.26}$_{\pm 0.16}$ & \textbf{89.66}$_{\pm 0.15}$ & \textbf{91.34}$_{\pm 0.61}$ & \textbf{89.60} \\ \hline
+CASOD  & 85.42$_{\pm 0.09}$ & \textbf{88.30}$_{\pm 0.04}$ & \textbf{93.26}$_{\pm 0.16}$ & \textbf{89.66}$_{\pm 0.15}$ & \textbf{91.34}$_{\pm 0.61}$ & \textbf{89.60} \\ \hline
 			\multirow{2}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-200}  \\ \cline{2-7}
 			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N\\ \hline
             MSP\cite{hendrycks2017baseline}    & 82.16$_{\pm 0.18}$ & 81.27$_{\pm 0.27}$ & 77.53$_{\pm 0.22}$ & 64.13$_{\pm 0.41}$ & 65.21$_{\pm 0.97}$ & 74.06  \\
@@ -474,7 +474,7 @@ SHE\cite{zhang2022out}    & 72.98$_{\pm 0.15}$ & 71.61$_{\pm 0.10}$ & 77.11$_{\p
 VRA\cite{xu2024vra}    & 39.41$_{\pm 0.39}$ & 39.76$_{\pm 0.35}$ & 38.21$_{\pm 0.84}$ & 54.42$_{\pm 0.29}$ & 39.03$_{\pm 0.85}$ & 42.16\\
 NECO\cite{ammar2024neco}   & 81.13$_{\pm 0.06}$ & 83.53$_{\pm 0.08}$ & 82.63$_{\pm 0.16}$ & 73.00$_{\pm 0.12}$ & 72.34$_{\pm 0.44}$ & 78.53 \\
 FDBD\cite{liu2024fast}   & 84.39$_{\pm 0.08}$ & 84.40$_{\pm 0.11}$ & 82.10$_{\pm 0.11}$ & 70.70$_{\pm 0.26}$ & 73.46$_{\pm 0.52}$ & 79.01 \\ \hline
-\gls{sys}  & \textbf{85.03}$_{\pm 0.95}$ & \textbf{86.93}$_{\pm 0.67}$ & \textbf{89.96}$_{\pm 0.27}$ & \textbf{82.54}$_{\pm 0.68}$ & \textbf{87.14}$_{\pm 2.96}$ & \textbf{86.32}  \\ \hline
+CASOD  & \textbf{85.03}$_{\pm 0.95}$ & \textbf{86.93}$_{\pm 0.67}$ & \textbf{89.96}$_{\pm 0.27}$ & \textbf{82.54}$_{\pm 0.68}$ & \textbf{87.14}$_{\pm 2.96}$ & \textbf{86.32}  \\ \hline
 		\end{tabular}
 	}
 	\label{tab:table_ood_auc}
@@ -505,7 +505,7 @@ SHE\cite{zhang2022out}    &  81.34 & 89.97$_{\pm 0.31}$ & 95.63$_{\pm 0.18}$ & 8
 VRA\cite{xu2024vra}    & 84.11 & 82.12$_{\pm 0.68}$ & 83.56$_{\pm 0.53}$ & 79.35$_{\pm 0.61}$ & 80.88$_{\pm 0.42}$ & 83.38$_{\pm 0.48}$ & 86.60$_{\pm 0.11}$ & 82.65 & 83.31 \\
 NECO\cite{ammar2024neco}   &  87.34 & 98.12$_{\pm 0.01}$ & 95.72$_{\pm 0.09}$ & 94.60$_{\pm 0.14}$ & 91.72$_{\pm 0.04}$ & 95.00$_{\pm 0.04}$ & 93.27$_{\pm 0.01}$ & 94.74 & 91.38 \\
 FDBD\cite{liu2024fast}   &  84.48 & 95.25$_{\pm 0.08}$ & 95.01$_{\pm 0.09}$ & 91.51$_{\pm 0.09}$ & 88.66$_{\pm 0.08}$ & 93.74$_{\pm 0.08}$ & 90.29$_{\pm 0.05}$ & 92.41 & 88.81 \\ \hline
-\gls{sys}  & \textbf{89.60} & 99.02$_{\pm 0.07}$ & \textbf{99.89}$_{\pm 0.01}$ & \textbf{98.46}$_{\pm 0.13}$ & \textbf{96.40}$_{\pm 0.06}$ & \textbf{95.55}$_{\pm 0.13}$ & \textbf{94.56}$_{\pm 0.25}$ & \textbf{97.31} & \textbf{93.81} \\ \hline
+CASOD  & \textbf{89.60} & 99.02$_{\pm 0.07}$ & \textbf{99.89}$_{\pm 0.01}$ & \textbf{98.46}$_{\pm 0.13}$ & \textbf{96.40}$_{\pm 0.06}$ & \textbf{95.55}$_{\pm 0.13}$ & \textbf{94.56}$_{\pm 0.25}$ & \textbf{97.31} & \textbf{93.81} \\ \hline
 			\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-200}  \\ \cline{2-10}
 			& Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
             MSP\cite{hendrycks2017baseline}    & 74.06 & 87.56$_{\pm 0.24}$ & 78.50$_{\pm 0.43}$ & 77.58$_{\pm 0.48}$ & 79.26$_{\pm 0.43}$ & 79.87$_{\pm 0.18}$ & 68.97$_{\pm 0.41}$ & 78.62 & 76.55 \\
@@ -521,7 +521,7 @@ SHE\cite{zhang2022out}    &  68.59 & 91.57$_{\pm 0.23}$ & 76.31$_{\pm 0.48}$ & 8
 VRA\cite{xu2024vra}    &  42.16 & 11.36$_{\pm 0.22}$ & 31.34$_{\pm 0.78}$ & 32.09$_{\pm 2.96}$ & 30.88$_{\pm 2.74}$ & 26.62$_{\pm 0.56}$ & 47.06$_{\pm 0.49}$ & 29.89 & 35.47 \\
 NECO\cite{ammar2024neco}   & 78.53 & 94.30$_{\pm 0.11}$ & 82.13$_{\pm 0.45}$ & 90.88$_{\pm 0.14}$ & 89.24$_{\pm 0.15}$ & 87.93$_{\pm 0.21}$ & 77.63$_{\pm 0.16}$ & 87.02 & 83.16 \\
 FDBD\cite{liu2024fast}   & 79.01 & 91.97$_{\pm 0.15}$ & 86.68$_{\pm 0.25}$ & 87.08$_{\pm 0.15}$ & 86.84$_{\pm 0.06}$ & 87.27$_{\pm 0.08}$ & 74.43$_{\pm 0.24}$ & 85.71 & 82.67 \\ \hline
-\gls{sys}  &  \textbf{86.32} & \textbf{98.48}$_{\pm 0.49}$ & \textbf{99.42}$_{\pm 0.11}$ & \textbf{98.26}$_{\pm 0.20}$ & \textbf{97.81}$_{\pm 0.13}$ & \textbf{94.14}$_{\pm 0.30}$ & \textbf{86.60}$_{\pm 0.59}$ & \textbf{95.79} & \textbf{91.48} \\ \hline
+CASOD  &  \textbf{86.32} & \textbf{98.48}$_{\pm 0.49}$ & \textbf{99.42}$_{\pm 0.11}$ & \textbf{98.26}$_{\pm 0.20}$ & \textbf{97.81}$_{\pm 0.13}$ & \textbf{94.14}$_{\pm 0.30}$ & \textbf{86.60}$_{\pm 0.59}$ & \textbf{95.79} & \textbf{91.48} \\ \hline
 		\end{tabular}
 	}
 	\label{tab:table_ood_auc_f}
@@ -530,7 +530,7 @@ FDBD\cite{liu2024fast}   & 79.01 & 91.97$_{\pm 0.15}$ & 86.68$_{\pm 0.25}$ & 87.
 %\begin{table*}[t!]
 %	\small
 %	\centering
-%	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - FPR95}: FPR95 OOD detection results between \gls{sys} and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. Avg.F is mean performance for far-OOD.
+%	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - FPR95}: FPR95 OOD detection results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. Avg.F is mean performance for far-OOD.
 %	}
 %    \scalebox{0.58}{
 %		\begin{tabular}{|l|ccccc|c|cccccc|c|c|}
@@ -550,7 +550,7 @@ FDBD\cite{liu2024fast}   & 79.01 & 91.97$_{\pm 0.15}$ & 86.68$_{\pm 0.25}$ & 87.
 %VRA      & 55.40$_{\pm  0.23}$  & 52.37$_{\pm  0.16}$  & 73.51$_{\pm  0.13}$  & 53.12$_{\pm  0.03}$  & 87.55$_{\pm  0.66}$  & 64.39  & 76.00$_{\pm  0.74}$  & 81.92$_{\pm  0.09}$  & 87.78$_{\pm  0.36}$  & 84.42$_{\pm  0.09}$  & 80.52$_{\pm  0.15}$  & 59.17$_{\pm  0.54}$  & 78.30  & 71.98 \\
 %NECO     & 49.36$_{\pm  0.21}$  & 50.17$_{\pm  0.29}$  & 42.21$_{\pm  0.13}$  & 52.27$_{\pm  0.25}$  & 64.29$_{\pm  0.89}$  & 51.66  &  7.88$_{\pm  0.11}$  & 27.48$_{\pm  0.66}$  & 29.01$_{\pm  0.72}$  & 42.72$_{\pm  0.19}$  & 27.83$_{\pm  0.03}$  & 31.58$_{\pm  0.12}$  & 27.75  & 38.62 \\
 %FDBD     & 61.93$_{\pm  0.23}$  & 63.53$_{\pm  0.21}$  & 54.28$_{\pm  0.22}$  & 64.81$_{\pm  0.35}$  & 88.49$_{\pm  0.53}$  & 66.61  & 27.27$_{\pm  0.76}$  & 33.32$_{\pm  0.49}$  & 46.79$_{\pm  0.37}$  & 60.10$_{\pm  0.58}$  & 40.01$_{\pm  0.49}$  & 46.99$_{\pm  0.40}$  & 42.42  & 53.41 \\ \hline
-%\gls{sys}    & \textbf{52.93}$_{\pm  1.01}$  & \textbf{53.69}$_{\pm  0.27}$  & \textbf{35.92}$_{\pm  0.57}$  & \textbf{48.49}$_{\pm  0.70}$  & \textbf{53.50}$_{\pm  4.86}$  & \textbf{48.91}  &  4.85$_{\pm  0.13}$  &  \textbf{0.22}$_{\pm  0.04}$  &  \textbf{7.81}$_{\pm  0.50}$  & \textbf{17.58}$_{\pm  0.62}$  & 26.53$_{\pm  0.64}$  & \textbf{23.94}$_{\pm  1.05}$  & \textbf{13.49}  & \textbf{29.59} \\ \hline
+%CASOD    & \textbf{52.93}$_{\pm  1.01}$  & \textbf{53.69}$_{\pm  0.27}$  & \textbf{35.92}$_{\pm  0.57}$  & \textbf{48.49}$_{\pm  0.70}$  & \textbf{53.50}$_{\pm  4.86}$  & \textbf{48.91}  &  4.85$_{\pm  0.13}$  &  \textbf{0.22}$_{\pm  0.04}$  &  \textbf{7.81}$_{\pm  0.50}$  & \textbf{17.58}$_{\pm  0.62}$  & 26.53$_{\pm  0.64}$  & \textbf{23.94}$_{\pm  1.05}$  & \textbf{13.49}  & \textbf{29.59} \\ \hline
 %			\multirow{2}{*}{} &  \multicolumn{14}{c|}{ID data: ImageNet-200}  \\ \cline{2-15}
 %			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
 %            MSP    & 74.32$_{\pm 0.80}$ & 72.89$_{\pm 0.87}$ & 79.10$_{\pm 0.73}$ & 88.54$_{\pm 0.48}$ & 98.24$_{\pm 0.13}$ & 82.62 & 54.04$_{\pm 1.72}$ & 91.46$_{\pm 1.01}$ & 85.80$_{\pm 0.62}$ & 84.81$_{\pm 0.87}$ & 74.92$_{\pm 1.05}$ & 92.19$_{\pm 0.46}$ & 80.54 & 81.48 \\
@@ -566,7 +566,7 @@ FDBD\cite{liu2024fast}   & 79.01 & 91.97$_{\pm 0.15}$ & 86.68$_{\pm 0.25}$ & 87.
 %VRA    & 98.54$_{\pm 0.08}$ & 97.08$_{\pm 0.02}$ & 98.05$_{\pm 0.12}$ & 92.39$_{\pm 0.11}$ & 99.96$_{\pm 0.01}$ & 97.20 & 99.91$_{\pm 0.03}$ & 99.82$_{\pm 0.01}$ & 99.43$_{\pm 0.11}$ & 99.71$_{\pm 0.12}$ & 99.48$_{\pm 0.04}$ & 97.00$_{\pm 0.18}$ & 99.22 & 98.31 \\
 %NECO   & 66.16$_{\pm 0.27}$ & 61.55$_{\pm 0.40}$ & 78.47$_{\pm 0.49}$ & 85.21$_{\pm 0.27}$ & 94.50$_{\pm 0.41}$ & 77.18 & 23.45$_{\pm 0.93}$ & 95.96$_{\pm 0.40}$ & 65.38$_{\pm 0.39}$ & 75.96$_{\pm 0.54}$ & 66.88$_{\pm 0.76}$ & 87.80$_{\pm 0.50}$ & 69.24 & 72.85 \\
 %FDBD   & 67.90$_{\pm 0.23}$ & 65.91$_{\pm 0.38}$ & 71.60$_{\pm 0.36}$ & 82.97$_{\pm 0.28}$ & 97.02$_{\pm 0.31}$ & 77.08 & 32.95$_{\pm 1.00}$ & 75.68$_{\pm 0.93}$ & 72.15$_{\pm 0.56}$ & 75.38$_{\pm 0.24}$ & 61.28$_{\pm 0.23}$ & 85.76$_{\pm 0.28}$ & 67.20 & 71.69 \\ \hline
-%\gls{sys}  & 59.39$_{\pm 1.17}$ & \textbf{53.33}$_{\pm 0.89}$ & \textbf{50.29}$_{\pm 1.86}$ & \textbf{63.95}$_{\pm 2.37}$ & \textbf{77.17}$_{\pm 4.48}$ & \textbf{60.83} &  \textbf{5.44}$_{\pm 1.22}$ &  \textbf{1.61}$_{\pm 0.47}$ &  \textbf{7.24}$_{\pm 0.84}$ & \textbf{10.55}$_{\pm 0.67}$ & \textbf{37.13}$_{\pm 2.65}$ & \textbf{50.99}$_{\pm 0.22}$ & \textbf{18.83} & \textbf{37.92} \\ \hline
+%CASOD  & 59.39$_{\pm 1.17}$ & \textbf{53.33}$_{\pm 0.89}$ & \textbf{50.29}$_{\pm 1.86}$ & \textbf{63.95}$_{\pm 2.37}$ & \textbf{77.17}$_{\pm 4.48}$ & \textbf{60.83} &  \textbf{5.44}$_{\pm 1.22}$ &  \textbf{1.61}$_{\pm 0.47}$ &  \textbf{7.24}$_{\pm 0.84}$ & \textbf{10.55}$_{\pm 0.67}$ & \textbf{37.13}$_{\pm 2.65}$ & \textbf{50.99}$_{\pm 0.22}$ & \textbf{18.83} & \textbf{37.92} \\ \hline
 %		\end{tabular}
 %	}
 %	\label{tab:table_ood_fpr95}
@@ -595,7 +595,7 @@ SHE      & 62.35$_{\pm  0.37}$  & 61.76$_{\pm  0.51}$  & 60.05$_{\pm  0.72}$  & 
 VRA      & 55.40$_{\pm  0.23}$  & 52.37$_{\pm  0.16}$  & 73.51$_{\pm  0.13}$  & 53.12$_{\pm  0.03}$  & 87.55$_{\pm  0.66}$  & 64.39 \\
 NECO     & 49.36$_{\pm  0.21}$  & 50.17$_{\pm  0.29}$  & 42.21$_{\pm  0.13}$  & 52.27$_{\pm  0.25}$  & 64.29$_{\pm  0.89}$  & 51.66  \\
 FDBD     & 61.93$_{\pm  0.23}$  & 63.53$_{\pm  0.21}$  & 54.28$_{\pm  0.22}$  & 64.81$_{\pm  0.35}$  & 88.49$_{\pm  0.53}$  & 66.61 \\ \hline
-\gls{sys}    & \textbf{52.93}$_{\pm  1.01}$  & \textbf{53.69}$_{\pm  0.27}$  & \textbf{35.92}$_{\pm  0.57}$  & \textbf{48.49}$_{\pm  0.70}$  & \textbf{53.50}$_{\pm  4.86}$  & \textbf{48.91}   \\ \hline
+CASOD    & \textbf{52.93}$_{\pm  1.01}$  & \textbf{53.69}$_{\pm  0.27}$  & \textbf{35.92}$_{\pm  0.57}$  & \textbf{48.49}$_{\pm  0.70}$  & \textbf{53.50}$_{\pm  4.86}$  & \textbf{48.91}   \\ \hline
 			\multirow{2}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-200}  \\ \cline{2-7}
 			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N\\ \hline
             MSP    & 74.32$_{\pm 0.80}$ & 72.89$_{\pm 0.87}$ & 79.10$_{\pm 0.73}$ & 88.54$_{\pm 0.48}$ & 98.24$_{\pm 0.13}$ & 82.62  \\
@@ -611,7 +611,7 @@ SHE    & 82.27$_{\pm 0.36}$ & 81.86$_{\pm 0.39}$ & 83.53$_{\pm 0.84}$ & 90.65$_{
 VRA    & 98.54$_{\pm 0.08}$ & 97.08$_{\pm 0.02}$ & 98.05$_{\pm 0.12}$ & 92.39$_{\pm 0.11}$ & 99.96$_{\pm 0.01}$ & 97.20 \\
 NECO   & 66.16$_{\pm 0.27}$ & 61.55$_{\pm 0.40}$ & 78.47$_{\pm 0.49}$ & 85.21$_{\pm 0.27}$ & 94.50$_{\pm 0.41}$ & 77.18  \\
 FDBD   & 67.90$_{\pm 0.23}$ & 65.91$_{\pm 0.38}$ & 71.60$_{\pm 0.36}$ & 82.97$_{\pm 0.28}$ & 97.02$_{\pm 0.31}$ & 77.08 \\ \hline
-\gls{sys}  & 59.39$_{\pm 1.17}$ & \textbf{53.33}$_{\pm 0.89}$ & \textbf{50.29}$_{\pm 1.86}$ & \textbf{63.95}$_{\pm 2.37}$ & \textbf{77.17}$_{\pm 4.48}$ & \textbf{60.83}\\ \hline
+CASOD  & 59.39$_{\pm 1.17}$ & \textbf{53.33}$_{\pm 0.89}$ & \textbf{50.29}$_{\pm 1.86}$ & \textbf{63.95}$_{\pm 2.37}$ & \textbf{77.17}$_{\pm 4.48}$ & \textbf{60.83}\\ \hline
 		\end{tabular}
 	}
 	\label{tab:table_ood_fpr95}
@@ -640,7 +640,7 @@ SHE      & 65.76  & 52.19$_{\pm  1.12}$  & 27.12$_{\pm  1.36}$  & 67.92$_{\pm  0
 VRA      &  64.39  & 76.00$_{\pm  0.74}$  & 81.92$_{\pm  0.09}$  & 87.78$_{\pm  0.36}$  & 84.42$_{\pm  0.09}$  & 80.52$_{\pm  0.15}$  & 59.17$_{\pm  0.54}$  & 78.30  & 71.98 \\
 NECO     &  51.66  &  7.88$_{\pm  0.11}$  & 27.48$_{\pm  0.66}$  & 29.01$_{\pm  0.72}$  & 42.72$_{\pm  0.19}$  & 27.83$_{\pm  0.03}$  & 31.58$_{\pm  0.12}$  & 27.75  & 38.62 \\
 FDBD     & 66.61  & 27.27$_{\pm  0.76}$  & 33.32$_{\pm  0.49}$  & 46.79$_{\pm  0.37}$  & 60.10$_{\pm  0.58}$  & 40.01$_{\pm  0.49}$  & 46.99$_{\pm  0.40}$  & 42.42  & 53.41 \\ \hline
-\gls{sys}    &  \textbf{48.91}  &  4.85$_{\pm  0.13}$  &  \textbf{0.22}$_{\pm  0.04}$  &  \textbf{7.81}$_{\pm  0.50}$  & \textbf{17.58}$_{\pm  0.62}$  & 26.53$_{\pm  0.64}$  & \textbf{23.94}$_{\pm  1.05}$  & \textbf{13.49}  & \textbf{29.59} \\ \hline
+CASOD    &  \textbf{48.91}  &  4.85$_{\pm  0.13}$  &  \textbf{0.22}$_{\pm  0.04}$  &  \textbf{7.81}$_{\pm  0.50}$  & \textbf{17.58}$_{\pm  0.62}$  & 26.53$_{\pm  0.64}$  & \textbf{23.94}$_{\pm  1.05}$  & \textbf{13.49}  & \textbf{29.59} \\ \hline
 			\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-200}  \\ \cline{2-10}
 			&  Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
             MSP    & 82.62 & 54.04$_{\pm 1.72}$ & 91.46$_{\pm 1.01}$ & 85.80$_{\pm 0.62}$ & 84.81$_{\pm 0.87}$ & 74.92$_{\pm 1.05}$ & 92.19$_{\pm 0.46}$ & 80.54 & 81.48 \\
@@ -656,7 +656,7 @@ SHE    &  87.23 & 33.21$_{\pm 1.56}$ & 88.17$_{\pm 0.96}$ & 59.64$_{\pm 3.05}$ &
 VRA    &  97.20 & 99.91$_{\pm 0.03}$ & 99.82$_{\pm 0.01}$ & 99.43$_{\pm 0.11}$ & 99.71$_{\pm 0.12}$ & 99.48$_{\pm 0.04}$ & 97.00$_{\pm 0.18}$ & 99.22 & 98.31 \\
 NECO   &  77.18 & 23.45$_{\pm 0.93}$ & 95.96$_{\pm 0.40}$ & 65.38$_{\pm 0.39}$ & 75.96$_{\pm 0.54}$ & 66.88$_{\pm 0.76}$ & 87.80$_{\pm 0.50}$ & 69.24 & 72.85 \\
 FDBD   &  77.08 & 32.95$_{\pm 1.00}$ & 75.68$_{\pm 0.93}$ & 72.15$_{\pm 0.56}$ & 75.38$_{\pm 0.24}$ & 61.28$_{\pm 0.23}$ & 85.76$_{\pm 0.28}$ & 67.20 & 71.69 \\ \hline
-\gls{sys}  &  \textbf{60.83} &  \textbf{5.44}$_{\pm 1.22}$ &  \textbf{1.61}$_{\pm 0.47}$ &  \textbf{7.24}$_{\pm 0.84}$ & \textbf{10.55}$_{\pm 0.67}$ & \textbf{37.13}$_{\pm 2.65}$ & \textbf{50.99}$_{\pm 0.22}$ & \textbf{18.83} & \textbf{37.92} \\ \hline
+CASOD  &  \textbf{60.83} &  \textbf{5.44}$_{\pm 1.22}$ &  \textbf{1.61}$_{\pm 0.47}$ &  \textbf{7.24}$_{\pm 0.84}$ & \textbf{10.55}$_{\pm 0.67}$ & \textbf{37.13}$_{\pm 2.65}$ & \textbf{50.99}$_{\pm 0.22}$ & \textbf{18.83} & \textbf{37.92} \\ \hline
 		\end{tabular}
 	}
 	\label{tab:table_ood_fpr95_f}
@@ -665,7 +665,7 @@ FDBD   &  77.08 & 32.95$_{\pm 1.00}$ & 75.68$_{\pm 0.93}$ & 72.15$_{\pm 0.56}$ &
 %\begin{table*}[t!]
 %	\small
 %	\centering
-%	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-IN}: AUPR-IN OOD detection results between \gls{sys} and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. Avg.F is mean performance for far-OOD.
+%	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-IN}: AUPR-IN OOD detection results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. Avg.F is mean performance for far-OOD.
 %	}
 %	\scalebox{0.58}{
 %		\begin{tabular}{|l|ccccc|c|cccccc|c|c|}
@@ -685,7 +685,7 @@ FDBD   &  77.08 & 32.95$_{\pm 1.00}$ & 75.68$_{\pm 0.93}$ & 72.15$_{\pm 0.56}$ &
 %VRA    & 71.17$_{\pm 1.63}$ &  8.40$_{\pm 0.78}$ & 39.89$_{\pm 0.36}$ &  9.72$_{\pm 1.73}$ & 61.95$_{\pm 0.53}$ & 38.23 & 36.85$_{\pm 6.78}$ & 35.33$_{\pm 7.36}$ & 24.77$_{\pm 1.32}$ & 26.13$_{\pm 1.55}$ & 16.11$_{\pm 1.40}$ & 36.25$_{\pm 2.37}$ & 29.24 & 33.32 \\
 %NECO   & 92.35$_{\pm 0.23}$ & 52.95$_{\pm 0.90}$ & 87.40$_{\pm 1.38}$ & 43.33$_{\pm 2.37}$ & 73.09$_{\pm 0.38}$ & 69.82 & 94.35$_{\pm 2.15}$ & 90.56$_{\pm 1.08}$ & 91.20$_{\pm 1.66}$ & 86.52$_{\pm 2.51}$ & 85.07$_{\pm 2.73}$ & 81.42$_{\pm 2.05}$ & 88.19 & 79.84 \\
 %FDBD   & 90.73$_{\pm 0.27}$ & 44.13$_{\pm 0.86}$ & 78.94$_{\pm 1.28}$ & 29.25$_{\pm 0.59}$ & 65.38$_{\pm 0.22}$ & 61.69 & 90.09$_{\pm 0.63}$ & 79.26$_{\pm 2.82}$ & 82.41$_{\pm 1.66}$ & 78.30$_{\pm 1.79}$ & 75.31$_{\pm 2.38}$ & 69.36$_{\pm 1.22}$ & 79.12 & 71.20 \\ \hline
-%\gls{sys}  & 92.49$_{\pm 0.13}$ & 52.10$_{\pm 0.18}$ & \textbf{92.10}$_{\pm 0.20}$ & 51.91$_{\pm 0.41}$ & \textbf{81.85}$_{\pm 0.44}$ & \textbf{74.09} & \textbf{98.84}$_{\pm 0.08}$ & \textbf{99.81}$_{\pm 0.02}$ & \textbf{97.04}$_{\pm 0.18}$ & \textbf{92.35}$_{\pm 0.14}$ & \textbf{89.70}$_{\pm 0.16}$ & \textbf{88.56}$_{\pm 0.40}$ & \textbf{94.38} & \textbf{85.16} \\ \hline
+%CASOD  & 92.49$_{\pm 0.13}$ & 52.10$_{\pm 0.18}$ & \textbf{92.10}$_{\pm 0.20}$ & 51.91$_{\pm 0.41}$ & \textbf{81.85}$_{\pm 0.44}$ & \textbf{74.09} & \textbf{98.84}$_{\pm 0.08}$ & \textbf{99.81}$_{\pm 0.02}$ & \textbf{97.04}$_{\pm 0.18}$ & \textbf{92.35}$_{\pm 0.14}$ & \textbf{89.70}$_{\pm 0.16}$ & \textbf{88.56}$_{\pm 0.40}$ & \textbf{94.38} & \textbf{85.16} \\ \hline
 %			\multirow{2}{*}{} &  \multicolumn{14}{c|}{ID data: ImageNet-200}  \\ \cline{2-15}
 %			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
 %            MSP    & 89.90$_{\pm 0.08}$ & 55.97$_{\pm 0.37}$ & 84.96$_{\pm 0.09}$ & 25.48$_{\pm 0.16}$ & 59.83$_{\pm 1.04}$ & 63.23 & 88.60$_{\pm 0.16}$ & 82.15$_{\pm 0.25}$ & 80.05$_{\pm 0.44}$ & 82.52$_{\pm 0.33}$ & 72.92$_{\pm 0.14}$ & 69.35$_{\pm 0.53}$ & 79.27 & 71.98 \\
@@ -701,7 +701,7 @@ FDBD   &  77.08 & 32.95$_{\pm 1.00}$ & 75.68$_{\pm 0.93}$ & 72.15$_{\pm 0.56}$ &
 %VRA    & 57.29$_{\pm 0.17}$ & 14.73$_{\pm 0.09}$ & 53.05$_{\pm 0.56}$ & 17.09$_{\pm 0.16}$ & 31.33$_{\pm 0.57}$ & 34.70 & 42.44$_{\pm 0.06}$ & 37.82$_{\pm 0.48}$ & 37.54$_{\pm 1.44}$ & 37.77$_{\pm 1.50}$ & 23.36$_{\pm 0.15}$ & 46.50$_{\pm 0.27}$ & 37.57 & 36.26 \\
 %NECO   & 88.61$_{\pm 0.04}$ & 59.81$_{\pm 0.11}$ & 88.91$_{\pm 0.03}$ & 36.91$_{\pm 0.07}$ & 67.73$_{\pm 0.37}$ & 68.39 & 94.54$_{\pm 0.04}$ & 87.45$_{\pm 0.33}$ & 92.51$_{\pm 0.11}$ & 92.00$_{\pm 0.08}$ & 85.25$_{\pm 0.21}$ & 78.16$_{\pm 0.23}$ & 88.32 & 79.26 \\
 %FDBD   & \textbf{91.37}$_{\pm 0.03}$ & 61.71$_{\pm 0.20}$ & 87.94$_{\pm 0.01}$ & 30.16$_{\pm 0.17}$ & 69.00$_{\pm 0.48}$ & 68.04 & 92.51$_{\pm 0.10}$ & 89.09$_{\pm 0.19}$ & 88.57$_{\pm 0.18}$ & 89.29$_{\pm 0.07}$ & 82.57$_{\pm 0.11}$ & 73.63$_{\pm 0.31}$ & 85.94 & 77.80 \\ \hline
-%\gls{sys}  & 91.33$_{\pm 0.72}$ & \textbf{64.74}$_{\pm 2.06}$ & \textbf{93.30}$_{\pm 0.17}$ & \textbf{46.75}$_{\pm 0.90}$ & \textbf{84.28}$_{\pm 2.56}$ & \textbf{76.08} & \textbf{98.84}$_{\pm 0.49}$ & \textbf{99.48}$_{\pm 0.09}$ & \textbf{98.14}$_{\pm 0.24}$ & \textbf{97.82}$_{\pm 0.16}$ & \textbf{92.19}$_{\pm 0.32}$ & \textbf{83.87}$_{\pm 1.55}$ & \textbf{95.06} & \textbf{86.43} \\ \hline
+%CASOD  & 91.33$_{\pm 0.72}$ & \textbf{64.74}$_{\pm 2.06}$ & \textbf{93.30}$_{\pm 0.17}$ & \textbf{46.75}$_{\pm 0.90}$ & \textbf{84.28}$_{\pm 2.56}$ & \textbf{76.08} & \textbf{98.84}$_{\pm 0.49}$ & \textbf{99.48}$_{\pm 0.09}$ & \textbf{98.14}$_{\pm 0.24}$ & \textbf{97.82}$_{\pm 0.16}$ & \textbf{92.19}$_{\pm 0.32}$ & \textbf{83.87}$_{\pm 1.55}$ & \textbf{95.06} & \textbf{86.43} \\ \hline
 %		\end{tabular}
 %	}
 %	\label{tab:table_ood_auprin}
@@ -730,7 +730,7 @@ SHE    & 87.65$_{\pm 2.45}$ & 35.36$_{\pm 7.97}$ & 76.22$_{\pm 1.80}$ & 26.82$_{
 VRA    & 71.17$_{\pm 1.63}$ &  8.40$_{\pm 0.78}$ & 39.89$_{\pm 0.36}$ &  9.72$_{\pm 1.73}$ & 61.95$_{\pm 0.53}$ & 38.23  \\
 NECO   & 92.35$_{\pm 0.23}$ & 52.95$_{\pm 0.90}$ & 87.40$_{\pm 1.38}$ & 43.33$_{\pm 2.37}$ & 73.09$_{\pm 0.38}$ & 69.82 \\
 FDBD   & 90.73$_{\pm 0.27}$ & 44.13$_{\pm 0.86}$ & 78.94$_{\pm 1.28}$ & 29.25$_{\pm 0.59}$ & 65.38$_{\pm 0.22}$ & 61.69  \\ \hline
-\gls{sys}  & 92.49$_{\pm 0.13}$ & 52.10$_{\pm 0.18}$ & \textbf{92.10}$_{\pm 0.20}$ & 51.91$_{\pm 0.41}$ & \textbf{81.85}$_{\pm 0.44}$ & \textbf{74.09}  \\ \hline
+CASOD  & 92.49$_{\pm 0.13}$ & 52.10$_{\pm 0.18}$ & \textbf{92.10}$_{\pm 0.20}$ & 51.91$_{\pm 0.41}$ & \textbf{81.85}$_{\pm 0.44}$ & \textbf{74.09}  \\ \hline
 			\multirow{2}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-200}  \\ \cline{2-7}
 			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N\\ \hline
             MSP    & 89.90$_{\pm 0.08}$ & 55.97$_{\pm 0.37}$ & 84.96$_{\pm 0.09}$ & 25.48$_{\pm 0.16}$ & 59.83$_{\pm 1.04}$ & 63.23  \\
@@ -746,7 +746,7 @@ SHE    & 84.03$_{\pm 0.09}$ & 39.66$_{\pm 0.08}$ & 85.05$_{\pm 0.22}$ & 24.90$_{
 VRA    & 57.29$_{\pm 0.17}$ & 14.73$_{\pm 0.09}$ & 53.05$_{\pm 0.56}$ & 17.09$_{\pm 0.16}$ & 31.33$_{\pm 0.57}$ & 34.70  \\
 NECO   & 88.61$_{\pm 0.04}$ & 59.81$_{\pm 0.11}$ & 88.91$_{\pm 0.03}$ & 36.91$_{\pm 0.07}$ & 67.73$_{\pm 0.37}$ & 68.39 \\
 FDBD   & \textbf{91.37}$_{\pm 0.03}$ & 61.71$_{\pm 0.20}$ & 87.94$_{\pm 0.01}$ & 30.16$_{\pm 0.17}$ & 69.00$_{\pm 0.48}$ & 68.04 \\ \hline
-\gls{sys}  & 91.33$_{\pm 0.72}$ & \textbf{64.74}$_{\pm 2.06}$ & \textbf{93.30}$_{\pm 0.17}$ & \textbf{46.75}$_{\pm 0.90}$ & \textbf{84.28}$_{\pm 2.56}$ & \textbf{76.08} \\ \hline
+CASOD  & 91.33$_{\pm 0.72}$ & \textbf{64.74}$_{\pm 2.06}$ & \textbf{93.30}$_{\pm 0.17}$ & \textbf{46.75}$_{\pm 0.90}$ & \textbf{84.28}$_{\pm 2.56}$ & \textbf{76.08} \\ \hline
 		\end{tabular}
 	}
 	\label{tab:table_ood_auprin}
@@ -775,7 +775,7 @@ SHE    &  54.32 & 88.64$_{\pm 1.69}$ & 77.17$_{\pm 3.27}$ & 79.03$_{\pm 5.51}$ &
 VRA    &  38.23 & 36.85$_{\pm 6.78}$ & 35.33$_{\pm 7.36}$ & 24.77$_{\pm 1.32}$ & 26.13$_{\pm 1.55}$ & 16.11$_{\pm 1.40}$ & 36.25$_{\pm 2.37}$ & 29.24 & 33.32 \\
 NECO   & 69.82 & 94.35$_{\pm 2.15}$ & 90.56$_{\pm 1.08}$ & 91.20$_{\pm 1.66}$ & 86.52$_{\pm 2.51}$ & 85.07$_{\pm 2.73}$ & 81.42$_{\pm 2.05}$ & 88.19 & 79.84 \\
 FDBD   &  61.69 & 90.09$_{\pm 0.63}$ & 79.26$_{\pm 2.82}$ & 82.41$_{\pm 1.66}$ & 78.30$_{\pm 1.79}$ & 75.31$_{\pm 2.38}$ & 69.36$_{\pm 1.22}$ & 79.12 & 71.20 \\ \hline
-\gls{sys}  & \textbf{74.09} & \textbf{98.84}$_{\pm 0.08}$ & \textbf{99.81}$_{\pm 0.02}$ & \textbf{97.04}$_{\pm 0.18}$ & \textbf{92.35}$_{\pm 0.14}$ & \textbf{89.70}$_{\pm 0.16}$ & \textbf{88.56}$_{\pm 0.40}$ & \textbf{94.38} & \textbf{85.16} \\ \hline
+CASOD  & \textbf{74.09} & \textbf{98.84}$_{\pm 0.08}$ & \textbf{99.81}$_{\pm 0.02}$ & \textbf{97.04}$_{\pm 0.18}$ & \textbf{92.35}$_{\pm 0.14}$ & \textbf{89.70}$_{\pm 0.16}$ & \textbf{88.56}$_{\pm 0.40}$ & \textbf{94.38} & \textbf{85.16} \\ \hline
 			\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-200}  \\ \cline{2-10}
 			&  Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
             MSP    & 63.23 & 88.60$_{\pm 0.16}$ & 82.15$_{\pm 0.25}$ & 80.05$_{\pm 0.44}$ & 82.52$_{\pm 0.33}$ & 72.92$_{\pm 0.14}$ & 69.35$_{\pm 0.53}$ & 79.27 & 71.98 \\
@@ -791,7 +791,7 @@ SHE    & 56.18 & 92.47$_{\pm 0.13}$ & 77.44$_{\pm 0.43}$ & 89.43$_{\pm 0.33}$ & 
 VRA    & 34.70 & 42.44$_{\pm 0.06}$ & 37.82$_{\pm 0.48}$ & 37.54$_{\pm 1.44}$ & 37.77$_{\pm 1.50}$ & 23.36$_{\pm 0.15}$ & 46.50$_{\pm 0.27}$ & 37.57 & 36.26 \\
 NECO   &  68.39 & 94.54$_{\pm 0.04}$ & 87.45$_{\pm 0.33}$ & 92.51$_{\pm 0.11}$ & 92.00$_{\pm 0.08}$ & 85.25$_{\pm 0.21}$ & 78.16$_{\pm 0.23}$ & 88.32 & 79.26 \\
 FDBD   &  68.04 & 92.51$_{\pm 0.10}$ & 89.09$_{\pm 0.19}$ & 88.57$_{\pm 0.18}$ & 89.29$_{\pm 0.07}$ & 82.57$_{\pm 0.11}$ & 73.63$_{\pm 0.31}$ & 85.94 & 77.80 \\ \hline
-\gls{sys}  &  \textbf{76.08} & \textbf{98.84}$_{\pm 0.49}$ & \textbf{99.48}$_{\pm 0.09}$ & \textbf{98.14}$_{\pm 0.24}$ & \textbf{97.82}$_{\pm 0.16}$ & \textbf{92.19}$_{\pm 0.32}$ & \textbf{83.87}$_{\pm 1.55}$ & \textbf{95.06} & \textbf{86.43} \\ \hline
+CASOD  &  \textbf{76.08} & \textbf{98.84}$_{\pm 0.49}$ & \textbf{99.48}$_{\pm 0.09}$ & \textbf{98.14}$_{\pm 0.24}$ & \textbf{97.82}$_{\pm 0.16}$ & \textbf{92.19}$_{\pm 0.32}$ & \textbf{83.87}$_{\pm 1.55}$ & \textbf{95.06} & \textbf{86.43} \\ \hline
 		\end{tabular}
 	}
 	\label{tab:table_ood_auprin_f}
@@ -800,7 +800,7 @@ FDBD   &  68.04 & 92.51$_{\pm 0.10}$ & 89.09$_{\pm 0.19}$ & 88.57$_{\pm 0.18}$ &
 %\begin{table*}[t!]
 %	\small
 %	\centering
-%	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-OUT}: AUPR-OUT OOD detection results between \gls{sys} and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. Avg.F is mean performance for far-OOD.
+%	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-OUT}: AUPR-OUT OOD detection results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. Avg.F is mean performance for far-OOD.
 %	}
 %	\scalebox{0.58}{
 %		\begin{tabular}{|l|ccccc|c|cccccc|c|c|}
@@ -820,7 +820,7 @@ FDBD   &  68.04 & 92.51$_{\pm 0.10}$ & 89.09$_{\pm 0.19}$ & 88.57$_{\pm 0.18}$ &
 %VRA    & 19.85$_{\pm 0.56}$ & 89.93$_{\pm 0.71}$ & 50.17$_{\pm 0.94}$ & 92.62$_{\pm 1.30}$ & 91.89$_{\pm 0.17}$ & 68.89 & 41.04$_{\pm 2.97}$ & 61.69$_{\pm 3.29}$ & 57.30$_{\pm 1.86}$ & 58.05$_{\pm 0.96}$ & 69.81$_{\pm 0.61}$ & 67.72$_{\pm 1.03}$ & 59.27 & 63.64 \\
 %NECO   & 73.63$_{\pm 2.55}$ & 98.51$_{\pm 0.21}$ & 90.66$_{\pm 0.13}$ & 98.45$_{\pm 0.21}$ & 96.09$_{\pm 0.08}$ & 91.47 & 95.89$_{\pm 1.32}$ & 96.00$_{\pm 0.32}$ & 96.66$_{\pm 0.99}$ & 95.24$_{\pm 1.41}$ & 97.96$_{\pm 0.13}$ & 94.52$_{\pm 0.48}$ & 96.05 & 93.96 \\
 %FDBD   & 60.17$_{\pm 2.73}$ & 97.44$_{\pm 0.15}$ & 82.62$_{\pm 0.69}$ & 96.66$_{\pm 0.33}$ & 92.00$_{\pm 0.12}$ & 85.78 & 91.75$_{\pm 0.92}$ & 88.55$_{\pm 2.67}$ & 91.73$_{\pm 2.47}$ & 90.48$_{\pm 3.15}$ & 95.45$_{\pm 0.38}$ & 85.56$_{\pm 2.16}$ & 90.59 & 88.40 \\ \hline
-%\gls{sys}  & 72.04$_{\pm 0.35}$ & \textbf{98.45}$_{\pm 0.01}$ & \textbf{94.19}$_{\pm 0.11}$ & \textbf{98.76}$_{\pm 0.02}$ & \textbf{97.24}$_{\pm 0.31}$ & \textbf{92.14} & \textbf{99.21}$_{\pm 0.06}$ & \textbf{99.94}$_{\pm 0.00}$ & \textbf{99.24}$_{\pm 0.08}$ & \textbf{98.24}$_{\pm 0.02}$ & \textbf{98.57}$_{\pm 0.05}$ & \textbf{97.37}$_{\pm 0.13}$ & \textbf{98.76} & \textbf{95.75} \\ \hline
+%CASOD  & 72.04$_{\pm 0.35}$ & \textbf{98.45}$_{\pm 0.01}$ & \textbf{94.19}$_{\pm 0.11}$ & \textbf{98.76}$_{\pm 0.02}$ & \textbf{97.24}$_{\pm 0.31}$ & \textbf{92.14} & \textbf{99.21}$_{\pm 0.06}$ & \textbf{99.94}$_{\pm 0.00}$ & \textbf{99.24}$_{\pm 0.08}$ & \textbf{98.24}$_{\pm 0.02}$ & \textbf{98.57}$_{\pm 0.05}$ & \textbf{97.37}$_{\pm 0.13}$ & \textbf{98.76} & \textbf{95.75} \\ \hline
 %			\multirow{2}{*}{} &  \multicolumn{14}{c|}{ID data: ImageNet-200}  \\ \cline{2-15}
 %			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
 %            MSP    & 67.21$_{\pm 0.38}$ & 93.83$_{\pm 0.12}$ & 64.82$_{\pm 0.43}$ & 89.66$_{\pm 0.18}$ & 73.77$_{\pm 0.64}$ & 77.86 & 79.93$_{\pm 0.52}$ & 71.23$_{\pm 0.59}$ & 73.21$_{\pm 0.50}$ & 74.26$_{\pm 0.56}$ & 86.07$_{\pm 0.18}$ & 64.97$_{\pm 0.30}$ & 74.95 & 76.27 \\
@@ -836,7 +836,7 @@ FDBD   &  68.04 & 92.51$_{\pm 0.10}$ & 89.09$_{\pm 0.19}$ & 88.57$_{\pm 0.18}$ &
 %VRA    & 28.74$_{\pm 0.21}$ & 76.76$_{\pm 0.18}$ & 31.81$_{\pm 0.40}$ & 86.29$_{\pm 0.09}$ & 60.53$_{\pm 0.36}$ & 56.82 & 23.22$_{\pm 0.03}$ & 39.96$_{\pm 0.30}$ & 40.45$_{\pm 1.27}$ & 39.72$_{\pm 1.09}$ & 51.73$_{\pm 0.26}$ & 49.00$_{\pm 0.36}$ & 40.68 & 48.02 \\
 %NECO   & 70.46$_{\pm 0.18}$ & 95.19$_{\pm 0.04}$ & 70.23$_{\pm 0.38}$ & 92.25$_{\pm 0.07}$ & 79.42$_{\pm 0.36}$ & 81.51 & 92.32$_{\pm 0.30}$ & 71.65$_{\pm 0.57}$ & 86.49$_{\pm 0.32}$ & 83.79$_{\pm 0.32}$ & 91.27$_{\pm 0.19}$ & 73.15$_{\pm 0.33}$ & 83.11 & 82.38 \\
 %FDBD   & 71.33$_{\pm 0.26}$ & 94.98$_{\pm 0.06}$ & 71.39$_{\pm 0.32}$ & 91.97$_{\pm 0.11}$ & 78.90$_{\pm 0.41}$ & 81.71 & 87.78$_{\pm 0.37}$ & 81.55$_{\pm 0.37}$ & 83.44$_{\pm 0.22}$ & 82.02$_{\pm 0.17}$ & 91.10$_{\pm 0.11}$ & 71.27$_{\pm 0.24}$ & 82.86 & 82.34 \\ \hline
-%\gls{sys}  & \textbf{75.02}$_{\pm 0.80}$ & \textbf{96.24}$_{\pm 0.14}$ & \textbf{83.54}$_{\pm 0.50}$ & \textbf{95.73}$_{\pm 0.20}$ & \textbf{89.96}$_{\pm 2.88}$ & \textbf{88.10} & \textbf{98.01}$_{\pm 0.50}$ & \textbf{99.28}$_{\pm 0.20}$ & \textbf{98.23}$_{\pm 0.15}$ & \textbf{97.50}$_{\pm 0.05}$ & \textbf{95.98}$_{\pm 0.20}$ & \textbf{87.41}$_{\pm 0.27}$ & \textbf{96.07} & \textbf{92.45} \\ \hline
+%CASOD  & \textbf{75.02}$_{\pm 0.80}$ & \textbf{96.24}$_{\pm 0.14}$ & \textbf{83.54}$_{\pm 0.50}$ & \textbf{95.73}$_{\pm 0.20}$ & \textbf{89.96}$_{\pm 2.88}$ & \textbf{88.10} & \textbf{98.01}$_{\pm 0.50}$ & \textbf{99.28}$_{\pm 0.20}$ & \textbf{98.23}$_{\pm 0.15}$ & \textbf{97.50}$_{\pm 0.05}$ & \textbf{95.98}$_{\pm 0.20}$ & \textbf{87.41}$_{\pm 0.27}$ & \textbf{96.07} & \textbf{92.45} \\ \hline
 %		\end{tabular}
 %	}
 %	\label{tab:table_ood_auprout}
@@ -865,7 +865,7 @@ SHE    & 47.20$_{\pm11.66}$ & 95.65$_{\pm 1.55}$ & 78.40$_{\pm 5.11}$ & 94.78$_{
 VRA    & 19.85$_{\pm 0.56}$ & 89.93$_{\pm 0.71}$ & 50.17$_{\pm 0.94}$ & 92.62$_{\pm 1.30}$ & 91.89$_{\pm 0.17}$ & 68.89  \\
 NECO   & 73.63$_{\pm 2.55}$ & 98.51$_{\pm 0.21}$ & 90.66$_{\pm 0.13}$ & 98.45$_{\pm 0.21}$ & 96.09$_{\pm 0.08}$ & 91.47  \\
 FDBD   & 60.17$_{\pm 2.73}$ & 97.44$_{\pm 0.15}$ & 82.62$_{\pm 0.69}$ & 96.66$_{\pm 0.33}$ & 92.00$_{\pm 0.12}$ & 85.78  \\ \hline
-\gls{sys}  & 72.04$_{\pm 0.35}$ & \textbf{98.45}$_{\pm 0.01}$ & \textbf{94.19}$_{\pm 0.11}$ & \textbf{98.76}$_{\pm 0.02}$ & \textbf{97.24}$_{\pm 0.31}$ & \textbf{92.14}  \\ \hline
+CASOD  & 72.04$_{\pm 0.35}$ & \textbf{98.45}$_{\pm 0.01}$ & \textbf{94.19}$_{\pm 0.11}$ & \textbf{98.76}$_{\pm 0.02}$ & \textbf{97.24}$_{\pm 0.31}$ & \textbf{92.14}  \\ \hline
 			\multirow{2}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-200}  \\ \cline{2-7}
 			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg.N\\ \hline
             MSP    & 67.21$_{\pm 0.38}$ & 93.83$_{\pm 0.12}$ & 64.82$_{\pm 0.43}$ & 89.66$_{\pm 0.18}$ & 73.77$_{\pm 0.64}$ & 77.86  \\
@@ -881,7 +881,7 @@ SHE    & 56.41$_{\pm 0.39}$ & 90.57$_{\pm 0.11}$ & 62.88$_{\pm 0.66}$ & 88.65$_{
 VRA    & 28.74$_{\pm 0.21}$ & 76.76$_{\pm 0.18}$ & 31.81$_{\pm 0.40}$ & 86.29$_{\pm 0.09}$ & 60.53$_{\pm 0.36}$ & 56.82  \\
 NECO   & 70.46$_{\pm 0.18}$ & 95.19$_{\pm 0.04}$ & 70.23$_{\pm 0.38}$ & 92.25$_{\pm 0.07}$ & 79.42$_{\pm 0.36}$ & 81.51 \\
 FDBD   & 71.33$_{\pm 0.26}$ & 94.98$_{\pm 0.06}$ & 71.39$_{\pm 0.32}$ & 91.97$_{\pm 0.11}$ & 78.90$_{\pm 0.41}$ & 81.71 \\ \hline
-\gls{sys}  & \textbf{75.02}$_{\pm 0.80}$ & \textbf{96.24}$_{\pm 0.14}$ & \textbf{83.54}$_{\pm 0.50}$ & \textbf{95.73}$_{\pm 0.20}$ & \textbf{89.96}$_{\pm 2.88}$ & \textbf{88.10}  \\ \hline
+CASOD  & \textbf{75.02}$_{\pm 0.80}$ & \textbf{96.24}$_{\pm 0.14}$ & \textbf{83.54}$_{\pm 0.50}$ & \textbf{95.73}$_{\pm 0.20}$ & \textbf{89.96}$_{\pm 2.88}$ & \textbf{88.10}  \\ \hline
 		\end{tabular}
 	}
 	\label{tab:table_ood_auprout}
@@ -910,7 +910,7 @@ SHE    &  81.01 & 90.58$_{\pm 1.62}$ & 88.20$_{\pm 5.16}$ & 91.15$_{\pm 4.61}$ &
 VRA    &  68.89 & 41.04$_{\pm 2.97}$ & 61.69$_{\pm 3.29}$ & 57.30$_{\pm 1.86}$ & 58.05$_{\pm 0.96}$ & 69.81$_{\pm 0.61}$ & 67.72$_{\pm 1.03}$ & 59.27 & 63.64 \\
 NECO   &  91.47 & 95.89$_{\pm 1.32}$ & 96.00$_{\pm 0.32}$ & 96.66$_{\pm 0.99}$ & 95.24$_{\pm 1.41}$ & 97.96$_{\pm 0.13}$ & 94.52$_{\pm 0.48}$ & 96.05 & 93.96 \\
 FDBD   & 85.78 & 91.75$_{\pm 0.92}$ & 88.55$_{\pm 2.67}$ & 91.73$_{\pm 2.47}$ & 90.48$_{\pm 3.15}$ & 95.45$_{\pm 0.38}$ & 85.56$_{\pm 2.16}$ & 90.59 & 88.40 \\ \hline
-\gls{sys}  & \textbf{92.14} & \textbf{99.21}$_{\pm 0.06}$ & \textbf{99.94}$_{\pm 0.00}$ & \textbf{99.24}$_{\pm 0.08}$ & \textbf{98.24}$_{\pm 0.02}$ & \textbf{98.57}$_{\pm 0.05}$ & \textbf{97.37}$_{\pm 0.13}$ & \textbf{98.76} & \textbf{95.75} \\ \hline
+CASOD  & \textbf{92.14} & \textbf{99.21}$_{\pm 0.06}$ & \textbf{99.94}$_{\pm 0.00}$ & \textbf{99.24}$_{\pm 0.08}$ & \textbf{98.24}$_{\pm 0.02}$ & \textbf{98.57}$_{\pm 0.05}$ & \textbf{97.37}$_{\pm 0.13}$ & \textbf{98.76} & \textbf{95.75} \\ \hline
 			\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-200}  \\ \cline{2-10}
 			&  Avg.N & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg.F & Avg. \\ \hline
             MSP    & 77.86 & 79.93$_{\pm 0.52}$ & 71.23$_{\pm 0.59}$ & 73.21$_{\pm 0.50}$ & 74.26$_{\pm 0.56}$ & 86.07$_{\pm 0.18}$ & 64.97$_{\pm 0.30}$ & 74.95 & 76.27 \\
@@ -926,7 +926,7 @@ SHE    & 74.08 & 88.69$_{\pm 0.56}$ & 71.67$_{\pm 0.72}$ & 87.54$_{\pm 0.96}$ & 
 VRA    &  56.82 & 23.22$_{\pm 0.03}$ & 39.96$_{\pm 0.30}$ & 40.45$_{\pm 1.27}$ & 39.72$_{\pm 1.09}$ & 51.73$_{\pm 0.26}$ & 49.00$_{\pm 0.36}$ & 40.68 & 48.02 \\
 NECO   & 81.51 & 92.32$_{\pm 0.30}$ & 71.65$_{\pm 0.57}$ & 86.49$_{\pm 0.32}$ & 83.79$_{\pm 0.32}$ & 91.27$_{\pm 0.19}$ & 73.15$_{\pm 0.33}$ & 83.11 & 82.38 \\
 FDBD   &  81.71 & 87.78$_{\pm 0.37}$ & 81.55$_{\pm 0.37}$ & 83.44$_{\pm 0.22}$ & 82.02$_{\pm 0.17}$ & 91.10$_{\pm 0.11}$ & 71.27$_{\pm 0.24}$ & 82.86 & 82.34 \\ \hline
-\gls{sys}  & \textbf{88.10} & \textbf{98.01}$_{\pm 0.50}$ & \textbf{99.28}$_{\pm 0.20}$ & \textbf{98.23}$_{\pm 0.15}$ & \textbf{97.50}$_{\pm 0.05}$ & \textbf{95.98}$_{\pm 0.20}$ & \textbf{87.41}$_{\pm 0.27}$ & \textbf{96.07} & \textbf{92.45} \\ \hline
+CASOD  & \textbf{88.10} & \textbf{98.01}$_{\pm 0.50}$ & \textbf{99.28}$_{\pm 0.20}$ & \textbf{98.23}$_{\pm 0.15}$ & \textbf{97.50}$_{\pm 0.05}$ & \textbf{95.98}$_{\pm 0.20}$ & \textbf{87.41}$_{\pm 0.27}$ & \textbf{96.07} & \textbf{92.45} \\ \hline
 		\end{tabular}
 	}
 	\label{tab:table_ood_auprout_f}
@@ -982,12 +982,12 @@ FDBD   &  81.71 & 87.78$_{\pm 0.37}$ & 81.55$_{\pm 0.37}$ & 83.44$_{\pm 0.22}$ &
 %\textbf{\sys on I-100-R Near-OOD Detection.} The results are presented in Table \ref{tab:table_main_near}. \sys outperforms previous baselines on average: AUC improves by a relative difference of \textbf{2.08\%} {\color{blue}and FPR by a relative difference of \textbf{7.55\%}}. Of particular note is \sys's performance on the NINCO, SSB-Hard, and Food OOD datasets, chosen to be specifically challenging for ImageNet-based ID datasets with many near-OOD classes. In these difficult settings, \sys improves on baselines. AUC for NINCO increases relatively by \textbf{1.79\%}, for SSB-Hard it increases relatively by \textbf{2.99\%}, and for Food it increases relatively by \textbf{4.96\%}. {\color{blue}FPR for NINCO increases relatively by \textbf{14.90\%}, for SSB-Hard it increases relatively by \textbf{7.23\%}, and for Food it increases relatively by \textbf{16.78\%}}. This shows that \sys learns to exploit ID class-relevant discriminative features for OOD detection. 
 %\textbf{\sys on I-100-R Far-OOD Detection.} Results are given in Table~\ref{tab:table_main_far}. Average \sys performance is greater than that of state-of-the-art OOD detection methods. \sys relatively improves the average AUC by \textbf{2.71\%} {\color{blue}and the average FPR by \textbf{51.39\%}}. While the AUC and FPR performance across datasets is close, \sys has the advantage of foreground and background views isolating object discriminative features. These object features are sparse in far-OOD datasets. Thus the view features are very different from the ID features learned by our proposed CVCA and \sys accurately detects them as OOD on average.
 \subsubsection{ImageNet-100 and ImageNet-200}
-Results for \gls{sys} and baselines on the ImageNet-100 and ImageNet-200 ID datasets are presented in \ref{tab:table_ood_auc} (AUC), \ref{tab:table_ood_fpr95} (FPR95), \ref{tab:table_ood_auprin} (AUPR-IN), and \ref{tab:table_ood_auprout} (AUPR-OUT) for near-OOD data and in \ref{tab:table_ood_auc_f} (AUC), \ref{tab:table_ood_fpr95_f} (FPR95), \ref{tab:table_ood_auprin_f} (AUPR-IN), and \ref{tab:table_ood_auprout_f} (AUPR-OUT) for far-OOD data and on average. %, and \ref{tab:table_ood_de} (DE). 
-Results for ImageNet-100 ID are in the top half of the tables and results for ImageNet-200 ID are in the bottom half. On average, \gls{sys} outperforms previous state-of-the-art OOD detection baselines. For the primary OOD detection metrics of AUC and FPR95, \gls{sys} achieves state-of-the-art performance. Near-OOD AUC is improved in ImageNet-100 by 4.83\% and in ImageNet-200 by 6.64\%. Far-OOD AUC is improved in ImageNet-100 by 2.57\% and in ImageNet-200 by 3.44\%. Across all datasets, average AUC is improved in ImageNet-100 by 2.43\% and in ImageNet-200 by 4.89\%. Near-OOD FPR95 is improved in ImageNet-100 by 2.75\% and in ImageNet-200 by 10.99\%. Far-OOD FPR95 is improved in ImageNet-100 by 14.26\% and in ImageNet-200 by 20.41\%. Across all datasets, average FPR95 is improved in ImageNet-100 by 9.03\% and in ImageNet-200 by 15.94\%.
+Results for CASOD and baselines on the ImageNet-100 and ImageNet-200 ID datasets are presented in \ref{tab:table_ood_auc} (AUC), \ref{tab:table_ood_fpr95} (FPR95), \ref{tab:table_ood_auprin} (AUPR-IN), and \ref{tab:table_ood_auprout} (AUPR-OUT) for near-OOD data and in \ref{tab:table_ood_auc_f} (AUC), \ref{tab:table_ood_fpr95_f} (FPR95), \ref{tab:table_ood_auprin_f} (AUPR-IN), and \ref{tab:table_ood_auprout_f} (AUPR-OUT) for far-OOD data and on average. %, and \ref{tab:table_ood_de} (DE). 
+Results for ImageNet-100 ID are in the top half of the tables and results for ImageNet-200 ID are in the bottom half. On average, CASOD outperforms previous state-of-the-art OOD detection baselines. For the primary OOD detection metrics of AUC and FPR95, CASOD achieves state-of-the-art performance. Near-OOD AUC is improved in ImageNet-100 by 4.83\% and in ImageNet-200 by 6.64\%. Far-OOD AUC is improved in ImageNet-100 by 2.57\% and in ImageNet-200 by 3.44\%. Across all datasets, average AUC is improved in ImageNet-100 by 2.43\% and in ImageNet-200 by 4.89\%. Near-OOD FPR95 is improved in ImageNet-100 by 2.75\% and in ImageNet-200 by 10.99\%. Far-OOD FPR95 is improved in ImageNet-100 by 14.26\% and in ImageNet-200 by 20.41\%. Across all datasets, average FPR95 is improved in ImageNet-100 by 9.03\% and in ImageNet-200 by 15.94\%.
 
-The multi-view approach of \gls{sys} again performs particularly well in the curated near-OOD datasets NINCO and SSB-Hard, and additionally performs well in the newly introduced near-OOD dataset Food. In ImageNet-100 ID, \gls{sys} improves the AUC in NINCO by 1.64\%, in SSB-Hard by 2.6\%, and in Food by 4.32\%. In ImageNet-200 ID, \gls{sys} improves the AUC in NINCO by 3.92\%, in SSB-Hard by 3.77\%, and in Food by 10.37\%. Similar improvements are seen in FPR95 for these near-OOD datasets. The intelligent fusion of the foreground- and background-views with the original view in \gls{sys}, established on \gls{cvca} (see Section \ref{sec:casod_method-rep}), enables the significant OOD detection improvements in challenging near-OOD settings where discriminative features are needed to separate OOD from ID data. This benefit applies to the far-OOD setting as well, and is particularly evident in the ImageNet-200 ID experiment. Despite the complex ID data distribution, with double the ID classes compared to ImageNet-100, \gls{sys} is able to leverage the improved feature learning enabled by multi-view data and \gls{cvca} to learn the ID discriminative features and clearly separate far-OOD data. The AUC improvement for ImageNet-200 is 0.87\% greater than that in ImageNet-100. For FPR95, the improvement for ImageNet-200 is a significant 6.15\% over ImageNet-100. The OOD detection performance improvements are likewise visible with AUPR-IN and AUPR-OUT. With AUPR-IN, the average with ImageNet-100 ID is improved by 5.32\% and the average with ImageNet-200 ID is improved by 4.76\%. With AUPR-OUT, the average with ImageNet-100 ID is improved by 1.71\% and the average with ImageNet-200 ID is improved by 4.81\%. %With DE, the average with ImageNet-100 ID is improved by 7.26\% and the average with ImageNet-200 ID is improved by 8.90\%.
+The multi-view approach of CASOD again performs particularly well in the curated near-OOD datasets NINCO and SSB-Hard, and additionally performs well in the newly introduced near-OOD dataset Food. In ImageNet-100 ID, CASOD improves the AUC in NINCO by 1.64\%, in SSB-Hard by 2.6\%, and in Food by 4.32\%. In ImageNet-200 ID, CASOD improves the AUC in NINCO by 3.92\%, in SSB-Hard by 3.77\%, and in Food by 10.37\%. Similar improvements are seen in FPR95 for these near-OOD datasets. The intelligent fusion of the foreground- and background-views with the original view in CASOD, established on CVCA (see Section \ref{sec:casod_method-rep}), enables the significant OOD detection improvements in challenging near-OOD settings where discriminative features are needed to separate OOD from ID data. This benefit applies to the far-OOD setting as well, and is particularly evident in the ImageNet-200 ID experiment. Despite the complex ID data distribution, with double the ID classes compared to ImageNet-100, CASOD is able to leverage the improved feature learning enabled by multi-view data and CVCA to learn the ID discriminative features and clearly separate far-OOD data. The AUC improvement for ImageNet-200 is 0.87\% greater than that in ImageNet-100. For FPR95, the improvement for ImageNet-200 is a significant 6.15\% over ImageNet-100. The OOD detection performance improvements are likewise visible with AUPR-IN and AUPR-OUT. With AUPR-IN, the average with ImageNet-100 ID is improved by 5.32\% and the average with ImageNet-200 ID is improved by 4.76\%. With AUPR-OUT, the average with ImageNet-100 ID is improved by 1.71\% and the average with ImageNet-200 ID is improved by 4.81\%. %With DE, the average with ImageNet-100 ID is improved by 7.26\% and the average with ImageNet-200 ID is improved by 8.90\%.
 
-Across the OOD detection metrics and experimental datasets for ImageNet-100 ID and ImageNet-200 ID, standard deviations remain low compared to the previous proposed methods of \gls{sysa}, \gls{sysb}, and \gls{sysc}. The utilization of a pre-trained model and Adapters with an informed, learnable multi-view fusion component (in CVCA) gives greater consistency as the training loss remains relatively stable compared to previous approaches. This further attests to the functionality of \gls{sys} with greater reliability over multiple views and resolving the variance issue initially observed in Chapter \ref{diss_mvood_init}.
+Across the OOD detection metrics and experimental datasets for ImageNet-100 ID and ImageNet-200 ID, standard deviations remain low compared to the previous proposed methods of MOD, MEO, and SCOD. The utilization of a pre-trained model and Adapters with an informed, learnable multi-view fusion component (in CVCA) gives greater consistency as the training loss remains relatively stable compared to previous approaches. This further attests to the functionality of CASOD with greater reliability over multiple views and resolving the variance issue initially observed in Chapter \ref{diss_mvood_init}.
 
 \begin{table*}[t!]
 \small
@@ -1013,7 +1013,7 @@ SHE\cite{zhang2022out}    & 92.65  &  93.57  &  91.04  &  92.42  &  84.18  &  68
 VRA\cite{xu2024vra}    & 78.47  &  75.74  &  78.66  &  77.62  &  77.39  &  60.95  &  73.11  &  70.48  &  74.05    \\
 NECO\cite{ammar2024neco}   & 76.75  &  88.19  &  72.69  &  79.21  &  69.66  &  62.84  &  35.10  &  55.87  &  67.54    \\
 FDBD\cite{liu2024fast}   & 86.44  &  91.54  &  88.72  &  88.90  &  82.14  &  66.31  &  74.84  &  74.43  &  81.67  \\ \hline
-\gls{sys}   & \textbf{93.02}  &  \textbf{98.50}  &  90.38  &  \textbf{93.97}  &  86.35  &  \textbf{72.96}  &  \textbf{77.60}  &  \textbf{78.97}  &  \textbf{86.47}   \\ \hline
+CASOD   & \textbf{93.02}  &  \textbf{98.50}  &  90.38  &  \textbf{93.97}  &  86.35  &  \textbf{72.96}  &  \textbf{77.60}  &  \textbf{78.97}  &  \textbf{86.47}   \\ \hline
 \end{tabular}
 }
 \label{tab:table_main_i1k_auc}
@@ -1043,7 +1043,7 @@ SHE\cite{zhang2022out}    &  \textbf{25.63}  &  22.16  &  33.57  &  \textbf{27.1
 VRA\cite{xu2024vra}    &  71.88  &  91.23  &  84.40  &  82.50  &  86.12  &  92.30  &  98.97  &  92.46  &  87.48  \\
 NECO\cite{ammar2024neco}   &  89.73  &  68.20  &  88.66  &  82.20  &  87.80  &  86.44  &  99.89  &  91.38  &  86.79  \\
 FDBD\cite{liu2024fast}   &  53.69  &  45.73  &  55.31  &  51.58  &  70.86  &  85.68  &  93.84  &  83.46  &  67.52  \\ \hline
-\gls{sys}   &  35.96  &  \textbf{5.93}  &  50.16  &  30.68  &  59.43  &  \textbf{74.54}  &  \textbf{90.42}  &  74.80  &  52.74  \\ \hline
+CASOD   &  35.96  &  \textbf{5.93}  &  50.16  &  30.68  &  59.43  &  \textbf{74.54}  &  \textbf{90.42}  &  74.80  &  52.74  \\ \hline
 \end{tabular}
 }
 \label{tab:table_main_i1k_fpr95}
@@ -1073,7 +1073,7 @@ SHE\cite{zhang2022out}    &  98.91 & 98.56 & \textbf{96.44} & 97.97 & 97.64 & 66
 VRA\cite{xu2024vra}    &  94.97 & 83.61 & 76.57 & 85.05 & 90.13 & 49.62 & 75.16 & 71.64 & 78.34  \\
 NECO\cite{ammar2024neco}   &  94.03 & 92.77 & 81.99 & 89.60 & 92.71 & 57.21 & 66.79 & 72.24 & 80.92  \\
 FDBD\cite{liu2024fast}   &  97.73 & 98.03 & 95.47 & 97.08 & 97.34 & 64.49 & 56.27 & 72.70 & 84.89  \\ \hline
-\gls{sys}   &  99.12 & \textbf{99.64} & 96.36 & \textbf{98.37} & 98.08 & \textbf{70.79} & 86.62 & \textbf{85.16} & \textbf{91.77}
+CASOD   &  99.12 & \textbf{99.64} & 96.36 & \textbf{98.37} & 98.08 & \textbf{70.79} & 86.62 & \textbf{85.16} & \textbf{91.77}
   \\ \hline
 \end{tabular}
 }
@@ -1104,7 +1104,7 @@ SHE\cite{zhang2022out}    &  56.70 & 74.22 & 75.12 & 68.68 & 38.63 & 68.95 & 41.
 VRA\cite{xu2024vra}    &  15.78 & 13.15 & 22.81 & 17.25 & 9.00 & 44.09 & 27.77 & 26.95 & 22.10  \\
 NECO\cite{ammar2024neco}   &  11.04 & 22.25 & 26.13 & 19.81 & 11.77 & 54.11 & 23.39 & 29.76 & 24.78  \\
 FDBD\cite{liu2024fast}   &  48.07 & 67.08 & 71.36 & 62.17 & 34.07 & 64.83 & 47.85 & 48.92 & 55.54  \\ \hline
-\gls{sys}   &  \textbf{61.95} & \textbf{94.65} & 74.22 & \textbf{76.94} & 43.95 & 73.09 & \textbf{51.88} & 56.31 & \textbf{66.62}  \\ \hline
+CASOD   &  \textbf{61.95} & \textbf{94.65} & 74.22 & \textbf{76.94} & 43.95 & 73.09 & \textbf{51.88} & 56.31 & \textbf{66.62}  \\ \hline
 \end{tabular}
 }
 \label{tab:table_main_i1k_auprout}
@@ -1150,12 +1150,12 @@ FDBD\cite{liu2024fast}   &  48.07 & 67.08 & 71.36 & 62.17 & 34.07 & 64.83 & 47.8
 %State-of-the-art OOD methods already achieve very high performance (on the scale of 95\%, see our discussion with Reviewer Jbe3, Question2). Any performance gain at this scale is significant and non-trivial. Furthermore, our improvements in the threshold-independent AUROC in Table 3 (across individual datasets and on average) is highly indicative of improved performance while the threshold-dependent FPR95 is comparable to baselines, only worse on average by 1\%. We also note that OOD literature has discrepancy on what threshold to use for FPR [1].
 %The parallel work DFB \cite{ding2024improving} also experiments with I-1k but on a more-limited scale. Their only overlapping OOD dataset is Textures, which we note attains AUC of 77\%, \textbf{16.02\%} less than our proposed \sys. We hypothesize that our explicit segmentation and feature fusion learns a superior feature space for OOD detection.
 \subsubsection{ImageNet-1k}
-Results for \gls{sys} and baselines on the large-scale ImageNet-1k ID dataset are presented in Tables \ref{tab:table_main_i1k_auc} (AUC), \ref{tab:table_main_i1k_fpr95} (FPR95), \ref{tab:table_main_i1k_auprin} (AUPR-IN), and \ref{tab:table_main_i1k_auprout} (AUPR-OUT). %, and \ref{tab:table_main_i1k_de} (DE). 
+Results for CASOD and baselines on the large-scale ImageNet-1k ID dataset are presented in Tables \ref{tab:table_main_i1k_auc} (AUC), \ref{tab:table_main_i1k_fpr95} (FPR95), \ref{tab:table_main_i1k_auprin} (AUPR-IN), and \ref{tab:table_main_i1k_auprout} (AUPR-OUT). %, and \ref{tab:table_main_i1k_de} (DE). 
 In this exceptionally difficult setting, performance differences become significantly more meaningful and the source of performance is critical. For that reason, greater emphasis is placed on the threshold-independent AUC metric as opposed to the threshold-dependent FPR95 which is already debated as a reliable OOD detection metric at such challenging scales. In fact there is debate over the correct threshold to use for FPR evaluation of OOD detection \cite{humblot2023beyond}. 
 %[1] Humblot-Renaux, G., Escalera, S., \& Moeslund, T. B. (2023). Beyond AUROC \& co. for evaluating out-of-distribution detection performance. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 3881-3890).
 
-On average, \gls{sys} outperforms previous state-of-the-art OOD detection baselines. Considering AUC, \gls{sys} achieves state-of-the-art performance. Near-OOD AUC is improved by 0.61\% and far-OOD AUC is improved by 1.13\%. Across all datasets, the average AUC is improved by 0.99\%, a significant margin in the ImageNet-1k domain. Of particular note is the performance of \gls{sys} on the near-OOD datasets, which are designed specifically to be close to the ImageNet-1k ID data (and feature) distribution. On NINCO, \gls{sys} only underperforms by 0.17\%, while in SSB-HARD \gls{sys} improves over previous baselines by 1.39\% and in Food \gls{sys} improves by 0.61\%. With the expansive semantic space of ImageNet-1k (1000 fine-grained classes), the ability of \gls{sys} to learn ID class-representative discriminative features via \gls{cvca} gives it an advantage over previous, single-view baselines. Of note is that the parallel work of DFB \cite{ding2024improving} also experimented with ImageNet-1k but at a limited scale. DFB only experimented with Textures and performed with an AUC of 77\%. This is 16.02\% less than \gls{sys}. The explicit segmentation and feature fusion used in \gls{sys}, via \gls{cvca}, enables the learning of a feature space more conducive to OOD detection.
+On average, CASOD outperforms previous state-of-the-art OOD detection baselines. Considering AUC, CASOD achieves state-of-the-art performance. Near-OOD AUC is improved by 0.61\% and far-OOD AUC is improved by 1.13\%. Across all datasets, the average AUC is improved by 0.99\%, a significant margin in the ImageNet-1k domain. Of particular note is the performance of CASOD on the near-OOD datasets, which are designed specifically to be close to the ImageNet-1k ID data (and feature) distribution. On NINCO, CASOD only underperforms by 0.17\%, while in SSB-HARD CASOD improves over previous baselines by 1.39\% and in Food CASOD improves by 0.61\%. With the expansive semantic space of ImageNet-1k (1000 fine-grained classes), the ability of CASOD to learn ID class-representative discriminative features via CVCA gives it an advantage over previous, single-view baselines. Of note is that the parallel work of DFB \cite{ding2024improving} also experimented with ImageNet-1k but at a limited scale. DFB only experimented with Textures and performed with an AUC of 77\%. This is 16.02\% less than CASOD. The explicit segmentation and feature fusion used in CASOD, via CVCA, enables the learning of a feature space more conducive to OOD detection.
 
-For the other OOD detection metrics, \gls{sys} likewise outperforms previous baselines or performs equivalently. With FPR95, \gls{sys} on average performs very similarly to the best previous baseline, a difference of only 0.36\%. However, with AUPR-IN and AUPR-OUT, \gls{sys} improves over the state-of-the-art baselines. With AUPR-IN, the average is improved by 1.59\%. With AUPR-OUT, the average is improved by 1.90\%. In these other OOD detection metrics, \gls{sys} demonstrates competent OOD detection performance, indicating significant robustness in the challenging ImageNet-1k setting.
+For the other OOD detection metrics, CASOD likewise outperforms previous baselines or performs equivalently. With FPR95, CASOD on average performs very similarly to the best previous baseline, a difference of only 0.36\%. However, with AUPR-IN and AUPR-OUT, CASOD improves over the state-of-the-art baselines. With AUPR-IN, the average is improved by 1.59\%. With AUPR-OUT, the average is improved by 1.90\%. In these other OOD detection metrics, CASOD demonstrates competent OOD detection performance, indicating significant robustness in the challenging ImageNet-1k setting.
 
-ID accuracy, despite not being prioritized in recent OOD detection works, is preserved by \gls{sys} with the major architectural changes (with \gls{cvca}) and large-scale, challenging datasets. For ImageNet-1k ID, \gls{sys} performs with a classification accuracy of 80.00\%. The baseline models performs with a classification accuracy of 80.10\%, a difference of only 0.10\%. \gls{sys} maintains equivalent ID accuracy while significantly improving OOD detection in experimental settings representative of real-world environments and tasks.
+ID accuracy, despite not being prioritized in recent OOD detection works, is preserved by CASOD with the major architectural changes (with CVCA) and large-scale, challenging datasets. For ImageNet-1k ID, CASOD performs with a classification accuracy of 80.00\%. The baseline models performs with a classification accuracy of 80.10\%, a difference of only 0.10\%. CASOD maintains equivalent ID accuracy while significantly improving OOD detection in experimental settings representative of real-world environments and tasks.
