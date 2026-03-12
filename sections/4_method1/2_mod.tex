@@ -297,6 +297,17 @@ For ID classification, Accuracy is used to measure performance. For OOD detectio
 %\label{tab:propwork-mod-results-cifar100-near}
 %\end{table*}
 
+
+%\begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=0.5\linewidth]{figures/selectval_error_example_B.png}
+%   \caption{{\color{red}TODO}The model learns to select views which have high confidence in the correct class. Semantic information predominantly present in either the foreground or background view is automatically identified and used for fusion, classification, and OOD detection. Note that class ``\textit{dog}'' corresponds to label index 0 and class ``\textit{mountain}'' corresponds to label index 49. } 
+%   \label{fig:propwork-mod-results-casestudy}
+%\end{figure}
+
+%The results are presented in Tables \ref{tab:propwork-mod-results-cifar100-far} and \ref{tab:propwork-mod-results-cifar100-near}. \sysa-MD refers to using the \sysa pipeline with MD OOD score and \sysa-KNN refers to using the \sysa pipeline with KNN OOD score. For far-OOD datasets (Table \ref{tab:propwork-mod-results-cifar100-far}), on average \sysa outperformed all previous state-of-the-art baselines, with \sysa-MD improving on the best baseline AUROC by 18.59\%. Furthermore, both \sysa-MD and \sysa-KNN outperformed all baselines in all far-OOD datasets. For near-OOD datasets (Table \ref{tab:propwork-mod-results-cifar100-near}), \sysa-MD and \sysa-KNN likewise outperformed all baselines, both on average (maximum AUROC improvement of 5.89\% in \sysa-KNN) and in each near-OOD dataset. \sysa does not negatively impact ID classification (see Table \ref{tab:propwork-mod-results-cifar100-far}), instead improving accuracy on the CIFAR-100 test set by 1.06\%. Of note is that \sysa performs well on ID classification and OOD detection across both near- and far-OOD datasets with \textbf{both MD and KNN OOD scores}. This suggests that \sysa learns robust feature spaces beneficial to both statistical distance measures (MD) and non-parametric distance metrics (KNN). The results further suggest that \sysa successfully learns ID class-relevant discriminative features. Far-OOD datasets are defined as containing features that are very different from ID discriminative features. The significant improvement in OOD detection performance across far-OOD datasets indicates \sysa learned to identify the clear spurious features in the views of far-OOD data, easily distinguishing such samples from ID samples. For near-OOD datasets, this effect is less pronounced but still evident as OOD detection in near-OOD settings requires models to use ID discriminative features to identify ID samples and reject OOD samples. 
+The results, detailed in \ref{tab:propwork-mod-results-cifar10} (for CIFAR-10) and \ref{tab:propwork-mod-results-cifar100} (for CIFAR-100), demonstrate that MOD improves OOD detection performance over single-view baselines. Note that MOD-MD refers to using MD with MOD and MOD-KNN refers to using KNN with MOD. Comparisons of average results here do not consider CSI and CMG-e as results are not available for all datasets. For far-OOD datasets, MOD outperforms all previous state-of-the-art baselines on average in both the CIFAR-10 and CIFAR-100 experimental settings. MOD-MD improves on the best baseline AUC by 2.63\% with CIFAR-10 and by 18.59\% with CIFAR-100. With CIFAR-10, both MOD-MD and MOD-KNN outperform baselines across all far-OOD datasets except LSUN, in which MOD-KNN underperforms by only 0.33\%. With CIFAR-100, both MOD-MD and MOD-KNN outperform all baselines across the far-OOD datasets. For near-OOD datasets, all baselines are again outperformed on average by MOD-MD and MOD-KNN. With CIFAR-10, MOD-MD improves the maximum AUC by 1.04\% on average and by 3.34\% in CIFAR-100. MOD-KNN improves the maximum AUC by 0.84\% on average and by 2.9\% in CIFAR-100. In Tiny ImageNet, MOD only underperforms compared to CSI by 1.21\%. With CIFAR-100, MOD-MD improves the maximum AUC by 4.18\% on average and by 2.99\% in Tiny ImageNet. MOD-KNN improves the maximum AUC by 4.14\% on average and by 2.59\% in Tiny ImageNet. Similar to the CIFAR-10 setting, MOD only underperforms MD in CIFAR-10 by 1.11\%. Overall, MOD improves over state-of-the-art baselines in OOD detection by 3.30\% for CIFAR-10 and by 11.55\% for CIFAR-100 (both with MOD-MD, but MOD-KNN only differs by 0.09\% and 0.35\% respectively).
+
 \begin{table*}[h!]
 \small
 \centering
@@ -324,6 +335,9 @@ MOD-KNN  & \textbf{95.37}$_{\pm 0.29}$ & 95.10$_{\pm 3.73}$ & 97.37$_{\pm 1.13}$
 }
 \label{tab:propwork-mod-results-cifar10}
 \end{table*}
+
+
+Due to using post-hoc OOD detection methods, MOD preserves ID classification performance. Crucially, MOD achieves competitive ID classification and state-of-the-art OOD detection performance with \textbf{both MD and KNN OOD scores} across \textbf{both near- and far-OOD datasets}. As mentioned, for CIFAR-10, the difference between average AUC for MOD-MD and MOD-KNN is merely 0.09\%. This gap is small for CIFAR-100 too, only 0.35\%. This suggests that MOD successfully leverages the complementary feature information in multiple views to learn feature spaces robust to both MD (statistical distance metric) and KNN (non-parametric distance metric). Furthermore, the results indicate that MOD learns comprehensive ID class-relevant discriminative features, leading to not only high classification accuracy but improved OOD detection. This is easily visible in the performance of MOD on far-OOD datasets, where features are significantly different from those in ID data (18.59\% improvement for MOD-MD in CIFAR-100). The improved AUC implies that MOD clearly identifies and detects the spurious features in far-OOD views. For near-OOD data, this improved AUC reflects a similar narrative as improving OOD detection performance in near-OOD domains requires learning of ID discriminative features.
 
 \begin{table*}[h!]
 \small
@@ -353,25 +367,14 @@ MOD-KNN & 78.72$_{\pm 0.34}$ & 82.68$_{\pm 5.64}$ & 96.51$_{\pm 2.38}$ & 94.49$_
 \label{tab:propwork-mod-results-cifar100}
 \end{table*}
 
+\subsubsection{Ablation Study}
+To analyze the performance contributions of each view, a set of ablation experiments were performed over all combinations of original (Org), foreground (Fg) and background (Bg) views. Single-view experiments (i.e. Org-only, Fg-only, and Bg-only) used only the respective CNN feature extraction backbone $\phi_v$ and linear prediction head $W_v, b_v$ for testing. View-combination experiments (i.e. Org-Fg, Org-Bg, Fg-Bg) were evaluated by max-pooling the corresponding two view feature vectors and adding a separate linear prediction head for the combination during training and testing. The all-view experiments used naive combinations of all views, either through max-pooling of all view features (i.e. Org-Fg-Bg) or through ensembling (i.e. Ensemble), of which mean, max, and min ensembling were considered.
 
-%\begin{figure}[h!]
-%  \centering
-%  \includegraphics[width=0.5\linewidth]{figures/selectval_error_example_B.png}
-%   \caption{{\color{red}TODO}The model learns to select views which have high confidence in the correct class. Semantic information predominantly present in either the foreground or background view is automatically identified and used for fusion, classification, and OOD detection. Note that class ``\textit{dog}'' corresponds to label index 0 and class ``\textit{mountain}'' corresponds to label index 49. } 
-%   \label{fig:propwork-mod-results-casestudy}
-%\end{figure}
-
-%The results are presented in Tables \ref{tab:propwork-mod-results-cifar100-far} and \ref{tab:propwork-mod-results-cifar100-near}. \sysa-MD refers to using the \sysa pipeline with MD OOD score and \sysa-KNN refers to using the \sysa pipeline with KNN OOD score. For far-OOD datasets (Table \ref{tab:propwork-mod-results-cifar100-far}), on average \sysa outperformed all previous state-of-the-art baselines, with \sysa-MD improving on the best baseline AUROC by 18.59\%. Furthermore, both \sysa-MD and \sysa-KNN outperformed all baselines in all far-OOD datasets. For near-OOD datasets (Table \ref{tab:propwork-mod-results-cifar100-near}), \sysa-MD and \sysa-KNN likewise outperformed all baselines, both on average (maximum AUROC improvement of 5.89\% in \sysa-KNN) and in each near-OOD dataset. \sysa does not negatively impact ID classification (see Table \ref{tab:propwork-mod-results-cifar100-far}), instead improving accuracy on the CIFAR-100 test set by 1.06\%. Of note is that \sysa performs well on ID classification and OOD detection across both near- and far-OOD datasets with \textbf{both MD and KNN OOD scores}. This suggests that \sysa learns robust feature spaces beneficial to both statistical distance measures (MD) and non-parametric distance metrics (KNN). The results further suggest that \sysa successfully learns ID class-relevant discriminative features. Far-OOD datasets are defined as containing features that are very different from ID discriminative features. The significant improvement in OOD detection performance across far-OOD datasets indicates \sysa learned to identify the clear spurious features in the views of far-OOD data, easily distinguishing such samples from ID samples. For near-OOD datasets, this effect is less pronounced but still evident as OOD detection in near-OOD settings requires models to use ID discriminative features to identify ID samples and reject OOD samples. 
-The results, detailed in \ref{tab:propwork-mod-results-cifar10} (for CIFAR-10) and \ref{tab:propwork-mod-results-cifar100} (for CIFAR-100), demonstrate that MOD improves OOD detection performance over single-view baselines. Note that MOD-MD refers to using MD with MOD and MOD-KNN refers to using KNN with MOD. Comparisons of average results here do not consider CSI and CMG-e as results are not available for all datasets. For far-OOD datasets, MOD outperforms all previous state-of-the-art baselines on average in both the CIFAR-10 and CIFAR-100 experimental settings. MOD-MD improves on the best baseline AUC by 2.63\% with CIFAR-10 and by 18.59\% with CIFAR-100. With CIFAR-10, both MOD-MD and MOD-KNN outperform baselines across all far-OOD datasets except LSUN, in which MOD-KNN underperforms by only 0.33\%. With CIFAR-100, both MOD-MD and MOD-KNN outperform all baselines across the far-OOD datasets. For near-OOD datasets, all baselines are again outperformed on average by MOD-MD and MOD-KNN. With CIFAR-10, MOD-MD improves the maximum AUC by 1.04\% on average and by 3.34\% in CIFAR-100. MOD-KNN improves the maximum AUC by 0.84\% on average and by 2.9\% in CIFAR-100. In Tiny ImageNet, MOD only underperforms compared to CSI by 1.21\%. With CIFAR-100, MOD-MD improves the maximum AUC by 4.18\% on average and by 2.99\% in Tiny ImageNet. MOD-KNN improves the maximum AUC by 4.14\% on average and by 2.59\% in Tiny ImageNet. Similar to the CIFAR-10 setting, MOD only underperforms MD in CIFAR-10 by 1.11\%. Overall, MOD improves over state-of-the-art baselines in OOD detection by 3.30\% for CIFAR-10 and by 11.55\% for CIFAR-100 (both with MOD-MD, but MOD-KNN only differs by 0.09\% and 0.35\% respectively).
-
-Due to using post-hoc OOD detection methods, MOD preserves ID classification performance. Crucially, MOD achieves competitive ID classification and state-of-the-art OOD detection performance with \textbf{both MD and KNN OOD scores} across \textbf{both near- and far-OOD datasets}. As mentioned, for CIFAR-10, the difference between average AUC for MOD-MD and MOD-KNN is merely 0.09\%. This gap is small for CIFAR-100 too, only 0.35\%. This suggests that MOD successfully leverages the complementary feature information in multiple views to learn feature spaces robust to both MD (statistical distance metric) and KNN (non-parametric distance metric). Furthermore, the results indicate that MOD learns comprehensive ID class-relevant discriminative features, leading to not only high classification accuracy but improved OOD detection. This is easily visible in the performance of MOD on far-OOD datasets, where features are significantly different from those in ID data (18.59\% improvement for MOD-MD in CIFAR-100). The improved AUC implies that MOD clearly identifies and detects the spurious features in far-OOD views. For near-OOD data, this improved AUC reflects a similar narrative as improving OOD detection performance in near-OOD domains requires learning of ID discriminative features.
 
 \begin{table*}[htp!]
 \small
 \centering
-\caption{
-Ablation results for CIFAR-100 ID classification (Accuracy) and OOD detection performance (AUC) between \sysa, basic multi-view classification techniques, and different view inclusions during feature fusion. Learned view selection method outperforms all other configurations in ID accuracy and average OOD detection performance, showing a need for intelligent feature fusion.}
-\vspace{0.1cm}
+%\vspace{0.1cm}
 \scalebox{0.9}{
 \begin{tabular}{|l|c|ccccccccc|}
 \hline
@@ -390,11 +393,10 @@ Ensemble (Min) & 67.43   & 77.50    &  86.34    &  83.84   & 84.52    & 85.65  &
 MOD & \textbf{78.72} & 81.66 &  \textbf{96.64}  & 95.20  & \textbf{97.40}  & \textbf{98.53}  & \multicolumn{1}{c|}{91.19} & \textbf{96.94} & 86.43 &   \textbf{93.33} \\ \hline
 \end{tabular}
 }
+\caption{
+Ablation results for CIFAR-100 ID classification (Accuracy) and OOD detection performance (AUC) between \sysa, basic multi-view classification techniques, and different view inclusions during feature fusion. Learned view selection method outperforms all other configurations in ID accuracy and average OOD detection performance, showing a need for intelligent feature fusion.}
 \label{tab:propwork-mod-results-ablations}
 \end{table*}
-
-\subsubsection{Ablation Study}
-To analyze the performance contributions of each view, a set of ablation experiments were performed over all combinations of original (Org), foreground (Fg) and background (Bg) views. Single-view experiments (i.e. Org-only, Fg-only, and Bg-only) used only the respective CNN feature extraction backbone $\phi_v$ and linear prediction head $W_v, b_v$ for testing. View-combination experiments (i.e. Org-Fg, Org-Bg, Fg-Bg) were evaluated by max-pooling the corresponding two view feature vectors and adding a separate linear prediction head for the combination during training and testing. The all-view experiments used naive combinations of all views, either through max-pooling of all view features (i.e. Org-Fg-Bg) or through ensembling (i.e. Ensemble), of which mean, max, and min ensembling were considered.
 
 The results of the study are presented in \ref{tab:propwork-mod-results-ablations}. Overall, MOD improves both ID classification and OOD detection performance over all other combinations of views and naive fusion methods. As expected, Org-only achieves high ID classification performance, but MOD still improves over it by 1.09\%. Surprisingly, Bg-only achieves respectable OOD detection performance, even outperforming all other ablation settings and MOD in Textures and Tiny ImageNet. However, the lack of foreground information significantly reduces the ID classification performance (a difference of 58.23\% compared to \sysa) and fails to outperform MOD in OOD detection on average (a difference of 5.39\%). Combining views generally improves performance, with Org-Fg, Org-Bg, and Fg-Bg all outperforming single-view experiments in overall average OOD detection. It is observed that the presence of the Bg view improves OOD detection, specifically near-OOD detection. Org-Bg and Fg-Bg significantly outperform other view combinations, with Fg-Bg achieving the highest near-OOD detection performance, 4.14\% over MOD. However, following previous observations, the Bg view degrades ID classification, with Org-Bg decreasing accuracy by 1.08\% and Fg-Bg decreasing accuracy by 6.22\% (both with respect to Org-Fg).
 MOD also significantly improves on the baseline fusion Org-Fg-Bg which does not intelligently consider the semantic contributions of views. Furthermore, Org-Fg-Bg does not use view-specific losses in training and performs worse in ID classification accuracy, by 0.78\%, and significantly worse in OOD detection, by 15.42\% on average. This introduces a significant contributing notion regarding multi-view OOD detection: simply including more views is not necessarily sufficient to improve performance, some form of \textit{intelligent fusion of view information} is necessary.
@@ -407,9 +409,7 @@ MOD performs the best in ID classification, average OOD detection, and far-OOD d
 \begin{table}
 \small
 \centering
-\caption{View selector performance on a curated dataset. The view selector learns to identify views with discriminative features. All numeric values are percentages except for support.
-}
-\vspace{0.1cm}
+%\vspace{0.1cm}
 \scalebox{1.}{
 \begin{tabular}{|l|ccc|c|}
 \hline
@@ -419,15 +419,19 @@ MOD performs the best in ID classification, average OOD detection, and far-OOD d
 \multicolumn{1}{|l|}{Accuracy} & 87.00 & \multicolumn{2}{c}{} &  \multicolumn{1}{|c|}{200}     \\ \hline
 \end{tabular}
 }
+\caption{View selector performance on a curated dataset. The view selector learns to identify views with discriminative features. All numeric values are percentages except for support.
+}
 \label{tab:propwork-mod-results-view_selector_performance}
 \end{table}
+
+\subsubsection{View Selector Evaluation}
+To empirically verify the above hypothesis on the selection behavior of MOD, another ablation experiment was conducted investigating the view selector ability to determine which foreground or background view contains ID discriminative features.
+Two subsets of CIFAR-100 testing data were manually curated, one with discriminative features in the foreground view (100 samples) and the other in the background view (100 samples). To be specific, view samples with ratio of non-masked pixels to total pixels $\frac{\lvert x_v \rvert}{\lvert x \rvert}, v \in \{fg, bg\}$ above a certain threshold (0.8 for foreground and 0.6 for background) were first collected. Then, these candidate samples were manually verified for sufficient class representation in the view. MOD view selection weights $\mu$ were then generated for the combined subsets. 
 
 \begin{table*}[htp!]
 \small
 \centering
-\caption{
-View selector foreground-selection frequency on CIFAR-100 testing ID and OOD datasets.}
-\vspace{0.1cm}
+%\vspace{0.1cm}
 \scalebox{1.}{
 \begin{tabular}{|l|c|cccccc|}
 \hline
@@ -436,12 +440,11 @@ View selector foreground-selection frequency on CIFAR-100 testing ID and OOD dat
 Frequency  & 0.961  & 0.816 & 0.799 & 0.408 & 0.779 & 0.675 & 0.555 \\ \hline
 \end{tabular}
 }
+\caption{
+View selector foreground-selection frequency on CIFAR-100 testing ID and OOD datasets.}
 \label{tab:propwork-mod-results_view_selector_freqs}
 \end{table*}
 
-\subsubsection{View Selector Evaluation}
-To empirically verify the above hypothesis on the selection behavior of MOD, another ablation experiment was conducted investigating the view selector ability to determine which foreground or background view contains ID discriminative features.
-Two subsets of CIFAR-100 testing data were manually curated, one with discriminative features in the foreground view (100 samples) and the other in the background view (100 samples). To be specific, view samples with ratio of non-masked pixels to total pixels $\frac{\lvert x_v \rvert}{\lvert x \rvert}, v \in \{fg, bg\}$ above a certain threshold (0.8 for foreground and 0.6 for background) were first collected. Then, these candidate samples were manually verified for sufficient class representation in the view. MOD view selection weights $\mu$ were then generated for the combined subsets. 
 
 The resulting classification metrics are presented in  \ref{tab:propwork-mod-results-view_selector_performance}. In general, the view selector performs very well, accurately identifying \textit{foreground} and \textit{background} views with discriminative feature presence. Notably, foreground views are identified more consistently than background views, with an F-Score of 88.18\%. The view selector struggles more with background views, achieving an F-Score of 85.56\%. This discrepancy is due to a greater presence of discriminative features in the foreground view for the ID training dataset. These results confirm that 1) the view selector identifies class-relevant discriminative features when evaluating views and only fuses views that inform the learned ID class prediction, and 2) MOD does bias the foreground view during selection as a consequence of the underlying discriminative feature distribution in the ID training data. However, this bias is only present in the ID testing and near-OOD datasets which, by definition, strongly resemble the ID training data distribution. Analysis of the view-selection frequency (see  \ref{tab:propwork-mod-results_view_selector_freqs}, presents frequency of foreground view selection) for the ID testing and near-OOD datasets shows that foreground selection was very high: 96.10\% for CIFAR-100 ID testing data and 81.60\% for CIFAR-10 near-OOD data. However, this does not imply that the view selector failed to learn discriminative features in views. Overall classification performance in the curated dataset (\ref{tab:propwork-mod-results-view_selector_performance}) remained high for both views and the low foreground-selection frequency for the Textures OOD dataset (only 40.80\%), a dataset primarily containing spurious background features, indicates learned knowledge of discriminative feature presence.
 
