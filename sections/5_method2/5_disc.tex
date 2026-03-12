@@ -61,12 +61,12 @@ The test-time runtime of CASOD was evaluated be measuring the average time of 1)
             & AUC$\uparrow$ & FPR$\downarrow$ & AUC$\uparrow$ & FPR$\downarrow$ & AUC$\uparrow$ & FPR$\downarrow$ \\ \hline
 			Org & 90.81 & 46.98 & 86.12 & 50.00 & 88.93 & 48.19  \\ 
 			Fg & 81.68 & 68.09 & 78.08 & 66.47 & 80.24 & 67.44  \\ 
-			Bg & 77.72 & 69.23 & 59.55 & 85.41 & 70.46 & 75.70  \\ \cdashline{1-7}
+			Bg & 77.72 & 69.23 & 59.55 & 85.41 & 70.46 & 75.70  \\ %\cdashline{1-7}
 			Org+Fg & 80.97 & 70.55 & 84.38 & 54.11 & 82.33 & 63.98  \\ 
 			Org+Bg & 84.97 & 62.17 & 76.52 & 66.57 & 81.59 & 63.93  \\ 
-			Fg+Bg & 87.10 & 52.22 & 77.76 & 66.16 & 83.36 & 57.79  \\ \cdashline{1-7}
+			Fg+Bg & 87.10 & 52.22 & 77.76 & 66.16 & 83.36 & 57.79  \\ %\cdashline{1-7}
 			Concat   & 84.71 & 62.52 & 77.37 & 67.66 & 81.78 & 64.58  \\ 
-			SelfAttn   & 92.67 & 39.62 & 84.96 & 58.38 & 89.16 & 47.13  \\ \cdashline{1-7}
+			SelfAttn   & 92.67 & 39.62 & 84.96 & 58.38 & 89.16 & 47.13  \\ %\cdashline{1-7}
 			CASOD & 97.39 & 13.38 & 89.68 & 47.84 & 93.89 & 29.04  \\ \hline
 		\end{tabular}
 	}
@@ -139,8 +139,8 @@ The choice of number of blocks $B$ in CVCA affects the performance of CASOD. To 
             & \multicolumn{2}{c}{Average (Far)} & \multicolumn{2}{c}{Average (Near)} & \multicolumn{2}{c|}{Average} \\ 
             & AUC$\uparrow$ & FPR$\downarrow$ & AUC$\uparrow$ & FPR$\downarrow$ & AUC$\uparrow$ & FPR$\downarrow$ \\ \hline
 			Aug Base & 92.73 & 38.83 & 80.53 & 69.15 & 87.85 & 50.96  \\ 
-			Fg-Bg Base & 92.70 & 38.88 & 80.51 & 69.10 & 87.83 & 50.97  \\ \cdashline{1-7}
-			EqParam & 96.00 & 21.19 & 88.43 & 47.86 & 92.56 & 33.31  \\ \cdashline{1-7}
+			Fg-Bg Base & 92.70 & 38.88 & 80.51 & 69.10 & 87.83 & 50.97  \\ %\cdashline{1-7}
+			EqParam & 96.00 & 21.19 & 88.43 & 47.86 & 92.56 & 33.31  \\ %\cdashline{1-7}
 			%Rot-Noise & 95.74 & 16.06 & 87.28 & 46.06 & 90.90 & 28.06 \\
 			%Crops & 95.74 & 19.87 & 87.40 & 45.44 & 90.97 & 30.10  \\  \hdashline
 			CASOD & 97.39 & 13.38 & 89.68 & 47.84 & 93.89 & 29.04  \\ \hline
@@ -259,7 +259,7 @@ An important question is if the performance benefits of CASOD stem from properly
             & \multicolumn{2}{c}{Average (Far)} & \multicolumn{2}{c}{Average (Near)} & \multicolumn{2}{c|}{Average} \\ 
             & AUC$\uparrow$ & FPR$\downarrow$ & AUC$\uparrow$ & FPR$\downarrow$ & AUC$\uparrow$ & FPR$\downarrow$ \\ \hline
 			Rot-Noise & 95.74 & 16.06 & 87.28 & 46.06 & 90.90 & 28.06 \\
-			Crops & 95.74 & 19.87 & 87.40 & 45.44 & 90.97 & 30.10  \\  \cdashline{1-7}
+			Crops & 95.74 & 19.87 & 87.40 & 45.44 & 90.97 & 30.10  \\  %\cdashline{1-7}
 			CASOD & 97.39 & 13.38 & 89.68 & 47.84 & 93.89 & 29.04  \\ \hline
 		\end{tabular}
 	}
@@ -285,7 +285,7 @@ First, the presence of properly separated foregrounds and backgrounds is evaluat
         & \multicolumn{2}{c}{Average (Far)} & \multicolumn{2}{c}{Average (Near)} & \multicolumn{2}{c|}{Average} \\ 
         & AUC$\uparrow$ & FPR$\downarrow$ & AUC$\uparrow$ & FPR$\downarrow$ & AUC$\uparrow$ & FPR$\downarrow$ \\ \hline
 		Textures (b) & \slash & \slash & \slash & \slash & 95.94 & 19.05  \\ 
-		(CASOD) & \slash & \slash & \slash & \slash & 96.61 & 14.73  \\ \cdashline{1-7}
+		(CASOD) & \slash & \slash & \slash & \slash & 96.61 & 14.73  \\ %\cdashline{1-7}
 		NINCO (b) & 80.62 & 60.03 & 95.65 & 20.38 & 84.37 & 50.12 \\ 
 		(CASOD) & 88.61 & 44.61 & 92.85 & 30.06 & 89.67 & 40.97  \\ \hline
 	\end{tabular}
@@ -427,23 +427,23 @@ CASOD uses a combination of a fused feature CE loss and individual view feature 
 			\multirow{2}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-100}  \\ \cline{2-7}
 			& I-30 & I-900  & NINCO & SSB-Hard & Food & Avg. - Near  \\ \hline
             MSP    & 83.55 & 85.44 & 89.54 & 85.16 & 80.18 & 84.77 \\
-            KNN    & 77.32 & 78.33 & 80.57 & 73.28 & 65.76 & 75.05  \\ \cdashline{1-7}
+            KNN    & 77.32 & 78.33 & 80.57 & 73.28 & 65.76 & 75.05  \\ %\cdashline{1-7}
 			CASOD-MSP    & 88.06 & 90.43 & 91.09 & 88.81 & 86.64 & 89.01 \\
-			CASOD-KNN        & 85.01 & 88.34 & 92.33 & 86.62 & 88.53 & 88.17  \\ \cdashline{1-7}
+			CASOD-KNN        & 85.01 & 88.34 & 92.33 & 86.62 & 88.53 & 88.17  \\ %\cdashline{1-7}
 			CASOD    & 85.42 & 88.30 & 93.26 & 89.66 & 91.34 & 89.60  \\ \hline
 			\multirow{2}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-200}  \\ \cline{2-7}
 			& I-100-T & I-800  & NINCO & SSB-Hard & Food & Avg. - Near  \\ \hline
 			MSP           &  82.16 & 81.27 & 77.53 & 64.13 & 65.21 & 74.06 \\
-			KNN           &  81.99 & 82.82 & 83.72 & 72.69 & 72.17 & 78.68\\ \cdashline{1-7}
+			KNN           &  81.99 & 82.82 & 83.72 & 72.69 & 72.17 & 78.68\\ %\cdashline{1-7}
 			CASOD-MSP   & 89.68 & 89.99 & 89.00 & 83.23 & 88.40 & 88.06 \\
-			CASOD-KNN   & 88.14 & 88.91 & 89.70 & 80.27 & 87.99 & 87.00 \\ \cdashline{1-7}
+			CASOD-KNN   & 88.14 & 88.91 & 89.70 & 80.27 & 87.99 & 87.00 \\ %\cdashline{1-7}
 			CASOD       & 85.03 & 86.93 & 89.96 & 82.54 & 87.14 & 86.31 \\ \hline
 			\multirow{2}{*}{} &  \multicolumn{6}{c|}{ID data: ImageNet-1k}  \\ \cline{2-7}
 			&  &  & NINCO & SSB-Hard & Food & Avg. - Near \\ \hline
 			MSP           & \slash  & \slash & 78.11 & 68.94 & 72.27 & 73.11\\
-			KNN           &  \slash & \slash & 82.25 & 65.98 & 76.62 & 74.95 \\ \cdashline{1-7}
+			KNN           &  \slash & \slash & 82.25 & 65.98 & 76.62 & 74.95 \\ %\cdashline{1-7}
 			CASOD-MSP   & \slash & \slash & 82.20 & 71.40 & 76.09 & 76.56 \\
-			CASOD-KNN   & \slash & \slash & 81.34 & 66.29 & 77.74 & 78.46\\ \cdashline{1-7}
+			CASOD-KNN   & \slash & \slash & 81.34 & 66.29 & 77.74 & 78.46\\ %\cdashline{1-7}
 			CASOD       & \slash & \slash & 86.35 & 72.76 & 77.60 & 78.97  \\ \hline
 		\end{tabular}
 	}
@@ -462,23 +462,23 @@ CASOD uses a combination of a fused feature CE loss and individual view feature 
 			\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-100}  \\ \cline{2-10}
 			& Avg. - Near & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg. - Far & Avg. \\ \hline
             MSP    &  84.77 & 92.71 & 94.17 & 88.41 & 86.96 & 92.65 & 89.73 & 90.77 & 88.04 \\
-            KNN    & 75.05 & 96.10 & 80.39 & 86.74 & 80.29 & 87.80 & 77.33 & 84.78 & 80.36 \\ \cdashline{1-10}
+            KNN    & 75.05 & 96.10 & 80.39 & 86.74 & 80.29 & 87.80 & 77.33 & 84.78 & 80.36 \\ %\cdashline{1-10}
 			CASOD-MSP    & 89.01 & 92.63 & 95.75 & 93.57 & 90.38 & 92.69 & 90.57 & 92.60 & 90.97 \\
-			CASOD-KNN        & 88.17 & 96.66 & 98.32 & 96.36 & 94.22 & 95.00 & 91.54 & 95.35 & 92.08 \\ \cdashline{1-10}
+			CASOD-KNN        & 88.17 & 96.66 & 98.32 & 96.36 & 94.22 & 95.00 & 91.54 & 95.35 & 92.08 \\ %\cdashline{1-10}
 			CASOD    &  89.60 & 99.02 & 99.89 & 98.46 & 96.40 & 95.55 & 94.56 & 97.31 & 93.81 \\ \hline
 			\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-200}  \\ \cline{2-10}
 			& Avg. - Near & Textures  & iNaturalist  & Places  & SUN & OpenImage-O & Species & Avg. - Far & Avg. \\ \hline
 			MSP           &   74.06 & 87.56 & 78.50 & 77.58 & 79.26 & 79.87 & 68.97 & 78.62 & 76.55 \\
-			KNN           &   78.68 & 95.67 & 86.53 & 92.56 & 89.17 & 89.75 & 76.90 & 88.43 & 84.00 \\ \cdashline{1-10}
+			KNN           &   78.68 & 95.67 & 86.53 & 92.56 & 89.17 & 89.75 & 76.90 & 88.43 & 84.00 \\ %\cdashline{1-10}
 			CASOD-MSP   & 88.06 & 92.44 & 95.43 & 93.94 & 94.53 & 92.65 & 81.28 & 91.71 & 90.05  \\
-			CASOD-KNN   & 87.00 & 95.77 & 96.97 & 96.42 & 96.44 & 93.43 & 83.78 & 93.80 & 91.62 \\ \cdashline{1-10}
+			CASOD-KNN   & 87.00 & 95.77 & 96.97 & 96.42 & 96.44 & 93.43 & 83.78 & 93.80 & 91.62 \\ %\cdashline{1-10}
 			CASOD       & 86.31 & 98.48 & 99.42 & 98.26 & 97.81 & 94.14 & 86.60 & 95.79 & 91.48  \\ \hline
 			\multirow{2}{*}{} &  \multicolumn{9}{c|}{ID data: ImageNet-1k}  \\ \cline{2-10}
 			&  Avg. - Near & Textures  & iNaturalist  &  &  & OpenImage-O &  & Avg. - Far & Avg. \\ \hline
 			MSP           & 73.11 & 85.52 & 88.19 & \slash & \slash & 84.86 & \slash & 86.19 & 79.28 \\
-			KNN           &  74.95 & 91.12 & 91.46 & \slash & \slash & 89.86 & \slash & 90.81 & 81.75 \\ \cdashline{1-10}
+			KNN           &  74.95 & 91.12 & 91.46 & \slash & \slash & 89.86 & \slash & 90.81 & 81.75 \\ %\cdashline{1-10}
 			CASOD-MSP   &  76.56 & 81.56 & 90.04 & \slash & \slash & 86.71 & \slash & 86.10 & 81.33  \\
-			CASOD-KNN   &  78.46 & 87.06 & 88.83 & \slash & \slash & 86.59 & \slash & 87.49 & 82.98 \\ \cdashline{1-10}
+			CASOD-KNN   &  78.46 & 87.06 & 88.83 & \slash & \slash & 86.59 & \slash & 87.49 & 82.98 \\ %\cdashline{1-10}
 			CASOD       &  78.97 & 93.02 & 98.50  & \slash & \slash & 90.38  & \slash & 93.99 & 86.08  \\ \hline
 		\end{tabular}
 	}

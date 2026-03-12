@@ -56,14 +56,14 @@ OOD detection results with number of ID classes $C=10$. Gray-shaded rows show F-
 \multirow{7}{*}{Qwen-8B}   &  MaxLogit                    &   46.59  &  50.28  &   43.69  &  49.81   &  79.08   &   52.36  &   \multicolumn{1}{|c|}{53.64}  \\ 
                              &  KNN \cite{uppaal2023fine}                    &   81.83  &   90.33  &   67.74  &  54.70   &   59.97  &   91.83  &   \multicolumn{1}{|c|}{74.40}  \\ 
                              &  MD \cite{uppaal2023fine}                    &   87.50  &   85.00  &   78.30  &  60.57   &  66.68   &   95.06  &   \multicolumn{1}{|c|}{78.85}  \\ 
-                             &  ViM                    &   85.35  &   92.05  &   79.01  &  60.86   &  64.06   &   94.70  &   \multicolumn{1}{|c|}{79.34}  \\ \cdashline{2-9}
+                             &  ViM                    &   85.35  &   92.05  &   79.01  &  60.86   &  64.06   &   94.70  &   \multicolumn{1}{|c|}{79.34}  \\ %\cdashline{2-9}
                              &  \textit{ATPO (AUC)} &  90.90  &  98.38  &  92.86  &  56.52  &  86.46  &  96.46  &   \multicolumn{1}{|c|}{ \textbf{86.93}}  \\ \cline{2-9}
                              &  \cellcolor{rowGray} \textit{POD (F)}  &  \cellcolor{rowGray} 80.71  &  \cellcolor{rowGray} 88.53  & \cellcolor{rowGray} 73.51  & \cellcolor{rowGray} 42.83  &  \cellcolor{rowGray} 45.23  &  \cellcolor{rowGray} 90.67  &   \multicolumn{1}{|c|}{ \cellcolor{rowGray} 69.75}  \\
                              &  \cellcolor{rowGray} \textit{ATPO (F)} &  \cellcolor{rowGray} 85.63  &  \cellcolor{rowGray} 94.01  & \cellcolor{rowGray} 87.17  & \cellcolor{rowGray} 43.97  &  \cellcolor{rowGray} 76.85  &  \cellcolor{rowGray} 81.89  &   \multicolumn{1}{|c|}{ \cellcolor{rowGray} \textbf{78.25}}  \\ \hline
 \multirow{7}{*}{Gemma-12B}   &  MaxLogit                    &   50.58  &  52.93  &   41.45  &   54.92  &   74.35  &   57.02  &   \multicolumn{1}{|c|}{55.21}  \\ 
                              &  KNN \cite{uppaal2023fine}                    &   89.14  &   94.67  &   72.81  &   55.16  &   67.17  &   95.07  &   \multicolumn{1}{|c|}{79.00}  \\ 
                              &  MD \cite{uppaal2023fine}                    &   89.96 &   96.15  &   78.80  &   56.66  &   65.31  &   94.15 &   \multicolumn{1}{|c|}{80.17}  \\ 
-                             &  ViM                    &   88.81 &   95.12  &   77.94  &   59.64  &   63.69  &   94.75  &   \multicolumn{1}{|c|}{79.99}  \\ \cdashline{2-9}
+                             &  ViM                    &   88.81 &   95.12  &   77.94  &   59.64  &   63.69  &   94.75  &   \multicolumn{1}{|c|}{79.99}  \\ %\cdashline{2-9}
                              &  \textit{ATPO (AUC)} &  92.37  &   99.07  &  96.13  &  68.40  &  81.30  &  95.16  &   \multicolumn{1}{|c|}{ \textbf{88.74}}  \\ \cline{2-9}
                              &  \cellcolor{rowGray} \textit{POD (F)}  &  \cellcolor{rowGray} 62.01  &  \cellcolor{rowGray} 96.82  & \cellcolor{rowGray} 82.59  & \cellcolor{rowGray} 43.24  &  \cellcolor{rowGray} 39.82  &  \cellcolor{rowGray} 91.58  &   \multicolumn{1}{|c|}{ \cellcolor{rowGray} 69.34}  \\
                              &  \cellcolor{rowGray} \textit{ATPO (F)} &  \cellcolor{rowGray} 87.72  &  \cellcolor{rowGray} 91.78  & \cellcolor{rowGray} 87.45  & \cellcolor{rowGray} 64.29  &  \cellcolor{rowGray} 72.97  &  \cellcolor{rowGray} 83.82  &   \multicolumn{1}{|c|}{ \cellcolor{rowGray} \textbf{81.34}}  \\ \hline
@@ -149,25 +149,25 @@ Another interesting observation is the OOD detection behavior of LLMs using diss
 %\multirow{5}{*}{\begin{tabular}[c]{@{}c@{}}Mistral\\-7B\end{tabular}}  &  Role Change &   89.94  &   89.15  &   89.76  &   54.38  &   81.58  &   84.70  &   \multicolumn{1}{|c|}{81.59}  \\
 \multirow{5}{*}{Mistral-7B}  &  Role Change &   89.94  &   89.15  &   89.76  &   54.38  &   81.58  &   84.70  &   \multicolumn{1}{|c|}{81.59}  \\
                              &  Order &   87.86  &   79.30  &   81.35  &   61.93  &   86.16  &   74.65  &   \multicolumn{1}{|c|}{78.54}  \\ 
-                             &  Discover &   71.70  &   84.72  &   71.11  &   54.08  &   69.01  &   70.14  &   \multicolumn{1}{|c|}{70.13}  \\ \cdashline{2-9}
+                             &  Discover &   71.70  &   84.72  &   71.11  &   54.08  &   69.01  &   70.14  &   \multicolumn{1}{|c|}{70.13}  \\ %\cdashline{2-9}
                              &  \textit{ATPO-R}  &   87.14  &   86.28  &   85.21  &   53.95  &   76.74  &   76.68  &  \multicolumn{1}{|c|}{77.67}  \\  
                             &   \textit{ATPO}  &   92.14  &   94.97  &   93.87  &   65.01  &   89.36  &   82.09  &  \multicolumn{1}{|c|}{\textbf{86.24}}  \\  \hline
 %\multirow{5}{*}{\begin{tabular}[c]{@{}c@{}}Qwen\\-8B\end{tabular}}   &  Role Change &  82.53   &  89.32  &   85.88  &   67.04  &   80.82  &   82.48  &   \multicolumn{1}{|c|}{81.35}  \\ 
 \multirow{5}{*}{Qwen-8B}   &  Role Change &  82.53   &  89.32  &   85.88  &   67.04  &   80.82  &   82.48  &   \multicolumn{1}{|c|}{81.35}  \\ 
                              &  Order &   78.89  &   87.45  &   76.14  &   68.31  &   84.18  &   85.81  &   \multicolumn{1}{|c|}{80.13}  \\ 
-                             &  Discover &   70.08  &   86.22  &   90.48  &   73.76  &   85.28  &   76.94  &   \multicolumn{1}{|c|}{80.46}  \\ \cdashline{2-9}
+                             &  Discover &   70.08  &   86.22  &   90.48  &   73.76  &   85.28  &   76.94  &   \multicolumn{1}{|c|}{80.46}  \\ %\cdashline{2-9}
                              &   \textit{ATPO-R}  &   95.73  &   98.60  &   96.34  &   75.73  &   93.02  &   87.02  &   \multicolumn{1}{|c|}{91.07}  \\ 
                             &   \textit{ATPO}  &   96.43  &  99.24  &   94.95  &  77.96  &  94.61  &   95.41  &  \multicolumn{1}{|c|}{\textbf{93.10}}  \\  \hline
 %\multirow{5}{*}{\begin{tabular}[c]{@{}c@{}}Gemma\\-12B\end{tabular}}     &  Role Change &   90.41  &   73.35  &   97.83  &   59.68  &   70.31  &   84.48  &   \multicolumn{1}{|c|}{79.34}  \\
 \multirow{5}{*}{Gemma-12B}     &  Role Change &   90.41  &   73.35  &   97.83  &   59.68  &   70.31  &   84.48  &   \multicolumn{1}{|c|}{79.34}  \\
                              &  Order &   95.37  &   98.04  &   97.16  &   64.71  &   84.44  &   92.03  &   \multicolumn{1}{|c|}{88.63}  \\ 
-                             &  Discover &   93.73  &   97.83  &   90.31  &   58.59  &   92.99  &   91.45  &   \multicolumn{1}{|c|}{87.48}  \\ \cdashline{2-9}
+                             &  Discover &   93.73  &   97.83  &   90.31  &   58.59  &   92.99  &   91.45  &   \multicolumn{1}{|c|}{87.48}  \\ %\cdashline{2-9}
                              &   \textit{ATPO-R}  &   97.53  &   99.03  &   97.80  &   72.75  &   95.73  &   94.97  &   \multicolumn{1}{|c|}{92.97}  \\ 
                             &   \textit{ATPO}  &   95.96  &  99.52  &   98.87  &  79.46  &  92.25  &   96.45  &  \multicolumn{1}{|c|}{\textbf{93.75}}  \\  \hline
 %\multirow{5}{*}{\begin{tabular}[c]{@{}c@{}}Deepseek\\-32B\end{tabular}} &  Role Change &   95.05  &  99.60  &   98.23  &   72.07  &   92.94  &   91.94  &   \multicolumn{1}{|c|}{91.64}  \\ 
 \multirow{5}{*}{Deepseek-32B} &  Role Change &   95.05  &  99.60  &   98.23  &   72.07  &   92.94  &   91.94  &   \multicolumn{1}{|c|}{91.64}  \\ 
                              &  Order &   95.40  &   99.82  &   98.64  &   73.32  &   92.56  &   89.00  &   \multicolumn{1}{|c|}{91.46}  \\ 
-                             &  Discover &   92.52  &   86.34  &   79.28  &   74.04  &   86.91  &   90.63  &   \multicolumn{1}{|c|}{84.95}  \\ \cdashline{2-9}
+                             &  Discover &   92.52  &   86.34  &   79.28  &   74.04  &   86.91  &   90.63  &   \multicolumn{1}{|c|}{84.95}  \\ %\cdashline{2-9}
                              &   \textit{ATPO-R}  &   96.43  &   99.63  &   98.26  &   84.39  &   92.91  &   89.46  &   \multicolumn{1}{|c|}{93.51}  \\ 
                             &   \textit{ATPO}  &   96.83  &  99.44  &   98.62  &  81.86  &  93.55  &   97.44  &  \multicolumn{1}{|c|}{\textbf{94.62}}  \\  \hline
 \end{tabular}
