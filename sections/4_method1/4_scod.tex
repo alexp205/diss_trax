@@ -236,9 +236,6 @@ A grid search was likewise performed for SCOD over hyperparameters $\psi$ (50 to
 \begin{table*}[h!]
 \small
 \centering
-\caption{CIFAR-10 ID classification (\textbf{Accuracy}) and OOD detection performance (\textbf{AUC}) comparison between \sysc, \sysa, and recent state-of-the-art baselines. %All numeric values are percentages. Best results are emphasized with \textbf{boldface}. 
-%Near-OOD datasets are marked with ``*'' and unavailable results with ``/''. ``Far'' refers to the average AUC performance across far-OOD datasets, ``Near'' refers to the average AUC performance across near-OOD datasets, and ``Avg.'' refers to the cumulative average AUC performance across all OOD datasets.
-}
 \vspace{0.1cm}
 \scalebox{0.73}{
 \begin{tabular}{|l|c|cccccc|ccc|}
@@ -261,14 +258,15 @@ SCOD-MD  & 94.37$_{\pm 0.33}$ &  94.19$_{\pm 1.80}$ & 96.72$_{\pm 0.81}$ & 95.48
 SCOD-KNN  & 94.37$_{\pm 0.33}$ & 92.00$_{\pm 1.55}$ & 95.00$_{\pm 0.41}$ & 94.61$_{\pm 1.18}$ & 93.46$_{\pm 0.67}$ & 97.12$_{\pm 1.39}$ & 94.04$_{\pm 1.36}$ & 95.05 & 93.02 &  94.37   \\ \hline
 \end{tabular}
 }
+\caption{CIFAR-10 ID classification (\textbf{Accuracy}) and OOD detection performance (\textbf{AUC}) comparison between \sysc, \sysa, and recent state-of-the-art baselines. %All numeric values are percentages. Best results are emphasized with \textbf{boldface}. 
+%Near-OOD datasets are marked with ``*'' and unavailable results with ``/''. ``Far'' refers to the average AUC performance across far-OOD datasets, ``Near'' refers to the average AUC performance across near-OOD datasets, and ``Avg.'' refers to the cumulative average AUC performance across all OOD datasets.
+}
 \label{tab:propwork-scod-results-cifar10}
 \end{table*}
 
 \begin{table*}[h!]
 \small
 \centering
-\caption{CIFAR-100 ID classification (\textbf{Accuracy}) and OOD detection performance (\textbf{AUC}) comparison between \sysc, \sysa, and recent state-of-the-art baselines. 
-}
 \vspace{0.1cm}
 \scalebox{0.73}{
 \begin{tabular}{|l|c|cccccc|ccc|}
@@ -290,6 +288,8 @@ MOD-KNN & 78.72$_{\pm 0.34}$ & 82.68$_{\pm 5.64}$ & 96.51$_{\pm 2.38}$ & 94.49$_
 SCOD-MD & 72.09$_{\pm 1.02}$ &  \textbf{89.97}$_{\pm 2.18}$ & \textbf{98.16}$_{\pm 0.46}$ & 95.17$_{\pm 1.54}$ & \textbf{98.84}$_{\pm 0.64}$ & \textbf{98.92}$_{\pm 0.58}$ & \textbf{96.48}$_{\pm 0.81}$ & \textbf{97.77} & \textbf{93.22} &  \textbf{96.26} \\ 
 SCOD-KNN & 72.09$_{\pm 1.02}$ & 88.36$_{\pm 6.15}$ & 96.16$_{\pm 2.39}$ & 95.08$_{\pm 2.31}$ & 96.97$_{\pm 1.90}$ & 98.23$_{\pm 0.75}$ & 95.85$_{\pm 2.22}$ & 96.61 & 92.11 &  95.11 \\ \hline
 \end{tabular}
+}
+\caption{CIFAR-100 ID classification (\textbf{Accuracy}) and OOD detection performance (\textbf{AUC}) comparison between \sysc, \sysa, and recent state-of-the-art baselines. 
 }
 \label{tab:propwork-scod-results-cifar100}
 \end{table*}
@@ -332,12 +332,6 @@ The advantage of SCOD becomes clear when considering the more-challenging CIFAR-
 \begin{table*}[htp!]
 \small
 \centering
-\caption{
-Additional ablation OOD detection performance results (\textbf{AUC}) for CIFAR-100 ID. 
-Various alternative approaches are investigated, including end-to-end instead of alternating training, removal of the \textit{misalignment term}, and using a single shared CNN instead of three separate CNNs for feature extraction. 
-OOD detection technique used was MD. 
-Best results are shown in \textbf{boldface} while second-best results are \underline{underlined}. 
-}
 \vspace{0.1cm}
 \scalebox{0.9}{
 \begin{tabular}{|l|ccccccc|}
@@ -349,6 +343,12 @@ No Misalignment   & \underline{87.12}$_{\pm 10.45}$ &  97.95$_{\pm 2.06}$ & 94.6
 Shared Backbone &  66.35$_{\pm 1.38}$ &  91.15$_{\pm 1.93}$ & 77.66$_{\pm 7.00}$ & 84.13$_{\pm 2.48}$ & 73.75$_{\pm 10.64}$ & \multicolumn{1}{c|}{90.87$_{\pm 3.38}$}  &  80.65 \\ %\cdashline{1-8}
 SCOD &  \textbf{89.97}$_{\pm 2.18}$ &  \underline{98.16}$_{\pm 0.46}$ & \underline{95.17}$_{\pm 1.54}$ & \underline{98.84}$_{\pm 0.64}$ & \underline{98.92}$_{\pm 0.58}$ & 96.48$_{\pm 0.81}$ &   \multicolumn{1}{|c|}{\textbf{96.26}}   \\ \hline
 \end{tabular}
+}
+\caption{
+Additional ablation OOD detection performance results (\textbf{AUC}) for CIFAR-100 ID. 
+Various alternative approaches are investigated, including end-to-end instead of alternating training, removal of the \textit{misalignment term}, and using a single shared CNN instead of three separate CNNs for feature extraction. 
+OOD detection technique used was MD. 
+Best results are shown in \textbf{boldface} while second-best results are \underline{underlined}. 
 }
 \label{tab:propwork-scod-results-ablations-alt}
 \end{table*}

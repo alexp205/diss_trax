@@ -95,7 +95,6 @@ The established experimental setup for prompt-only OOD detection was used \cite{
 \begin{table*}[t]
 %\small
 \centering
-\caption{Information for datasets used in \syst experimentation.}
 \vspace{0.1cm}
 \scalebox{1.}{
 \begin{tabular}{|l|c|c|c|c|c|c|}
@@ -109,6 +108,7 @@ Test Set Size &  5500 &  3080 & 1000 & 5604 & 628 & 200 \\ \hline
 - Samples per Class &  30 &  / & 50 & / & / & 100 \\ \hline
 \end{tabular}
 }
+\caption{Information for datasets used in \syst experimentation.}
 \label{tab:atpo_dsetinfo}
 \end{table*}
 
@@ -152,8 +152,6 @@ ATPO and all other baselines are evaluated in their appropriate settings. That i
 \begin{table*}[t!]
 %\small
 \centering
-\caption{OOD detection results, Recall, between \syst, \syst-Nonspecified Alignment (\syst-NA), \syst-Reasoning (\syst-R) and the previous prompt-only OOD detection method (POD). %Best results are in \textbf{bold}. 
-}
 \vspace{0.1cm}
 \scalebox{0.85}{
 \begin{tabular}{|l|l|ccccccc|}
@@ -177,14 +175,14 @@ ATPO and all other baselines are evaluated in their appropriate settings. That i
                              &  \cellcolor{rowGray} \textit{ATPO}  &  \cellcolor{rowGray} 95.63 &  \cellcolor{rowGray} 100.00 &    \cellcolor{rowGray} 99.07 &  \cellcolor{rowGray} 74.93 &  \cellcolor{rowGray} 87.14 &   \cellcolor{rowGray} 97.50 &  \multicolumn{1}{|c|}{\cellcolor{rowGray} \textbf{92.38}}  \\  \hline
 \end{tabular}
 }
+\caption{OOD detection results, Recall, between \syst, \syst-Nonspecified Alignment (\syst-NA), \syst-Reasoning (\syst-R) and the previous prompt-only OOD detection method (POD). %Best results are in \textbf{bold}. 
+}
 \label{tab:atpo_results_promptonly}
 \end{table*}
 
 \begin{table*}[t!]
 %\small
 \centering
-\caption{OOD detection results, F-Score (F), between \syst, \syst-Nonspecified Alignment (\syst-NA), \syst-Reasoning (\syst-R) and the previous prompt-only OOD detection method (POD). %Best results are in \textbf{bold}. 
-}
 \vspace{0.1cm}
 \scalebox{0.85}{
 \begin{tabular}{|l|l|ccccccc|}
@@ -208,6 +206,8 @@ ATPO and all other baselines are evaluated in their appropriate settings. That i
                              &  \cellcolor{rowGray} \textit{ATPO}  &   \cellcolor{rowGray} 90.97 & \cellcolor{rowGray} 97.64 &   \cellcolor{rowGray} 90.03 &  \cellcolor{rowGray} 71.08 & \cellcolor{rowGray} 87.90 &  \cellcolor{rowGray} 87.04 &    \multicolumn{1}{|c|}{\cellcolor{rowGray} \textbf{87.44}}  \\  \hline
 \end{tabular}
 }
+\caption{OOD detection results, F-Score (F), between \syst, \syst-Nonspecified Alignment (\syst-NA), \syst-Reasoning (\syst-R) and the previous prompt-only OOD detection method (POD). %Best results are in \textbf{bold}. 
+}
 \label{tab:atpo_results_promptonly_f}
 \end{table*}
 
@@ -215,9 +215,6 @@ ATPO and all other baselines are evaluated in their appropriate settings. That i
 %\begin{table}[t!]
 %\small
 \centering
-\caption{OOD detection results (AUC) between \syst prompt-only method (\textit{italicized}) and classic feature- and logits-based methods. %Best results are in \textbf{bold}. 
-The \textbf{KNN} and \textbf{MD} methods in the table are from a previous feature-based LLM baseline \citep{uppaal2023fine}.  %, best prompt-only results are \underline{underlined}. 
-}
 \vspace{0.1cm}
 \scalebox{0.9}{
 \begin{tabular}{|c|l|ccccccc|}
@@ -260,6 +257,9 @@ The \textbf{KNN} and \textbf{MD} methods in the table are from a previous featur
                              &  \cellcolor{rowGray} \textit{ATPO-R}  &  \cellcolor{rowGray} 96.43  &  \cellcolor{rowGray} 99.63  &  \cellcolor{rowGray} 98.26  &  \cellcolor{rowGray} 84.39  &  \cellcolor{rowGray} 92.91  &  \cellcolor{rowGray} 89.46  &   \multicolumn{1}{|c|}{\cellcolor{rowGray} 93.51}  \\ 
                             &  \cellcolor{rowGray} \textit{ATPO}  &  \cellcolor{rowGray} 96.83  & \cellcolor{rowGray} 99.44  &  \cellcolor{rowGray} 98.62  & \cellcolor{rowGray} 81.86  & \cellcolor{rowGray} 93.55  &  \cellcolor{rowGray} 97.44  &  \multicolumn{1}{|c|}{\cellcolor{rowGray} \textbf{94.62}}  \\  \hline
 \end{tabular}
+}
+\caption{OOD detection results (AUC) between \syst prompt-only method (\textit{italicized}) and classic feature- and logits-based methods. %Best results are in \textbf{bold}. 
+The \textbf{KNN} and \textbf{MD} methods in the table are from a previous feature-based LLM baseline \citep{uppaal2023fine}.  %, best prompt-only results are \underline{underlined}. 
 }
 \label{tab:atpo_results}
 \end{table*}

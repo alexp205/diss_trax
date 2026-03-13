@@ -21,7 +21,6 @@ However, the example response given by Gemma-12B (see the quote in Section \ref{
 \begin{table}[t!]
 %\small
 \centering
-\caption{Ablation mean OOD detection results (AUC) for \syst over number of included ICL examples $\nu$.}
 \vspace{0.1cm}
 \scalebox{1.}{
 \begin{tabular}{|l|cccc|}
@@ -34,6 +33,7 @@ $\nu=30$ &   81.13  &   91.39  &   91.93  &  \multicolumn{1}{|c|}{88.15}  \\
 ATPO ($\nu=5$)  &   85.05  &   90.71  &   93.38  &   \multicolumn{1}{|c|}{\textbf{89.72}}  \\  \hline
 \end{tabular}
 }
+\caption{Ablation mean OOD detection results (AUC) for \syst over number of included ICL examples $\nu$.}
 \label{tab:atpo_results-icl}
 \end{table}
 
@@ -45,9 +45,6 @@ The number of ICL demonstration examples $\nu$ may significantly impact the perf
 \begin{table*}[t!]
 %\small
 \centering
-\caption{
-OOD detection results with number of ID classes $C=10$. Gray-shaded rows show F-Score (F) for prompt-only comparisons. All other rows show AUC of \syst and feature- or logits-based methods.
-}
 \vspace{0.1cm}
 \scalebox{0.9}{
 \begin{tabular}{|l|l|ccccccc|}
@@ -69,6 +66,9 @@ OOD detection results with number of ID classes $C=10$. Gray-shaded rows show F-
                              &  \cellcolor{rowGray} \textit{ATPO (F)} &  \cellcolor{rowGray} 87.72  &  \cellcolor{rowGray} 91.78  & \cellcolor{rowGray} 87.45  & \cellcolor{rowGray} 64.29  &  \cellcolor{rowGray} 72.97  &  \cellcolor{rowGray} 83.82  &   \multicolumn{1}{|c|}{ \cellcolor{rowGray} \textbf{81.34}}  \\ \hline
 \end{tabular}
 }
+\caption{
+OOD detection results with number of ID classes $C=10$. Gray-shaded rows show F-Score (F) for prompt-only comparisons. All other rows show AUC of \syst and feature- or logits-based methods.
+}
 \label{tab:atpo_results-icl10}
 \end{table*}
 
@@ -82,8 +82,6 @@ Similar to the previous ablation study, the performance of any given prompt-only
 \begin{table*}[t!]
 %\small
 \centering
-\caption{Ablation \syst performance using various types of alignment guidance in the prompt. %Best results are in \textbf{bold} and second-best results are \underline{underlined}.
-}
 \vspace{0.1cm}
 \scalebox{0.77}{
 \begin{tabular}{|l|l|ccccccc|}
@@ -119,6 +117,8 @@ Similar to the previous ablation study, the performance of any given prompt-only
                             &   \textit{ATPO}  &   96.83  &  99.44  &   98.62  &  81.86  &  93.55  &   97.44  &  \multicolumn{1}{|c|}{ 94.62}  \\  \hline
 \end{tabular}
 }
+\caption{Ablation \syst performance using various types of alignment guidance in the prompt. %Best results are in \textbf{bold} and second-best results are \underline{underlined}.
+}
 \label{tab:atpo_results-align}
 \end{table*}
 
@@ -139,8 +139,6 @@ Another interesting observation is the OOD detection behavior of LLMs using diss
 \begin{table}[t!]
 %\small
 \centering
-\caption{Ablation OOD detection results (AUC) for \syst using different prompt types. \syst-R represents \syst-Reasoning.% Best results are in \textbf{bold}.
-}
 \vspace{0.1cm}
 \scalebox{0.9}{
 \begin{tabular}{|c|l|ccccccc|}
@@ -171,6 +169,8 @@ Another interesting observation is the OOD detection behavior of LLMs using diss
                              &   \textit{ATPO-R}  &   96.43  &   99.63  &   98.26  &   84.39  &   92.91  &   89.46  &   \multicolumn{1}{|c|}{93.51}  \\ 
                             &   \textit{ATPO}  &   96.83  &  99.44  &   98.62  &  81.86  &  93.55  &   97.44  &  \multicolumn{1}{|c|}{\textbf{94.62}}  \\  \hline
 \end{tabular}
+}
+\caption{Ablation OOD detection results (AUC) for \syst using different prompt types. \syst-R represents \syst-Reasoning.% Best results are in \textbf{bold}.
 }
 \label{tab:atpo_results-ptype-orig}
 \end{table}

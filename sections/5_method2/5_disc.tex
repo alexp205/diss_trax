@@ -47,10 +47,6 @@ The test-time runtime of CASOD was evaluated be measuring the average time of 1)
 \begin{table*}[htp!]
 	%\small
 	\centering
-	\caption{ %\textcolor{red}{ideally run paired w/ CVCA module}
-		Ablation OOD detection results (AUC, FPR) for ImageNet-100 ID across different individual views (top 3 rows), paired views (next 3 rows), and fusion methods (7th and 8th row). ``Concat'' concatenates the individual view features and projects them into a single fused feature vector, and ``SelfAttn'' applies self-attention directly to the the concatenated individual view features.
-        %Results from 1 seed.
-	}
 \vspace{0.1cm}
 	\scalebox{1.}{
 		\begin{tabular}{|l|cccccc|}
@@ -69,6 +65,10 @@ The test-time runtime of CASOD was evaluated be measuring the average time of 1)
 			SelfAttn   & 92.67 & 39.62 & 84.96 & 58.38 & 89.16 & 47.13  \\ %\cdashline{1-7}
 			CASOD & 97.39 & 13.38 & 89.68 & 47.84 & 93.89 & 29.04  \\ \hline
 		\end{tabular}
+	}
+	\caption{ %\textcolor{red}{ideally run paired w/ CVCA module}
+		Ablation OOD detection results (AUC, FPR) for ImageNet-100 ID across different individual views (top 3 rows), paired views (next 3 rows), and fusion methods (7th and 8th row). ``Concat'' concatenates the individual view features and projects them into a single fused feature vector, and ``SelfAttn'' applies self-attention directly to the the concatenated individual view features.
+        %Results from 1 seed.
 	}
 	\label{tab:casod_ablations}
 \end{table*}
@@ -127,9 +127,6 @@ The choice of number of blocks $B$ in CVCA affects the performance of CASOD. To 
 \begin{table*}[htp!]
 	%\small
 	\centering
-	\caption{ 
-		Ablation OOD detection results (AUC, FPR) for ImageNet-100 ID comparing \sys to single-view models with equivalent data and equivalent parameters.%Results from 1 seed.
-	}
 \vspace{0.1cm}
 	\scalebox{1.}{
 		\begin{tabular}{|l|cccccc|}
@@ -145,6 +142,9 @@ The choice of number of blocks $B$ in CVCA affects the performance of CASOD. To 
 			%Crops & 95.74 & 19.87 & 87.40 & 45.44 & 90.97 & 30.10  \\  \hdashline
 			CASOD & 97.39 & 13.38 & 89.68 & 47.84 & 93.89 & 29.04  \\ \hline
 		\end{tabular}
+	}
+	\caption{ 
+		Ablation OOD detection results (AUC, FPR) for ImageNet-100 ID comparing \sys to single-view models with equivalent data and equivalent parameters.%Results from 1 seed.
 	}
 	\label{tab:moredata_ablations_aug}
 \end{table*}
@@ -247,9 +247,6 @@ An important question is if the performance benefits of CASOD stem from properly
 \begin{table*}[htp!]
 	%\small
 	\centering
-	\caption{ 
-		Ablation OOD detection results (AUC, FPR) on ImageNet-100 ID using the original image and two additional synthetic views instead of foreground-background segmented views. %Results from 1 seed.
-	}
 \vspace{0.1cm}
 	\scalebox{1.}{
 		\begin{tabular}{|l|cccccc|}
@@ -263,6 +260,9 @@ An important question is if the performance benefits of CASOD stem from properly
 			CASOD & 97.39 & 13.38 & 89.68 & 47.84 & 93.89 & 29.04  \\ \hline
 		\end{tabular}
 	}
+	\caption{ 
+		Ablation OOD detection results (AUC, FPR) on ImageNet-100 ID using the original image and two additional synthetic views instead of foreground-background segmented views. %Results from 1 seed.
+	}
 	\label{tab:moredata_ablations_views}
 \end{table*}
 
@@ -271,11 +271,6 @@ First, the presence of properly separated foregrounds and backgrounds is evaluat
 \begin{table*}[htp!]
 %\small
 \centering
-\caption{
-	Ablation OOD detection results (AUC, FPR) using ID training datasets of varying separation quality and object-domain relevance: Textures (low separation quality) and NINCO (clear separation but multiple complex objects in the foreground)
-	. %Results from 1 seed. 
-	Note that Textures has no known near-OOD datasets, the datasets are simply evaluated together. (b) denotes results using a baseline model.
-}
 \vspace{0.1cm}
 \scalebox{1.}{
 	\begin{tabular}{|l|cccccc|}
@@ -289,6 +284,11 @@ First, the presence of properly separated foregrounds and backgrounds is evaluat
 		NINCO (b) & 80.62 & 60.03 & 95.65 & 20.38 & 84.37 & 50.12 \\ 
 		(CASOD) & 88.61 & 44.61 & 92.85 & 30.06 & 89.67 & 40.97  \\ \hline
 	\end{tabular}
+}
+\caption{
+	Ablation OOD detection results (AUC, FPR) using ID training datasets of varying separation quality and object-domain relevance: Textures (low separation quality) and NINCO (clear separation but multiple complex objects in the foreground)
+	. %Results from 1 seed. 
+	Note that Textures has no known near-OOD datasets, the datasets are simply evaluated together. (b) denotes results using a baseline model.
 }
 \label{tab:segqual_ablations}
 \end{table*}
@@ -339,9 +339,6 @@ are considered. First, a U2-Net pre-trained on the DUTS-TR dataset \cite{wang201
 \begin{table*}[htp!]
 	\small
 	\centering
-	\caption{ 
-		Ablation OOD detection results (AUC) for ImageNet-100 ID between \sys with LoRA ViT feature extractor backbones and \sys with CLIP vision feature extractor backbone. %Results from 1 seed.
-	}
 \vspace{0.1cm}
 	\scalebox{1.}{
 		\begin{tabular}{|l|ccc|}
@@ -352,6 +349,9 @@ are considered. First, a U2-Net pre-trained on the DUTS-TR dataset \cite{wang201
 			CASOD & 97.39 & 89.68 & 93.89  \\ \hline
 		\end{tabular}
 	}
+	\caption{ 
+		Ablation OOD detection results (AUC) for ImageNet-100 ID between \sys with LoRA ViT feature extractor backbones and \sys with CLIP vision feature extractor backbone. %Results from 1 seed.
+	}
 	\label{tab:clip_ablation}
 \end{table*}
 
@@ -360,9 +360,6 @@ Recent OOD detection literature has focused on exploring the potential of pre-tr
 \begin{table*}[htp!]
 	\small
 	\centering
-	\caption{ 
-		Ablation OOD detection results (AUC) for ImageNet-100-Random ID between \sys and \sys when trained without individual view feature losses ($\mathcal{L}_{CE,fused}$ only). %Results from 1 seed.
-	}
 \vspace{0.1cm}
 	\scalebox{1.}{
 		\begin{tabular}{|l|ccc|}
@@ -372,6 +369,9 @@ Recent OOD detection literature has focused on exploring the potential of pre-tr
 			$\mathcal{L}_{CE,fused}$ only & 97.05 & 88.19 & 93.50  \\
 			CASOD & 97.39 & 89.68 & 93.89  \\ \hline
 		\end{tabular}
+	}
+	\caption{ 
+		Ablation OOD detection results (AUC) for ImageNet-100-Random ID between \sys and \sys when trained without individual view feature losses ($\mathcal{L}_{CE,fused}$ only). %Results from 1 seed.
 	}
 	\label{tab:nomvloss_ablations}
 \end{table*}
@@ -418,8 +418,6 @@ CASOD uses a combination of a fused feature CE loss and individual view feature 
 \begin{table*}[t!]
 	\small
 	\centering
-	\caption{\textbf{OOD Results for \sys and different OOD methods}: \textit{near-OOD} detection (\textbf{AUC}) comparison between \sys using MD (\sys), \sys using MSP (\sys-MSP), and \sys using KNN (\sys-KNN). %
-	}
     \vspace{0.1cm}
 	\scalebox{1.}{
 		\begin{tabular}{|l|ccccc|c|}
@@ -447,14 +445,14 @@ CASOD uses a combination of a fused feature CE loss and individual view feature 
 			CASOD       & \slash & \slash & 86.35 & 72.76 & 77.60 & 78.97  \\ \hline
 		\end{tabular}
 	}
+	\caption{\textbf{OOD Results for \sys and different OOD methods}: \textit{near-OOD} detection (\textbf{AUC}) comparison between \sys using MD (\sys), \sys using MSP (\sys-MSP), and \sys using KNN (\sys-KNN). %
+	}
 	\label{tab:table_oodmethods}
 \end{table*}
 
 \begin{table*}[t!]
 	\small
 	\centering
-	\caption{\textbf{OOD Results for \sys and different OOD methods}: \textit{far-OOD} detection and average results (\textbf{AUC}) comparison between \sys using MD (\sys), \sys using MSP (\sys-MSP), and \sys using KNN (\sys-KNN). %
-	}
     \vspace{0.1cm}
 	\scalebox{0.83}{
 		\begin{tabular}{|l|c|cccccc|c|c|}
@@ -481,6 +479,8 @@ CASOD uses a combination of a fused feature CE loss and individual view feature 
 			CASOD-KNN   &  78.46 & 87.06 & 88.83 & \slash & \slash & 86.59 & \slash & 87.49 & 82.98 \\ %\cdashline{1-10}
 			CASOD       &  78.97 & 93.02 & 98.50  & \slash & \slash & 90.38  & \slash & 93.99 & 86.08  \\ \hline
 		\end{tabular}
+	}
+	\caption{\textbf{OOD Results for \sys and different OOD methods}: \textit{far-OOD} detection and average results (\textbf{AUC}) comparison between \sys using MD (\sys), \sys using MSP (\sys-MSP), and \sys using KNN (\sys-KNN). %
 	}
 	\label{tab:table_oodmethods_f}
 \end{table*}
