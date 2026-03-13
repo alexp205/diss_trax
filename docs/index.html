@@ -2,8 +2,8 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning</title>
-<!--Generated on Thu Mar 12 19:57:42 2026 by LaTeXML (version 0.8.8) http://dlmf.nist.gov/LaTeXML/.-->
-<!--Document created on March 12, 2026.-->
+<!--Generated on Fri Mar 13 01:29:43 2026 by LaTeXML (version 0.8.8) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on March 13, 2026.-->
 
 <link rel="stylesheet" href="LaTeXML.css" type="text/css">
 <link rel="stylesheet" href="ltx-book.css" type="text/css">
@@ -2428,8 +2428,6 @@ For CIFAR-100 data with clear semantic features present in the foreground view (
 <span class="ltx_tag ltx_tag_subsection">4.3.3. </span>Results</h4>
 
 <figure id="Ch4.T6" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.6. </span>CIFAR-10 ID classification (<span class="ltx_text ltx_font_bold">Accuracy</span>) and OOD detection performance (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between top-3 MEO ensembles and recent state-of-the-art baselines on <span class="ltx_text ltx_font_italic">near-OOD</span> datasets. The following key is used to shorten ensemble members: “<span class="ltx_text ltx_font_bold">f</span>” - comprehensive fused feature/logits, “<span class="ltx_text ltx_font_bold">O</span>” - original single-view, “<span class="ltx_text ltx_font_bold">F</span>” - foreground single-view, “<span class="ltx_text ltx_font_bold">B</span>” - background single-view, “<span class="ltx_text ltx_font_bold">OF</span>” - <math id="Ch4.T6.m7" class="ltx_Math" alttext="org+fg" display="inline"><mrow><mrow><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>g</mi></mrow><mo>+</mo><mrow><mi>f</mi><mo>⁢</mo><mi>g</mi></mrow></mrow></math> cross-view, “<span class="ltx_text ltx_font_bold">OB</span>” - <math id="Ch4.T6.m8" class="ltx_Math" alttext="org+bg" display="inline"><mrow><mrow><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>g</mi></mrow><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><mi>g</mi></mrow></mrow></math> cross-view, and “<span class="ltx_text ltx_font_bold">FB</span>” - <math id="Ch4.T6.m9" class="ltx_Math" alttext="fg+bg" display="inline"><mrow><mrow><mi>f</mi><mo>⁢</mo><mi>g</mi></mrow><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><mi>g</mi></mrow></mrow></math> cross-view. For example, a “f+OF+OB” ensemble would have members <math id="Ch4.T6.m10" class="ltx_math_unparsed" alttext="\{fused" display="inline"><mrow><mo stretchy="false">{</mo><mi>f</mi><mi>u</mi><mi>s</mi><mi>e</mi><mi>d</mi></mrow></math>, <math id="Ch4.T6.m11" class="ltx_Math" alttext="org+fg" display="inline"><mrow><mrow><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>g</mi></mrow><mo>+</mo><mrow><mi>f</mi><mo>⁢</mo><mi>g</mi></mrow></mrow></math>, <math id="Ch4.T6.m12" class="ltx_math_unparsed" alttext="org+bg\}" display="inline"><mrow><mi>o</mi><mi>r</mi><mi>g</mi><mo>+</mo><mi>b</mi><mi>g</mi><mo stretchy="false">}</mo></mrow></math>. This notation is used consistently throughout the rest of the dissertation with respect to MEO.
-</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:322.1pt;height:205.9pt;vertical-align:-100.7pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1.0,1.0) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <tbody class="ltx_tbody">
@@ -2618,9 +2616,10 @@ For CIFAR-100 data with clear semantic features present in the foreground view (
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.6. </span>CIFAR-10 ID classification (<span class="ltx_text ltx_font_bold">Accuracy</span>) and OOD detection performance (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between top-3 MEO ensembles and recent state-of-the-art baselines on <span class="ltx_text ltx_font_italic">near-OOD</span> datasets. The following key is used to shorten ensemble members: “<span class="ltx_text ltx_font_bold">f</span>” - comprehensive fused feature/logits, “<span class="ltx_text ltx_font_bold">O</span>” - original single-view, “<span class="ltx_text ltx_font_bold">F</span>” - foreground single-view, “<span class="ltx_text ltx_font_bold">B</span>” - background single-view, “<span class="ltx_text ltx_font_bold">OF</span>” - <math id="Ch4.T6.m43" class="ltx_Math" alttext="org+fg" display="inline"><mrow><mrow><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>g</mi></mrow><mo>+</mo><mrow><mi>f</mi><mo>⁢</mo><mi>g</mi></mrow></mrow></math> cross-view, “<span class="ltx_text ltx_font_bold">OB</span>” - <math id="Ch4.T6.m44" class="ltx_Math" alttext="org+bg" display="inline"><mrow><mrow><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>g</mi></mrow><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><mi>g</mi></mrow></mrow></math> cross-view, and “<span class="ltx_text ltx_font_bold">FB</span>” - <math id="Ch4.T6.m45" class="ltx_Math" alttext="fg+bg" display="inline"><mrow><mrow><mi>f</mi><mo>⁢</mo><mi>g</mi></mrow><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><mi>g</mi></mrow></mrow></math> cross-view. For example, a “f+OF+OB” ensemble would have members <math id="Ch4.T6.m46" class="ltx_math_unparsed" alttext="\{fused" display="inline"><mrow><mo stretchy="false">{</mo><mi>f</mi><mi>u</mi><mi>s</mi><mi>e</mi><mi>d</mi></mrow></math>, <math id="Ch4.T6.m47" class="ltx_Math" alttext="org+fg" display="inline"><mrow><mrow><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>g</mi></mrow><mo>+</mo><mrow><mi>f</mi><mo>⁢</mo><mi>g</mi></mrow></mrow></math>, <math id="Ch4.T6.m48" class="ltx_math_unparsed" alttext="org+bg\}" display="inline"><mrow><mi>o</mi><mi>r</mi><mi>g</mi><mo>+</mo><mi>b</mi><mi>g</mi><mo stretchy="false">}</mo></mrow></math>. This notation is used consistently throughout the rest of the dissertation with respect to MEO.
+</figcaption>
 </figure>
 <figure id="Ch4.T7" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.7. </span>CIFAR-10 OOD detection performance (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between top-3 MEO ensembles and recent state-of-the-art baselines on <span class="ltx_text ltx_font_italic">far-OOD</span> datasets. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:362.6pt;height:180.3pt;vertical-align:-88.2pt;"><span class="ltx_transformed_inner" style="transform:translate(-25.9pt,12.9pt) scale(0.875,0.875) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <tbody class="ltx_tbody">
@@ -2882,6 +2881,7 @@ For CIFAR-100 data with clear semantic features present in the foreground view (
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.7. </span>CIFAR-10 OOD detection performance (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between top-3 MEO ensembles and recent state-of-the-art baselines on <span class="ltx_text ltx_font_italic">far-OOD</span> datasets. </figcaption>
 </figure>
 <div id="Ch4.S3.SS3.p1" class="ltx_para">
 <p class="ltx_p"><a href="#Ch4.T6" title="Table 4.6 ‣ 4.3.3. Results ‣ 4.3. Ensembles of Views for OOD Detection ‣ Chapter 4 Preliminary Investigations into Multi-View OOD Detection ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.6</span></a> (near-OOD datasets) and <a href="#Ch4.T7" title="Table 4.7 ‣ 4.3.3. Results ‣ 4.3. Ensembles of Views for OOD Detection ‣ Chapter 4 Preliminary Investigations into Multi-View OOD Detection ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.7</span></a> (far-OOD datasets) show results for the MEO experiments on CIFAR-10. Only the top-3 MEO ensembles are presented in this section. Previous state-of-the-art baselines are unable to outperform MEO in OOD detection.
@@ -2890,7 +2890,6 @@ In the far-OOD domain (<a href="#Ch4.T7" title="Table 4.7 ‣ 4.3.3. Results ‣
 ID classification is also unaffected by the multi-view paradigm. All 3 top MEO ensembles improve ID classification accuracy (maximum improvement of 0.68%), demonstrating that MEO is able to learn ID class-relevant discriminative features effective for OOD detection while maintaining ID classification functionality.</p>
 </div>
 <figure id="Ch4.T8" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.8. </span>CIFAR-100 ID classification (<span class="ltx_text ltx_font_bold">Accuracy</span>) and OOD detection performance (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between top-3 MEO ensembles and recent state-of-the-art baselines on <span class="ltx_text ltx_font_italic">near-OOD</span> datasets. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:322.1pt;height:205.9pt;vertical-align:-100.7pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1.0,1.0) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <tbody class="ltx_tbody">
@@ -3079,9 +3078,9 @@ ID classification is also unaffected by the multi-view paradigm. All 3 top MEO e
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.8. </span>CIFAR-100 ID classification (<span class="ltx_text ltx_font_bold">Accuracy</span>) and OOD detection performance (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between top-3 MEO ensembles and recent state-of-the-art baselines on <span class="ltx_text ltx_font_italic">near-OOD</span> datasets. </figcaption>
 </figure>
 <figure id="Ch4.T9" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.9. </span>CIFAR-100 OOD detection performance (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between top-3 MEO ensembles and recent state-of-the-art baselines on <span class="ltx_text ltx_font_italic">far-OOD</span> datasets. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:355.3pt;height:190.7pt;vertical-align:-93.4pt;"><span class="ltx_transformed_inner" style="transform:translate(-25.4pt,13.6pt) scale(0.875,0.875) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <tbody class="ltx_tbody">
@@ -3354,13 +3353,13 @@ ID classification is also unaffected by the multi-view paradigm. All 3 top MEO e
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.9. </span>CIFAR-100 OOD detection performance (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between top-3 MEO ensembles and recent state-of-the-art baselines on <span class="ltx_text ltx_font_italic">far-OOD</span> datasets. </figcaption>
 </figure>
 <div id="Ch4.S3.SS3.p2" class="ltx_para">
 <p class="ltx_p">For the CIFAR-100 experiments (see <a href="#Ch4.T8" title="Table 4.8 ‣ 4.3.3. Results ‣ 4.3. Ensembles of Views for OOD Detection ‣ Chapter 4 Preliminary Investigations into Multi-View OOD Detection ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.8</span></a> and <a href="#Ch4.T9" title="Table 4.9 ‣ 4.3.3. Results ‣ 4.3. Ensembles of Views for OOD Detection ‣ Chapter 4 Preliminary Investigations into Multi-View OOD Detection ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.9</span></a>), MEO similarly outperforms baselines and improves on MOD. For near-OOD datasets (<a href="#Ch4.T8" title="Table 4.8 ‣ 4.3.3. Results ‣ 4.3. Ensembles of Views for OOD Detection ‣ Chapter 4 Preliminary Investigations into Multi-View OOD Detection ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.8</span></a>), the top-3 ensembles significantly improve OOD detection performance. In particular, the <math id="Ch4.S3.SS3.p2.m1" class="ltx_Math" alttext="f+O+F+OF+OB" display="inline"><mrow><mi>f</mi><mo>+</mo><mi>O</mi><mo>+</mo><mi>F</mi><mo>+</mo><mrow><mi>O</mi><mo>⁢</mo><mi>F</mi></mrow><mo>+</mo><mrow><mi>O</mi><mo>⁢</mo><mi>B</mi></mrow></mrow></math> ensemble improves CIFAR-10 AUC by 2.93%, Tiny ImageNet AUC by 9.51%, and average AUC by 9.82% over the best baselines. With respect to MOD, MEO ensembles repeatedly demonstrate the value of including all views in learning and OOD detection. CIFAR-10 AUC increases by 1.98% from MOD to MEO <math id="Ch4.S3.SS3.p2.m2" class="ltx_Math" alttext="f+O+F+OF+OB" display="inline"><mrow><mi>f</mi><mo>+</mo><mi>O</mi><mo>+</mo><mi>F</mi><mo>+</mo><mrow><mi>O</mi><mo>⁢</mo><mi>F</mi></mrow><mo>+</mo><mrow><mi>O</mi><mo>⁢</mo><mi>B</mi></mrow></mrow></math>, Tiny ImageNet AUC increases by 6.52%, and average AUC increases by 3.54%. Variance across ensembles is 0.11% for CIFAR-10, 1.81% for Tiny ImageNet, and 0.61% for average near-OOD AUC. These values are larger than for CIFAR-10 but remain low. It is again observed that using multi-view methods for OOD detection, especially considering all views as in MEO, significantly improves near-OOD detection in challenging domains such as CIFAR-100. The increase from 80.85% with GEN to <span class="ltx_text ltx_font_bold">90.67%</span> with MEO <math id="Ch4.S3.SS3.p2.m3" class="ltx_Math" alttext="f+O+F+OF+OB" display="inline"><mrow><mi>f</mi><mo>+</mo><mi>O</mi><mo>+</mo><mi>F</mi><mo>+</mo><mrow><mi>O</mi><mo>⁢</mo><mi>F</mi></mrow><mo>+</mo><mrow><mi>O</mi><mo>⁢</mo><mi>B</mi></mrow></mrow></math> is significant.
 For far-OOD datasets (<a href="#Ch4.T9" title="Table 4.9 ‣ 4.3.3. Results ‣ 4.3. Ensembles of Views for OOD Detection ‣ Chapter 4 Preliminary Investigations into Multi-View OOD Detection ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.9</span></a>), MEO ensembles continue to outperform baselines and MOD. Across the far-OOD datasets, the average AUC is increased by 16.40% with the <math id="Ch4.S3.SS3.p2.m4" class="ltx_Math" alttext="f+O+F+OF+OB" display="inline"><mrow><mi>f</mi><mo>+</mo><mi>O</mi><mo>+</mo><mi>F</mi><mo>+</mo><mrow><mi>O</mi><mo>⁢</mo><mi>F</mi></mrow><mo>+</mo><mrow><mi>O</mi><mo>⁢</mo><mi>B</mi></mrow></mrow></math> ensemble. All of the top-3 MEO ensembles outperform the baselines in each far-OOD dataset except SVHN. In iNaturalist, AUC increases by 15.84% over the nearest baseline LogitNorm. The average AUC for MEO outperforms MOD by 1.40%. The variance across MEO ensembles remains relatively low, with an average AUC variance of 0.21%. ID classification is again observed to be unaffected by inclusion of multiple views. In fact, MEO <math id="Ch4.S3.SS3.p2.m5" class="ltx_Math" alttext="f+F+B+OB+FB" display="inline"><mrow><mi>f</mi><mo>+</mo><mi>F</mi><mo>+</mo><mi>B</mi><mo>+</mo><mrow><mi>O</mi><mo>⁢</mo><mi>B</mi></mrow><mo>+</mo><mrow><mi>F</mi><mo>⁢</mo><mi>B</mi></mrow></mrow></math> improves ID classification accuracy by 0.97% over the baselines and is comparable to MOD (a difference of only 0.09%).</p>
 </div>
 <figure id="Ch4.T10" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.10. </span>ImageNet-30 ID classification (<span class="ltx_text ltx_font_bold">Accuracy</span>) and OOD detection performance (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between top-3 MEO ensembles and recent state-of-the-art baselines on <span class="ltx_text ltx_font_italic">near-OOD</span> datasets. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:397.9pt;height:153pt;vertical-align:-74.5pt;"><span class="ltx_transformed_inner" style="transform:translate(-22.1pt,8.5pt) scale(0.9,0.9) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <tbody class="ltx_tbody">
@@ -3588,9 +3587,9 @@ For far-OOD datasets (<a href="#Ch4.T9" title="Table 4.9 ‣ 4.3.3. Results ‣ 
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.10. </span>ImageNet-30 ID classification (<span class="ltx_text ltx_font_bold">Accuracy</span>) and OOD detection performance (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between top-3 MEO ensembles and recent state-of-the-art baselines on <span class="ltx_text ltx_font_italic">near-OOD</span> datasets. </figcaption>
 </figure>
 <figure id="Ch4.T11" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.11. </span>ImageNet-30 OOD detection performance (<span class="ltx_text ltx_font_bold">AUROC</span>) comparison between top-3 MEO ensembles and recent state-of-the-art baselines on <span class="ltx_text ltx_font_italic">far-OOD</span> datasets. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:315.9pt;height:148.7pt;vertical-align:-72.4pt;"><span class="ltx_transformed_inner" style="transform:translate(-22.6pt,10.6pt) scale(0.875,0.875) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <tbody class="ltx_tbody">
@@ -3784,6 +3783,7 @@ For far-OOD datasets (<a href="#Ch4.T9" title="Table 4.9 ‣ 4.3.3. Results ‣ 
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.11. </span>ImageNet-30 OOD detection performance (<span class="ltx_text ltx_font_bold">AUROC</span>) comparison between top-3 MEO ensembles and recent state-of-the-art baselines on <span class="ltx_text ltx_font_italic">far-OOD</span> datasets. </figcaption>
 </figure>
 <section id="Ch4.S3.SS3.SSSx1" class="ltx_subsubsection">
 <h5 class="ltx_title ltx_title_subsubsection">ImageNet-30</h5>
@@ -3806,8 +3806,6 @@ MEO ensembles improve ID classification accuracy (see <a href="#Ch4.T11" title="
 This observation further verifies the hypothesis that eliminating view features (as in MOD) is suboptimal compared to considering all available views.</p>
 </div>
 <figure id="Ch4.T12" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.12. </span>Results on CIFAR-100 ID for MEO-MD ensembles containing only single-view features. Worst-performing ensembles are <span class="ltx_text ltx_font_italic">italicized</span>, and best-performing ensembles are <span class="ltx_text ltx_font_bold">boldfaced</span>.
-</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:408.5pt;height:82.2pt;vertical-align:-39.4pt;"><span class="ltx_transformed_inner" style="transform:translate(-68.1pt,13.7pt) scale(0.75,0.75) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -3996,6 +3994,8 @@ This observation further verifies the hypothesis that eliminating view features 
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.12. </span>Results on CIFAR-100 ID for MEO-MD ensembles containing only single-view features. Worst-performing ensembles are <span class="ltx_text ltx_font_italic">italicized</span>, and best-performing ensembles are <span class="ltx_text ltx_font_bold">boldfaced</span>.
+</figcaption>
 </figure>
 </section>
 <section id="Ch4.S3.SS3.SSSx3" class="ltx_subsubsection">
@@ -4397,7 +4397,6 @@ _{org},\tilde{z}_{bg})/\tau_{ob}+\gamma sim(\tilde{z}_{fg},\tilde{z}_{bg})/%
 <span class="ltx_tag ltx_tag_subsection">4.4.3. </span>Results</h4>
 
 <figure id="Ch4.T13" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.13. </span>CIFAR-10 ID classification (<span class="ltx_text ltx_font_bold">Accuracy</span>) and OOD detection performance (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between SCOD, MOD, and recent state-of-the-art baselines. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:416.1pt;height:141.9pt;vertical-align:-69.3pt;"><span class="ltx_transformed_inner" style="transform:translate(-77.0pt,26.2pt) scale(0.73,0.73) ;">
 <table class="ltx_tabular ltx_align_middle">
 <tbody class="ltx_tbody">
@@ -4763,10 +4762,9 @@ _{org},\tilde{z}_{bg})/\tau_{ob}+\gamma sim(\tilde{z}_{fg},\tilde{z}_{bg})/%
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.13. </span>CIFAR-10 ID classification (<span class="ltx_text ltx_font_bold">Accuracy</span>) and OOD detection performance (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between SCOD, MOD, and recent state-of-the-art baselines. </figcaption>
 </figure>
 <figure id="Ch4.T14" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.14. </span>CIFAR-100 ID classification (<span class="ltx_text ltx_font_bold">Accuracy</span>) and OOD detection performance (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between SCOD, MOD, and recent state-of-the-art baselines.
-</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:420.8pt;height:141.9pt;vertical-align:-69.3pt;"><span class="ltx_transformed_inner" style="transform:translate(-77.8pt,26.2pt) scale(0.73,0.73) ;">
 <table class="ltx_tabular ltx_align_middle">
 <tbody class="ltx_tbody">
@@ -5138,6 +5136,8 @@ _{org},\tilde{z}_{bg})/\tau_{ob}+\gamma sim(\tilde{z}_{fg},\tilde{z}_{bg})/%
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.14. </span>CIFAR-100 ID classification (<span class="ltx_text ltx_font_bold">Accuracy</span>) and OOD detection performance (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between SCOD, MOD, and recent state-of-the-art baselines.
+</figcaption>
 </figure>
 <div id="Ch4.S4.SS3.p1" class="ltx_para">
 <p class="ltx_p">The addition of cross-attention to FgBg multi-view OOD detection provides interesting benefits. These benefits are illustrated in the changes across CIFAR-10 and CIFAR-100 datasets experimental results. Starting with CIFAR-10 (results of which are in <a href="#Ch4.T13" title="Table 4.13 ‣ 4.4.3. Results ‣ 4.4. Transitioning Multi-View OOD Detection using Attention ‣ Chapter 4 Preliminary Investigations into Multi-View OOD Detection ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.13</span></a>), SCOD outperforms all baselines on average and in many individual datasets. Overall, SCOD-MD improves AUC by 2.59%. Across near-OOD datasets, SCOD improves AUC by 0.08%, and across far-OOD datasets, SCOD improves AUC by 2.05%. However, SCOD slightly underperforms compared to MOD, 0.58% less across far-OOD datasets, 0.96% less across near-OOD datasets, and 0.71% less on average. For the simpler CIFAR-10 domain (with fewer ID classes and more distinct semantic differences across classes), the additional discriminative feature learning capabilities of Attention-based mechanisms are less beneficial. Simply max-pooling the features is sufficient in identifying view-correlated ID class-relevant features. Cross-attention, while certainly still beneficial (SCOD still outperforms baselines), learns and emphasizes greater nuances in the feature signals of individual views which is unnecessary for the simple discriminative features of the CIFAR-10 dataset.</p>
@@ -5146,12 +5146,6 @@ _{org},\tilde{z}_{bg})/\tau_{ob}+\gamma sim(\tilde{z}_{fg},\tilde{z}_{bg})/%
 <p class="ltx_p">The advantage of SCOD becomes clear when considering the more-challenging CIFAR-100 dataset, results for which are in <a href="#Ch4.T14" title="Table 4.14 ‣ 4.4.3. Results ‣ 4.4. Transitioning Multi-View OOD Detection using Attention ‣ Chapter 4 Preliminary Investigations into Multi-View OOD Detection ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.14</span></a>. SCOD improves OOD detection performance across all OOD datasets except Textures (where performance differs from MOD by only 0.03%). For far-OOD datasets, SCOD improves AUC by 16.57% over baselines and 1.33% over MOD. For near-OOD datasets, SCOD improves AUC by 10.28% over baselines and 6.10% over MOD. On average, SCOD improves AUC by 14.48% over baselines and 2.93% over MOD. Cross-attention greatly improves OOD detection in the CIFAR-100 ID domain where greater semantic overlap exists across classes, requiring precise discriminative feature extraction and learning. Leveraging cross-attention on the additional feature correlation in foreground and background views enables SCOD to achieve state-of-the-art OOD detection performance, and further outperform the naive max-pooling fusion in MOD. This is particularly evident in the performance of SCOD on near-OOD datasets, which also require learning of ID class-relevant discriminative features. SCOD-MD improves AUC by 6.18% over the nearest baseline (MD) and 7.29% over MOD in CIFAR-10. For TIN, SCOD-MD improves AUC by 8.28% over the nearest baseline (CMG-e) and 5.29% over MOD. Variance of SCOD is decreased compared to MOD, indicating that including learnable processing after view selection induces a stabilizing behavior. For example, the standard deviation of AUC for TIN in CIFAR-100 decreases from 4.61% for MOD-MD to 0.81% for SCOD-MD. Notably, SCOD ID classification performance is comparable in the CIFAR-10 domain but decreases in the CIFAR-100 domain.</p>
 </div>
 <figure id="Ch4.T15" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.15. </span>
-Additional ablation OOD detection performance results (<span class="ltx_text ltx_font_bold">AUC</span>) for CIFAR-100 ID.
-Various alternative approaches are investigated, including end-to-end instead of alternating training, removal of the <span class="ltx_text ltx_font_italic">misalignment term</span>, and using a single shared CNN instead of three separate CNNs for feature extraction.
-OOD detection technique used was MD.
-Best results are shown in <span class="ltx_text ltx_font_bold">boldface</span> while second-best results are <span class="ltx_text ltx_framed ltx_framed_underline">underlined</span>.
-</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:418.8pt;height:66.2pt;vertical-align:-31.1pt;"><span class="ltx_transformed_inner" style="transform:translate(-23.3pt,3.7pt) scale(0.9,0.9) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -5249,6 +5243,12 @@ Best results are shown in <span class="ltx_text ltx_font_bold">boldface</span> w
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 4.15. </span>
+Additional ablation OOD detection performance results (<span class="ltx_text ltx_font_bold">AUC</span>) for CIFAR-100 ID.
+Various alternative approaches are investigated, including end-to-end instead of alternating training, removal of the <span class="ltx_text ltx_font_italic">misalignment term</span>, and using a single shared CNN instead of three separate CNNs for feature extraction.
+OOD detection technique used was MD.
+Best results are shown in <span class="ltx_text ltx_font_bold">boldface</span> while second-best results are <span class="ltx_text ltx_framed ltx_framed_underline">underlined</span>.
+</figcaption>
 </figure>
 <section id="Ch4.S4.SS3.SSSx1" class="ltx_subsubsection">
 <h5 class="ltx_title ltx_title_subsubsection">Component Effects</h5>
@@ -6649,8 +6649,6 @@ _{n=1}^{d}(1d)))" display="inline"><mrow><msup><mi>ε</mi><mn>2</mn></msup><mo>�
 <p class="ltx_p">For CASOD, images were segmented into foregrounds and backgrounds using the YOLOv5 image segmentation model <cite class="ltx_cite ltx_citemacro_cite">Jocher<span class="ltx_text ltx_bib_etal"> et al.</span> (<a href="#bib.bib321" title="Ultralytics/yolov5: v3. 0" class="ltx_ref">2020</a>)</cite>. The open-source, pre-trained YOLOv5 pipeline (from <a href="https://github.com/ultralytics/yolov5" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://github.com/ultralytics/yolov5</a>) was used as the foreground-background segmentation toolkit. This YOLOv5 pipeline model is pre-trained on the COCO <cite class="ltx_cite ltx_citemacro_cite">Lin<span class="ltx_text ltx_bib_etal"> et al.</span> (<a href="#bib.bib298" title="Microsoft coco: common objects in context" class="ltx_ref">2014</a>)</cite> dataset. There is no overlap between COCO and any ID or OOD dataset.</p>
 </div>
 <figure id="Ch5.T1" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.1. </span>CASOD training configuration hyperparameters for different experimental settings.
-</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:326.4pt;height:124.3pt;vertical-align:-59.9pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1.0,1.0) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <tbody class="ltx_tbody">
@@ -6717,6 +6715,8 @@ _{n=1}^{d}(1d)))" display="inline"><mrow><msup><mi>ε</mi><mn>2</mn></msup><mo>�
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.1. </span>CASOD training configuration hyperparameters for different experimental settings.
+</figcaption>
 </figure>
 </section>
 <section id="Ch5.S4.SS1.SSSx3" class="ltx_subsubsection">
@@ -6898,7 +6898,6 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 <span class="ltx_tag ltx_tag_subsection">5.4.2. </span>Results &amp; Analysis</h4>
 
 <figure id="Ch5.T2" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.2. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - AUC</span>: AUC <span class="ltx_text ltx_font_italic">near-OOD</span> detection results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:530.9pt;height:348.8pt;vertical-align:-172.4pt;"><span class="ltx_transformed_inner" style="transform:translate(-29.5pt,19.4pt) scale(0.9,0.9) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -7495,9 +7494,9 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.2. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - AUC</span>: AUC <span class="ltx_text ltx_font_italic">near-OOD</span> detection results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. </figcaption>
 </figure>
 <figure id="Ch5.T3" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.3. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - AUC</span>: AUC <span class="ltx_text ltx_font_italic">far-OOD</span> detection and average results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.F is mean performance for far-OOD. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:563.4pt;height:298.5pt;vertical-align:-147.5pt;"><span class="ltx_transformed_inner" style="transform:translate(-84.1pt,44.6pt) scale(0.77,0.77) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -8236,10 +8235,9 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.3. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - AUC</span>: AUC <span class="ltx_text ltx_font_italic">far-OOD</span> detection and average results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.F is mean performance for far-OOD. </figcaption>
 </figure>
 <figure id="Ch5.T4" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.4. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - FPR95</span>: FPR95 <span class="ltx_text ltx_font_italic">near-OOD</span> detection results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
-</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:341.4pt;height:348.8pt;vertical-align:-172.4pt;"><span class="ltx_transformed_inner" style="transform:translate(-19.0pt,19.4pt) scale(0.9,0.9) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -8784,10 +8782,10 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.4. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - FPR95</span>: FPR95 <span class="ltx_text ltx_font_italic">near-OOD</span> detection results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
+</figcaption>
 </figure>
 <figure id="Ch5.T5" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.5. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - FPR95</span>: FPR95 <span class="ltx_text ltx_font_italic">far-OOD</span> detection and average results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
-</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:395.6pt;height:298.5pt;vertical-align:-147.5pt;"><span class="ltx_transformed_inner" style="transform:translate(-59.1pt,44.6pt) scale(0.77,0.77) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -9474,10 +9472,10 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.5. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - FPR95</span>: FPR95 <span class="ltx_text ltx_font_italic">far-OOD</span> detection and average results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
+</figcaption>
 </figure>
 <figure id="Ch5.T6" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.6. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - AUPR-IN</span>: AUPR-IN <span class="ltx_text ltx_font_italic">near-OOD</span> detection results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
-</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:341.4pt;height:348.8pt;vertical-align:-172.4pt;"><span class="ltx_transformed_inner" style="transform:translate(-19.0pt,19.4pt) scale(0.9,0.9) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -10022,10 +10020,10 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.6. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - AUPR-IN</span>: AUPR-IN <span class="ltx_text ltx_font_italic">near-OOD</span> detection results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
+</figcaption>
 </figure>
 <figure id="Ch5.T7" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.7. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - AUPR-IN</span>: AUPR-IN <span class="ltx_text ltx_font_italic">far-OOD</span> detection and average results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
-</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:401.8pt;height:298.5pt;vertical-align:-147.5pt;"><span class="ltx_transformed_inner" style="transform:translate(-60.0pt,44.6pt) scale(0.77,0.77) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -10712,10 +10710,10 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.7. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - AUPR-IN</span>: AUPR-IN <span class="ltx_text ltx_font_italic">far-OOD</span> detection and average results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
+</figcaption>
 </figure>
 <figure id="Ch5.T8" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.8. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - AUPR-OUT</span>: AUPR-OUT <span class="ltx_text ltx_font_italic">near-OOD</span> detection results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
-</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:342.0pt;height:348.8pt;vertical-align:-172.4pt;"><span class="ltx_transformed_inner" style="transform:translate(-19.0pt,19.4pt) scale(0.9,0.9) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -11260,10 +11258,10 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.8. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - AUPR-OUT</span>: AUPR-OUT <span class="ltx_text ltx_font_italic">near-OOD</span> detection results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
+</figcaption>
 </figure>
 <figure id="Ch5.T9" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.9. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - AUPR-OUT</span>: AUPR-OUT <span class="ltx_text ltx_font_italic">far-OOD</span> detection and average results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
-</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:401.8pt;height:298.5pt;vertical-align:-147.5pt;"><span class="ltx_transformed_inner" style="transform:translate(-60.0pt,44.6pt) scale(0.77,0.77) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -11950,6 +11948,8 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.9. </span><span class="ltx_text ltx_font_bold">ImageNet-100 and ImageNet-200 Results - AUPR-OUT</span>: AUPR-OUT <span class="ltx_text ltx_font_italic">far-OOD</span> detection and average results between CASOD and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
+</figcaption>
 </figure>
 <section id="Ch5.S4.SS2.SSSx1" class="ltx_subsubsection">
 <h5 class="ltx_title ltx_title_subsubsection">ImageNet-100 and ImageNet-200</h5>
@@ -11964,7 +11964,6 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 <p class="ltx_p">Across the OOD detection metrics and experimental datasets for ImageNet-100 ID and ImageNet-200 ID, standard deviations remain low compared to the previous proposed methods of MOD, MEO, and SCOD. The utilization of a pre-trained model and Adapters with an informed, learnable multi-view fusion component (in CVCA) gives greater consistency as the training loss remains relatively stable compared to previous approaches. This further attests to the functionality of CASOD with greater reliability over multiple views and resolving the variance issue initially observed in Chapter <a href="#Ch4" title="Chapter 4 Preliminary Investigations into Multi-View OOD Detection ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>.</p>
 </div>
 <figure id="Ch5.T10" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.10. </span><span class="ltx_text ltx_font_bold">ImageNet-1k Results - AUC</span>: AUC OOD detection results between CASOD and baselines for models trained only on ImageNet-1k ID data. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:548.0pt;height:145.5pt;vertical-align:-71.1pt;"><span class="ltx_transformed_inner" style="transform:translate(-91.3pt,24.3pt) scale(0.75,0.75) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -12182,9 +12181,9 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.10. </span><span class="ltx_text ltx_font_bold">ImageNet-1k Results - AUC</span>: AUC OOD detection results between CASOD and baselines for models trained only on ImageNet-1k ID data. </figcaption>
 </figure>
 <figure id="Ch5.T11" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.11. </span><span class="ltx_text ltx_font_bold">ImageNet-1k Results - FPR95</span>: FPR95 OOD detection results between CASOD and baselines for models trained only on ImageNet-1k ID data. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:548.0pt;height:145.5pt;vertical-align:-71.1pt;"><span class="ltx_transformed_inner" style="transform:translate(-91.3pt,24.3pt) scale(0.75,0.75) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -12402,9 +12401,9 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.11. </span><span class="ltx_text ltx_font_bold">ImageNet-1k Results - FPR95</span>: FPR95 OOD detection results between CASOD and baselines for models trained only on ImageNet-1k ID data. </figcaption>
 </figure>
 <figure id="Ch5.T12" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.12. </span><span class="ltx_text ltx_font_bold">ImageNet-1k Results - AUPR-IN</span>: AUPR-IN OOD detection results between CASOD and baselines for models trained only on ImageNet-1k ID data. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:548.0pt;height:145.5pt;vertical-align:-71.1pt;"><span class="ltx_transformed_inner" style="transform:translate(-91.3pt,24.3pt) scale(0.75,0.75) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -12622,9 +12621,9 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.12. </span><span class="ltx_text ltx_font_bold">ImageNet-1k Results - AUPR-IN</span>: AUPR-IN OOD detection results between CASOD and baselines for models trained only on ImageNet-1k ID data. </figcaption>
 </figure>
 <figure id="Ch5.T13" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.13. </span><span class="ltx_text ltx_font_bold">ImageNet-1k Results - AUPR-OUT</span>: AUPR-OUT OOD detection results between CASOD and baselines for models trained only on ImageNet-1k ID data. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:548.0pt;height:145.5pt;vertical-align:-71.1pt;"><span class="ltx_transformed_inner" style="transform:translate(-91.3pt,24.3pt) scale(0.75,0.75) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -12842,6 +12841,7 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.13. </span><span class="ltx_text ltx_font_bold">ImageNet-1k Results - AUPR-OUT</span>: AUPR-OUT OOD detection results between CASOD and baselines for models trained only on ImageNet-1k ID data. </figcaption>
 </figure>
 </section>
 <section id="Ch5.S4.SS2.SSSx2" class="ltx_subsubsection">
@@ -12899,8 +12899,6 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 <span class="ltx_tag ltx_tag_subsection">5.5.2. </span>Ablation Study</h4>
 
 <figure id="Ch5.T14" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 5.14. </span> Ablation OOD detection results (AUC, FPR) for ImageNet-100 ID across different individual views (top 3 rows), paired views (next 3 rows), and fusion methods (7th and 8th row). “Concat” concatenates the individual view features and projects them into a single fused feature vector, and “SelfAttn” applies self-attention directly to the the concatenated individual view features.
-</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:286.3pt;height:133.2pt;vertical-align:-64.1pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1.0,1.0) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -13011,6 +13009,8 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 5.14. </span> Ablation OOD detection results (AUC, FPR) for ImageNet-100 ID across different individual views (top 3 rows), paired views (next 3 rows), and fusion methods (7th and 8th row). “Concat” concatenates the individual view features and projects them into a single fused feature vector, and “SelfAttn” applies self-attention directly to the the concatenated individual view features.
+</figcaption>
 </figure>
 <section id="Ch5.S5.SS2.SSSx1" class="ltx_subsubsection">
 <h5 class="ltx_title ltx_title_subsubsection">Impact of Views</h5>
@@ -13043,8 +13043,6 @@ Hyperparameters were determined using a grid search over CVCA dropout probabilit
 <p class="ltx_p">The choice of number of blocks <math id="Ch5.S5.SS2.SSSx3.p1.m1" class="ltx_Math" alttext="B" display="inline"><mi>B</mi></math> in CVCA affects the performance of CASOD. To evaluate this effect on feature learning and OOD detection performance, an experiment was conducted over a range of blocks <math id="Ch5.S5.SS2.SSSx3.p1.m2" class="ltx_Math" alttext="B=\{1,2,3\}" display="inline"><mrow><mi>B</mi><mo>=</mo><mrow><mo stretchy="false">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo stretchy="false">}</mo></mrow></mrow></math>. <a href="#Ch5.F3" title="Figure 5.3 ‣ Contrast with Concatenation and Self-Attention Fusion ‣ 5.5.2. Ablation Study ‣ 5.5. Analysis and Discussion ‣ Chapter 5 Improving OOD Detection through Cross-View Attention Fusion ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.3</span></a> displays the average AUC trend for ImageNet-100 ID. <math id="Ch5.S5.SS2.SSSx3.p1.m3" class="ltx_Math" alttext="B=2" display="inline"><mrow><mi>B</mi><mo>=</mo><mn>2</mn></mrow></math> blocks results in the highest AUC performance from CASOD but the difference is minimal for small-scale datasets like ImageNet-100. <math id="Ch5.S5.SS2.SSSx3.p1.m4" class="ltx_Math" alttext="B&gt;2" display="inline"><mrow><mi>B</mi><mo>&gt;</mo><mn>2</mn></mrow></math> blocks may be needed for more complex datasets.</p>
 </div>
 <figure id="Ch5.T15" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 5.15. </span>
-Ablation OOD detection results (AUC, FPR) for ImageNet-100 ID comparing CASOD to single-view models with equivalent data and equivalent parameters.</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:300.4pt;height:73.2pt;vertical-align:-34.1pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1.0,1.0) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -13110,6 +13108,8 @@ Ablation OOD detection results (AUC, FPR) for ImageNet-100 ID comparing CASOD to
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 5.15. </span>
+Ablation OOD detection results (AUC, FPR) for ImageNet-100 ID comparing CASOD to single-view models with equivalent data and equivalent parameters.</figcaption>
 </figure>
 </section>
 <section id="Ch5.S5.SS2.SSSx4" class="ltx_subsubsection">
@@ -13136,8 +13136,6 @@ For the first experiment, a single-view baseline model was provided with two add
 <p class="ltx_p">An important question is if the performance benefits of CASOD stem from properly segmented foreground and background views. This question is complex and requires analysis across a range of segmentation quality, both from the perspective of the segmentation procedure itself and from the perspective of domain shift.</p>
 </div>
 <figure id="Ch5.T16" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 5.16. </span>
-Ablation OOD detection results (AUC, FPR) on ImageNet-100 ID using the original image and two additional synthetic views instead of foreground-background segmented views. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:292.9pt;height:61.2pt;vertical-align:-28.1pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1.0,1.0) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -13194,15 +13192,13 @@ Ablation OOD detection results (AUC, FPR) on ImageNet-100 ID using the original 
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 5.16. </span>
+Ablation OOD detection results (AUC, FPR) on ImageNet-100 ID using the original image and two additional synthetic views instead of foreground-background segmented views. </figcaption>
 </figure>
 <div id="Ch5.S5.SS2.SSSx5.p2" class="ltx_para">
 <p class="ltx_p">First, the presence of properly separated foregrounds and backgrounds is evaluated using two alternative multi-view datasets with CASOD. The first dataset uses the aforementioned data augmentations of rotations and noise as the “foreground” and “background” views to evaluate the performance of CASOD when provided with views that are not segmented at all (Rot-Noise). The second dataset uses one view with off-center crops of the original image and the other view containing the rest of the original image (Crops). This evaluates the performance of CASOD under poor semantic correlation across views. Results of CASOD with these alternative multi-view datasets for ImageNet-100 ID are presented in <a href="#Ch5.T16" title="Table 5.16 ‣ Segmented Foreground-Background Quality and Domain Shift ‣ 5.5.2. Ablation Study ‣ 5.5. Analysis and Discussion ‣ Chapter 5 Improving OOD Detection through Cross-View Attention Fusion ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.16</span></a>. CASOD trained and tested on datasets with poor segmentation quality is less capable in OOD detection compared to CASOD with foreground and background segmented views. This implies that CASOD extracts significantly more discriminative features via CVCA from semantically meaningful foregrounds and backgrounds.</p>
 </div>
 <figure id="Ch5.T17" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 5.17. </span>
-Ablation OOD detection results (AUC, FPR) using ID training datasets of varying separation quality and object-domain relevance: Textures (low separation quality) and NINCO (clear separation but multiple complex objects in the foreground)
-. Note that Textures has no known near-OOD datasets, the datasets are simply evaluated together. (b) denotes results using a baseline model.
-</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:304.2pt;height:73.2pt;vertical-align:-34.1pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1.0,1.0) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -13268,6 +13264,10 @@ Ablation OOD detection results (AUC, FPR) using ID training datasets of varying 
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 5.17. </span>
+Ablation OOD detection results (AUC, FPR) using ID training datasets of varying separation quality and object-domain relevance: Textures (low separation quality) and NINCO (clear separation but multiple complex objects in the foreground)
+. Note that Textures has no known near-OOD datasets, the datasets are simply evaluated together. (b) denotes results using a baseline model.
+</figcaption>
 </figure>
 <div id="Ch5.S5.SS2.SSSx5.p3" class="ltx_para">
 <p class="ltx_p">Second, the efficacy of CASOD is evaluated when presented with foreground-background views of varying segmentation quality. Non-ImageNet datasets are selected and segmented into foregrounds and backgrounds. The Textures dataset was selected as a low segmentation quality dataset as it does not have clear foreground objects. This evaluates the performance of CASOD when presented with poorly separated views. The NINCO dataset was selected as a medium segmentation quality dataset as it contains complex images with multiple foreground objects. This evaluates the performance of CASOD when presented with views containing noisy features or spurious features in the views. For Textures as the ID dataset, I-30, iNaturalist, Places, NINCO, SUN, OpenImage-O, Species, SSB-HARD, and Food were used as OOD datasets. For NINCO as the ID dataset, I-30, SSB-HARD, and Food were used as near-OOD datasets and Textures, iNaturalist, Places, SUN, OpenImage-O, and Species were used as far-OOD datasets. For both datasets, CASOD was trained using settings identical to those of ImageNet-100 with the exception of NINCO which used a LoRA rank of 16. Results for CASOD with datasets of varying foreground-background separation quality are presented in <a href="#Ch5.T17" title="Table 5.17 ‣ Segmented Foreground-Background Quality and Domain Shift ‣ 5.5.2. Ablation Study ‣ 5.5. Analysis and Discussion ‣ Chapter 5 Improving OOD Detection through Cross-View Attention Fusion ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.17</span></a>. CASOD is robust to foreground-background segmentation quality, outperforming baselines despite the quality of the view features. This further isolates the source of performance benefits from CASOD to the proposed CVCA feature fusion architecture. Given somewhat correlated foreground-background views, the feature fusion component in CASOD can leverage the discriminative features within and across views to learn a feature space conducive to OOD detection.</p>
@@ -13286,8 +13286,6 @@ Ablation OOD detection results (AUC, FPR) using ID training datasets of varying 
 <p class="ltx_p">Expanding on the previous section, the performance of CASOD with different segmentation models is considered as a natural subsequent evaluation. Instead of YOLOv5, two additional segmentation models are considered. First, a U2-Net pre-trained on the DUTS-TR dataset <cite class="ltx_cite ltx_citemacro_cite">Wang<span class="ltx_text ltx_bib_etal"> et al.</span> (<a href="#bib.bib147" title="Learning to detect salient objects with image-level supervision" class="ltx_ref">2017</a>)</cite> is used. All overlapping data between the DUTS-TR dataset and ImageNet-100 setting ID and OOD datasets is removed to ensure fairness in the evaluation. As DUTS-TR is also an object dataset, the data semantic and covariate distributions are similar to that of YOLOv5. However, the U2-Net architecture is significantly older (and thus weaker) than that used by YOLOv5, resulting in a dissimilar data distribution for the resultant foreground and background views. Using ImageNet-100 for the ID dataset and Textures and NINCO for the OOD datasets, CASOD results in an AUC of 83.51% and FPR95 of 63.63% using views from U2-Net. Compared to an AUC of 96.14% and FPR95 of 20.39% using views from YOLOv5, it is clear that the segmentation model (and resulting segmentation quality) impacts the performance of CASOD. This follows the observations from the previous ablation studies and further illuminates the relevance of foreground-background view segmentation from the perspective of object separation quality (as embodied by the segmentation model pre-training). Furthermore, U2-Net is slower than YOLOv5, requiring about 0.8 seconds per image to perform foreground-background segmentation. Qualitative analysis of the images segmented by U2-Net revealed that foreground objects were often correctly isolated but frequently contained spurious background features. This diluted the discriminative features in views and degraded feature learning and subsequent OOD detection performance.</p>
 </div>
 <figure id="Ch5.T18" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.18. </span>
-Ablation OOD detection results (AUC) for ImageNet-100 ID between CASOD with LoRA ViT feature extractor backbones and CASOD with CLIP vision feature extractor backbone. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:263.7pt;height:49.5pt;vertical-align:-22.5pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1.0,1.0) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -13317,13 +13315,13 @@ Ablation OOD detection results (AUC) for ImageNet-100 ID between CASOD with LoRA
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.18. </span>
+Ablation OOD detection results (AUC) for ImageNet-100 ID between CASOD with LoRA ViT feature extractor backbones and CASOD with CLIP vision feature extractor backbone. </figcaption>
 </figure>
 <div id="Ch5.S5.SS2.SSSx6.p2" class="ltx_para">
 <p class="ltx_p">Recent OOD detection literature has focused on exploring the potential of pre-trained Vision Language Models (VLMs) <cite class="ltx_cite ltx_citemacro_cite">Miyai<span class="ltx_text ltx_bib_etal"> et al.</span> (<a href="#bib.bib295" title="Locoop: few-shot out-of-distribution detection via prompt learning" class="ltx_ref">2024b</a>); Li<span class="ltx_text ltx_bib_etal"> et al.</span> (<a href="#bib.bib478" title="Synthesizing near-boundary ood samples for out-of-distribution detection" class="ltx_ref">2025a</a>); Jiang<span class="ltx_text ltx_bib_etal"> et al.</span> (<a href="#bib.bib479" title="Negative label guided ood detection with pretrained vision-language models" class="ltx_ref">2024b</a>)</cite>, such as CLIP <cite class="ltx_cite ltx_citemacro_cite">Radford<span class="ltx_text ltx_bib_etal"> et al.</span> (<a href="#bib.bib296" title="Learning transferable visual models from natural language supervision" class="ltx_ref">2021</a>)</cite>. To account for this recent trend, CASOD is additionally evaluated using the vision backbone from a pre-trained CLIP model as the feature extractor backbone (and including <math id="Ch5.S5.SS2.SSSx6.p2.m1" class="ltx_Math" alttext="\mathcal{U}" display="inline"><mi class="ltx_font_mathcaligraphic">𝒰</mi></math>, adding LoRA to the CLIP model components is non-trivial and attempts led to significant performance decreases). The results on ImageNet-100 ID between CASOD with ViT backbone and CLIP backbone (CASOD-CLIP) are presented in <a href="#Ch5.T18" title="Table 5.18 ‣ Importance of Segmentation Model ‣ 5.5.2. Ablation Study ‣ 5.5. Analysis and Discussion ‣ Chapter 5 Improving OOD Detection through Cross-View Attention Fusion ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.18</span></a>. CASOD-CLIP is worse than CASOD in OOD detection. The embodied knowledge and additional learning capacity from the ViT backbone and LoRA components respectively enable significantly improved feature learning from CASOD over CASOD-CLIP which must rely more on the pre-trained abilities of the CLIP vision backbone. Importantly, CLIP is designed to leverage images and text data, but text data is not allowed in the considered OOD detection task. This reveals two observations. First, that CLIP relies on text inputs as well as image inputs for functionality, including OOD detection. Second, that CLIP-based OOD detection methods have limitations that prevent them from being translated to the image domain, which may be a negative consideration in applications. In summary, this is an invalid comparison both for the above reasons and because CLIP is pre-trained on a vast amount of data. This raises the likelihood that CLIP has already encountered some of the ID and OOD data presented during training and testing, a significant source of information leakage and a complete invalidation of scientific reliability. There is evidence for this leakage in literature, with CLIP exhibiting zero-shot OOD detection performance <cite class="ltx_cite ltx_citemacro_cite">Esmaeilpour<span class="ltx_text ltx_bib_etal"> et al.</span> (<a href="#bib.bib446" title="Zero-shot out-of-distribution detection based on the pre-trained model clip" class="ltx_ref">2022</a>)</cite>.</p>
 </div>
 <figure id="Ch5.T19" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.19. </span>
-Ablation OOD detection results (AUC) for ImageNet-100-Random ID between CASOD and CASOD when trained without individual view feature losses (<math id="Ch5.T19.m2" class="ltx_Math" alttext="\mathcal{L}_{CE,fused}" display="inline"><msub><mi class="ltx_font_mathcaligraphic">ℒ</mi><mrow><mrow><mi>C</mi><mo>⁢</mo><mi>E</mi></mrow><mo>,</mo><mrow><mi>f</mi><mo>⁢</mo><mi>u</mi><mo>⁢</mo><mi>s</mi><mo>⁢</mo><mi>e</mi><mo>⁢</mo><mi>d</mi></mrow></mrow></msub></math> only). </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:266.9pt;height:49.5pt;vertical-align:-22.5pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1.0,1.0) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -13340,7 +13338,7 @@ Ablation OOD detection results (AUC) for ImageNet-100-Random ID between CASOD an
 <tbody class="ltx_tbody">
 <tr class="ltx_tr">
 <th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">
-<math id="Ch5.T19.m3" class="ltx_Math" alttext="\mathcal{L}_{CE,fused}" display="inline"><msub><mi class="ltx_font_mathcaligraphic" mathsize="0.900em">ℒ</mi><mrow><mrow><mi mathsize="0.900em">C</mi><mo>⁢</mo><mi mathsize="0.900em">E</mi></mrow><mo mathsize="0.900em">,</mo><mrow><mi mathsize="0.900em">f</mi><mo>⁢</mo><mi mathsize="0.900em">u</mi><mo>⁢</mo><mi mathsize="0.900em">s</mi><mo>⁢</mo><mi mathsize="0.900em">e</mi><mo>⁢</mo><mi mathsize="0.900em">d</mi></mrow></mrow></msub></math><span class="ltx_text" style="font-size:90%;"> only</span>
+<math id="Ch5.T19.m1" class="ltx_Math" alttext="\mathcal{L}_{CE,fused}" display="inline"><msub><mi class="ltx_font_mathcaligraphic" mathsize="0.900em">ℒ</mi><mrow><mrow><mi mathsize="0.900em">C</mi><mo>⁢</mo><mi mathsize="0.900em">E</mi></mrow><mo mathsize="0.900em">,</mo><mrow><mi mathsize="0.900em">f</mi><mo>⁢</mo><mi mathsize="0.900em">u</mi><mo>⁢</mo><mi mathsize="0.900em">s</mi><mo>⁢</mo><mi mathsize="0.900em">e</mi><mo>⁢</mo><mi mathsize="0.900em">d</mi></mrow></mrow></msub></math><span class="ltx_text" style="font-size:90%;"> only</span>
 </th>
 <td class="ltx_td ltx_align_center ltx_border_t"><span class="ltx_text" style="font-size:90%;">97.05</span></td>
 <td class="ltx_td ltx_align_center ltx_border_t"><span class="ltx_text" style="font-size:90%;">88.19</span></td>
@@ -13355,6 +13353,8 @@ Ablation OOD detection results (AUC) for ImageNet-100-Random ID between CASOD an
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.19. </span>
+Ablation OOD detection results (AUC) for ImageNet-100-Random ID between CASOD and CASOD when trained without individual view feature losses (<math id="Ch5.T19.m3" class="ltx_Math" alttext="\mathcal{L}_{CE,fused}" display="inline"><msub><mi class="ltx_font_mathcaligraphic">ℒ</mi><mrow><mrow><mi>C</mi><mo>⁢</mo><mi>E</mi></mrow><mo>,</mo><mrow><mi>f</mi><mo>⁢</mo><mi>u</mi><mo>⁢</mo><mi>s</mi><mo>⁢</mo><mi>e</mi><mo>⁢</mo><mi>d</mi></mrow></mrow></msub></math> only). </figcaption>
 </figure>
 </section>
 <section id="Ch5.S5.SS2.SSSx7" class="ltx_subsubsection">
@@ -13364,7 +13364,6 @@ Ablation OOD detection results (AUC) for ImageNet-100-Random ID between CASOD an
 <p class="ltx_p">CASOD uses a combination of a fused feature CE loss and individual view feature CE losses to learn ID class-relevant discriminative features during training (see Section <a href="#Ch5.S2.SS2" title="5.2.2. Model Training and Testing ‣ 5.2. Proposed Method ‣ Chapter 5 Improving OOD Detection through Cross-View Attention Fusion ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.2.2</span></a>). To investigate if these loss components are necessary, the performance of CASOD when trained using only the fused feature CE loss <math id="Ch5.S5.SS2.SSSx7.p1.m1" class="ltx_Math" alttext="\mathcal{L}_{CE,\mathcal{U}}" display="inline"><msub><mi class="ltx_font_mathcaligraphic">ℒ</mi><mrow><mrow><mi>C</mi><mo>⁢</mo><mi>E</mi></mrow><mo>,</mo><mi class="ltx_font_mathcaligraphic">𝒰</mi></mrow></msub></math>, i.e. <math id="Ch5.S5.SS2.SSSx7.p1.m2" class="ltx_Math" alttext="\mathcal{L}_{CE}=\mathcal{L}_{CE,\mathcal{U}}" display="inline"><mrow><msub><mi class="ltx_font_mathcaligraphic">ℒ</mi><mrow><mi>C</mi><mo>⁢</mo><mi>E</mi></mrow></msub><mo>=</mo><msub><mi class="ltx_font_mathcaligraphic">ℒ</mi><mrow><mrow><mi>C</mi><mo>⁢</mo><mi>E</mi></mrow><mo>,</mo><mi class="ltx_font_mathcaligraphic">𝒰</mi></mrow></msub></mrow></math>, was evaluated. OOD detection results with ImageNet-100 ID are in <a href="#Ch5.T19" title="Table 5.19 ‣ Importance of Segmentation Model ‣ 5.5.2. Ablation Study ‣ 5.5. Analysis and Discussion ‣ Chapter 5 Improving OOD Detection through Cross-View Attention Fusion ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.19</span></a>. Without including the individual view feature CE losses, performance decreases. The loss terms for the individual view features encourage learning of class discriminative features in each corresponding view, increasing feature diversity at the feature fusion stage. As each view contains different information, learning within these views increases the representation of features beneficial for learning in subsequent CVCA feature fusion operations. This benefit is clear in the near-OOD performance. The gap between near-OOD and far-OOD detection using CASOD with individual view feature CE losses is 4.21% while it is 5.31% without individual view feature CE losses. This reduction in performance discrepancy implies a reliance on individual view features for OOD detection in CASOD.</p>
 </div>
 <figure id="Ch5.T20" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.20. </span><span class="ltx_text ltx_font_bold">OOD Results for CASOD and different OOD methods</span>: <span class="ltx_text ltx_font_italic">near-OOD</span> detection (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between CASOD using MD (CASOD), CASOD using MSP (CASOD-MSP), and CASOD using KNN (CASOD-KNN). </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:338.4pt;height:255.9pt;vertical-align:-125.7pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1.0,1.0) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -13544,9 +13543,9 @@ Ablation OOD detection results (AUC) for ImageNet-100-Random ID between CASOD an
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.20. </span><span class="ltx_text ltx_font_bold">OOD Results for CASOD and different OOD methods</span>: <span class="ltx_text ltx_font_italic">near-OOD</span> detection (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between CASOD using MD (CASOD), CASOD using MSP (CASOD-MSP), and CASOD using KNN (CASOD-KNN). </figcaption>
 </figure>
 <figure id="Ch5.T21" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.21. </span><span class="ltx_text ltx_font_bold">OOD Results for CASOD and different OOD methods</span>: <span class="ltx_text ltx_font_italic">far-OOD</span> detection and average results (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between CASOD using MD (CASOD), CASOD using MSP (CASOD-MSP), and CASOD using KNN (CASOD-KNN). </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:418.6pt;height:212.5pt;vertical-align:-104.4pt;"><span class="ltx_transformed_inner" style="transform:translate(-42.9pt,21.8pt) scale(0.83,0.83) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -13780,6 +13779,7 @@ Ablation OOD detection results (AUC) for ImageNet-100-Random ID between CASOD an
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 5.21. </span><span class="ltx_text ltx_font_bold">OOD Results for CASOD and different OOD methods</span>: <span class="ltx_text ltx_font_italic">far-OOD</span> detection and average results (<span class="ltx_text ltx_font_bold">AUC</span>) comparison between CASOD using MD (CASOD), CASOD using MSP (CASOD-MSP), and CASOD using KNN (CASOD-KNN). </figcaption>
 </figure>
 </section>
 <section id="Ch5.S5.SS2.SSSx8" class="ltx_subsubsection">
@@ -14070,7 +14070,6 @@ For ATPO-Reasoning, the template is:</p>
 <p class="ltx_p">The established experimental setup for prompt-only OOD detection was used <cite class="ltx_cite ltx_citemacro_cite">Wang<span class="ltx_text ltx_bib_etal"> et al.</span> (<a href="#bib.bib322" title="Beyond the known: investigating llms performance on out-of-domain intent detection" class="ltx_ref">2024a</a>)</cite>.</p>
 </div>
 <figure id="Ch6.T1" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.1. </span>Information for datasets used in ATPO experimentation.</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:369.2pt;height:87.2pt;vertical-align:-41.1pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1.0,1.0) ;">
 <table class="ltx_tabular ltx_align_middle">
 <tbody class="ltx_tbody">
@@ -14140,6 +14139,7 @@ For ATPO-Reasoning, the template is:</p>
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.1. </span>Information for datasets used in ATPO experimentation.</figcaption>
 </figure>
 <section id="Ch6.S3.SS2.SSSx1" class="ltx_subsubsection">
 <h5 class="ltx_title ltx_title_subsubsection">Datasets</h5>
@@ -14237,7 +14237,6 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 <span class="ltx_tag ltx_tag_subsection">6.3.3. </span>Results</h4>
 
 <figure id="Ch6.T2" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.2. </span>OOD detection results, Recall, between ATPO, ATPO-Nonspecified Alignment (ATPO-NA), ATPO-Reasoning (ATPO-R) and the previous prompt-only OOD detection method (POD). </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:389.3pt;height:175.8pt;vertical-align:-85.8pt;"><span class="ltx_transformed_inner" style="transform:translate(-34.4pt,15.5pt) scale(0.85,0.85) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -14420,9 +14419,9 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.2. </span>OOD detection results, Recall, between ATPO, ATPO-Nonspecified Alignment (ATPO-NA), ATPO-Reasoning (ATPO-R) and the previous prompt-only OOD detection method (POD). </figcaption>
 </figure>
 <figure id="Ch6.T3" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.3. </span>OOD detection results, F-Score (F), between ATPO, ATPO-Nonspecified Alignment (ATPO-NA), ATPO-Reasoning (ATPO-R) and the previous prompt-only OOD detection method (POD). </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:389.3pt;height:175.8pt;vertical-align:-85.8pt;"><span class="ltx_transformed_inner" style="transform:translate(-34.4pt,15.5pt) scale(0.85,0.85) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -14605,9 +14604,9 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.3. </span>OOD detection results, F-Score (F), between ATPO, ATPO-Nonspecified Alignment (ATPO-NA), ATPO-Reasoning (ATPO-R) and the previous prompt-only OOD detection method (POD). </figcaption>
 </figure>
 <figure id="Ch6.T4" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.4. </span>OOD detection results (AUC) between ATPO prompt-only method (<span class="ltx_text ltx_font_italic">italicized</span>) and classic feature- and logits-based methods. The <span class="ltx_text ltx_font_bold">KNN</span> and <span class="ltx_text ltx_font_bold">MD</span> methods in the table are from a previous feature-based LLM baseline <cite class="ltx_cite ltx_citemacro_citep">(Uppaal<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib462" title="Is fine-tuning needed? pre-trained language models are near perfect for out-of-domain detection" class="ltx_ref">2023</a>)</cite>. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:394.2pt;height:337.3pt;vertical-align:-166.4pt;"><span class="ltx_transformed_inner" style="transform:translate(-21.9pt,18.7pt) scale(0.9,0.9) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <tbody class="ltx_tbody">
@@ -14928,6 +14927,7 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.4. </span>OOD detection results (AUC) between ATPO prompt-only method (<span class="ltx_text ltx_font_italic">italicized</span>) and classic feature- and logits-based methods. The <span class="ltx_text ltx_font_bold">KNN</span> and <span class="ltx_text ltx_font_bold">MD</span> methods in the table are from a previous feature-based LLM baseline <cite class="ltx_cite ltx_citemacro_citep">(Uppaal<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib462" title="Is fine-tuning needed? pre-trained language models are near perfect for out-of-domain detection" class="ltx_ref">2023</a>)</cite>. </figcaption>
 </figure>
 <div id="Ch6.S3.SS3.p1" class="ltx_para">
 <p class="ltx_p">OOD detection results for ATPO and baselines are in <a href="#Ch6.T2" title="Table 6.2 ‣ 6.3.3. Results ‣ 6.3. Experimentation ‣ Chapter 6 Improving OOD Detection with LLMs and Alignment-Based Prompt-Only Scoring ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.2</span></a>, <a href="#Ch6.T3" title="Table 6.3 ‣ 6.3.3. Results ‣ 6.3. Experimentation ‣ Chapter 6 Improving OOD Detection with LLMs and Alignment-Based Prompt-Only Scoring ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.3</span></a>, and <a href="#Ch6.T4" title="Table 6.4 ‣ 6.3.3. Results ‣ 6.3. Experimentation ‣ Chapter 6 Improving OOD Detection with LLMs and Alignment-Based Prompt-Only Scoring ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.4</span></a>. Overall, ATPO <span class="ltx_text ltx_font_bold">drastically outperforms</span> the only other prompt-only OOD detection method (POD). Surprisingly, ATPO also outperforms state-of-the-art feature- and logits-based OOD detection baselines with access to model components and information with Qwen-8B, Gemma-12B, and Deepseek-32B. For clarity, ATPO with the Nonspecified Alignment prompt is designated as ATPO-NA, and ATPO with the Reasoning prompt is designates as ATPO-R.</p>
@@ -15013,7 +15013,6 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 <span class="ltx_tag ltx_tag_subsection">6.4.2. </span>Ablation Study</h4>
 
 <figure id="Ch6.T5" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.5. </span>Ablation mean OOD detection results (AUC) for ATPO over number of included ICL examples <math id="Ch6.T5.m2" class="ltx_Math" alttext="\nu" display="inline"><mi>ν</mi></math>.</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:297.1pt;height:73.2pt;vertical-align:-34.1pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1.0,1.0) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -15027,35 +15026,35 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 </thead>
 <tbody class="ltx_tbody">
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t"><math id="Ch6.T5.m3" class="ltx_Math" alttext="\nu=1" display="inline"><mrow><mi>ν</mi><mo>=</mo><mn>1</mn></mrow></math></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t"><math id="Ch6.T5.m1" class="ltx_Math" alttext="\nu=1" display="inline"><mrow><mi>ν</mi><mo>=</mo><mn>1</mn></mrow></math></th>
 <td class="ltx_td ltx_align_center ltx_border_t">83.68</td>
 <td class="ltx_td ltx_align_center ltx_border_t">89.48</td>
 <td class="ltx_td ltx_align_center ltx_border_t">93.63</td>
 <td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t">88.93</td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><math id="Ch6.T5.m4" class="ltx_Math" alttext="\nu=10" display="inline"><mrow><mi>ν</mi><mo>=</mo><mn>10</mn></mrow></math></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><math id="Ch6.T5.m2" class="ltx_Math" alttext="\nu=10" display="inline"><mrow><mi>ν</mi><mo>=</mo><mn>10</mn></mrow></math></th>
 <td class="ltx_td ltx_align_center">84.61</td>
 <td class="ltx_td ltx_align_center">91.01</td>
 <td class="ltx_td ltx_align_center">93.31</td>
 <td class="ltx_td ltx_align_center ltx_border_l ltx_border_r">89.64</td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><math id="Ch6.T5.m5" class="ltx_Math" alttext="\nu=20" display="inline"><mrow><mi>ν</mi><mo>=</mo><mn>20</mn></mrow></math></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><math id="Ch6.T5.m3" class="ltx_Math" alttext="\nu=20" display="inline"><mrow><mi>ν</mi><mo>=</mo><mn>20</mn></mrow></math></th>
 <td class="ltx_td ltx_align_center">82.56</td>
 <td class="ltx_td ltx_align_center">92.30</td>
 <td class="ltx_td ltx_align_center">92.22</td>
 <td class="ltx_td ltx_align_center ltx_border_l ltx_border_r">89.03</td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><math id="Ch6.T5.m6" class="ltx_Math" alttext="\nu=30" display="inline"><mrow><mi>ν</mi><mo>=</mo><mn>30</mn></mrow></math></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><math id="Ch6.T5.m4" class="ltx_Math" alttext="\nu=30" display="inline"><mrow><mi>ν</mi><mo>=</mo><mn>30</mn></mrow></math></th>
 <td class="ltx_td ltx_align_center">81.13</td>
 <td class="ltx_td ltx_align_center">91.39</td>
 <td class="ltx_td ltx_align_center">91.93</td>
 <td class="ltx_td ltx_align_center ltx_border_l ltx_border_r">88.15</td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r">ATPO (<math id="Ch6.T5.m7" class="ltx_Math" alttext="\nu=5" display="inline"><mrow><mi>ν</mi><mo>=</mo><mn>5</mn></mrow></math>)</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r">ATPO (<math id="Ch6.T5.m5" class="ltx_Math" alttext="\nu=5" display="inline"><mrow><mi>ν</mi><mo>=</mo><mn>5</mn></mrow></math>)</th>
 <td class="ltx_td ltx_align_center ltx_border_b">85.05</td>
 <td class="ltx_td ltx_align_center ltx_border_b">90.71</td>
 <td class="ltx_td ltx_align_center ltx_border_b">93.38</td>
@@ -15064,6 +15063,7 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.5. </span>Ablation mean OOD detection results (AUC) for ATPO over number of included ICL examples <math id="Ch6.T5.m7" class="ltx_Math" alttext="\nu" display="inline"><mi>ν</mi></math>.</figcaption>
 </figure>
 <section id="Ch6.S4.SS2.SSSx1" class="ltx_subsubsection">
 <h5 class="ltx_title ltx_title_subsubsection">Number of ICL Examples</h5>
@@ -15072,9 +15072,6 @@ The first was an instruction-tuned version of Mistral-7B <cite class="ltx_cite l
 <p class="ltx_p">The number of ICL demonstration examples <math id="Ch6.S4.SS2.SSSx1.p1.m1" class="ltx_Math" alttext="\nu" display="inline"><mi>ν</mi></math> may significantly impact the performance of any prompt-only OOD detection method as the examples directly inject relevant ID information which the LLM can use for alignment and reasoning on the OOD score. This impact is investigated in ATPO by modulating <math id="Ch6.S4.SS2.SSSx1.p1.m2" class="ltx_Math" alttext="\nu" display="inline"><mi>ν</mi></math> across Mistral-7B, Qwen-8B, and Gemma-12B over all OOD datasets. Results are presented in <a href="#Ch6.T5" title="Table 6.5 ‣ 6.4.2. Ablation Study ‣ 6.4. Discussion ‣ Chapter 6 Improving OOD Detection with LLMs and Alignment-Based Prompt-Only Scoring ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.5</span></a>. As expected, increasing <math id="Ch6.S4.SS2.SSSx1.p1.m3" class="ltx_Math" alttext="\nu" display="inline"><mi>ν</mi></math> improves OOD detection performance until the number of examples becomes overwhelming for the LLM. This behavior has been previously observed in the literature <cite class="ltx_cite ltx_citemacro_cite">Wang<span class="ltx_text ltx_bib_etal"> et al.</span> (<a href="#bib.bib322" title="Beyond the known: investigating llms performance on out-of-domain intent detection" class="ltx_ref">2024a</a>)</cite>.</p>
 </div>
 <figure id="Ch6.T6" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.6. </span>
-OOD detection results with number of ID classes <math id="Ch6.T6.m2" class="ltx_Math" alttext="C=10" display="inline"><mrow><mi>C</mi><mo>=</mo><mn>10</mn></mrow></math>. Gray-shaded rows show F-Score (F) for prompt-only comparisons. All other rows show AUC of ATPO and feature- or logits-based methods.
-</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:565.1pt;height:164.5pt;vertical-align:-80.0pt;"><span class="ltx_transformed_inner" style="transform:translate(-31.4pt,9.1pt) scale(0.9,0.9) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <tbody class="ltx_tbody">
@@ -15237,6 +15234,9 @@ OOD detection results with number of ID classes <math id="Ch6.T6.m2" class="ltx_
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.6. </span>
+OOD detection results with number of ID classes <math id="Ch6.T6.m2" class="ltx_Math" alttext="C=10" display="inline"><mrow><mi>C</mi><mo>=</mo><mn>10</mn></mrow></math>. Gray-shaded rows show F-Score (F) for prompt-only comparisons. All other rows show AUC of ATPO and feature- or logits-based methods.
+</figcaption>
 </figure>
 </section>
 <section id="Ch6.S4.SS2.SSSx2" class="ltx_subsubsection">
@@ -15252,7 +15252,6 @@ OOD detection results with number of ID classes <math id="Ch6.T6.m2" class="ltx_
 <span class="ltx_tag ltx_tag_subsection">6.4.3. </span>Method Analysis</h4>
 
 <figure id="Ch6.T7" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.7. </span>Ablation ATPO performance using various types of alignment guidance in the prompt. </figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:419.2pt;height:233.2pt;vertical-align:-114.7pt;"><span class="ltx_transformed_inner" style="transform:translate(-62.6pt,34.8pt) scale(0.77,0.77) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -15515,6 +15514,7 @@ OOD detection results with number of ID classes <math id="Ch6.T6.m2" class="ltx_
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.7. </span>Ablation ATPO performance using various types of alignment guidance in the prompt. </figcaption>
 </figure>
 <section id="Ch6.S4.SS3.SSSx1" class="ltx_subsubsection">
 <h5 class="ltx_title ltx_title_subsubsection">Contributions of Lexical and Semantic Alignment</h5>
@@ -15529,7 +15529,6 @@ OOD detection results with number of ID classes <math id="Ch6.T6.m2" class="ltx_
 <p class="ltx_p">Completely removing induction of similarity and alignment in the prompt (No Alignment and Nonspecified Alignment rows) <span class="ltx_text ltx_font_bold">universally decreases performance</span>. This, following expectation and the primary results of ATPO with induced lexical and semantic alignment in <a href="#Ch6.T2" title="Table 6.2 ‣ 6.3.3. Results ‣ 6.3. Experimentation ‣ Chapter 6 Improving OOD Detection with LLMs and Alignment-Based Prompt-Only Scoring ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.2</span></a>, <a href="#Ch6.T3" title="Table 6.3 ‣ 6.3.3. Results ‣ 6.3. Experimentation ‣ Chapter 6 Improving OOD Detection with LLMs and Alignment-Based Prompt-Only Scoring ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.3</span></a>, and <a href="#Ch6.T4" title="Table 6.4 ‣ 6.3.3. Results ‣ 6.3. Experimentation ‣ Chapter 6 Improving OOD Detection with LLMs and Alignment-Based Prompt-Only Scoring ‣ Improved Out-of-Distribution Detection using Segmented Images and Prompt-Only Text Reasoning" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.4</span></a>, further reinforces that alignment is a key contributing mechanic to prompt-only OOD detection in LLMs. Another interesting observation is the OOD detection behavior of LLMs using dissimilarity instead of similarity (Dissimilar rows). LLMs perform better when considering the <span class="ltx_text ltx_font_bold">similarity</span> of input test utterances, ID classes, and ICL examples instead of the differences between them. This is supported by the corresponding rows consistently demonstrating worse performance than ATPO. There may be some bias present in LLMs towards similarity instead of dissimilarity.</p>
 </div>
 <figure id="Ch6.T8" class="ltx_table">
-<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.8. </span>Ablation OOD detection results (AUC) for ATPO using different prompt types. ATPO-R represents ATPO-Reasoning.</figcaption>
 <div class="ltx_inline-block ltx_align_center ltx_transformed_outer" style="width:391.2pt;height:229.3pt;vertical-align:-112.4pt;"><span class="ltx_transformed_inner" style="transform:translate(-21.7pt,12.7pt) scale(0.9,0.9) ;">
 <table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
 <thead class="ltx_thead">
@@ -15752,6 +15751,7 @@ OOD detection results with number of ID classes <math id="Ch6.T6.m2" class="ltx_
 </tbody>
 </table>
 </span></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 6.8. </span>Ablation OOD detection results (AUC) for ATPO using different prompt types. ATPO-R represents ATPO-Reasoning.</figcaption>
 </figure>
 </section>
 <section id="Ch6.S4.SS3.SSSx2" class="ltx_subsubsection">
@@ -19974,7 +19974,7 @@ Molecular Informatics, 2020.</p>
 </article>
 </div>
 <footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Thu Mar 12 19:57:42 2026 by <a href="http://dlmf.nist.gov/LaTeXML/" class="ltx_LaTeXML_logo"><span style="letter-spacing:-0.2em; margin-right:0.1em;">L<span class="ltx_font_smallcaps" style="position:relative; bottom:2.2pt;">a</span>T<span class="ltx_font_smallcaps" style="font-size:120%;position:relative; bottom:-0.2ex;">e</span></span><span style="font-size:90%; position:relative; bottom:-0.2ex;">XML</span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="Mascot Sammy"></a>
+<div class="ltx_page_logo">Generated  on Fri Mar 13 01:29:43 2026 by <a href="http://dlmf.nist.gov/LaTeXML/" class="ltx_LaTeXML_logo"><span style="letter-spacing:-0.2em; margin-right:0.1em;">L<span class="ltx_font_smallcaps" style="position:relative; bottom:2.2pt;">a</span>T<span class="ltx_font_smallcaps" style="font-size:120%;position:relative; bottom:-0.2ex;">e</span></span><span style="font-size:90%; position:relative; bottom:-0.2ex;">XML</span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="Mascot Sammy"></a>
 </div></footer>
 </div>
 </body>
