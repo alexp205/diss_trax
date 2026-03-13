@@ -229,9 +229,6 @@ For MEO experiments, additional state-of-the-art baseline methods were considere
 \begin{table*}
 \small
 \centering
-\caption{CIFAR-10 ID classification (\textbf{Accuracy}) and OOD detection performance (\textbf{AUC}) comparison between top-3 \sysb ensembles and recent state-of-the-art baselines on \textit{near-OOD} datasets. %All numeric values are percentages. Best results are emphasized with \textbf{boldface}. 
-The following key is used to shorten ensemble members: ``\textbf{f}'' - comprehensive fused feature/logits, ``\textbf{O}'' - original single-view, ``\textbf{F}'' - foreground single-view, ``\textbf{B}'' - background single-view, ``\textbf{OF}'' - $org+fg$ cross-view, ``\textbf{OB}'' - $org+bg$ cross-view, and ``\textbf{FB}'' - $fg+bg$ cross-view. For example, a ``f+OF+OB'' ensemble would have members $\{fused$, $org+fg$, $org+bg\}$. This notation is used consistently throughout the rest of the dissertation with respect to \sysb.
-}
 \vspace{0.1cm}
 \scalebox{1.0}{
 \begin{tabular}{|l|c|ccc|}
@@ -255,14 +252,15 @@ f+O+F+OF+OB & 94.95$_{\pm 0.34}$ & 99.00$_{\pm 0.52}$ & \textbf{98.76$_{\pm 1.45
 f+F+B+OB+FB & \textbf{95.24$_{\pm 0.39}$} & 99.09$_{\pm 0.64}$ & 98.50$_{\pm 1.59}$ &  \multicolumn{1}{|c|}{98.80}  \\ \hline
 \end{tabular}
 }
+\caption{CIFAR-10 ID classification (\textbf{Accuracy}) and OOD detection performance (\textbf{AUC}) comparison between top-3 \sysb ensembles and recent state-of-the-art baselines on \textit{near-OOD} datasets. %All numeric values are percentages. Best results are emphasized with \textbf{boldface}. 
+The following key is used to shorten ensemble members: ``\textbf{f}'' - comprehensive fused feature/logits, ``\textbf{O}'' - original single-view, ``\textbf{F}'' - foreground single-view, ``\textbf{B}'' - background single-view, ``\textbf{OF}'' - $org+fg$ cross-view, ``\textbf{OB}'' - $org+bg$ cross-view, and ``\textbf{FB}'' - $fg+bg$ cross-view. For example, a ``f+OF+OB'' ensemble would have members $\{fused$, $org+fg$, $org+bg\}$. This notation is used consistently throughout the rest of the dissertation with respect to \sysb.
+}
 \label{tab:propwork-meo-results-cifar10-near}
 \end{table*}
 
 \begin{table*}
 \small
 \centering
-\caption{CIFAR-10 OOD detection performance (\textbf{AUC}) comparison between top-3 \sysb ensembles and recent state-of-the-art baselines on \textit{far-OOD} datasets. %All numeric values are percentages. Best results are emphasized with \textbf{boldface}.
-}
 \vspace{0.1cm}
 \scalebox{0.875}{
 \begin{tabular}{|l|cccccc|}
@@ -285,6 +283,8 @@ f+O+F+OB    & 97.67$_{\pm 2.61}$ & 99.29$_{\pm 0.53}$ & 99.87$_{\pm 0.10}$ & 99.
 f+O+F+OF+OB  & 98.34$_{\pm 1.22}$ & \textbf{99.40$_{\pm 0.43}$} & \textbf{99.90$_{\pm 0.09}$} & \textbf{99.66$_{\pm 0.22}$} & \textbf{99.97$_{\pm 0.02}$} &  \multicolumn{1}{|c|}{\textbf{99.45}}      \\ 
 f+F+B+OB+FB & 97.74$_{\pm 2.17}$  &  99.19$_{\pm 0.56}$ & 99.86$_{\pm 0.10}$ & 99.49$_{\pm 0.33}$ & 99.96$_{\pm 0.03}$ &  \multicolumn{1}{|c|}{99.25}       \\  \hline
 \end{tabular}
+}
+\caption{CIFAR-10 OOD detection performance (\textbf{AUC}) comparison between top-3 \sysb ensembles and recent state-of-the-art baselines on \textit{far-OOD} datasets. %All numeric values are percentages. Best results are emphasized with \textbf{boldface}.
 }
 \label{tab:propwork-meo-results-cifar10-far}
 \end{table*}
@@ -309,8 +309,6 @@ ID classification is also unaffected by the multi-view paradigm. All 3 top MEO e
 \begin{table*}
 \small
 \centering
-\caption{CIFAR-100 ID classification (\textbf{Accuracy}) and OOD detection performance (\textbf{AUC}) comparison between top-3 \sysb ensembles and recent state-of-the-art baselines on \textit{near-OOD} datasets. %All numeric values are percentages. Best results are emphasized with \textbf{boldface}.
-}
 \vspace{0.1cm}
 \scalebox{1.0}{
 \begin{tabular}{|l|c|ccc|}
@@ -334,14 +332,14 @@ f+O+F+OF+OB & 77.90$_{\pm 0.18}$& \textbf{83.64$_{\pm 2.12}$} & \textbf{97.71$_{
 f+F+B+OB+FB & \textbf{78.63$_{\pm 0.23}$} & 83.05$_{\pm 1.48}$ & 95.31$_{\pm 4.48}$ &  \multicolumn{1}{|c|}{89.18}  \\ \hline
 \end{tabular}
 }
+\caption{CIFAR-100 ID classification (\textbf{Accuracy}) and OOD detection performance (\textbf{AUC}) comparison between top-3 \sysb ensembles and recent state-of-the-art baselines on \textit{near-OOD} datasets. %All numeric values are percentages. Best results are emphasized with \textbf{boldface}.
+}
 \label{tab:propwork-meo-results-cifar100-near}
 \end{table*}
 
 \begin{table*}
 \small
 \centering
-\caption{CIFAR-100 OOD detection performance (\textbf{AUC}) comparison between top-3 \sysb ensembles and recent state-of-the-art baselines on \textit{far-OOD} datasets. %All numeric values are percentages. Best results are emphasized with \textbf{boldface}. 
-}%The following key is used to shorten ensemble members: ``\textbf{f}'' - comprehensive fused feature/logits, ``\textbf{O}'' - original single-view, ``\textbf{F}'' - foreground single-view, ``\textbf{B}'' - background single-view, ``\textbf{OF}'' - $org+fg$ cross-view, ``\textbf{OB}'' - $org+bg$ cross-view, and ``\textbf{FB}'' - $fg+bg$ cross-view. For example, a ``f+OF+OB'' ensemble would have members $\{fused$, $org+fg$, $org+bg\}$. This notation is used consistently throughout the rest of the document. }
 \vspace{0.1cm}
 \scalebox{0.875}{
 \begin{tabular}{|l|cccccc|}
@@ -366,6 +364,8 @@ f+O+F+OF+OB   & 92.23$_{\pm 5.37}$ & \textbf{98.73$_{\pm 2.12}$} & \textbf{98.98
 f+F+B+OB+FB  & 91.44$_{\pm 5.19}$ & 97.57$_{\pm 3.18}$ & 97.68$_{\pm 2.44}$ & 98.58$_{\pm 1.60}$ & 99.51$_{\pm 0.71}$ &  \multicolumn{1}{|c|}{96.95}   \\ \hline
 \end{tabular}
 }
+\caption{CIFAR-100 OOD detection performance (\textbf{AUC}) comparison between top-3 \sysb ensembles and recent state-of-the-art baselines on \textit{far-OOD} datasets. %All numeric values are percentages. Best results are emphasized with \textbf{boldface}. 
+}%The following key is used to shorten ensemble members: ``\textbf{f}'' - comprehensive fused feature/logits, ``\textbf{O}'' - original single-view, ``\textbf{F}'' - foreground single-view, ``\textbf{B}'' - background single-view, ``\textbf{OF}'' - $org+fg$ cross-view, ``\textbf{OB}'' - $org+bg$ cross-view, and ``\textbf{FB}'' - $fg+bg$ cross-view. For example, a ``f+OF+OB'' ensemble would have members $\{fused$, $org+fg$, $org+bg\}$. This notation is used consistently throughout the rest of the document. }
 \label{tab:propwork-meo-results-cifar100-far}
 \end{table*}
 
@@ -375,8 +375,6 @@ For far-OOD datasets (\ref{tab:propwork-meo-results-cifar100-far}), MEO ensemble
 \begin{table*}
 \small
 \centering
-\caption{ImageNet-30 ID classification (\textbf{Accuracy}) and OOD detection performance (\textbf{AUC}) comparison between top-3 \sysb ensembles and recent state-of-the-art baselines on \textit{near-OOD} datasets. %All numeric values are percentages. Best results are emphasized with \textbf{boldface}.
-}
 \vspace{0.1cm}
 \scalebox{0.9}{
 \begin{tabular}{|l|c|ccccc|}
@@ -397,6 +395,8 @@ f+O+F+OF+OB & \textbf{87.43$_{\pm 0.93}$}&   96.04$_{\pm 1.47}$ &  96.52$_{\pm 1
 f+F+B+OB+FB & 87.41$_{\pm 0.87}$& 96.35$_{\pm 1.44}$ &  96.82$_{\pm 1.24}$  & 99.25$_{\pm 0.23}$  & 95.93$_{\pm 1.12}$ &  \multicolumn{1}{|c|}{96.98}        \\ \hline
 \end{tabular}
 }
+\caption{ImageNet-30 ID classification (\textbf{Accuracy}) and OOD detection performance (\textbf{AUC}) comparison between top-3 \sysb ensembles and recent state-of-the-art baselines on \textit{near-OOD} datasets. %All numeric values are percentages. Best results are emphasized with \textbf{boldface}.
+}
 \label{tab:propwork-meo-results-inet30-near}
 \end{table*}
 
@@ -409,8 +409,6 @@ f+F+B+OB+FB & 87.41$_{\pm 0.87}$& 96.35$_{\pm 1.44}$ &  96.82$_{\pm 1.24}$  & 99
 \begin{table*}
 \small
 \centering
-\caption{ImageNet-30 OOD detection performance (\textbf{AUROC}) comparison between top-3 \sysb ensembles and recent state-of-the-art baselines on \textit{far-OOD} datasets. %All numeric values are percentages. Best results are emphasized with \textbf{boldface}.
-}
 \vspace{0.1cm}
 \scalebox{0.875}{
 \begin{tabular}{|l|ccccc|}
@@ -431,6 +429,8 @@ f+O+F+OF+OB  &  96.36$_{\pm 1.06}$  & 97.82$_{\pm 0.56}$  & 98.53$_{\pm 0.32}$ &
 f+F+B+OB+FB  &  96.40$_{\pm 1.12}$  & 97.60$_{\pm 0.56}$  & 98.87$_{\pm 0.30}$ & 98.48$_{\pm 0.42}$ &  \multicolumn{1}{|c|}{97.84}        \\ \hline
 \end{tabular}
 }
+\caption{ImageNet-30 OOD detection performance (\textbf{AUROC}) comparison between top-3 \sysb ensembles and recent state-of-the-art baselines on \textit{far-OOD} datasets. %All numeric values are percentages. Best results are emphasized with \textbf{boldface}.
+}
 \label{tab:propwork-meo-results-inet30-far}
 \end{table*}
 
@@ -449,9 +449,6 @@ This observation further verifies the hypothesis that eliminating view features 
 \begin{table}[tb]
 \small
 \centering
-\caption{Results on CIFAR-100 ID for \sysb-MD ensembles containing only single-view features. %All numeric values are averages of 5 random runs. 
-Worst-performing ensembles are \textit{italicized}, and best-performing ensembles are \textbf{boldfaced}.
-}
 \vspace{0.1cm}
 \scalebox{0.75}{
 \begin{tabular}{|l|c|cccccccc|}
@@ -466,6 +463,9 @@ O+B & 76.60$_{\pm 0.39}$ & \textbf{84.27$_{\pm 2.82}$} & \textbf{93.19$_{\pm 5.5
 F+B & 71.41$_{\pm 0.47}$ & 81.21$_{\pm 2.95}$ & 88.92$_{\pm 8.46}$  &  94.57$_{\pm 8.16}$ & 94.51$_{\pm 6.74}$ & 95.97$_{\pm 5.27}$ & 97.14$_{\pm 3.63}$ &  92.06$_{\pm 9.10}$ & \multicolumn{1}{|c|}{92.05}       \\ 
 O+F+B & \textbf{78.64$_{\pm 0.24}$} & 82.70$_{\pm 1.48}$ & 90.95$_{\pm 5.39}$  &  \textbf{97.88$_{\pm 2.66}$} & \textbf{97.29$_{\pm 2.59}$} & \textbf{98.83$_{\pm 1.24}$} & 99.59$_{\pm 0.57}$ & \textbf{94.81$_{\pm 4.81}$}  & \multicolumn{1}{|c|}{\textbf{94.58}}      \\ \hline
 \end{tabular}
+}
+\caption{Results on CIFAR-100 ID for \sysb-MD ensembles containing only single-view features. %All numeric values are averages of 5 random runs. 
+Worst-performing ensembles are \textit{italicized}, and best-performing ensembles are \textbf{boldfaced}.
 }
 \label{tab:propwork-meo-results-single-view_compare}
 \end{table}

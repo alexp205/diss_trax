@@ -263,8 +263,6 @@ For CASOD, images were segmented into foregrounds and backgrounds using the YOLO
 \begin{table*}[t!]
 \small
 \centering
-\caption{\sys training configuration hyperparameters for different experimental settings.
-}
 \vspace{0.1cm}
 \scalebox{1.}{
 \begin{tabular}{|l|ccc|}
@@ -280,6 +278,8 @@ Cosine Annealing Warmup &  5 & 5 & 3 \\ \hline
 CVCA Blocks &  2 & 2 & 3 \\ \hline
 LoRA Rank &  16 & 16 & 128 \\ \hline
 \end{tabular}
+}
+\caption{\sys training configuration hyperparameters for different experimental settings.
 }
 \label{tab:table_sys_hparam}
 \end{table*}
@@ -437,8 +437,6 @@ The primary distinction between these experiments and those performed in other O
 \begin{table*}[t!]
 	\small
 	\centering
-	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUC}: AUC \textit{near-OOD} detection results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. %All numeric values are percentages. Best results are emphasized using \textbf{boldface}.
-    }
 	\vspace{0.1cm}
 	\scalebox{0.9}{
 		\begin{tabular}{|l|ccccc|c|}
@@ -477,15 +475,14 @@ FDBD\cite{liu2024fast}   & 84.39$_{\pm 0.08}$ & 84.40$_{\pm 0.11}$ & 82.10$_{\pm
 CASOD  & \textbf{85.03}$_{\pm 0.95}$ & \textbf{86.93}$_{\pm 0.67}$ & \textbf{89.96}$_{\pm 0.27}$ & \textbf{82.54}$_{\pm 0.68}$ & \textbf{87.14}$_{\pm 2.96}$ & \textbf{86.32}  \\ \hline
 		\end{tabular}
 	}
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUC}: AUC \textit{near-OOD} detection results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). Avg.N is mean performance for near-OOD. %All numeric values are percentages. Best results are emphasized using \textbf{boldface}.
+    }
 	\label{tab:table_ood_auc}
 \end{table*}
 
 \begin{table*}[t!]
 	\small
 	\centering
-	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUC}: AUC \textit{far-OOD} detection and average results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). %Avg.N is mean performance for near-OOD. 
-    Avg.F is mean performance for far-OOD. %All numeric values are percentages. Best results are emphasized using \textbf{boldface}.
-    }
 	\vspace{0.1cm}
 	\scalebox{0.77}{
 		\begin{tabular}{|l|c|cccccc|c|c|}
@@ -524,6 +521,9 @@ FDBD\cite{liu2024fast}   & 79.01 & 91.97$_{\pm 0.15}$ & 86.68$_{\pm 0.25}$ & 87.
 CASOD  &  \textbf{86.32} & \textbf{98.48}$_{\pm 0.49}$ & \textbf{99.42}$_{\pm 0.11}$ & \textbf{98.26}$_{\pm 0.20}$ & \textbf{97.81}$_{\pm 0.13}$ & \textbf{94.14}$_{\pm 0.30}$ & \textbf{86.60}$_{\pm 0.59}$ & \textbf{95.79} & \textbf{91.48} \\ \hline
 		\end{tabular}
 	}
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUC}: AUC \textit{far-OOD} detection and average results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom). %Avg.N is mean performance for near-OOD. 
+    Avg.F is mean performance for far-OOD. %All numeric values are percentages. Best results are emphasized using \textbf{boldface}.
+    }
 	\label{tab:table_ood_auc_f}
 \end{table*}
 
@@ -575,8 +575,6 @@ CASOD  &  \textbf{86.32} & \textbf{98.48}$_{\pm 0.49}$ & \textbf{99.42}$_{\pm 0.
 \begin{table*}[t!]
 	\small
 	\centering
-	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - FPR95}: FPR95 \textit{near-OOD} detection results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
-	}
     \scalebox{0.9}{
 		\begin{tabular}{|l|ccccc|c|}
 			\hline
@@ -614,14 +612,14 @@ FDBD   & 67.90$_{\pm 0.23}$ & 65.91$_{\pm 0.38}$ & 71.60$_{\pm 0.36}$ & 82.97$_{
 CASOD  & 59.39$_{\pm 1.17}$ & \textbf{53.33}$_{\pm 0.89}$ & \textbf{50.29}$_{\pm 1.86}$ & \textbf{63.95}$_{\pm 2.37}$ & \textbf{77.17}$_{\pm 4.48}$ & \textbf{60.83}\\ \hline
 		\end{tabular}
 	}
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - FPR95}: FPR95 \textit{near-OOD} detection results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
+	}
 	\label{tab:table_ood_fpr95}
 \end{table*}
 
 \begin{table*}[t!]
 	\small
 	\centering
-	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - FPR95}: FPR95 \textit{far-OOD} detection and average results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
-	}
     \scalebox{0.77}{
 		\begin{tabular}{|l|c|cccccc|c|c|}
 			\hline
@@ -658,6 +656,8 @@ NECO   &  77.18 & 23.45$_{\pm 0.93}$ & 95.96$_{\pm 0.40}$ & 65.38$_{\pm 0.39}$ &
 FDBD   &  77.08 & 32.95$_{\pm 1.00}$ & 75.68$_{\pm 0.93}$ & 72.15$_{\pm 0.56}$ & 75.38$_{\pm 0.24}$ & 61.28$_{\pm 0.23}$ & 85.76$_{\pm 0.28}$ & 67.20 & 71.69 \\ \hline
 CASOD  &  \textbf{60.83} &  \textbf{5.44}$_{\pm 1.22}$ &  \textbf{1.61}$_{\pm 0.47}$ &  \textbf{7.24}$_{\pm 0.84}$ & \textbf{10.55}$_{\pm 0.67}$ & \textbf{37.13}$_{\pm 2.65}$ & \textbf{50.99}$_{\pm 0.22}$ & \textbf{18.83} & \textbf{37.92} \\ \hline
 		\end{tabular}
+	}
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - FPR95}: FPR95 \textit{far-OOD} detection and average results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
 	}
 	\label{tab:table_ood_fpr95_f}
 \end{table*}
@@ -710,8 +710,6 @@ CASOD  &  \textbf{60.83} &  \textbf{5.44}$_{\pm 1.22}$ &  \textbf{1.61}$_{\pm 0.
 \begin{table*}[t!]
 	\small
 	\centering
-	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-IN}: AUPR-IN \textit{near-OOD} detection results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
-	}
 	\scalebox{0.9}{
 		\begin{tabular}{|l|ccccc|c|}
 			\hline
@@ -749,14 +747,14 @@ FDBD   & \textbf{91.37}$_{\pm 0.03}$ & 61.71$_{\pm 0.20}$ & 87.94$_{\pm 0.01}$ &
 CASOD  & 91.33$_{\pm 0.72}$ & \textbf{64.74}$_{\pm 2.06}$ & \textbf{93.30}$_{\pm 0.17}$ & \textbf{46.75}$_{\pm 0.90}$ & \textbf{84.28}$_{\pm 2.56}$ & \textbf{76.08} \\ \hline
 		\end{tabular}
 	}
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-IN}: AUPR-IN \textit{near-OOD} detection results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
+	}
 	\label{tab:table_ood_auprin}
 \end{table*}
 
 \begin{table*}[t!]
 	\small
 	\centering
-	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-IN}: AUPR-IN \textit{far-OOD} detection and average results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
-	}
 	\scalebox{0.77}{
 		\begin{tabular}{|l|c|cccccc|c|c|}
 			\hline
@@ -793,6 +791,8 @@ NECO   &  68.39 & 94.54$_{\pm 0.04}$ & 87.45$_{\pm 0.33}$ & 92.51$_{\pm 0.11}$ &
 FDBD   &  68.04 & 92.51$_{\pm 0.10}$ & 89.09$_{\pm 0.19}$ & 88.57$_{\pm 0.18}$ & 89.29$_{\pm 0.07}$ & 82.57$_{\pm 0.11}$ & 73.63$_{\pm 0.31}$ & 85.94 & 77.80 \\ \hline
 CASOD  &  \textbf{76.08} & \textbf{98.84}$_{\pm 0.49}$ & \textbf{99.48}$_{\pm 0.09}$ & \textbf{98.14}$_{\pm 0.24}$ & \textbf{97.82}$_{\pm 0.16}$ & \textbf{92.19}$_{\pm 0.32}$ & \textbf{83.87}$_{\pm 1.55}$ & \textbf{95.06} & \textbf{86.43} \\ \hline
 		\end{tabular}
+	}
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-IN}: AUPR-IN \textit{far-OOD} detection and average results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
 	}
 	\label{tab:table_ood_auprin_f}
 \end{table*}
@@ -845,8 +845,6 @@ CASOD  &  \textbf{76.08} & \textbf{98.84}$_{\pm 0.49}$ & \textbf{99.48}$_{\pm 0.
 \begin{table*}[t!]
 	\small
 	\centering
-	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-OUT}: AUPR-OUT \textit{near-OOD} detection results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
-	}
 	\scalebox{0.9}{
 		\begin{tabular}{|l|ccccc|c|}
 			\hline
@@ -884,14 +882,14 @@ FDBD   & 71.33$_{\pm 0.26}$ & 94.98$_{\pm 0.06}$ & 71.39$_{\pm 0.32}$ & 91.97$_{
 CASOD  & \textbf{75.02}$_{\pm 0.80}$ & \textbf{96.24}$_{\pm 0.14}$ & \textbf{83.54}$_{\pm 0.50}$ & \textbf{95.73}$_{\pm 0.20}$ & \textbf{89.96}$_{\pm 2.88}$ & \textbf{88.10}  \\ \hline
 		\end{tabular}
 	}
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-OUT}: AUPR-OUT \textit{near-OOD} detection results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
+	}
 	\label{tab:table_ood_auprout}
 \end{table*}
 
 \begin{table*}[t!]
 	\small
 	\centering
-	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-OUT}: AUPR-OUT \textit{far-OOD} detection and average results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
-	}
 	\scalebox{0.77}{
 		\begin{tabular}{|l|c|cccccc|c|c|}
 			\hline
@@ -928,6 +926,8 @@ NECO   & 81.51 & 92.32$_{\pm 0.30}$ & 71.65$_{\pm 0.57}$ & 86.49$_{\pm 0.32}$ & 
 FDBD   &  81.71 & 87.78$_{\pm 0.37}$ & 81.55$_{\pm 0.37}$ & 83.44$_{\pm 0.22}$ & 82.02$_{\pm 0.17}$ & 91.10$_{\pm 0.11}$ & 71.27$_{\pm 0.24}$ & 82.86 & 82.34 \\ \hline
 CASOD  & \textbf{88.10} & \textbf{98.01}$_{\pm 0.50}$ & \textbf{99.28}$_{\pm 0.20}$ & \textbf{98.23}$_{\pm 0.15}$ & \textbf{97.50}$_{\pm 0.05}$ & \textbf{95.98}$_{\pm 0.20}$ & \textbf{87.41}$_{\pm 0.27}$ & \textbf{96.07} & \textbf{92.45} \\ \hline
 		\end{tabular}
+	}
+	\caption{\textbf{ImageNet-100 and ImageNet-200 Results - AUPR-OUT}: AUPR-OUT \textit{far-OOD} detection and average results between \sys and baselines for models trained only on ImageNet-100 ID data (top) or ImageNet-200 ID data (bottom).
 	}
 	\label{tab:table_ood_auprout_f}
 \end{table*}
@@ -992,8 +992,6 @@ Across the OOD detection metrics and experimental datasets for ImageNet-100 ID a
 \begin{table*}[t!]
 \small
 \centering
-\caption{\textbf{ImageNet-1k Results - AUC}: AUC OOD detection results between \sys and baselines for models trained only on ImageNet-1k ID data. %All numeric values are percentages.
-}
 \vspace{0.1cm}
 \scalebox{0.75}{
 \begin{tabular}{|l|ccc|c|ccc|c|c|}
@@ -1016,14 +1014,14 @@ FDBD\cite{liu2024fast}   & 86.44  &  91.54  &  88.72  &  88.90  &  82.14  &  66.
 CASOD   & \textbf{93.02}  &  \textbf{98.50}  &  90.38  &  \textbf{93.97}  &  86.35  &  \textbf{72.96}  &  \textbf{77.60}  &  \textbf{78.97}  &  \textbf{86.47}   \\ \hline
 \end{tabular}
 }
+\caption{\textbf{ImageNet-1k Results - AUC}: AUC OOD detection results between \sys and baselines for models trained only on ImageNet-1k ID data. %All numeric values are percentages.
+}
 \label{tab:table_main_i1k_auc}
 \end{table*}
 
 \begin{table*}[t!]
 \small
 \centering
-\caption{\textbf{ImageNet-1k Results - FPR95}: FPR95 OOD detection results between \sys and baselines for models trained only on ImageNet-1k ID data. %All numeric values are percentages.% Best results are emphasized using \textbf{boldface}.%, next-best results are emphasized using \underline{underline}. 
-}
 \vspace{0.1cm}
 \scalebox{0.75}{
 \begin{tabular}{|l|ccc|c|ccc|c|c|}
@@ -1046,14 +1044,14 @@ FDBD\cite{liu2024fast}   &  53.69  &  45.73  &  55.31  &  51.58  &  70.86  &  85
 CASOD   &  35.96  &  \textbf{5.93}  &  50.16  &  30.68  &  59.43  &  \textbf{74.54}  &  \textbf{90.42}  &  74.80  &  52.74  \\ \hline
 \end{tabular}
 }
+\caption{\textbf{ImageNet-1k Results - FPR95}: FPR95 OOD detection results between \sys and baselines for models trained only on ImageNet-1k ID data. %All numeric values are percentages.% Best results are emphasized using \textbf{boldface}.%, next-best results are emphasized using \underline{underline}. 
+}
 \label{tab:table_main_i1k_fpr95}
 \end{table*}
 
 \begin{table*}[t!]
 \small
 \centering
-\caption{\textbf{ImageNet-1k Results - AUPR-IN}: AUPR-IN OOD detection results between \sys and baselines for models trained only on ImageNet-1k ID data. %All numeric values are percentages.% Best results are emphasized using \textbf{boldface}, next-best results are emphasized using \underline{underline}. 
-}
 \vspace{0.1cm}
 \scalebox{0.75}{
 \begin{tabular}{|l|ccc|c|ccc|c|c|}
@@ -1077,14 +1075,14 @@ CASOD   &  99.12 & \textbf{99.64} & 96.36 & \textbf{98.37} & 98.08 & \textbf{70.
   \\ \hline
 \end{tabular}
 }
+\caption{\textbf{ImageNet-1k Results - AUPR-IN}: AUPR-IN OOD detection results between \sys and baselines for models trained only on ImageNet-1k ID data. %All numeric values are percentages.% Best results are emphasized using \textbf{boldface}, next-best results are emphasized using \underline{underline}. 
+}
 \label{tab:table_main_i1k_auprin}
 \end{table*}
 
 \begin{table*}[t!]
 \small
 \centering
-\caption{\textbf{ImageNet-1k Results - AUPR-OUT}: AUPR-OUT OOD detection results between \sys and baselines for models trained only on ImageNet-1k ID data. %All numeric values are percentages.% Best results are emphasized using \textbf{boldface}, next-best results are emphasized using \underline{underline}. 
-}
 \vspace{0.1cm}
 \scalebox{0.75}{
 \begin{tabular}{|l|ccc|c|ccc|c|c|}
@@ -1106,6 +1104,8 @@ NECO\cite{ammar2024neco}   &  11.04 & 22.25 & 26.13 & 19.81 & 11.77 & 54.11 & 23
 FDBD\cite{liu2024fast}   &  48.07 & 67.08 & 71.36 & 62.17 & 34.07 & 64.83 & 47.85 & 48.92 & 55.54  \\ \hline
 CASOD   &  \textbf{61.95} & \textbf{94.65} & 74.22 & \textbf{76.94} & 43.95 & 73.09 & \textbf{51.88} & 56.31 & \textbf{66.62}  \\ \hline
 \end{tabular}
+}
+\caption{\textbf{ImageNet-1k Results - AUPR-OUT}: AUPR-OUT OOD detection results between \sys and baselines for models trained only on ImageNet-1k ID data. %All numeric values are percentages.% Best results are emphasized using \textbf{boldface}, next-best results are emphasized using \underline{underline}. 
 }
 \label{tab:table_main_i1k_auprout}
 \end{table*}
